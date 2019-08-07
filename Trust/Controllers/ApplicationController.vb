@@ -29,7 +29,7 @@ Namespace Controllers
                     .Value = "Fair"
                 },
                 New SelectListItem With {
-                    .Text = "Poor",
+                    .Text = "Poor ",
                     .Value = "Poor"
                 }
             }
