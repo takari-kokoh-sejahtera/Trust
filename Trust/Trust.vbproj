@@ -7716,6 +7716,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntiryDM.Designer.vb</LastGenOutput>
     </EntityDeploy>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Models\EntiryDM.edmx.diagram">
       <DependentUpon>EntiryDM.edmx</DependentUpon>
     </Content>
@@ -7826,6 +7827,10 @@
     <Content Include="KYCIMShareholder.xsc">
       <DependentUpon>KYCIMShareholder.xsd</DependentUpon>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="KYCIMShareholder.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>KYCIMShareholder.Designer.vb</LastGenOutput>
