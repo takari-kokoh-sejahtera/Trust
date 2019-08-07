@@ -10,21 +10,25 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Ms_Dealers
-    Public Property Dealer_ID As Integer
-    Public Property Dealer_Name As String
-    Public Property Address As String
-    Public Property PIC_Name As String
-    Public Property PIC_Phone As String
-    Public Property PIC_Email As String
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Tr_ApplicationPODetails As ICollection(Of Tr_ApplicationPODetails) = New HashSet(Of Tr_ApplicationPODetails)
+    Partial Public Class Ms_Dealers
+        Public Property Dealer_ID As Integer
+        Public Property Dealer_Name As String
+        Public Property Address As String
+        Public Property PIC_Name As String
+        Public Property PIC_Phone As String
+        Public Property PIC_Email As String
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Tr_ApplicationPODetails As ICollection(Of Tr_ApplicationPODetails) = New HashSet(Of Tr_ApplicationPODetails)
+    
+    End Class
 
-End Class
+End Namespace

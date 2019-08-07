@@ -10,37 +10,41 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_PrintApplicationPODealer_Result
-    Public Property ApplicationPO_ID As Integer
-    Public Property ApplicationPO_No As String
-    Public Property ProspectCustomer_ID As Nullable(Of Integer)
-    Public Property Refund As Nullable(Of Decimal)
-    Public Property Status As String
-    Public Property IsChecked As Nullable(Of Boolean)
-    Public Property Color As String
-    Public Property Year As Nullable(Of Integer)
-    Public Property Plat_Location As String
-    Public Property Plat_Status As String
-    Public Property Note1 As String
-    Public Property Note2 As String
-    Public Property Aksesoris As String
-    Public Property Qty As Nullable(Of Integer)
-    Public Property OTR_Price As Nullable(Of Decimal)
-    Public Property Discount As Nullable(Of Decimal)
-    Public Property Total As Nullable(Of Decimal)
-    Public Property CreatedBy As String
-    Public Property SignCreatedBy As Byte()
-    Public Property CreatedDate As Date
-    Public Property PO_No As String
-    Public Property Address As String
-    Public Property PIC_Phone As String
-    Public Property PIC_Name As String
-    Public Property Dealer_NameChecked As String
-    Public Property Vehicle As String
-    Public Property NameChecker As String
-    Public Property SignChecker As Byte()
-    Public Property NameApp1 As String
-    Public Property SignApp1 As Byte()
-    Public Property TitleApp1 As String
+Namespace Trust
 
-End Class
+    Partial Public Class sp_PrintApplicationPODealer_Result
+        Public Property ApplicationPO_ID As Integer
+        Public Property ApplicationPO_No As String
+        Public Property ProspectCustomer_ID As Nullable(Of Integer)
+        Public Property Refund As Nullable(Of Decimal)
+        Public Property Status As String
+        Public Property IsChecked As Nullable(Of Boolean)
+        Public Property Color As String
+        Public Property Year As Nullable(Of Integer)
+        Public Property Plat_Location As String
+        Public Property Plat_Status As String
+        Public Property Note1 As String
+        Public Property Note2 As String
+        Public Property Aksesoris As String
+        Public Property Qty As Nullable(Of Integer)
+        Public Property OTR_Price As Nullable(Of Decimal)
+        Public Property Discount As Nullable(Of Decimal)
+        Public Property Total As Nullable(Of Decimal)
+        Public Property CreatedBy As String
+        Public Property SignCreatedBy As Byte()
+        Public Property CreatedDate As Date
+        Public Property PO_No As String
+        Public Property Address As String
+        Public Property PIC_Phone As String
+        Public Property PIC_Name As String
+        Public Property Dealer_NameChecked As String
+        Public Property Vehicle As String
+        Public Property NameChecker As String
+        Public Property SignChecker As Byte()
+        Public Property NameApp1 As String
+        Public Property SignApp1 As Byte()
+        Public Property TitleApp1 As String
+    
+    End Class
+
+End Namespace

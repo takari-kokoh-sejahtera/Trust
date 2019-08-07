@@ -10,20 +10,24 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Ms_Customer_KYC_Commissioners
-    Public Property KYC_Commissioner_ID As Integer
-    Public Property KYC_ID As Integer
-    Public Property Commissioner As String
-    Public Property Gender As String
-    Public Property Position As String
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Ms_Customer_KYCs As Ms_Customer_KYCs
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
+    Partial Public Class Ms_Customer_KYC_Commissioners
+        Public Property KYC_Commissioner_ID As Integer
+        Public Property KYC_ID As Integer
+        Public Property Commissioner As String
+        Public Property Gender As String
+        Public Property Position As String
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Ms_Customer_KYCs As Ms_Customer_KYCs
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+    
+    End Class
 
-End Class
+End Namespace

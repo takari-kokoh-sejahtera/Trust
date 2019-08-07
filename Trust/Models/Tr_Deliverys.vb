@@ -10,22 +10,26 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tr_Deliverys
-    Public Property Delivery_ID As Integer
-    Public Property ContractDetail_ID As Integer
-    Public Property Delivery_Method As String
-    Public Property Expedition_Name As String
-    Public Property Driver_Allocated As Boolean
-    Public Property Driver_Name As String
-    Public Property BSTK_Date As Date
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Tr_ContractDetails As Tr_ContractDetails
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
+    Partial Public Class Tr_Deliverys
+        Public Property Delivery_ID As Integer
+        Public Property ContractDetail_ID As Integer
+        Public Property Delivery_Method As String
+        Public Property Expedition_Name As String
+        Public Property Driver_Allocated As Boolean
+        Public Property Driver_Name As String
+        Public Property BSTK_Date As Date
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Tr_ContractDetails As Tr_ContractDetails
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+    
+    End Class
 
-End Class
+End Namespace

@@ -10,17 +10,21 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Ms_ProjRatingMatrixs
-    Public Property Credit_Rating As String
-    Public Property Asset_Rating As Integer
-    Public Property Project_Rating As String
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property CreatedBy As Nullable(Of Integer)
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Nullable(Of Boolean)
+Namespace Trust
 
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
+    Partial Public Class Ms_ProjRatingMatrixs
+        Public Property Credit_Rating As String
+        Public Property Asset_Rating As Integer
+        Public Property Project_Rating As String
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property CreatedBy As Nullable(Of Integer)
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Nullable(Of Boolean)
+    
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+    
+    End Class
 
-End Class
+End Namespace

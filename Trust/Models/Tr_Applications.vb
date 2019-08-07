@@ -10,96 +10,100 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tr_Applications
-    Public Property Application_ID As Integer
-    Public Property Approval_ID As Integer
-    Public Property IsFillOTR As Nullable(Of Boolean)
-    Public Property FillOTRBy As Nullable(Of Integer)
-    Public Property QuotationDetail_ID As Integer
-    Public Property ApplicationHeader_ID As Nullable(Of Integer)
-    Public Property Payee As String
-    Public Property PayeeRemark As String
-    Public Property Purchaser As String
-    Public Property Purchase_Type As String
-    Public Property Color As String
-    Public Property Expec_Delivery_Date As Nullable(Of Date)
-    Public Property Rent_Location_ID As Nullable(Of Integer)
-    Public Property Plat_Location As Nullable(Of Integer)
-    Public Property Term_Of_Payment As Nullable(Of Integer)
-    Public Property PayMonth As Nullable(Of Integer)
-    Public Property Payment_Condition As String
-    Public Property Modification As Nullable(Of Decimal)
-    Public Property GPS_Cost As Nullable(Of Decimal)
-    Public Property GPS_CostPerMonth As Nullable(Of Integer)
-    Public Property Agent_Fee As Nullable(Of Decimal)
-    Public Property Agent_FeePerMonth As Nullable(Of Integer)
-    Public Property Update_OTR As Nullable(Of Decimal)
-    Public Property Residual_Value As Nullable(Of Decimal)
-    Public Property Residual_ValuePercent As Nullable(Of Decimal)
-    Public Property Expedition_Status As String
-    Public Property Expedition_Cost As Nullable(Of Decimal)
-    Public Property Keur As Nullable(Of Decimal)
-    Public Property Update_Diskon As Nullable(Of Decimal)
-    Public Property Update_DiskonSystem As Nullable(Of Decimal)
-    Public Property Update_DiskonTick As Nullable(Of Boolean)
-    Public Property Cost_Price As Nullable(Of Decimal)
-    Public Property Up_Front_Fee As Nullable(Of Decimal)
-    Public Property Up_Front_Fee_Percent As Nullable(Of Decimal)
-    Public Property Other As Nullable(Of Decimal)
-    Public Property Efektif_Date As Nullable(Of Date)
-    Public Property Replacement_Percent As Nullable(Of Decimal)
-    Public Property Replacement As Nullable(Of Decimal)
-    Public Property Replacement_Percent_Before As Nullable(Of Decimal)
-    Public Property Replacement_Tick As Nullable(Of Boolean)
-    Public Property Maintenance_Percent As Nullable(Of Decimal)
-    Public Property Maintenance As Nullable(Of Decimal)
-    Public Property Maintenance_Percent_Before As Nullable(Of Decimal)
-    Public Property Maintenance_Tick As Nullable(Of Boolean)
-    Public Property STNK_Percent As Nullable(Of Decimal)
-    Public Property STNK As Nullable(Of Decimal)
-    Public Property STNK_Percent_Before As Nullable(Of Decimal)
-    Public Property STNK_Tick As Nullable(Of Boolean)
-    Public Property Overhead_Percent As Nullable(Of Decimal)
-    Public Property Overhead As Nullable(Of Decimal)
-    Public Property Overhead_Percent_Before As Nullable(Of Decimal)
-    Public Property Assurance_Percent As Nullable(Of Decimal)
-    Public Property Assurance As Nullable(Of Decimal)
-    Public Property Assurance_Percent_Before As Nullable(Of Decimal)
-    Public Property Assurance_Tick As Nullable(Of Boolean)
-    Public Property AssuranceExtra As Nullable(Of Decimal)
-    Public Property Lease_Profit As Nullable(Of Decimal)
-    Public Property Lease_Profit_Percent As Nullable(Of Decimal)
-    Public Property Depresiasi As Nullable(Of Decimal)
-    Public Property Depresiasi_Percent As Nullable(Of Decimal)
-    Public Property Funding_Interest As Nullable(Of Decimal)
-    Public Property Funding_Interest_Percent As Nullable(Of Decimal)
-    Public Property Bid_PricePerMonth As Nullable(Of Decimal)
-    Public Property Premium As Nullable(Of Decimal)
-    Public Property OJK As Nullable(Of Decimal)
-    Public Property SwapRate As Nullable(Of Decimal)
-    Public Property Project_Rating As String
-    Public Property IRR As Nullable(Of Decimal)
-    Public Property Funding_Rate As Nullable(Of Decimal)
-    Public Property Spread As Nullable(Of Decimal)
-    Public Property Profit As Nullable(Of Decimal)
-    Public Property Remark As String
-    Public Property New_Vehicle_Price As Nullable(Of Decimal)
-    Public Property Location_Vehicle_ID As Nullable(Of Integer)
-    Public Property Code_Open As String
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property CreatedBy As String
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As String
-    Public Property IsDeleted As Nullable(Of Boolean)
+Namespace Trust
 
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Ms_Citys As Ms_Citys
-    Public Overridable Property Ms_Citys1 As Ms_Citys
-    Public Overridable Property Ms_Citys2 As Ms_Citys
-    Public Overridable Property Tr_ApplicationCashFlows As ICollection(Of Tr_ApplicationCashFlows) = New HashSet(Of Tr_ApplicationCashFlows)
-    Public Overridable Property Tr_Approvals As Tr_Approvals
-    Public Overridable Property Tr_QuotationDetails As Tr_QuotationDetails
-    Public Overridable Property Tr_ContractDetails As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
-    Public Overridable Property Tr_ApplicationHeaders As Tr_ApplicationHeaders
+    Partial Public Class Tr_Applications
+        Public Property Application_ID As Integer
+        Public Property Approval_ID As Integer
+        Public Property IsFillOTR As Nullable(Of Boolean)
+        Public Property FillOTRBy As Nullable(Of Integer)
+        Public Property QuotationDetail_ID As Integer
+        Public Property ApplicationHeader_ID As Nullable(Of Integer)
+        Public Property Payee As String
+        Public Property PayeeRemark As String
+        Public Property Purchaser As String
+        Public Property Purchase_Type As String
+        Public Property Color As String
+        Public Property Expec_Delivery_Date As Nullable(Of Date)
+        Public Property Rent_Location_ID As Nullable(Of Integer)
+        Public Property Plat_Location As Nullable(Of Integer)
+        Public Property Term_Of_Payment As Nullable(Of Integer)
+        Public Property PayMonth As Nullable(Of Integer)
+        Public Property Payment_Condition As String
+        Public Property Modification As Nullable(Of Decimal)
+        Public Property GPS_Cost As Nullable(Of Decimal)
+        Public Property GPS_CostPerMonth As Nullable(Of Integer)
+        Public Property Agent_Fee As Nullable(Of Decimal)
+        Public Property Agent_FeePerMonth As Nullable(Of Integer)
+        Public Property Update_OTR As Nullable(Of Decimal)
+        Public Property Residual_Value As Nullable(Of Decimal)
+        Public Property Residual_ValuePercent As Nullable(Of Decimal)
+        Public Property Expedition_Status As String
+        Public Property Expedition_Cost As Nullable(Of Decimal)
+        Public Property Keur As Nullable(Of Decimal)
+        Public Property Update_Diskon As Nullable(Of Decimal)
+        Public Property Update_DiskonSystem As Nullable(Of Decimal)
+        Public Property Update_DiskonTick As Nullable(Of Boolean)
+        Public Property Cost_Price As Nullable(Of Decimal)
+        Public Property Up_Front_Fee As Nullable(Of Decimal)
+        Public Property Up_Front_Fee_Percent As Nullable(Of Decimal)
+        Public Property Other As Nullable(Of Decimal)
+        Public Property Efektif_Date As Nullable(Of Date)
+        Public Property Replacement_Percent As Nullable(Of Decimal)
+        Public Property Replacement As Nullable(Of Decimal)
+        Public Property Replacement_Percent_Before As Nullable(Of Decimal)
+        Public Property Replacement_Tick As Nullable(Of Boolean)
+        Public Property Maintenance_Percent As Nullable(Of Decimal)
+        Public Property Maintenance As Nullable(Of Decimal)
+        Public Property Maintenance_Percent_Before As Nullable(Of Decimal)
+        Public Property Maintenance_Tick As Nullable(Of Boolean)
+        Public Property STNK_Percent As Nullable(Of Decimal)
+        Public Property STNK As Nullable(Of Decimal)
+        Public Property STNK_Percent_Before As Nullable(Of Decimal)
+        Public Property STNK_Tick As Nullable(Of Boolean)
+        Public Property Overhead_Percent As Nullable(Of Decimal)
+        Public Property Overhead As Nullable(Of Decimal)
+        Public Property Overhead_Percent_Before As Nullable(Of Decimal)
+        Public Property Assurance_Percent As Nullable(Of Decimal)
+        Public Property Assurance As Nullable(Of Decimal)
+        Public Property Assurance_Percent_Before As Nullable(Of Decimal)
+        Public Property Assurance_Tick As Nullable(Of Boolean)
+        Public Property AssuranceExtra As Nullable(Of Decimal)
+        Public Property Lease_Profit As Nullable(Of Decimal)
+        Public Property Lease_Profit_Percent As Nullable(Of Decimal)
+        Public Property Depresiasi As Nullable(Of Decimal)
+        Public Property Depresiasi_Percent As Nullable(Of Decimal)
+        Public Property Funding_Interest As Nullable(Of Decimal)
+        Public Property Funding_Interest_Percent As Nullable(Of Decimal)
+        Public Property Bid_PricePerMonth As Nullable(Of Decimal)
+        Public Property Premium As Nullable(Of Decimal)
+        Public Property OJK As Nullable(Of Decimal)
+        Public Property SwapRate As Nullable(Of Decimal)
+        Public Property Project_Rating As String
+        Public Property IRR As Nullable(Of Decimal)
+        Public Property Funding_Rate As Nullable(Of Decimal)
+        Public Property Spread As Nullable(Of Decimal)
+        Public Property Profit As Nullable(Of Decimal)
+        Public Property Remark As String
+        Public Property New_Vehicle_Price As Nullable(Of Decimal)
+        Public Property Location_Vehicle_ID As Nullable(Of Integer)
+        Public Property Code_Open As String
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property CreatedBy As String
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As String
+        Public Property IsDeleted As Nullable(Of Boolean)
+    
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Ms_Citys As Ms_Citys
+        Public Overridable Property Ms_Citys1 As Ms_Citys
+        Public Overridable Property Ms_Citys2 As Ms_Citys
+        Public Overridable Property Tr_ApplicationCashFlows As ICollection(Of Tr_ApplicationCashFlows) = New HashSet(Of Tr_ApplicationCashFlows)
+        Public Overridable Property Tr_Approvals As Tr_Approvals
+        Public Overridable Property Tr_QuotationDetails As Tr_QuotationDetails
+        Public Overridable Property Tr_ContractDetails As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
+        Public Overridable Property Tr_ApplicationHeaders As Tr_ApplicationHeaders
+    
+    End Class
 
-End Class
+End Namespace

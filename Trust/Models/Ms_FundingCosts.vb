@@ -10,10 +10,14 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Ms_FundingCosts
-    Public Property FundingCost_ID As Integer
-    Public Property MonthFrom As Nullable(Of Integer)
-    Public Property MonthTo As Nullable(Of Integer)
-    Public Property FundingCost As Nullable(Of Decimal)
+Namespace Trust
 
-End Class
+    Partial Public Class Ms_FundingCosts
+        Public Property FundingCost_ID As Integer
+        Public Property MonthFrom As Nullable(Of Integer)
+        Public Property MonthTo As Nullable(Of Integer)
+        Public Property FundingCost As Nullable(Of Decimal)
+    
+    End Class
+
+End Namespace

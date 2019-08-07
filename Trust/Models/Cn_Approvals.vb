@@ -10,21 +10,25 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Cn_Approvals
-    Public Property Approval_ID As Integer
-    Public Property Approval_Name As String
-    Public Property Module_ID As Integer
-    Public Property Level_ID As Integer
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Cn_ApprovalUserDetails As ICollection(Of Cn_ApprovalUserDetails) = New HashSet(Of Cn_ApprovalUserDetails)
-    Public Overridable Property Cn_Modules As Cn_Modules
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Cn_Levels As Cn_Levels
+    Partial Public Class Cn_Approvals
+        Public Property Approval_ID As Integer
+        Public Property Approval_Name As String
+        Public Property Module_ID As Integer
+        Public Property Level_ID As Integer
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Cn_ApprovalUserDetails As ICollection(Of Cn_ApprovalUserDetails) = New HashSet(Of Cn_ApprovalUserDetails)
+        Public Overridable Property Cn_Modules As Cn_Modules
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Cn_Levels As Cn_Levels
+    
+    End Class
 
-End Class
+End Namespace

@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel.DataAnnotations
+Imports Trust.Trust
 
 Public Class Tr_ProspectCust
     <Display(Name:="ProspectCustomer ID")>

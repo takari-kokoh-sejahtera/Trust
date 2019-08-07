@@ -10,23 +10,27 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tr_ApplicationPODetails
-    Public Property ApplicationPODetail_ID As Integer
-    Public Property ApplicationPO_ID As Nullable(Of Integer)
-    Public Property Dealer_ID As Nullable(Of Integer)
-    Public Property OTR_Price As Nullable(Of Decimal)
-    Public Property Discount As Nullable(Of Decimal)
-    Public Property Status As String
-    Public Property IsChecked As Nullable(Of Boolean)
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Ms_Dealers As Ms_Dealers
-    Public Overridable Property Tr_ApplicationPOs As Tr_ApplicationPOs
+    Partial Public Class Tr_ApplicationPODetails
+        Public Property ApplicationPODetail_ID As Integer
+        Public Property ApplicationPO_ID As Nullable(Of Integer)
+        Public Property Dealer_ID As Nullable(Of Integer)
+        Public Property OTR_Price As Nullable(Of Decimal)
+        Public Property Discount As Nullable(Of Decimal)
+        Public Property Status As String
+        Public Property IsChecked As Nullable(Of Boolean)
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Ms_Dealers As Ms_Dealers
+        Public Overridable Property Tr_ApplicationPOs As Tr_ApplicationPOs
+    
+    End Class
 
-End Class
+End Namespace

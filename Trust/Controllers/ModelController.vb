@@ -10,7 +10,7 @@ Imports System.Web
 Imports System.Web.Mvc
 Imports LumenWorks.Framework.IO.Csv
 Imports PagedList
-Imports Trust
+Imports Trust.Trust
 
 Namespace Controllers
     Public Class ModelController

@@ -1,4 +1,6 @@
 ﻿Imports System.ComponentModel.DataAnnotations
+Imports Trust.Trust
+
 Public Class Cn_User_ChangePass
     Public Property User_ID As Integer
     Public Property User_Name As String

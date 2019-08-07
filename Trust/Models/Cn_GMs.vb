@@ -10,23 +10,27 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Cn_GMs
-    Public Property GM_ID As Integer
-    Public Property Directorat_ID As Nullable(Of Integer)
-    Public Property GM As String
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property CreatedBy As Nullable(Of Integer)
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Nullable(Of Boolean)
+Namespace Trust
 
-    Public Overridable Property Cn_Directorats As Cn_Directorats
-    Public Overridable Property Cn_Directorats1 As Cn_Directorats
-    Public Overridable Property Cn_Divisions As ICollection(Of Cn_Divisions) = New HashSet(Of Cn_Divisions)
-    Public Overridable Property Cn_Divisions1 As ICollection(Of Cn_Divisions) = New HashSet(Of Cn_Divisions)
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Cn_Users2 As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
-    Public Overridable Property Cn_Users3 As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
+    Partial Public Class Cn_GMs
+        Public Property GM_ID As Integer
+        Public Property Directorat_ID As Nullable(Of Integer)
+        Public Property GM As String
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property CreatedBy As Nullable(Of Integer)
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Nullable(Of Boolean)
+    
+        Public Overridable Property Cn_Directorats As Cn_Directorats
+        Public Overridable Property Cn_Directorats1 As Cn_Directorats
+        Public Overridable Property Cn_Divisions As ICollection(Of Cn_Divisions) = New HashSet(Of Cn_Divisions)
+        Public Overridable Property Cn_Divisions1 As ICollection(Of Cn_Divisions) = New HashSet(Of Cn_Divisions)
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Cn_Users2 As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
+        Public Overridable Property Cn_Users3 As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
+    
+    End Class
 
-End Class
+End Namespace

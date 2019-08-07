@@ -1,4 +1,4 @@
-﻿@ModelType IEnumerable(Of Trust.Ms_Invoice_Categorys)
+﻿@ModelType IEnumerable(Of Trust.Trust.Ms_Invoice_Categorys)
 @Code
 ViewData("Title") = "Index"
 End Code

@@ -10,38 +10,42 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Ms_Citys
-    Public Property CIty_ID As Integer
-    Public Property City As String
-    Public Property Provinsi As String
-    Public Property Expedition_Cost As Nullable(Of Decimal)
-    Public Property Remark As String
-    Public Property Kode_Plat As String
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property isDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
-    Public Overridable Property Ms_Customer_KYCs As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-    Public Overridable Property Ms_Customer_KYCs1 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-    Public Overridable Property Ms_Customer_KYCs2 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-    Public Overridable Property Ms_Customer_KYCs3 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-    Public Overridable Property Ms_Customer_KYCs4 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-    Public Overridable Property Ms_Customer_KYCs5 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-    Public Overridable Property Ms_Customer_KYCs6 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-    Public Overridable Property Ms_Customer_KYCs7 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-    Public Overridable Property Ms_Customer_KYCs8 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Tr_Applications As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
-    Public Overridable Property Tr_Applications1 As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
-    Public Overridable Property Tr_Applications2 As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
-    Public Overridable Property Tr_Calculates As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
-    Public Overridable Property Tr_Calculates1 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
-    Public Overridable Property Tr_Calculates2 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
-    Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
-    Public Overridable Property Tr_ApplicationPOs As ICollection(Of Tr_ApplicationPOs) = New HashSet(Of Tr_ApplicationPOs)
+    Partial Public Class Ms_Citys
+        Public Property CIty_ID As Integer
+        Public Property City As String
+        Public Property Provinsi As String
+        Public Property Expedition_Cost As Nullable(Of Decimal)
+        Public Property Remark As String
+        Public Property Kode_Plat As String
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property isDeleted As Boolean
+    
+        Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
+        Public Overridable Property Ms_Customer_KYCs As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
+        Public Overridable Property Ms_Customer_KYCs1 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
+        Public Overridable Property Ms_Customer_KYCs2 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
+        Public Overridable Property Ms_Customer_KYCs3 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
+        Public Overridable Property Ms_Customer_KYCs4 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
+        Public Overridable Property Ms_Customer_KYCs5 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
+        Public Overridable Property Ms_Customer_KYCs6 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
+        Public Overridable Property Ms_Customer_KYCs7 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
+        Public Overridable Property Ms_Customer_KYCs8 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Tr_Applications As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
+        Public Overridable Property Tr_Applications1 As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
+        Public Overridable Property Tr_Applications2 As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
+        Public Overridable Property Tr_Calculates As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
+        Public Overridable Property Tr_Calculates1 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
+        Public Overridable Property Tr_Calculates2 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
+        Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
+        Public Overridable Property Tr_ApplicationPOs As ICollection(Of Tr_ApplicationPOs) = New HashSet(Of Tr_ApplicationPOs)
+    
+    End Class
 
-End Class
+End Namespace

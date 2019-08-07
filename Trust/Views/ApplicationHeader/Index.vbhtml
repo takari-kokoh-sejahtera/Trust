@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Tr_ApplicationHeader)
+﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Tr_ApplicationHeader)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "ApplicationHeader"

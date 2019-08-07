@@ -10,39 +10,43 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class V_ProspectHD
-    Public Property ProspectCustomer_ID As Integer
-    Public Property IsExists As Boolean
-    Public Property CustomerExists_ID As Nullable(Of Integer)
-    Public Property CompanyGroup_ID As Nullable(Of Integer)
-    Public Property Company_Name As String
-    Public Property PT As String
-    Public Property Tbk As Nullable(Of Boolean)
-    Public Property Address As String
-    Public Property City_id As Nullable(Of Integer)
-    Public Property Phone As String
-    Public Property Email As String
-    Public Property PIC_Name As String
-    Public Property PIC_Phone As String
-    Public Property PIC_Email As String
-    Public Property Status As String
-    Public Property Notes As String
-    Public Property IsQuotation As Nullable(Of Boolean)
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
-    Public Property ProspectCustomerDetail_ID As Integer
-    Public Property IsVehicleExists As Boolean
-    Public Property VehicleExists_ID As Nullable(Of Integer)
-    Public Property Brand_ID As Nullable(Of Integer)
-    Public Property Model_ID As Nullable(Of Integer)
-    Public Property Lease_price As Nullable(Of Decimal)
-    Public Property Qty As Nullable(Of Integer)
-    Public Property Year As Nullable(Of Integer)
-    Public Property Lease_long As Nullable(Of Integer)
-    Public Property Transaction_Type As String
-    Public Property IsCalculate As Nullable(Of Boolean)
+Namespace Trust
 
-End Class
+    Partial Public Class V_ProspectHD
+        Public Property ProspectCustomer_ID As Integer
+        Public Property IsExists As Boolean
+        Public Property CustomerExists_ID As Nullable(Of Integer)
+        Public Property CompanyGroup_ID As Nullable(Of Integer)
+        Public Property Company_Name As String
+        Public Property PT As String
+        Public Property Tbk As Nullable(Of Boolean)
+        Public Property Address As String
+        Public Property City_id As Nullable(Of Integer)
+        Public Property Phone As String
+        Public Property Email As String
+        Public Property PIC_Name As String
+        Public Property PIC_Phone As String
+        Public Property PIC_Email As String
+        Public Property Status As String
+        Public Property Notes As String
+        Public Property IsQuotation As Nullable(Of Boolean)
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+        Public Property ProspectCustomerDetail_ID As Integer
+        Public Property IsVehicleExists As Boolean
+        Public Property VehicleExists_ID As Nullable(Of Integer)
+        Public Property Brand_ID As Nullable(Of Integer)
+        Public Property Model_ID As Nullable(Of Integer)
+        Public Property Lease_price As Nullable(Of Decimal)
+        Public Property Qty As Nullable(Of Integer)
+        Public Property Year As Nullable(Of Integer)
+        Public Property Lease_long As Nullable(Of Integer)
+        Public Property Transaction_Type As String
+        Public Property IsCalculate As Nullable(Of Boolean)
+    
+    End Class
+
+End Namespace

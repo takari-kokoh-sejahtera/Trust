@@ -10,16 +10,20 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_POFromCustomerList_Result
-    Public Property Approve As Nullable(Of Boolean)
-    Public Property Application_ID As Integer
-    Public Property CompanyGroup_Name As String
-    Public Property Company_Name As String
-    Public Property Vehicle As String
-    Public Property Lease_price As Nullable(Of Decimal)
-    Public Property Qty As Nullable(Of Integer)
-    Public Property Amount As Nullable(Of Decimal)
-    Public Property Bid_PricePerMonth As Nullable(Of Decimal)
-    Public Property CreatedDateApp As Nullable(Of Date)
+Namespace Trust
 
-End Class
+    Partial Public Class sp_POFromCustomerList_Result
+        Public Property Approve As Nullable(Of Boolean)
+        Public Property Application_ID As Integer
+        Public Property CompanyGroup_Name As String
+        Public Property Company_Name As String
+        Public Property Vehicle As String
+        Public Property Lease_price As Nullable(Of Decimal)
+        Public Property Qty As Nullable(Of Integer)
+        Public Property Amount As Nullable(Of Decimal)
+        Public Property Bid_PricePerMonth As Nullable(Of Decimal)
+        Public Property CreatedDateApp As Nullable(Of Date)
+    
+    End Class
+
+End Namespace

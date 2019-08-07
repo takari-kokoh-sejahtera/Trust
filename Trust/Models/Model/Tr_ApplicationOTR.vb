@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel.DataAnnotations
+Imports Trust.Trust
 
 Public Class Tr_ApplicationOTR
     Public Property Calculate_ID As Integer

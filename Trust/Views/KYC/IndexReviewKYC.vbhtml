@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Ms_Customer_KYC)
+﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Ms_Customer_KYC)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "KYC Review"

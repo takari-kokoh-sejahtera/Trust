@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Ms_Customers)
+﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Ms_Customers)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "Change Ownership"

@@ -10,32 +10,36 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tr_ApplicationCashFlows
-    Public Property ApplicationCashFlow_ID As Integer
-    Public Property Application_ID As Nullable(Of Integer)
-    Public Property CalculateCashFlow_No As Nullable(Of Integer)
-    Public Property CashFlow As Nullable(Of Decimal)
-    Public Property Lease_Payment As Nullable(Of Decimal)
-    Public Property STNK As Nullable(Of Decimal)
-    Public Property Replacement As Nullable(Of Decimal)
-    Public Property OverHead As Nullable(Of Decimal)
-    Public Property Maintenance As Nullable(Of Decimal)
-    Public Property Insurance As Nullable(Of Decimal)
-    Public Property Residual_Value As Nullable(Of Decimal)
-    Public Property Expedition As Nullable(Of Decimal)
-    Public Property Modification As Nullable(Of Decimal)
-    Public Property GPS As Nullable(Of Decimal)
-    Public Property Agent_Fee As Nullable(Of Decimal)
-    Public Property Keur As Nullable(Of Decimal)
-    Public Property Profit As Nullable(Of Decimal)
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Tr_Applications As Tr_Applications
+    Partial Public Class Tr_ApplicationCashFlows
+        Public Property ApplicationCashFlow_ID As Integer
+        Public Property Application_ID As Nullable(Of Integer)
+        Public Property CalculateCashFlow_No As Nullable(Of Integer)
+        Public Property CashFlow As Nullable(Of Decimal)
+        Public Property Lease_Payment As Nullable(Of Decimal)
+        Public Property STNK As Nullable(Of Decimal)
+        Public Property Replacement As Nullable(Of Decimal)
+        Public Property OverHead As Nullable(Of Decimal)
+        Public Property Maintenance As Nullable(Of Decimal)
+        Public Property Insurance As Nullable(Of Decimal)
+        Public Property Residual_Value As Nullable(Of Decimal)
+        Public Property Expedition As Nullable(Of Decimal)
+        Public Property Modification As Nullable(Of Decimal)
+        Public Property GPS As Nullable(Of Decimal)
+        Public Property Agent_Fee As Nullable(Of Decimal)
+        Public Property Keur As Nullable(Of Decimal)
+        Public Property Profit As Nullable(Of Decimal)
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Tr_Applications As Tr_Applications
+    
+    End Class
 
-End Class
+End Namespace

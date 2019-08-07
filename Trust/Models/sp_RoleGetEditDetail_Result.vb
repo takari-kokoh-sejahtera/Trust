@@ -10,11 +10,15 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_RoleGetEditDetail_Result
-    Public Property Module_ID As Integer
-    Public Property Module_Name As String
-    Public Property Tab As String
-    Public Property RoleAuthorization_ID As Integer
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-End Class
+    Partial Public Class sp_RoleGetEditDetail_Result
+        Public Property Module_ID As Integer
+        Public Property Module_Name As String
+        Public Property Tab As String
+        Public Property RoleAuthorization_ID As Integer
+        Public Property IsDeleted As Boolean
+    
+    End Class
+
+End Namespace

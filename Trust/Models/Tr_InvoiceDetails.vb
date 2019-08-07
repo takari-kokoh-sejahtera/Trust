@@ -10,25 +10,29 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tr_InvoiceDetails
-    Public Property InvoiceDetail_ID As Integer
-    Public Property Invoice_ID As Nullable(Of Integer)
-    Public Property ContractDetail_ID As Nullable(Of Integer)
-    Public Property Vehicle_ID As Nullable(Of Integer)
-    Public Property From_Date As Nullable(Of Date)
-    Public Property To_Date As Nullable(Of Date)
-    Public Property Amount As Nullable(Of Decimal)
-    Public Property Lease_Long As Nullable(Of Integer)
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Tr_ContractDetails As Tr_ContractDetails
-    Public Overridable Property Tr_Invoices As Tr_Invoices
-    Public Overridable Property Ms_Vehicles As Ms_Vehicles
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
+    Partial Public Class Tr_InvoiceDetails
+        Public Property InvoiceDetail_ID As Integer
+        Public Property Invoice_ID As Nullable(Of Integer)
+        Public Property ContractDetail_ID As Nullable(Of Integer)
+        Public Property Vehicle_ID As Nullable(Of Integer)
+        Public Property From_Date As Nullable(Of Date)
+        Public Property To_Date As Nullable(Of Date)
+        Public Property Amount As Nullable(Of Decimal)
+        Public Property Lease_Long As Nullable(Of Integer)
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Tr_ContractDetails As Tr_ContractDetails
+        Public Overridable Property Tr_Invoices As Tr_Invoices
+        Public Overridable Property Ms_Vehicles As Ms_Vehicles
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+    
+    End Class
 
-End Class
+End Namespace

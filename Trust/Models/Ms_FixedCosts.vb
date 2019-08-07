@@ -10,19 +10,23 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Ms_FixedCosts
-    Public Property FixedCost_ID As Integer
-    Public Property STNK_Percent As Decimal
-    Public Property Overhead_Percent As Decimal
-    Public Property Assurance_Percent As Decimal
-    Public Property OJK As Decimal
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
+    Partial Public Class Ms_FixedCosts
+        Public Property FixedCost_ID As Integer
+        Public Property STNK_Percent As Decimal
+        Public Property Overhead_Percent As Decimal
+        Public Property Assurance_Percent As Decimal
+        Public Property OJK As Decimal
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+    
+    End Class
 
-End Class
+End Namespace

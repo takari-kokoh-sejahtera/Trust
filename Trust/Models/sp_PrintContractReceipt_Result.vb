@@ -10,15 +10,19 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_PrintContractReceipt_Result
-    Public Property Receipt_No As String
-    Public Property PIC_Name As String
-    Public Property Company_Name As String
-    Public Property Send_Date As Date
-    Public Property Address As String
-    Public Property PIC_Phone As String
-    Public Property Qty As Nullable(Of Integer)
-    Public Property Description As String
-    Public Property Vehicle As String
+Namespace Trust
 
-End Class
+    Partial Public Class sp_PrintContractReceipt_Result
+        Public Property Receipt_No As String
+        Public Property PIC_Name As String
+        Public Property Company_Name As String
+        Public Property Send_Date As Date
+        Public Property Address As String
+        Public Property PIC_Phone As String
+        Public Property Qty As Nullable(Of Integer)
+        Public Property Description As String
+        Public Property Vehicle As String
+    
+    End Class
+
+End Namespace

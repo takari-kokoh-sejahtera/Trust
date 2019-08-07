@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Ms_RiskGrading)
+﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Ms_RiskGrading)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "RiskGrading"

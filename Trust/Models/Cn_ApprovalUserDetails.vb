@@ -10,20 +10,24 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Cn_ApprovalUserDetails
-    Public Property ApprovalUserDetail_ID As Integer
-    Public Property ApprovalUser_ID As Integer
-    Public Property Approval_ID As Integer
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
-    Public Property Limited_Approval As Decimal
+Namespace Trust
 
-    Public Overridable Property Cn_Approvals As Cn_Approvals
-    Public Overridable Property Cn_ApprovalUsers As Cn_ApprovalUsers
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
+    Partial Public Class Cn_ApprovalUserDetails
+        Public Property ApprovalUserDetail_ID As Integer
+        Public Property ApprovalUser_ID As Integer
+        Public Property Approval_ID As Integer
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+        Public Property Limited_Approval As Decimal
+    
+        Public Overridable Property Cn_Approvals As Cn_Approvals
+        Public Overridable Property Cn_ApprovalUsers As Cn_ApprovalUsers
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+    
+    End Class
 
-End Class
+End Namespace

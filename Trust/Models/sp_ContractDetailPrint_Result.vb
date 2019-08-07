@@ -10,16 +10,20 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_ContractDetailPrint_Result
-    Public Property ContractDetail_ID As Integer
-    Public Property Type As String
-    Public Property license_no As String
-    Public Property City As String
-    Public Property DeliveryDate As Nullable(Of Date)
-    Public Property Lease_long As Nullable(Of Integer)
-    Public Property StartDate As Nullable(Of Date)
-    Public Property EndDate As Nullable(Of Date)
-    Public Property Bid_PricePerMonth As Nullable(Of Decimal)
-    Public Property Remark As String
+Namespace Trust
 
-End Class
+    Partial Public Class sp_ContractDetailPrint_Result
+        Public Property ContractDetail_ID As Integer
+        Public Property Type As String
+        Public Property license_no As String
+        Public Property City As String
+        Public Property DeliveryDate As Nullable(Of Date)
+        Public Property Lease_long As Nullable(Of Integer)
+        Public Property StartDate As Nullable(Of Date)
+        Public Property EndDate As Nullable(Of Date)
+        Public Property Bid_PricePerMonth As Nullable(Of Decimal)
+        Public Property Remark As String
+    
+    End Class
+
+End Namespace

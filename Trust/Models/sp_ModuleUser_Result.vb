@@ -10,10 +10,14 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_ModuleUser_Result
-    Public Property Module_Name As String
-    Public Property Tab As String
-    Public Property Route As String
-    Public Property Action As String
+Namespace Trust
 
-End Class
+    Partial Public Class sp_ModuleUser_Result
+        Public Property Module_Name As String
+        Public Property Tab As String
+        Public Property Route As String
+        Public Property Action As String
+    
+    End Class
+
+End Namespace

@@ -10,33 +10,37 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_PrintQuotation_Result
-    Public Property Quotation_ID As Integer
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property No_Ref As String
-    Public Property Company As String
-    Public Property Address As String
-    Public Property Quotation_Validity As Nullable(Of Integer)
-    Public Property Vehicle As String
-    Public Property City As String
-    Public Property Rent_Loc As String
-    Public Property Kode_Plat As String
-    Public Property Lease_price As Nullable(Of Decimal)
-    Public Property Qty As Nullable(Of Integer)
-    Public Property Year As Nullable(Of Integer)
-    Public Property Lease_long As Nullable(Of Integer)
-    Public Property Amount As Nullable(Of Decimal)
-    Public Property Bid_Price As Decimal
-    Public Property LeaseRentPerMoth As Nullable(Of Decimal)
-    Public Property Remark As String
-    Public Property PIC_Name As String
-    Public Property Payment_Condition As String
-    Public Property Signer_Name As String
-    Public Property Title_Eng As String
-    Public Property Residual_Value As Nullable(Of Decimal)
-    Public Property Transaction_Type As String
-    Public Property LastApproveName As String
-    Public Property LastApproveSign As Byte()
-    Public Property Title As String
+Namespace Trust
 
-End Class
+    Partial Public Class sp_PrintQuotation_Result
+        Public Property Quotation_ID As Integer
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property No_Ref As String
+        Public Property Company As String
+        Public Property Address As String
+        Public Property Quotation_Validity As Nullable(Of Integer)
+        Public Property Vehicle As String
+        Public Property City As String
+        Public Property Rent_Loc As String
+        Public Property Kode_Plat As String
+        Public Property Lease_price As Nullable(Of Decimal)
+        Public Property Qty As Nullable(Of Integer)
+        Public Property Year As Nullable(Of Integer)
+        Public Property Lease_long As Nullable(Of Integer)
+        Public Property Amount As Nullable(Of Decimal)
+        Public Property Bid_Price As Decimal
+        Public Property LeaseRentPerMoth As Nullable(Of Decimal)
+        Public Property Remark As String
+        Public Property PIC_Name As String
+        Public Property Payment_Condition As String
+        Public Property Signer_Name As String
+        Public Property Title_Eng As String
+        Public Property Residual_Value As Nullable(Of Decimal)
+        Public Property Transaction_Type As String
+        Public Property LastApproveName As String
+        Public Property LastApproveSign As Byte()
+        Public Property Title As String
+    
+    End Class
+
+End Namespace

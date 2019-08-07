@@ -10,180 +10,184 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Ms_Customer_KYCs
-    Public Property KYC_ID As Integer
-    Public Property Customer_ID As Integer
-    Public Property Legal_Domicile_City_ID As Nullable(Of Integer)
-    Public Property DOE_No As String
-    Public Property DOE_Date As Nullable(Of Date)
-    Public Property DOE_Notary As String
-    Public Property DOE_City_ID As Nullable(Of Integer)
-    Public Property DOE_Approval_No As String
-    Public Property DOE_Approval_Date As Nullable(Of Date)
-    Public Property DOE_Approval_From As String
-    Public Property DOE_States_Gazette_No As String
-    Public Property DOE_States_Gazette_Date As Nullable(Of Date)
-    Public Property DOE_Supplement_No As String
-    Public Property DOE_Supplement_Date As Nullable(Of Date)
-    Public Property DOE_IsUploaded As Nullable(Of Boolean)
-    Public Property AOA_No As String
-    Public Property AOA_Date As Nullable(Of Date)
-    Public Property AOA_Notary As String
-    Public Property AOA_City_ID As Nullable(Of Integer)
-    Public Property AOA_Approval_No As String
-    Public Property AOA_Approval_Date As Nullable(Of Date)
-    Public Property AOA_States_Gazette_No As String
-    Public Property AOA_States_Gazette_Date As Nullable(Of Date)
-    Public Property AOA_Supplement_No As String
-    Public Property AOA_Supplement_Date As Nullable(Of Date)
-    Public Property AOA_IsUploaded As Nullable(Of Boolean)
-    Public Property NPWP_No As String
-    Public Property NPWP_IsUploaded As Nullable(Of Boolean)
-    Public Property NPWP_SKT_No As String
-    Public Property NPWP_SKT_Date As Nullable(Of Date)
-    Public Property NPWP_SKT_Issued_By As String
-    Public Property NPWP_SKT_IsUploaded As Nullable(Of Boolean)
-    Public Property SPPKP_No As String
-    Public Property SPPKP_Date As Nullable(Of Date)
-    Public Property SPPKP_Issued_By As String
-    Public Property SPPKP_IsUploaded As Nullable(Of Boolean)
-    Public Property Business_License_ID As Nullable(Of Integer)
-    Public Property Business_License_No As String
-    Public Property Business_License_IssuedDate As Nullable(Of Date)
-    Public Property Business_License_IssuedBy As String
-    Public Property Business_License_ExpiredDate As Nullable(Of Date)
-    Public Property Business_License_ExpiredDate_IsNA As Nullable(Of Boolean)
-    Public Property Business_License_IsUploaded As Nullable(Of Boolean)
-    Public Property TDP_Type As String
-    Public Property TDP As String
-    Public Property TDP_IssuedDate As Nullable(Of Date)
-    Public Property TDP_IssuedBy As String
-    Public Property TDP_ExpiredDate As Nullable(Of Date)
-    Public Property TDP_ExpiredDate_IsNA As Nullable(Of Boolean)
-    Public Property TDP_IsUploaded As Nullable(Of Boolean)
-    Public Property SKDP_Address As String
-    Public Property SKDP_No As String
-    Public Property SKDP_IssuedDate As Nullable(Of Date)
-    Public Property SKDP_IssuedBy As String
-    Public Property SKDP_ExpiredDate As Nullable(Of Date)
-    Public Property SKDP_ExpiredDate_IsNA As Nullable(Of Boolean)
-    Public Property SKDP_IsUploaded As Nullable(Of Boolean)
-    Public Property DOA1_No As String
-    Public Property DOA1_Date As Nullable(Of Date)
-    Public Property DOA1_Notary As String
-    Public Property DOA1_City_ID As Nullable(Of Integer)
-    Public Property DOA1_Regarding As String
-    Public Property DOA1_Type As String
-    Public Property DOA1_Letter_No As String
-    Public Property DOA1_Letter_Date As Nullable(Of Date)
-    Public Property DOA1_IsUploaded As Nullable(Of Boolean)
-    Public Property DOA2_No As String
-    Public Property DOA2_Date As Nullable(Of Date)
-    Public Property DOA2_Notary As String
-    Public Property DOA2_City_ID As Nullable(Of Integer)
-    Public Property DOA2_Regarding As String
-    Public Property DOA2_Type As String
-    Public Property DOA2_Letter_No As String
-    Public Property DOA2_Letter_Date As Nullable(Of Date)
-    Public Property DOA2_IsUploaded As Nullable(Of Boolean)
-    Public Property DOA3_No As String
-    Public Property DOA3_Date As Nullable(Of Date)
-    Public Property DOA3_Notary As String
-    Public Property DOA3_City_ID As Nullable(Of Integer)
-    Public Property DOA3_Regarding As String
-    Public Property DOA3_Type As String
-    Public Property DOA3_Letter_No As String
-    Public Property DOA3_Letter_Date As Nullable(Of Date)
-    Public Property DOA3_IsUploaded As Nullable(Of Boolean)
-    Public Property DOA4_No As String
-    Public Property DOA4_Date As Nullable(Of Date)
-    Public Property DOA4_Notary As String
-    Public Property DOA4_City_ID As Nullable(Of Integer)
-    Public Property DOA4_Regarding As String
-    Public Property DOA4_Type As String
-    Public Property DOA4_Letter_No As String
-    Public Property DOA4_Letter_Date As Nullable(Of Date)
-    Public Property DOA4_IsUploaded As Nullable(Of Boolean)
-    Public Property DOA5_No As String
-    Public Property DOA5_Date As Nullable(Of Date)
-    Public Property DOA5_Notary As String
-    Public Property DOA5_City_ID As Nullable(Of Integer)
-    Public Property DOA5_Regarding As String
-    Public Property DOA5_Type As String
-    Public Property DOA5_Letter_No As String
-    Public Property DOA5_Letter_Date As Nullable(Of Date)
-    Public Property DOA5_IsUploaded As Nullable(Of Boolean)
-    Public Property BOD_No As String
-    Public Property BOD_Date As Nullable(Of Date)
-    Public Property BOD_Notary As String
-    Public Property BOD_City_ID As Nullable(Of Integer)
-    Public Property BOD_Type As String
-    Public Property BOD_Letter_No As String
-    Public Property BOD_Letter_Date As Nullable(Of Date)
-    Public Property BOD_IsUploaded As Nullable(Of Boolean)
-    Public Property BoD_Period As Nullable(Of Integer)
-    Public Property BoD_Mention As String
-    Public Property BoD_Article As String
-    Public Property BoD_Appointment As Nullable(Of Date)
-    Public Property BoD_Expired As Nullable(Of Date)
-    Public Property BoC_Period As Nullable(Of Integer)
-    Public Property BoC_Mention As String
-    Public Property BoC_Article As String
-    Public Property BoC_Appointment As Nullable(Of Date)
-    Public Property BoC_Expired As Nullable(Of Date)
-    Public Property Authorized_Capital_BasedOn As String
-    Public Property Authorized_Capital As String
-    Public Property Issued_Paidup_Capital As String
-    Public Property Paragraph1 As Nullable(Of Integer)
-    Public Property Article1 As Nullable(Of Integer)
-    Public Property InputParagraph11 As String
-    Public Property InputParagraph21 As String
-    Public Property InputParagraph31 As String
-    Public Property Paragraph2 As Nullable(Of Integer)
-    Public Property Article2 As Nullable(Of Integer)
-    Public Property InputParagraph12 As String
-    Public Property InputParagraph22 As String
-    Public Property InputParagraph32 As String
-    Public Property SuratKuasaGender As String
-    Public Property SuratKuasaBy As String
-    Public Property SuratKuasaBasedOn As String
-    Public Property SuratKuasaDate As Nullable(Of Date)
-    Public Property SuratKuasaExpired As Nullable(Of Date)
-    Public Property SuratKuasaExpired_IsNA As Nullable(Of Boolean)
-    Public Property SuratKuasaPenerima_IsUploaded As Nullable(Of Boolean)
-    Public Property SuratKuasa_IsUploaded As Nullable(Of Boolean)
-    Public Property Authorized_Person As String
-    Public Property Annual_Income As String
-    Public Property Purpose_of_Services As String
-    Public Property Identitas As Nullable(Of Boolean)
-    Public Property Identitas_IsUploaded As Nullable(Of Boolean)
-    Public Property IsReviewed As Nullable(Of Boolean)
-    Public Property ReviewedBy As Nullable(Of Integer)
-    Public Property ReviewedDate As Nullable(Of Date)
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Ms_Citys As Ms_Citys
-    Public Overridable Property Ms_Citys1 As Ms_Citys
-    Public Overridable Property Ms_Citys2 As Ms_Citys
-    Public Overridable Property Ms_Citys3 As Ms_Citys
-    Public Overridable Property Ms_Citys4 As Ms_Citys
-    Public Overridable Property Ms_Citys5 As Ms_Citys
-    Public Overridable Property Ms_Citys6 As Ms_Citys
-    Public Overridable Property Ms_Citys7 As Ms_Citys
-    Public Overridable Property Ms_Citys8 As Ms_Citys
-    Public Overridable Property Ms_Customer_BusinessLicenses As Ms_Customer_BusinessLicenses
-    Public Overridable Property Ms_Customer_KYC_AuthorizedSigners As ICollection(Of Ms_Customer_KYC_AuthorizedSigners) = New HashSet(Of Ms_Customer_KYC_AuthorizedSigners)
-    Public Overridable Property Ms_Customer_KYC_Commissioners As ICollection(Of Ms_Customer_KYC_Commissioners) = New HashSet(Of Ms_Customer_KYC_Commissioners)
-    Public Overridable Property Ms_Customer_KYC_Directors As ICollection(Of Ms_Customer_KYC_Directors) = New HashSet(Of Ms_Customer_KYC_Directors)
-    Public Overridable Property Ms_Customer_KYC_LineBussinesss As ICollection(Of Ms_Customer_KYC_LineBussinesss) = New HashSet(Of Ms_Customer_KYC_LineBussinesss)
-    Public Overridable Property Ms_Customer_KYC_Shareholders As ICollection(Of Ms_Customer_KYC_Shareholders) = New HashSet(Of Ms_Customer_KYC_Shareholders)
-    Public Overridable Property Ms_Customers As Ms_Customers
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Cn_Users2 As Cn_Users
+    Partial Public Class Ms_Customer_KYCs
+        Public Property KYC_ID As Integer
+        Public Property Customer_ID As Integer
+        Public Property Legal_Domicile_City_ID As Nullable(Of Integer)
+        Public Property DOE_No As String
+        Public Property DOE_Date As Nullable(Of Date)
+        Public Property DOE_Notary As String
+        Public Property DOE_City_ID As Nullable(Of Integer)
+        Public Property DOE_Approval_No As String
+        Public Property DOE_Approval_Date As Nullable(Of Date)
+        Public Property DOE_Approval_From As String
+        Public Property DOE_States_Gazette_No As String
+        Public Property DOE_States_Gazette_Date As Nullable(Of Date)
+        Public Property DOE_Supplement_No As String
+        Public Property DOE_Supplement_Date As Nullable(Of Date)
+        Public Property DOE_IsUploaded As Nullable(Of Boolean)
+        Public Property AOA_No As String
+        Public Property AOA_Date As Nullable(Of Date)
+        Public Property AOA_Notary As String
+        Public Property AOA_City_ID As Nullable(Of Integer)
+        Public Property AOA_Approval_No As String
+        Public Property AOA_Approval_Date As Nullable(Of Date)
+        Public Property AOA_States_Gazette_No As String
+        Public Property AOA_States_Gazette_Date As Nullable(Of Date)
+        Public Property AOA_Supplement_No As String
+        Public Property AOA_Supplement_Date As Nullable(Of Date)
+        Public Property AOA_IsUploaded As Nullable(Of Boolean)
+        Public Property NPWP_No As String
+        Public Property NPWP_IsUploaded As Nullable(Of Boolean)
+        Public Property NPWP_SKT_No As String
+        Public Property NPWP_SKT_Date As Nullable(Of Date)
+        Public Property NPWP_SKT_Issued_By As String
+        Public Property NPWP_SKT_IsUploaded As Nullable(Of Boolean)
+        Public Property SPPKP_No As String
+        Public Property SPPKP_Date As Nullable(Of Date)
+        Public Property SPPKP_Issued_By As String
+        Public Property SPPKP_IsUploaded As Nullable(Of Boolean)
+        Public Property Business_License_ID As Nullable(Of Integer)
+        Public Property Business_License_No As String
+        Public Property Business_License_IssuedDate As Nullable(Of Date)
+        Public Property Business_License_IssuedBy As String
+        Public Property Business_License_ExpiredDate As Nullable(Of Date)
+        Public Property Business_License_ExpiredDate_IsNA As Nullable(Of Boolean)
+        Public Property Business_License_IsUploaded As Nullable(Of Boolean)
+        Public Property TDP_Type As String
+        Public Property TDP As String
+        Public Property TDP_IssuedDate As Nullable(Of Date)
+        Public Property TDP_IssuedBy As String
+        Public Property TDP_ExpiredDate As Nullable(Of Date)
+        Public Property TDP_ExpiredDate_IsNA As Nullable(Of Boolean)
+        Public Property TDP_IsUploaded As Nullable(Of Boolean)
+        Public Property SKDP_Address As String
+        Public Property SKDP_No As String
+        Public Property SKDP_IssuedDate As Nullable(Of Date)
+        Public Property SKDP_IssuedBy As String
+        Public Property SKDP_ExpiredDate As Nullable(Of Date)
+        Public Property SKDP_ExpiredDate_IsNA As Nullable(Of Boolean)
+        Public Property SKDP_IsUploaded As Nullable(Of Boolean)
+        Public Property DOA1_No As String
+        Public Property DOA1_Date As Nullable(Of Date)
+        Public Property DOA1_Notary As String
+        Public Property DOA1_City_ID As Nullable(Of Integer)
+        Public Property DOA1_Regarding As String
+        Public Property DOA1_Type As String
+        Public Property DOA1_Letter_No As String
+        Public Property DOA1_Letter_Date As Nullable(Of Date)
+        Public Property DOA1_IsUploaded As Nullable(Of Boolean)
+        Public Property DOA2_No As String
+        Public Property DOA2_Date As Nullable(Of Date)
+        Public Property DOA2_Notary As String
+        Public Property DOA2_City_ID As Nullable(Of Integer)
+        Public Property DOA2_Regarding As String
+        Public Property DOA2_Type As String
+        Public Property DOA2_Letter_No As String
+        Public Property DOA2_Letter_Date As Nullable(Of Date)
+        Public Property DOA2_IsUploaded As Nullable(Of Boolean)
+        Public Property DOA3_No As String
+        Public Property DOA3_Date As Nullable(Of Date)
+        Public Property DOA3_Notary As String
+        Public Property DOA3_City_ID As Nullable(Of Integer)
+        Public Property DOA3_Regarding As String
+        Public Property DOA3_Type As String
+        Public Property DOA3_Letter_No As String
+        Public Property DOA3_Letter_Date As Nullable(Of Date)
+        Public Property DOA3_IsUploaded As Nullable(Of Boolean)
+        Public Property DOA4_No As String
+        Public Property DOA4_Date As Nullable(Of Date)
+        Public Property DOA4_Notary As String
+        Public Property DOA4_City_ID As Nullable(Of Integer)
+        Public Property DOA4_Regarding As String
+        Public Property DOA4_Type As String
+        Public Property DOA4_Letter_No As String
+        Public Property DOA4_Letter_Date As Nullable(Of Date)
+        Public Property DOA4_IsUploaded As Nullable(Of Boolean)
+        Public Property DOA5_No As String
+        Public Property DOA5_Date As Nullable(Of Date)
+        Public Property DOA5_Notary As String
+        Public Property DOA5_City_ID As Nullable(Of Integer)
+        Public Property DOA5_Regarding As String
+        Public Property DOA5_Type As String
+        Public Property DOA5_Letter_No As String
+        Public Property DOA5_Letter_Date As Nullable(Of Date)
+        Public Property DOA5_IsUploaded As Nullable(Of Boolean)
+        Public Property BOD_No As String
+        Public Property BOD_Date As Nullable(Of Date)
+        Public Property BOD_Notary As String
+        Public Property BOD_City_ID As Nullable(Of Integer)
+        Public Property BOD_Type As String
+        Public Property BOD_Letter_No As String
+        Public Property BOD_Letter_Date As Nullable(Of Date)
+        Public Property BOD_IsUploaded As Nullable(Of Boolean)
+        Public Property BoD_Period As Nullable(Of Integer)
+        Public Property BoD_Mention As String
+        Public Property BoD_Article As String
+        Public Property BoD_Appointment As Nullable(Of Date)
+        Public Property BoD_Expired As Nullable(Of Date)
+        Public Property BoC_Period As Nullable(Of Integer)
+        Public Property BoC_Mention As String
+        Public Property BoC_Article As String
+        Public Property BoC_Appointment As Nullable(Of Date)
+        Public Property BoC_Expired As Nullable(Of Date)
+        Public Property Authorized_Capital_BasedOn As String
+        Public Property Authorized_Capital As String
+        Public Property Issued_Paidup_Capital As String
+        Public Property Paragraph1 As Nullable(Of Integer)
+        Public Property Article1 As Nullable(Of Integer)
+        Public Property InputParagraph11 As String
+        Public Property InputParagraph21 As String
+        Public Property InputParagraph31 As String
+        Public Property Paragraph2 As Nullable(Of Integer)
+        Public Property Article2 As Nullable(Of Integer)
+        Public Property InputParagraph12 As String
+        Public Property InputParagraph22 As String
+        Public Property InputParagraph32 As String
+        Public Property SuratKuasaGender As String
+        Public Property SuratKuasaBy As String
+        Public Property SuratKuasaBasedOn As String
+        Public Property SuratKuasaDate As Nullable(Of Date)
+        Public Property SuratKuasaExpired As Nullable(Of Date)
+        Public Property SuratKuasaExpired_IsNA As Nullable(Of Boolean)
+        Public Property SuratKuasaPenerima_IsUploaded As Nullable(Of Boolean)
+        Public Property SuratKuasa_IsUploaded As Nullable(Of Boolean)
+        Public Property Authorized_Person As String
+        Public Property Annual_Income As String
+        Public Property Purpose_of_Services As String
+        Public Property Identitas As Nullable(Of Boolean)
+        Public Property Identitas_IsUploaded As Nullable(Of Boolean)
+        Public Property IsReviewed As Nullable(Of Boolean)
+        Public Property ReviewedBy As Nullable(Of Integer)
+        Public Property ReviewedDate As Nullable(Of Date)
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Ms_Citys As Ms_Citys
+        Public Overridable Property Ms_Citys1 As Ms_Citys
+        Public Overridable Property Ms_Citys2 As Ms_Citys
+        Public Overridable Property Ms_Citys3 As Ms_Citys
+        Public Overridable Property Ms_Citys4 As Ms_Citys
+        Public Overridable Property Ms_Citys5 As Ms_Citys
+        Public Overridable Property Ms_Citys6 As Ms_Citys
+        Public Overridable Property Ms_Citys7 As Ms_Citys
+        Public Overridable Property Ms_Citys8 As Ms_Citys
+        Public Overridable Property Ms_Customer_BusinessLicenses As Ms_Customer_BusinessLicenses
+        Public Overridable Property Ms_Customer_KYC_AuthorizedSigners As ICollection(Of Ms_Customer_KYC_AuthorizedSigners) = New HashSet(Of Ms_Customer_KYC_AuthorizedSigners)
+        Public Overridable Property Ms_Customer_KYC_Commissioners As ICollection(Of Ms_Customer_KYC_Commissioners) = New HashSet(Of Ms_Customer_KYC_Commissioners)
+        Public Overridable Property Ms_Customer_KYC_Directors As ICollection(Of Ms_Customer_KYC_Directors) = New HashSet(Of Ms_Customer_KYC_Directors)
+        Public Overridable Property Ms_Customer_KYC_LineBussinesss As ICollection(Of Ms_Customer_KYC_LineBussinesss) = New HashSet(Of Ms_Customer_KYC_LineBussinesss)
+        Public Overridable Property Ms_Customer_KYC_Shareholders As ICollection(Of Ms_Customer_KYC_Shareholders) = New HashSet(Of Ms_Customer_KYC_Shareholders)
+        Public Overridable Property Ms_Customers As Ms_Customers
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Cn_Users2 As Cn_Users
+    
+    End Class
 
-End Class
+End Namespace

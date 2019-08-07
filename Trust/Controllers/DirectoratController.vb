@@ -7,7 +7,7 @@ Imports System.Net
 Imports System.Web
 Imports System.Web.Mvc
 Imports PagedList
-Imports Trust
+Imports Trust.Trust
 
 Namespace Controllers
     Public Class DirectoratController

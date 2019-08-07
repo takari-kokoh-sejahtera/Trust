@@ -1,4 +1,4 @@
-﻿@ModelType IEnumerable(Of Trust.Tr_Applications)
+﻿@ModelType IEnumerable(Of Trust.Trust.Tr_Applications)
 @Code
 ViewData("Title") = "Index"
 End Code

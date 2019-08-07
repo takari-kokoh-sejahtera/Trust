@@ -10,17 +10,21 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class V_Approval
-    Public Property ApprovalUser_ID As Integer
-    Public Property Approval_ID As Integer
-    Public Property User_ID As Integer
-    Public Property User_Name As String
-    Public Property Approval_Name As String
-    Public Property Module_ID As Integer
-    Public Property Module_Name As String
-    Public Property Level_ID As Integer
-    Public Property Limited_Approval As Decimal
-    Public Property LEVEL As Nullable(Of Integer)
-    Public Property Remark As String
+Namespace Trust
 
-End Class
+    Partial Public Class V_Approval
+        Public Property ApprovalUser_ID As Integer
+        Public Property Approval_ID As Integer
+        Public Property User_ID As Integer
+        Public Property User_Name As String
+        Public Property Approval_Name As String
+        Public Property Module_ID As Integer
+        Public Property Module_Name As String
+        Public Property Level_ID As Integer
+        Public Property Limited_Approval As Decimal
+        Public Property LEVEL As Nullable(Of Integer)
+        Public Property Remark As String
+    
+    End Class
+
+End Namespace

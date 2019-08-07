@@ -10,29 +10,33 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_InvoicePrint_Result
-    Public Property Invoice_ID As Integer
-    Public Property Invoice_No As String
-    Public Property Contract_No As String
-    Public Property Company_Name As String
-    Public Property Address As String
-    Public Property NPWP As String
-    Public Property Account As String
-    Public Property Bank As String
-    Public Property Contracted_by As String
-    Public Property Sub_Total As Nullable(Of Decimal)
-    Public Property VAT As Nullable(Of Decimal)
-    Public Property Stamp As Nullable(Of Decimal)
-    Public Property Total As Nullable(Of Decimal)
-    Public Property From_Date As Nullable(Of Date)
-    Public Property To_Date As Nullable(Of Date)
-    Public Property Amount As Nullable(Of Decimal)
-    Public Property Lease_Long As Nullable(Of Integer)
-    Public Property Signature_Name As String
-    Public Property Signature_Title As String
-    Public Property Type As String
-    Public Property license_no As String
-    Public Property WordAmount As String
-    Public Property PrinedDate As Nullable(Of Date)
+Namespace Trust
 
-End Class
+    Partial Public Class sp_InvoicePrint_Result
+        Public Property Invoice_ID As Integer
+        Public Property Invoice_No As String
+        Public Property Contract_No As String
+        Public Property Company_Name As String
+        Public Property Address As String
+        Public Property NPWP As String
+        Public Property Account As String
+        Public Property Bank As String
+        Public Property Contracted_by As String
+        Public Property Sub_Total As Nullable(Of Decimal)
+        Public Property VAT As Nullable(Of Decimal)
+        Public Property Stamp As Nullable(Of Decimal)
+        Public Property Total As Nullable(Of Decimal)
+        Public Property From_Date As Nullable(Of Date)
+        Public Property To_Date As Nullable(Of Date)
+        Public Property Amount As Nullable(Of Decimal)
+        Public Property Lease_Long As Nullable(Of Integer)
+        Public Property Signature_Name As String
+        Public Property Signature_Title As String
+        Public Property Type As String
+        Public Property license_no As String
+        Public Property WordAmount As String
+        Public Property PrinedDate As Nullable(Of Date)
+    
+    End Class
+
+End Namespace

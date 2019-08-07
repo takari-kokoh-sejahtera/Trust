@@ -10,8 +10,12 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class V_ApplicationPO
-    Public Property ProspectCustomerDetail_ID As Integer
-    Public Property Qty As Nullable(Of Integer)
+Namespace Trust
 
-End Class
+    Partial Public Class V_ApplicationPO
+        Public Property ProspectCustomerDetail_ID As Integer
+        Public Property Qty As Nullable(Of Integer)
+    
+    End Class
+
+End Namespace

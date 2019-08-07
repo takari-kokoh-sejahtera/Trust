@@ -10,12 +10,16 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class GetCountApprove_Result
-    Public Property Quotation As Nullable(Of Integer)
-    Public Property POFromCust As Nullable(Of Integer)
-    Public Property ApplicationPO As Nullable(Of Integer)
-    Public Property Application As Nullable(Of Integer)
-    Public Property CountKYC As Nullable(Of Integer)
-    Public Property CountReviewed As Nullable(Of Integer)
+Namespace Trust
 
-End Class
+    Partial Public Class GetCountApprove_Result
+        Public Property Quotation As Nullable(Of Integer)
+        Public Property POFromCust As Nullable(Of Integer)
+        Public Property ApplicationPO As Nullable(Of Integer)
+        Public Property Application As Nullable(Of Integer)
+        Public Property CountKYC As Nullable(Of Integer)
+        Public Property CountReviewed As Nullable(Of Integer)
+    
+    End Class
+
+End Namespace

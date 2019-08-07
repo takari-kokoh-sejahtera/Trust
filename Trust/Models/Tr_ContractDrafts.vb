@@ -10,19 +10,23 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tr_ContractDrafts
-    Public Property ContractDraft_ID As Integer
-    Public Property Contract_ID As Integer
-    Public Property TypeContract As String
-    Public Property Description As String
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Tr_Contracts As Tr_Contracts
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
+    Partial Public Class Tr_ContractDrafts
+        Public Property ContractDraft_ID As Integer
+        Public Property Contract_ID As Integer
+        Public Property TypeContract As String
+        Public Property Description As String
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Tr_Contracts As Tr_Contracts
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+    
+    End Class
 
-End Class
+End Namespace

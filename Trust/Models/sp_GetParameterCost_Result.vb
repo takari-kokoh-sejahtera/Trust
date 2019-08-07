@@ -10,9 +10,13 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_GetParameterCost_Result
-    Public Property Maintenance As Nullable(Of Decimal)
-    Public Property Replacement As Nullable(Of Decimal)
-    Public Property Expedition_Cost As Nullable(Of Decimal)
+Namespace Trust
 
-End Class
+    Partial Public Class sp_GetParameterCost_Result
+        Public Property Maintenance As Nullable(Of Decimal)
+        Public Property Replacement As Nullable(Of Decimal)
+        Public Property Expedition_Cost As Nullable(Of Decimal)
+    
+    End Class
+
+End Namespace

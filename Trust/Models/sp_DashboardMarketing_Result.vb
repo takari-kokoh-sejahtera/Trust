@@ -10,10 +10,14 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_DashboardMarketing_Result
-    Public Property CountProspect As Nullable(Of Integer)
-    Public Property CountCalculate As Nullable(Of Integer)
-    Public Property CountQuotation As Nullable(Of Integer)
-    Public Property CountProspectHistory As Nullable(Of Integer)
+Namespace Trust
 
-End Class
+    Partial Public Class sp_DashboardMarketing_Result
+        Public Property CountProspect As Nullable(Of Integer)
+        Public Property CountCalculate As Nullable(Of Integer)
+        Public Property CountQuotation As Nullable(Of Integer)
+        Public Property CountProspectHistory As Nullable(Of Integer)
+    
+    End Class
+
+End Namespace

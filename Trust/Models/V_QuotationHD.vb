@@ -10,16 +10,20 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class V_QuotationHD
-    Public Property Quotation_ID As Integer
-    Public Property ProspectCustomer_ID As Nullable(Of Integer)
-    Public Property No_Ref As String
-    Public Property Quotation_Validity As Nullable(Of Integer)
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property CreatedBy As Nullable(Of Integer)
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property QuotationDetail_ID As Integer
-    Public Property Calculate_ID As Nullable(Of Integer)
+Namespace Trust
 
-End Class
+    Partial Public Class V_QuotationHD
+        Public Property Quotation_ID As Integer
+        Public Property ProspectCustomer_ID As Nullable(Of Integer)
+        Public Property No_Ref As String
+        Public Property Quotation_Validity As Nullable(Of Integer)
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property CreatedBy As Nullable(Of Integer)
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property QuotationDetail_ID As Integer
+        Public Property Calculate_ID As Nullable(Of Integer)
+    
+    End Class
+
+End Namespace

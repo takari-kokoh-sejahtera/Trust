@@ -312,13 +312,15 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Prosp__08411774" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Prosp__7BDB408F" />
         <EntityTypeShape EntityType="TrustModel.V_ProspectCustDetails" Width="1.5" PointX="6.375" PointY="7.75" />
-        <EntityTypeShape EntityType="TrustModel.Tr_ApprovalApps" Width="1.5" PointX="67.25" PointY="31.5" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ApprovalApps" Width="1.5" PointX="67.25" PointY="31.125" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__18427513" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__3118447E" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__320C68B7" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__33008CF0" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__33F4B129" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__34DEB3C1" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__34E8D562" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__35D2D7FA" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Check__30242045" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Creat__35DCF99B" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" />

@@ -10,13 +10,17 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_InvoiceListPerDay_Result
-    Public Property Invoice_ID As Integer
-    Public Property Invoice_No As String
-    Public Property Contract_No As String
-    Public Property Company_Name As String
-    Public Property SubTotal As Nullable(Of Decimal)
-    Public Property CreatedDate As Date
-    Public Property Published_Date As Nullable(Of Date)
+Namespace Trust
 
-End Class
+    Partial Public Class sp_InvoiceListPerDay_Result
+        Public Property Invoice_ID As Integer
+        Public Property Invoice_No As String
+        Public Property Contract_No As String
+        Public Property Company_Name As String
+        Public Property SubTotal As Nullable(Of Decimal)
+        Public Property CreatedDate As Date
+        Public Property Published_Date As Nullable(Of Date)
+    
+    End Class
+
+End Namespace

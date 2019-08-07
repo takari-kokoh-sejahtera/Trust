@@ -10,34 +10,38 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_QuotationList_Result
-    Public Property Approve As Nullable(Of Boolean)
-    Public Property No_Ref As String
-    Public Property Company_Name As String
-    Public Property Approval_ID As Integer
-    Public Property Quotation_ID As Nullable(Of Integer)
-    Public Property MakerDate As Nullable(Of Date)
-    Public Property MakerBy As String
-    Public Property CheckerDate As Nullable(Of Date)
-    Public Property CheckerBy As String
-    Public Property Approval1Date As Nullable(Of Date)
-    Public Property Approval1By As String
-    Public Property Approval2Date As Nullable(Of Date)
-    Public Property Approval2By As String
-    Public Property Approval3Date As Nullable(Of Date)
-    Public Property Approval3By As String
-    Public Property Approval4Date As Nullable(Of Date)
-    Public Property Approval4By As String
-    Public Property Approval5Date As Nullable(Of Date)
-    Public Property Approval5By As String
-    Public Property StatusRecord As Nullable(Of Integer)
-    Public Property Status As String
-    Public Property Remark As String
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property CreatedBy As String
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As String
-    Public Property IsDeleted As Nullable(Of Boolean)
-    Public Property Cost_Price As Nullable(Of Decimal)
+Namespace Trust
 
-End Class
+    Partial Public Class sp_QuotationList_Result
+        Public Property Approve As Nullable(Of Boolean)
+        Public Property No_Ref As String
+        Public Property Company_Name As String
+        Public Property Approval_ID As Integer
+        Public Property Quotation_ID As Nullable(Of Integer)
+        Public Property MakerDate As Nullable(Of Date)
+        Public Property MakerBy As String
+        Public Property CheckerDate As Nullable(Of Date)
+        Public Property CheckerBy As String
+        Public Property Approval1Date As Nullable(Of Date)
+        Public Property Approval1By As String
+        Public Property Approval2Date As Nullable(Of Date)
+        Public Property Approval2By As String
+        Public Property Approval3Date As Nullable(Of Date)
+        Public Property Approval3By As String
+        Public Property Approval4Date As Nullable(Of Date)
+        Public Property Approval4By As String
+        Public Property Approval5Date As Nullable(Of Date)
+        Public Property Approval5By As String
+        Public Property StatusRecord As Nullable(Of Integer)
+        Public Property Status As String
+        Public Property Remark As String
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property CreatedBy As String
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As String
+        Public Property IsDeleted As Nullable(Of Boolean)
+        Public Property Cost_Price As Nullable(Of Decimal)
+    
+    End Class
+
+End Namespace

@@ -3,6 +3,8 @@ Imports System.Net
 Imports System.Web.Helpers
 Imports System.Web.Mvc
 Imports System.Web.Security
+Imports Trust.Trust
+
 Public Class HomeController
     Inherits System.Web.Mvc.Controller
     Private db As New TrustEntities

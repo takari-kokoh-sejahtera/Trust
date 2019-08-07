@@ -10,12 +10,16 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class V_CalculateMax
-    Public Property ProspectCustomer_ID As Integer
-    Public Property Cost_Price As Nullable(Of Decimal)
-    Public Property Replacement_Tick As Nullable(Of Integer)
-    Public Property Maintenance_Tick As Nullable(Of Integer)
-    Public Property STNK_Tick As Nullable(Of Integer)
-    Public Property Assurance_Tick As Nullable(Of Integer)
+Namespace Trust
 
-End Class
+    Partial Public Class V_CalculateMax
+        Public Property ProspectCustomer_ID As Integer
+        Public Property Cost_Price As Nullable(Of Decimal)
+        Public Property Replacement_Tick As Nullable(Of Integer)
+        Public Property Maintenance_Tick As Nullable(Of Integer)
+        Public Property STNK_Tick As Nullable(Of Integer)
+        Public Property Assurance_Tick As Nullable(Of Integer)
+    
+    End Class
+
+End Namespace

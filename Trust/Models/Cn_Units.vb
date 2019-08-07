@@ -10,19 +10,23 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Cn_Units
-    Public Property Unit_ID As Integer
-    Public Property Department_ID As Nullable(Of Integer)
-    Public Property Unit As String
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property CreatedBy As Nullable(Of Integer)
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Nullable(Of Boolean)
+Namespace Trust
 
-    Public Overridable Property Cn_Departments As Cn_Departments
-    Public Overridable Property Cn_Departments1 As Cn_Departments
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
+    Partial Public Class Cn_Units
+        Public Property Unit_ID As Integer
+        Public Property Department_ID As Nullable(Of Integer)
+        Public Property Unit As String
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property CreatedBy As Nullable(Of Integer)
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Nullable(Of Boolean)
+    
+        Public Overridable Property Cn_Departments As Cn_Departments
+        Public Overridable Property Cn_Departments1 As Cn_Departments
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+    
+    End Class
 
-End Class
+End Namespace

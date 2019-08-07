@@ -10,9 +10,13 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_PrintApplicationCOP_Result
-    Public Property Company_Name As String
-    Public Property Contract_No As String
-    Public Property Application_No As String
+Namespace Trust
 
-End Class
+    Partial Public Class sp_PrintApplicationCOP_Result
+        Public Property Company_Name As String
+        Public Property Contract_No As String
+        Public Property Application_No As String
+    
+    End Class
+
+End Namespace

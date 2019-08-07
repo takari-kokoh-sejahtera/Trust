@@ -10,10 +10,14 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class V_Quotations
-    Public Property Quotation_ID As Integer
-    Public Property ProspectCustomer_ID As Nullable(Of Integer)
-    Public Property No_Ref As String
-    Public Property Cost_Price As Nullable(Of Decimal)
+Namespace Trust
 
-End Class
+    Partial Public Class V_Quotations
+        Public Property Quotation_ID As Integer
+        Public Property ProspectCustomer_ID As Nullable(Of Integer)
+        Public Property No_Ref As String
+        Public Property Cost_Price As Nullable(Of Decimal)
+    
+    End Class
+
+End Namespace

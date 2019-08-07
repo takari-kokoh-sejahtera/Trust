@@ -10,65 +10,69 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class V_ProspectCusts
-    Public Property ProspectCustomer_ID As Integer
-    Public Property CustomerExists_ID As Nullable(Of Integer)
-    Public Property IsExists As Boolean
-    Public Property Customer_ID As Nullable(Of Integer)
-    Public Property IsKYC As Nullable(Of Boolean)
-    Public Property CompanyGroup_ID As Nullable(Of Integer)
-    Public Property CompanyGroup_Name As String
-    Public Property Company_Name As String
-    Public Property PT As String
-    Public Property Tbk As Nullable(Of Boolean)
-    Public Property Address As String
-    Public Property City_ID As Nullable(Of Integer)
-    Public Property City As String
-    Public Property Phone As String
-    Public Property Email As String
-    Public Property PIC_Name As String
-    Public Property PIC_Phone As String
-    Public Property PIC_Email As String
-    Public Property Notes As String
-    Public Property IsQuotation As Nullable(Of Boolean)
-    Public Property Status As String
-    Public Property Cost_Price As Nullable(Of Decimal)
-    Public Property Replacement_Tick As Nullable(Of Boolean)
-    Public Property Maintenance_Tick As Nullable(Of Boolean)
-    Public Property STNK_Tick As Nullable(Of Boolean)
-    Public Property Assurance_Tick As Nullable(Of Boolean)
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property CreatedByName As String
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property ModifiedByName As String
-    Public Property Quotation_ID As Nullable(Of Integer)
-    Public Property No_Ref As String
-    Public Property THU As Nullable(Of Integer)
-    Public Property Approval_ID As Nullable(Of Integer)
-    Public Property ApplicationHeader_ID As Nullable(Of Integer)
-    Public Property ApprovalApp_ID As Nullable(Of Integer)
-    Public Property IsCalculate As Boolean
-    Public Property Customer_Class As String
-    Public Property Credit_Rating As String
-    Public Property Authorized_Capital As Nullable(Of Decimal)
-    Public Property Authorized_Signer_Name1 As String
-    Public Property Authorized_Signer_Position1 As String
-    Public Property Authorized_Signer_Name2 As String
-    Public Property Authorized_Signer_Position2 As String
-    Public Property IntroducedBy As String
-    Public Property Contract_ID As Nullable(Of Integer)
-    Public Property Contract_No As String
-    Public Property Receipt_No As String
-    Public Property IsDriver As Nullable(Of Boolean)
-    Public Property Qty As Nullable(Of Integer)
-    Public Property Record_For_Payment As String
-    Public Property StatusAppQuot As String
-    Public Property Transaction_Type As String
-    Public Property Line_of_Business As String
-    Public Property IsPO As Nullable(Of Boolean)
-    Public Property IsApplicationPO As Nullable(Of Boolean)
-    Public Property PO_No As String
+Namespace Trust
 
-End Class
+    Partial Public Class V_ProspectCusts
+        Public Property ProspectCustomer_ID As Integer
+        Public Property CustomerExists_ID As Nullable(Of Integer)
+        Public Property IsExists As Boolean
+        Public Property Customer_ID As Nullable(Of Integer)
+        Public Property IsKYC As Nullable(Of Boolean)
+        Public Property CompanyGroup_ID As Nullable(Of Integer)
+        Public Property CompanyGroup_Name As String
+        Public Property Company_Name As String
+        Public Property PT As String
+        Public Property Tbk As Nullable(Of Boolean)
+        Public Property Address As String
+        Public Property City_ID As Nullable(Of Integer)
+        Public Property City As String
+        Public Property Phone As String
+        Public Property Email As String
+        Public Property PIC_Name As String
+        Public Property PIC_Phone As String
+        Public Property PIC_Email As String
+        Public Property Notes As String
+        Public Property IsQuotation As Nullable(Of Boolean)
+        Public Property Status As String
+        Public Property Cost_Price As Nullable(Of Decimal)
+        Public Property Replacement_Tick As Nullable(Of Boolean)
+        Public Property Maintenance_Tick As Nullable(Of Boolean)
+        Public Property STNK_Tick As Nullable(Of Boolean)
+        Public Property Assurance_Tick As Nullable(Of Boolean)
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property CreatedByName As String
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property ModifiedByName As String
+        Public Property Quotation_ID As Nullable(Of Integer)
+        Public Property No_Ref As String
+        Public Property THU As Nullable(Of Integer)
+        Public Property Approval_ID As Nullable(Of Integer)
+        Public Property ApplicationHeader_ID As Nullable(Of Integer)
+        Public Property ApprovalApp_ID As Nullable(Of Integer)
+        Public Property IsCalculate As Boolean
+        Public Property Customer_Class As String
+        Public Property Credit_Rating As String
+        Public Property Authorized_Capital As Nullable(Of Decimal)
+        Public Property Authorized_Signer_Name1 As String
+        Public Property Authorized_Signer_Position1 As String
+        Public Property Authorized_Signer_Name2 As String
+        Public Property Authorized_Signer_Position2 As String
+        Public Property IntroducedBy As String
+        Public Property Contract_ID As Nullable(Of Integer)
+        Public Property Contract_No As String
+        Public Property Receipt_No As String
+        Public Property IsDriver As Nullable(Of Boolean)
+        Public Property Qty As Nullable(Of Integer)
+        Public Property Record_For_Payment As String
+        Public Property StatusAppQuot As String
+        Public Property Transaction_Type As String
+        Public Property Line_of_Business As String
+        Public Property IsPO As Nullable(Of Boolean)
+        Public Property IsApplicationPO As Nullable(Of Boolean)
+        Public Property PO_No As String
+    
+    End Class
+
+End Namespace

@@ -10,31 +10,35 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tr_Contracts
-    Public Property Contract_ID As Integer
-    Public Property ApprovalApp_ID As Integer
-    Public Property Receipt_No As String
-    Public Property Penerima As String
-    Public Property Jabatan As String
-    Public Property PerMonth As Nullable(Of Integer)
-    Public Property IsDraftedContract As Nullable(Of Boolean)
-    Public Property IsSendedContract As Nullable(Of Boolean)
-    Public Property IsReceiptContract As Nullable(Of Boolean)
-    Public Property IsInvoicedAll As Nullable(Of Boolean)
-    Public Property IsInvoiceReceiptAll As Nullable(Of Boolean)
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property CreatedBy As Nullable(Of Integer)
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Nullable(Of Boolean)
+Namespace Trust
 
-    Public Overridable Property Tr_ContractDetails As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
-    Public Overridable Property Tr_ContractDrafts As ICollection(Of Tr_ContractDrafts) = New HashSet(Of Tr_ContractDrafts)
-    Public Overridable Property Tr_ContractReceipts As ICollection(Of Tr_ContractReceipts) = New HashSet(Of Tr_ContractReceipts)
-    Public Overridable Property Tr_ContractSends As ICollection(Of Tr_ContractSends) = New HashSet(Of Tr_ContractSends)
-    Public Overridable Property Tr_Invoices As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Tr_ApprovalApps As Tr_ApprovalApps
+    Partial Public Class Tr_Contracts
+        Public Property Contract_ID As Integer
+        Public Property ApprovalApp_ID As Integer
+        Public Property Receipt_No As String
+        Public Property Penerima As String
+        Public Property Jabatan As String
+        Public Property PerMonth As Nullable(Of Integer)
+        Public Property IsDraftedContract As Nullable(Of Boolean)
+        Public Property IsSendedContract As Nullable(Of Boolean)
+        Public Property IsReceiptContract As Nullable(Of Boolean)
+        Public Property IsInvoicedAll As Nullable(Of Boolean)
+        Public Property IsInvoiceReceiptAll As Nullable(Of Boolean)
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property CreatedBy As Nullable(Of Integer)
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Nullable(Of Boolean)
+    
+        Public Overridable Property Tr_ContractDetails As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
+        Public Overridable Property Tr_ContractDrafts As ICollection(Of Tr_ContractDrafts) = New HashSet(Of Tr_ContractDrafts)
+        Public Overridable Property Tr_ContractReceipts As ICollection(Of Tr_ContractReceipts) = New HashSet(Of Tr_ContractReceipts)
+        Public Overridable Property Tr_ContractSends As ICollection(Of Tr_ContractSends) = New HashSet(Of Tr_ContractSends)
+        Public Overridable Property Tr_Invoices As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Tr_ApprovalApps As Tr_ApprovalApps
+    
+    End Class
 
-End Class
+End Namespace

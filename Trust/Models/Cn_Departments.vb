@@ -10,20 +10,24 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Cn_Departments
-    Public Property Department_ID As Integer
-    Public Property Division_ID As Nullable(Of Integer)
-    Public Property Department As String
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property CreatedBy As Nullable(Of Integer)
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Nullable(Of Boolean)
+Namespace Trust
 
-    Public Overridable Property Cn_Divisions As Cn_Divisions
-    Public Overridable Property Cn_Divisions1 As Cn_Divisions
-    Public Overridable Property Cn_Units As ICollection(Of Cn_Units) = New HashSet(Of Cn_Units)
-    Public Overridable Property Cn_Units1 As ICollection(Of Cn_Units) = New HashSet(Of Cn_Units)
-    Public Overridable Property Cn_Users As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
+    Partial Public Class Cn_Departments
+        Public Property Department_ID As Integer
+        Public Property Division_ID As Nullable(Of Integer)
+        Public Property Department As String
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property CreatedBy As Nullable(Of Integer)
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Nullable(Of Boolean)
+    
+        Public Overridable Property Cn_Divisions As Cn_Divisions
+        Public Overridable Property Cn_Divisions1 As Cn_Divisions
+        Public Overridable Property Cn_Units As ICollection(Of Cn_Units) = New HashSet(Of Cn_Units)
+        Public Overridable Property Cn_Units1 As ICollection(Of Cn_Units) = New HashSet(Of Cn_Units)
+        Public Overridable Property Cn_Users As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
+    
+    End Class
 
-End Class
+End Namespace

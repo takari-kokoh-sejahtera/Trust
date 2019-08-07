@@ -10,10 +10,14 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_KYCIMShareholder_Result
-    Public Property No As Nullable(Of Long)
-    Public Property Shareholder_Name As String
-    Public Property AmountofShares As Nullable(Of Integer)
-    Public Property Nominal_Amount As Nullable(Of Decimal)
+Namespace Trust
 
-End Class
+    Partial Public Class sp_KYCIMShareholder_Result
+        Public Property No As Nullable(Of Long)
+        Public Property Shareholder_Name As String
+        Public Property AmountofShares As Nullable(Of Integer)
+        Public Property Nominal_Amount As Nullable(Of Decimal)
+    
+    End Class
+
+End Namespace

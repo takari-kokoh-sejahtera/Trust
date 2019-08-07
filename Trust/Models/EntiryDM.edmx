@@ -980,6 +980,10 @@
           <Property Name="Approval5By" Type="int" />
           <Property Name="Approval6Date" Type="datetime" />
           <Property Name="Approval6By" Type="int" />
+          <Property Name="Approval7Date" Type="datetime" />
+          <Property Name="Approval7By" Type="int" />
+          <Property Name="Approval8Date" Type="datetime" />
+          <Property Name="Approval8By" Type="int" />
           <Property Name="StatusRecord" Type="int" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
           <Property Name="BackTo" Type="varchar" MaxLength="50" />
@@ -3687,6 +3691,18 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Tr_Approv__Appro__34DEB3C1">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_ApprovalApps" Type="Self.Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval7By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Tr_Approv__Appro__34E8D562">
           <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
           <End Role="Tr_ApprovalApps" Type="Self.Tr_ApprovalApps" Multiplicity="*" />
@@ -3696,6 +3712,18 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Principal>
             <Dependent Role="Tr_ApprovalApps">
               <PropertyRef Name="Approval5By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appro__35D2D7FA">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_ApprovalApps" Type="Self.Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval8By" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5958,7 +5986,15 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
           </AssociationSet>
+          <AssociationSet Name="FK__Tr_Approv__Appro__34DEB3C1" Association="Self.FK__Tr_Approv__Appro__34DEB3C1">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
+          </AssociationSet>
           <AssociationSet Name="FK__Tr_Approv__Appro__34E8D562" Association="Self.FK__Tr_Approv__Appro__34E8D562">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Approv__Appro__35D2D7FA" Association="Self.FK__Tr_Approv__Appro__35D2D7FA">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
           </AssociationSet>
@@ -7521,6 +7557,9 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Tr_ApplicationPOs" EntitySet="Tr_ApplicationPOs" />
           </AssociationSet>
           <EntitySet Name="V_ProspectCustDetails" EntityType="TrustModel.V_ProspectCustDetails" />
+          <FunctionImport Name="sp_PrintApplicationDetailNew" ReturnType="Collection(TrustModel.sp_PrintApplicationDetailNew_Result)">
+          <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <EntitySet Name="Tr_ApprovalApps" EntityType="TrustModel.Tr_ApprovalApps" />
           <AssociationSet Name="FK__Tr_Approv__Appro__18427513" Association="TrustModel.FK__Tr_Approv__Appro__18427513">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7542,7 +7581,15 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
           </AssociationSet>
+          <AssociationSet Name="FK__Tr_Approv__Appro__34DEB3C1" Association="TrustModel.FK__Tr_Approv__Appro__34DEB3C1">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
+          </AssociationSet>
           <AssociationSet Name="FK__Tr_Approv__Appro__34E8D562" Association="TrustModel.FK__Tr_Approv__Appro__34E8D562">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Approv__Appro__35D2D7FA" Association="TrustModel.FK__Tr_Approv__Appro__35D2D7FA">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
           </AssociationSet>
@@ -7570,9 +7617,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
             <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
           </AssociationSet>
-          <FunctionImport Name="sp_PrintApplicationDetailNew" ReturnType="Collection(TrustModel.sp_PrintApplicationDetailNew_Result)">
-            <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
-          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="sp_CalcucationCharFromUser_Result">
           <Property Type="Int32" Name="Year" Nullable="true" />
@@ -10434,11 +10478,13 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Tr_ApprovalApps2" Relationship="TrustModel.FK__Tr_Approv__Appro__320C68B7" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
           <NavigationProperty Name="Tr_ApprovalApps3" Relationship="TrustModel.FK__Tr_Approv__Appro__33008CF0" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
           <NavigationProperty Name="Tr_ApprovalApps4" Relationship="TrustModel.FK__Tr_Approv__Appro__33F4B129" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
-          <NavigationProperty Name="Tr_ApprovalApps5" Relationship="TrustModel.FK__Tr_Approv__Appro__34E8D562" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
-          <NavigationProperty Name="Tr_ApprovalApps6" Relationship="TrustModel.FK__Tr_Approv__Check__30242045" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
-          <NavigationProperty Name="Tr_ApprovalApps7" Relationship="TrustModel.FK__Tr_Approv__Creat__35DCF99B" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
-          <NavigationProperty Name="Tr_ApprovalApps8" Relationship="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
-          <NavigationProperty Name="Tr_ApprovalApps9" Relationship="TrustModel.FK__Tr_Approv__Modif__36D11DD4" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Tr_ApprovalApps5" Relationship="TrustModel.FK__Tr_Approv__Appro__34DEB3C1" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Tr_ApprovalApps6" Relationship="TrustModel.FK__Tr_Approv__Appro__34E8D562" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Tr_ApprovalApps7" Relationship="TrustModel.FK__Tr_Approv__Appro__35D2D7FA" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Tr_ApprovalApps8" Relationship="TrustModel.FK__Tr_Approv__Check__30242045" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Tr_ApprovalApps9" Relationship="TrustModel.FK__Tr_Approv__Creat__35DCF99B" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Tr_ApprovalApps10" Relationship="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Tr_ApprovalApps11" Relationship="TrustModel.FK__Tr_Approv__Modif__36D11DD4" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
           </EntityType>
         <Association Name="FK__Cn_Approv__Creat__24885067">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -13512,194 +13558,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="Calculate_ID" Type="Int32" />
           <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Tr_ApprovalApps">
-          <Key>
-            <PropertyRef Name="ApprovalApp_ID" />
-          </Key>
-          <Property Name="ApprovalApp_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ApplicationHeader_ID" Type="Int32" Nullable="false" />
-          <Property Name="MakerDate" Type="DateTime" Precision="3" />
-          <Property Name="MakerBy" Type="Int32" />
-          <Property Name="CheckerDate" Type="DateTime" Precision="3" />
-          <Property Name="CheckerBy" Type="Int32" />
-          <Property Name="Approval1Date" Type="DateTime" Precision="3" />
-          <Property Name="Approval1By" Type="Int32" />
-          <Property Name="Approval2Date" Type="DateTime" Precision="3" />
-          <Property Name="Approval2By" Type="Int32" />
-          <Property Name="Approval3Date" Type="DateTime" Precision="3" />
-          <Property Name="Approval3By" Type="Int32" />
-          <Property Name="Approval4Date" Type="DateTime" Precision="3" />
-          <Property Name="Approval4By" Type="Int32" />
-          <Property Name="Approval5Date" Type="DateTime" Precision="3" />
-          <Property Name="Approval5By" Type="Int32" />
-          <Property Name="Approval6Date" Type="DateTime" Precision="3" />
-          <Property Name="Approval6By" Type="Int32" />
-          <Property Name="StatusRecord" Type="Int32" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BackTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Approv__Appro__18427513" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Approv__Appro__3118447E" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users2" Relationship="TrustModel.FK__Tr_Approv__Appro__320C68B7" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users3" Relationship="TrustModel.FK__Tr_Approv__Appro__33008CF0" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users4" Relationship="TrustModel.FK__Tr_Approv__Appro__33F4B129" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users5" Relationship="TrustModel.FK__Tr_Approv__Appro__34E8D562" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users6" Relationship="TrustModel.FK__Tr_Approv__Check__30242045" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users7" Relationship="TrustModel.FK__Tr_Approv__Creat__35DCF99B" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users8" Relationship="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users9" Relationship="TrustModel.FK__Tr_Approv__Modif__36D11DD4" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Tr_ApplicationHeaders" Relationship="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" FromRole="Tr_ApprovalApps" ToRole="Tr_ApplicationHeaders" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Appro__405A880E" FromRole="Tr_ApprovalApps" ToRole="Tr_Contracts" />
-        </EntityType>
-        <Association Name="FK__Tr_Approv__Appro__18427513">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="Approval6By" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Appro__3118447E">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="Approval1By" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Appro__320C68B7">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="Approval2By" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Appro__33008CF0">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="Approval3By" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Appro__33F4B129">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="Approval4By" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Appro__34E8D562">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="Approval5By" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Check__30242045">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="CheckerBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Creat__35DCF99B">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Maker__2F2FFC0C">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="MakerBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Modif__36D11DD4">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Appli__2E3BD7D3">
-          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ApplicationHeaders">
-              <PropertyRef Name="ApplicationHeader_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="ApplicationHeader_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Contra__Appro__405A880E">
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="1" />
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ApprovalApps">
-              <PropertyRef Name="ApprovalApp_ID" />
-            </Principal>
-            <Dependent Role="Tr_Contracts">
-              <PropertyRef Name="ApprovalApp_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="sp_PrintApplicationDetailNew_Result">
           <Property Type="Int64" Name="No" Nullable="true" />
           <Property Type="String" Name="Company_Name" Nullable="true" MaxLength="100" />
@@ -13807,6 +13665,224 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Type="DateTime" Name="Approval6Date" Nullable="true" Precision="23" />
           <Property Type="String" Name="Title6" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="Tr_ApprovalApps">
+          <Key>
+            <PropertyRef Name="ApprovalApp_ID" />
+          </Key>
+          <Property Name="ApprovalApp_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationHeader_ID" Type="Int32" Nullable="false" />
+          <Property Name="MakerDate" Type="DateTime" Precision="3" />
+          <Property Name="MakerBy" Type="Int32" />
+          <Property Name="CheckerDate" Type="DateTime" Precision="3" />
+          <Property Name="CheckerBy" Type="Int32" />
+          <Property Name="Approval1Date" Type="DateTime" Precision="3" />
+          <Property Name="Approval1By" Type="Int32" />
+          <Property Name="Approval2Date" Type="DateTime" Precision="3" />
+          <Property Name="Approval2By" Type="Int32" />
+          <Property Name="Approval3Date" Type="DateTime" Precision="3" />
+          <Property Name="Approval3By" Type="Int32" />
+          <Property Name="Approval4Date" Type="DateTime" Precision="3" />
+          <Property Name="Approval4By" Type="Int32" />
+          <Property Name="Approval5Date" Type="DateTime" Precision="3" />
+          <Property Name="Approval5By" Type="Int32" />
+          <Property Name="Approval6Date" Type="DateTime" Precision="3" />
+          <Property Name="Approval6By" Type="Int32" />
+          <Property Name="Approval7Date" Type="DateTime" Precision="3" />
+          <Property Name="Approval7By" Type="Int32" />
+          <Property Name="Approval8Date" Type="DateTime" Precision="3" />
+          <Property Name="Approval8By" Type="Int32" />
+          <Property Name="StatusRecord" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BackTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Approv__Appro__18427513" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Approv__Appro__3118447E" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users2" Relationship="TrustModel.FK__Tr_Approv__Appro__320C68B7" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users3" Relationship="TrustModel.FK__Tr_Approv__Appro__33008CF0" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users4" Relationship="TrustModel.FK__Tr_Approv__Appro__33F4B129" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users5" Relationship="TrustModel.FK__Tr_Approv__Appro__34DEB3C1" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users6" Relationship="TrustModel.FK__Tr_Approv__Appro__34E8D562" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users7" Relationship="TrustModel.FK__Tr_Approv__Appro__35D2D7FA" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users8" Relationship="TrustModel.FK__Tr_Approv__Check__30242045" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users9" Relationship="TrustModel.FK__Tr_Approv__Creat__35DCF99B" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users10" Relationship="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users11" Relationship="TrustModel.FK__Tr_Approv__Modif__36D11DD4" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_ApplicationHeaders" Relationship="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" FromRole="Tr_ApprovalApps" ToRole="Tr_ApplicationHeaders" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Appro__405A880E" FromRole="Tr_ApprovalApps" ToRole="Tr_Contracts" />
+        </EntityType>
+        <Association Name="FK__Tr_Approv__Appro__18427513">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval6By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appro__3118447E">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval1By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appro__320C68B7">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval2By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appro__33008CF0">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval3By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appro__33F4B129">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval4By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appro__34DEB3C1">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval7By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appro__34E8D562">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval5By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appro__35D2D7FA">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="Approval8By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Check__30242045">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="CheckerBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Creat__35DCF99B">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Maker__2F2FFC0C">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="MakerBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Modif__36D11DD4">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appli__2E3BD7D3">
+          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ApplicationHeaders">
+              <PropertyRef Name="ApplicationHeader_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="ApplicationHeader_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Appro__405A880E">
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="1" />
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ApprovalApps">
+              <PropertyRef Name="ApprovalApp_ID" />
+            </Principal>
+            <Dependent Role="Tr_Contracts">
+              <PropertyRef Name="ApprovalApp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -16620,39 +16696,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tr_ApprovalApps">
-            <EntityTypeMapping TypeName="TrustModel.Tr_ApprovalApps">
-              <MappingFragment StoreEntitySet="Tr_ApprovalApps">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="BackTo" ColumnName="BackTo" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="StatusRecord" ColumnName="StatusRecord" />
-                <ScalarProperty Name="Approval6By" ColumnName="Approval6By" />
-                <ScalarProperty Name="Approval6Date" ColumnName="Approval6Date" />
-                <ScalarProperty Name="Approval5By" ColumnName="Approval5By" />
-                <ScalarProperty Name="Approval5Date" ColumnName="Approval5Date" />
-                <ScalarProperty Name="Approval4By" ColumnName="Approval4By" />
-                <ScalarProperty Name="Approval4Date" ColumnName="Approval4Date" />
-                <ScalarProperty Name="Approval3By" ColumnName="Approval3By" />
-                <ScalarProperty Name="Approval3Date" ColumnName="Approval3Date" />
-                <ScalarProperty Name="Approval2By" ColumnName="Approval2By" />
-                <ScalarProperty Name="Approval2Date" ColumnName="Approval2Date" />
-                <ScalarProperty Name="Approval1By" ColumnName="Approval1By" />
-                <ScalarProperty Name="Approval1Date" ColumnName="Approval1Date" />
-                <ScalarProperty Name="CheckerBy" ColumnName="CheckerBy" />
-                <ScalarProperty Name="CheckerDate" ColumnName="CheckerDate" />
-                <ScalarProperty Name="MakerBy" ColumnName="MakerBy" />
-                <ScalarProperty Name="MakerDate" ColumnName="MakerDate" />
-                <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
-                <ScalarProperty Name="ApprovalApp_ID" ColumnName="ApprovalApp_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_PrintApplicationDetailNew" FunctionName="TrustModel.Store.sp_PrintApplicationDetailNew">
             <ResultMapping>
               <ComplexTypeMapping TypeName="TrustModel.sp_PrintApplicationDetailNew_Result">
@@ -16764,6 +16807,43 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Tr_ApprovalApps">
+            <EntityTypeMapping TypeName="TrustModel.Tr_ApprovalApps">
+              <MappingFragment StoreEntitySet="Tr_ApprovalApps">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="BackTo" ColumnName="BackTo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StatusRecord" ColumnName="StatusRecord" />
+                <ScalarProperty Name="Approval8By" ColumnName="Approval8By" />
+                <ScalarProperty Name="Approval8Date" ColumnName="Approval8Date" />
+                <ScalarProperty Name="Approval7By" ColumnName="Approval7By" />
+                <ScalarProperty Name="Approval7Date" ColumnName="Approval7Date" />
+                <ScalarProperty Name="Approval6By" ColumnName="Approval6By" />
+                <ScalarProperty Name="Approval6Date" ColumnName="Approval6Date" />
+                <ScalarProperty Name="Approval5By" ColumnName="Approval5By" />
+                <ScalarProperty Name="Approval5Date" ColumnName="Approval5Date" />
+                <ScalarProperty Name="Approval4By" ColumnName="Approval4By" />
+                <ScalarProperty Name="Approval4Date" ColumnName="Approval4Date" />
+                <ScalarProperty Name="Approval3By" ColumnName="Approval3By" />
+                <ScalarProperty Name="Approval3Date" ColumnName="Approval3Date" />
+                <ScalarProperty Name="Approval2By" ColumnName="Approval2By" />
+                <ScalarProperty Name="Approval2Date" ColumnName="Approval2Date" />
+                <ScalarProperty Name="Approval1By" ColumnName="Approval1By" />
+                <ScalarProperty Name="Approval1Date" ColumnName="Approval1Date" />
+                <ScalarProperty Name="CheckerBy" ColumnName="CheckerBy" />
+                <ScalarProperty Name="CheckerDate" ColumnName="CheckerDate" />
+                <ScalarProperty Name="MakerBy" ColumnName="MakerBy" />
+                <ScalarProperty Name="MakerDate" ColumnName="MakerDate" />
+                <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
+                <ScalarProperty Name="ApprovalApp_ID" ColumnName="ApprovalApp_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

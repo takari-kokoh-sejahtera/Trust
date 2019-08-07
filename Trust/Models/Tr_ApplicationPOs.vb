@@ -10,36 +10,40 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tr_ApplicationPOs
-    Public Property ApplicationPO_ID As Integer
-    Public Property ApplicationPO_No As String
-    Public Property ProspectCustomer_ID As Nullable(Of Integer)
-    Public Property ProspectCustomerDetail_ID As Integer
-    Public Property Color As String
-    Public Property Delivery_Date As Nullable(Of Date)
-    Public Property Usage As String
-    Public Property Qty As Nullable(Of Integer)
-    Public Property Refund As Nullable(Of Decimal)
-    Public Property PaymentByUser As Nullable(Of Decimal)
-    Public Property Plat_Location_ID As Nullable(Of Integer)
-    Public Property Plat_Status As String
-    Public Property Note1 As String
-    Public Property Note2 As String
-    Public Property Aksesoris As String
-    Public Property Comment As String
-    Public Property IsNotApproved As Nullable(Of Boolean)
-    Public Property RemarkNotApproved As String
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Ms_Citys As Ms_Citys
-    Public Overridable Property Tr_ApplicationPODetails As ICollection(Of Tr_ApplicationPODetails) = New HashSet(Of Tr_ApplicationPODetails)
-    Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
-    Public Overridable Property Tr_ProspectCustDetails As Tr_ProspectCustDetails
+    Partial Public Class Tr_ApplicationPOs
+        Public Property ApplicationPO_ID As Integer
+        Public Property ApplicationPO_No As String
+        Public Property ProspectCustomer_ID As Nullable(Of Integer)
+        Public Property ProspectCustomerDetail_ID As Integer
+        Public Property Color As String
+        Public Property Delivery_Date As Nullable(Of Date)
+        Public Property Usage As String
+        Public Property Qty As Nullable(Of Integer)
+        Public Property Refund As Nullable(Of Decimal)
+        Public Property PaymentByUser As Nullable(Of Decimal)
+        Public Property Plat_Location_ID As Nullable(Of Integer)
+        Public Property Plat_Status As String
+        Public Property Note1 As String
+        Public Property Note2 As String
+        Public Property Aksesoris As String
+        Public Property Comment As String
+        Public Property IsNotApproved As Nullable(Of Boolean)
+        Public Property RemarkNotApproved As String
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Ms_Citys As Ms_Citys
+        Public Overridable Property Tr_ApplicationPODetails As ICollection(Of Tr_ApplicationPODetails) = New HashSet(Of Tr_ApplicationPODetails)
+        Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
+        Public Overridable Property Tr_ProspectCustDetails As Tr_ProspectCustDetails
+    
+    End Class
 
-End Class
+End Namespace

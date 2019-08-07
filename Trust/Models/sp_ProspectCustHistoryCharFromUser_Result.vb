@@ -10,9 +10,13 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_ProspectCustHistoryCharFromUser_Result
-    Public Property Year As Nullable(Of Integer)
-    Public Property Month As String
-    Public Property Qty As Integer
+Namespace Trust
 
-End Class
+    Partial Public Class sp_ProspectCustHistoryCharFromUser_Result
+        Public Property Year As Nullable(Of Integer)
+        Public Property Month As String
+        Public Property Qty As Integer
+    
+    End Class
+
+End Namespace

@@ -7,7 +7,7 @@ Imports System.Threading.Tasks
 Imports System.Net
 Imports System.Web
 Imports System.Web.Mvc
-Imports Trust
+Imports Trust.Trust
 Imports PagedList
 
 Namespace Controllers
@@ -252,7 +252,7 @@ Finish:
             '                  B.Assurance_Percent, B.Expedition_Cost, B.Modification, B.GPS_Cost, B.Agent_Fee, B.Keur, B.IRR, B.Profit, B.Spread, A.Transaction_Type, B.Funding_Rate).ToList()
 
 
-            Dim MaxCostPrice = query.detail.Max(Function(x) x.Net)
+            Dim MaxCostPrice = query.Detail.Max(Function(x) x.Net)
             query.Cost_Price = MaxCostPrice
             Dim Customer_Class As List(Of SelectListItem) = New List(Of SelectListItem)() From {
             New SelectListItem With {

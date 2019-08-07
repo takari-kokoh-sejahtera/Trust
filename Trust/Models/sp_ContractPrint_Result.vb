@@ -10,25 +10,29 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class sp_ContractPrint_Result
-    Public Property ContractDetail_ID As Integer
-    Public Property Company_Name As String
-    Public Property Contract_No As String
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property Address As String
-    Public Property Penerima As String
-    Public Property Phone As String
-    Public Property Email As String
-    Public Property PIC_Email As String
-    Public Property PIC_Name As String
-    Public Property Jabatan As String
-    Public Property Vehicle As String
-    Public Property Rent_Location As String
-    Public Property Lease_long As Nullable(Of Integer)
-    Public Property Bid_PricePerMonth As Nullable(Of Decimal)
-    Public Property Remark As String
-    Public Property DeliveryDate As Nullable(Of Date)
-    Public Property StartDate As Nullable(Of Date)
-    Public Property EndDate As Nullable(Of Date)
+Namespace Trust
 
-End Class
+    Partial Public Class sp_ContractPrint_Result
+        Public Property ContractDetail_ID As Integer
+        Public Property Company_Name As String
+        Public Property Contract_No As String
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property Address As String
+        Public Property Penerima As String
+        Public Property Phone As String
+        Public Property Email As String
+        Public Property PIC_Email As String
+        Public Property PIC_Name As String
+        Public Property Jabatan As String
+        Public Property Vehicle As String
+        Public Property Rent_Location As String
+        Public Property Lease_long As Nullable(Of Integer)
+        Public Property Bid_PricePerMonth As Nullable(Of Decimal)
+        Public Property Remark As String
+        Public Property DeliveryDate As Nullable(Of Date)
+        Public Property StartDate As Nullable(Of Date)
+        Public Property EndDate As Nullable(Of Date)
+    
+    End Class
+
+End Namespace

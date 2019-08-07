@@ -10,32 +10,36 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Ms_Vehicle_Models
-    Public Property Model_ID As Integer
-    Public Property Brand_ID As Nullable(Of Integer)
-    Public Property Type As String
-    Public Property OTR_Price As Nullable(Of Decimal)
-    Public Property Normal_Disc As Nullable(Of Decimal)
-    Public Property Year1 As Nullable(Of Integer)
-    Public Property Year2 As Nullable(Of Integer)
-    Public Property Year3 As Nullable(Of Integer)
-    Public Property Year4 As Nullable(Of Integer)
-    Public Property Year5 As Nullable(Of Integer)
-    Public Property Description As String
-    Public Property IsKeur As Nullable(Of Boolean)
-    Public Property IsTruck As Nullable(Of Boolean)
-    Public Property Asset_Rating As Nullable(Of Integer)
-    Public Property Active As Boolean
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Ms_Vehicle_Brands As Ms_Vehicle_Brands
-    Public Overridable Property Ms_Vehicles As ICollection(Of Ms_Vehicles) = New HashSet(Of Ms_Vehicles)
-    Public Overridable Property Tr_ProspectCustDetails As ICollection(Of Tr_ProspectCustDetails) = New HashSet(Of Tr_ProspectCustDetails)
+    Partial Public Class Ms_Vehicle_Models
+        Public Property Model_ID As Integer
+        Public Property Brand_ID As Nullable(Of Integer)
+        Public Property Type As String
+        Public Property OTR_Price As Nullable(Of Decimal)
+        Public Property Normal_Disc As Nullable(Of Decimal)
+        Public Property Year1 As Nullable(Of Integer)
+        Public Property Year2 As Nullable(Of Integer)
+        Public Property Year3 As Nullable(Of Integer)
+        Public Property Year4 As Nullable(Of Integer)
+        Public Property Year5 As Nullable(Of Integer)
+        Public Property Description As String
+        Public Property IsKeur As Nullable(Of Boolean)
+        Public Property IsTruck As Nullable(Of Boolean)
+        Public Property Asset_Rating As Nullable(Of Integer)
+        Public Property Active As Boolean
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Ms_Vehicle_Brands As Ms_Vehicle_Brands
+        Public Overridable Property Ms_Vehicles As ICollection(Of Ms_Vehicles) = New HashSet(Of Ms_Vehicles)
+        Public Overridable Property Tr_ProspectCustDetails As ICollection(Of Tr_ProspectCustDetails) = New HashSet(Of Tr_ProspectCustDetails)
+    
+    End Class
 
-End Class
+End Namespace

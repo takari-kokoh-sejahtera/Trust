@@ -10,20 +10,24 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Cn_Directorats
-    Public Property Directorat_ID As Integer
-    Public Property Directorat As String
-    Public Property CreatedDate As Nullable(Of Date)
-    Public Property CreatedBy As Nullable(Of Integer)
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Nullable(Of Boolean)
+Namespace Trust
 
-    Public Overridable Property Cn_GMs As ICollection(Of Cn_GMs) = New HashSet(Of Cn_GMs)
-    Public Overridable Property Cn_GMs1 As ICollection(Of Cn_GMs) = New HashSet(Of Cn_GMs)
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Cn_Users2 As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
-    Public Overridable Property Cn_Users3 As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
+    Partial Public Class Cn_Directorats
+        Public Property Directorat_ID As Integer
+        Public Property Directorat As String
+        Public Property CreatedDate As Nullable(Of Date)
+        Public Property CreatedBy As Nullable(Of Integer)
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Nullable(Of Boolean)
+    
+        Public Overridable Property Cn_GMs As ICollection(Of Cn_GMs) = New HashSet(Of Cn_GMs)
+        Public Overridable Property Cn_GMs1 As ICollection(Of Cn_GMs) = New HashSet(Of Cn_GMs)
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Cn_Users2 As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
+        Public Overridable Property Cn_Users3 As ICollection(Of Cn_Users) = New HashSet(Of Cn_Users)
+    
+    End Class
 
-End Class
+End Namespace

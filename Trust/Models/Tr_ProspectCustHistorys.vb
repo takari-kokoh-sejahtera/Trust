@@ -10,27 +10,31 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Tr_ProspectCustHistorys
-    Public Property ProspectCustomerHistory_ID As Integer
-    Public Property ProspectCustomer_ID As Integer
-    Public Property ProspectCategory_ID As Nullable(Of Integer)
-    Public Property Status As String
-    Public Property DateTrans As Date
-    Public Property Notes As String
-    Public Property IsChecked As Nullable(Of Boolean)
-    Public Property CheckNote As String
-    Public Property CheckedBy As Nullable(Of Integer)
-    Public Property CheckedDate As Nullable(Of Date)
-    Public Property CreatedDate As Date
-    Public Property CreatedBy As Integer
-    Public Property ModifiedDate As Nullable(Of Date)
-    Public Property ModifiedBy As Nullable(Of Integer)
-    Public Property IsDeleted As Boolean
+Namespace Trust
 
-    Public Overridable Property Ms_ProspectCategorys As Ms_ProspectCategorys
-    Public Overridable Property Cn_Users As Cn_Users
-    Public Overridable Property Cn_Users1 As Cn_Users
-    Public Overridable Property Cn_Users2 As Cn_Users
-    Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
+    Partial Public Class Tr_ProspectCustHistorys
+        Public Property ProspectCustomerHistory_ID As Integer
+        Public Property ProspectCustomer_ID As Integer
+        Public Property ProspectCategory_ID As Nullable(Of Integer)
+        Public Property Status As String
+        Public Property DateTrans As Date
+        Public Property Notes As String
+        Public Property IsChecked As Nullable(Of Boolean)
+        Public Property CheckNote As String
+        Public Property CheckedBy As Nullable(Of Integer)
+        Public Property CheckedDate As Nullable(Of Date)
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
+        Public Property ModifiedDate As Nullable(Of Date)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property IsDeleted As Boolean
+    
+        Public Overridable Property Ms_ProspectCategorys As Ms_ProspectCategorys
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Cn_Users2 As Cn_Users
+        Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
+    
+    End Class
 
-End Class
+End Namespace
