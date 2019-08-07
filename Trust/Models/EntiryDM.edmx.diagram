@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c4c5e03083464f999c182ede38770e13" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="TrustModel.V_CalculateMax" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrustModel.V_Quotations" Width="1.5" PointX="9.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrustModel.V_ApplicationHD" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Departments" Width="1.5" PointX="7.5" PointY="30.625" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Directorats" Width="1.5" PointX="0.75" PointY="30.625" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Divisions" Width="1.5" PointX="5.25" PointY="30.25" />
+        <EntityTypeShape EntityType="TrustModel.Cn_GMs" Width="1.5" PointX="3" PointY="30.25" />
+        <EntityTypeShape EntityType="TrustModel.Cn_NoSerieSetup" Width="1.5" PointX="15" PointY="40.125" />
+        <EntityTypeShape EntityType="TrustModel.Cn_RoleAuthorizations" Width="1.5" PointX="20.25" PointY="27.625" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Roles" Width="1.5" PointX="10.5" PointY="25.75" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Titles" Width="1.5" PointX="10.5" PointY="45.25" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Units" Width="1.5" PointX="15" PointY="26.75" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Depart__Divis__04E4BC85" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Depart__Divis__48CFD27E" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Units__Depart__09A971A2" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Units__Depart__4D94879B" />
+        <AssociationConnector Association="TrustModel.FK__Cn_GMs__Director__06CD04F7" />
+        <AssociationConnector Association="TrustModel.FK__Cn_GMs__Director__4AB81AF0" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Divisi__GM_ID__05D8E0BE" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Divisi__GM_ID__49C3F6B7" />
+        <AssociationConnector Association="TrustModel.FK__Cn_RoleAu__Role___08B54D69" />
+        <AssociationConnector Association="TrustModel.FK__Cn_RoleAu__Role___4CA06362" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customer_CompanyGroups" Width="1.5" PointX="12.75" PointY="42.75" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Vehicle_Brands" Width="1.5" PointX="8" PointY="26" />
+        <EntityTypeShape EntityType="TrustModel.Ms_ProjRatingMatrixs" Width="1.5" PointX="15" PointY="17.125" />
+        <EntityTypeShape EntityType="TrustModel.Tr_QuotationDetails" Width="1.5" PointX="26.75" PointY="18.125" />
+        <EntityTypeShape EntityType="TrustModel.V_ProspectHD" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_Deliverys" Width="1.5" PointX="36" PointY="33.5" />
+        <EntityTypeShape EntityType="TrustModel.V_QuotationHD" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_Invoices" Width="1.5" PointX="42.25" PointY="48.875" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ContractReceipts" Width="1.5" PointX="31.25" PointY="40.625" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ContractDetailHistorys" Width="1.5" PointX="45" PointY="50.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_TemporaryCars" Width="1.5" PointX="47" PointY="45.875" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Modules" Width="1.5" PointX="29" PointY="46.625" />
+        <AssociationConnector Association="TrustModel.FK_Module" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ContractDetails" Width="1.5" PointX="41.75" PointY="41.125" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__7D8391DF" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Delive__Contr__42CCE065" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Tempor__Contr__08F5448B" />
+        <EntityTypeShape EntityType="TrustModel.Tr_InvoiceDetails" Width="1.5" PointX="52.25" PointY="45.375" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Contr__6C8E1007" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Invoi__41A3B202" />
+        <EntityTypeShape EntityType="TrustModel.Tr_TotalLossOnlys" Width="1.5" PointX="55.25" PointY="45.75" />
+        <AssociationConnector Association="TrustModel.FK__Tr_TotalL__Contr__033C6B35" />
+        <EntityTypeShape EntityType="TrustModel.Ms_RiskGradings" Width="1.5" PointX="29" PointY="51.625" />
+        <EntityTypeShape EntityType="TrustModel.Ms_CostOfFunds" Width="1.5" PointX="29" PointY="55.375" />
+        <EntityTypeShape EntityType="TrustModel.Ms_FixedCosts" Width="1.5" PointX="29" PointY="35.625" />
+        <EntityTypeShape EntityType="TrustModel.Tr_CalculateCashFlows" Width="1.5" PointX="37.25" PointY="47.875" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ApplicationCashFlows" Width="1.5" PointX="46.5" PointY="38.5" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customers" Width="1.5" PointX="35" PointY="40.125" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Compa__5165187F" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Custo__22EA20B8" />
+        <EntityTypeShape EntityType="TrustModel.Ms_ProspectCategorys" Width="1.5" PointX="50.25" PointY="54.375" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ProspectCustHistorys" Width="1.5" PointX="54.5" PointY="50.5" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__691284DE" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customer_BusinessLicenses" Width="1.5" PointX="39" PointY="20.75" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customer_Identitass" Width="1.5" PointX="39" PointY="25" />
+        <EntityTypeShape EntityType="TrustModel.Ms_FundingCosts" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Contract_Signers" Width="1.5" PointX="27" PointY="30.875" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Citys" Width="1.5" PointX="29.75" PointY="29.75" />
+        <AssociationConnector Association="TrustModel.FK_City" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Vehicles" Width="1.5" PointX="44" PointY="27.125" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Contr__15C52FC4" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Vehic__5B988E2F" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Vehic__7E77B618" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Vehic__249D5F00" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Tempor__Vehic__09E968C4" />
+        <AssociationConnector Association="TrustModel.FK__Tr_TotalL__Vehic__04308F6E" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customer_KYC_AuthorizedSigners" Width="1.5" PointX="54.5" PointY="34.875" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customer_KYC_Commissioners" Width="1.5" PointX="54.5" PointY="29.875" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customer_KYC_Directors" Width="1.5" PointX="54.5" PointY="39.875" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customer_KYC_Shareholders" Width="1.5" PointX="51.5" PointY="31.875" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customer_KYC_LineBussinesss" Width="1.5" PointX="57.5" PointY="35.125" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customer_KYCs" Width="1.5" PointX="49.25" PointY="19.375" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__AOA_C__324C5FD9" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__BOD_C__33408412" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__DOA1___3434A84B" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__DOA2___3528CC84" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__DOA3___361CF0BD" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__DOA4___371114F6" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__DOA5___3805392F" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__DOE_C__31583BA0" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Legal__68736660" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Busin__38F95D68" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__KYC_I__4D005615" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__KYC_I__483BA0F8" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__KYC_I__4376EBDB" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__KYC_I__6B4FD30B" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__KYC_I__76026BA8" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Custo__30641767" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ProspectCustDetails" Width="1.5" PointX="51.5" PointY="37" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Brand__3A179ED3" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Vehic__3CF40B7E" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Approvals" Width="1.5" PointX="34.25" PointY="28.25" />
+        <EntityTypeShape EntityType="TrustModel.Cn_ApprovalUserDetails" Width="1.5" PointX="40.5" PointY="32.375" />
+        <EntityTypeShape EntityType="TrustModel.Cn_ApprovalUsers" Width="1.5" PointX="27" PointY="26.5" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Appro__24885067" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Modul__19169DBB" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Appro__23942C2E" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ContractSends" Width="1.5" PointX="62.75" PointY="38.875" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ContractDrafts" Width="1.5" PointX="59.75" PointY="36.875" />
+        <EntityTypeShape EntityType="TrustModel.Tr_Contracts" Width="1.5" PointX="57.5" PointY="44.375" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__451F3D2B" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__379B24DB" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__00CA12DE" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__44F51FF9" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF" />
+        <EntityTypeShape EntityType="TrustModel.Tr_Approvals" Width="1.5" PointX="56.75" PointY="24.625" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Users" Width="1.5" PointX="22.75" PointY="20.25" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Creat__24885067" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Modif__257C74A0" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Creat__2F05DEDA" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Modif__2FFA0313" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Creat__294D0584" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Modif__2A4129BD" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__User___2858E14B" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Users__Depart__22401542" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Direct__Creat__3C54ED00" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Direct__Modif__3E3D3572" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Users__Direct__0B91BA14" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Users__Direct__5070F446" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Divisi__Creat__3D491139" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Divisi__Modif__3F3159AB" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Users__Divisi__0C85DE4D" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Users__Divisi__5165187F" />
+        <AssociationConnector Association="TrustModel.FK__Cn_GMs__CreatedB__40257DE4" />
+        <AssociationConnector Association="TrustModel.FK__Cn_GMs__Modified__4119A21D" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Users__GM_ID__0D7A0286" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Users__GM_ID__52593CB8" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Module__Creat__43F60EC8" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Module__Modif__44EA3301" />
+        <AssociationConnector Association="TrustModel.FK__Cn_NoSeri__Creat__45DE573A" />
+        <AssociationConnector Association="TrustModel.FK__Cn_NoSeri__Modif__46D27B73" />
+        <AssociationConnector Association="TrustModel.FK__Cn_RoleAu__Creat__47C69FAC" />
+        <AssociationConnector Association="TrustModel.FK__Cn_RoleAu__Modif__48BAC3E5" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Roles__Create__49AEE81E" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Roles__Modifi__4AA30C57" />
+        <AssociationConnector Association="TrustModel.FK_Role" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Titles__Creat__4B973090" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Titles__Modif__4C8B54C9" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Users__Title___0F624AF8" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Users__Title___5441852A" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Units__Create__4D7F7902" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Units__Modifi__4E739D3B" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Citys__Create__60924D76" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Citys__Modifi__618671AF" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Contra__Creat__15B0212B" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Contra__Modif__16A44564" />
+        <AssociationConnector Association="TrustModel.FK__Ms_CostOf__Creat__5BED93EA" />
+        <AssociationConnector Association="TrustModel.FK__Ms_CostOf__Modif__5CE1B823" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__1980B20F" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__1D5142F3" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__34F3C25A" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__3AE1A5DA" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__446B1014" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__492FC531" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__4DF47A4E" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__627A95E8" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__6C43F744" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__6CF8245B" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__1A74D648" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__1E45672C" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__36DC0ACC" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__3BD5CA13" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__455F344D" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__4A23E96A" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__4EE89E87" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__636EBA21" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__6D381B7D" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__6DEC4894" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Revie__61074EC2" />
+        <AssociationConnector Association="TrustModel.FK__Ms_FixedC__Creat__536D5C82" />
+        <AssociationConnector Association="TrustModel.FK__Ms_FixedC__Modif__546180BB" />
+        <AssociationConnector Association="TrustModel.FK__Ms_ProjRa__Creat__6EE06CCD" />
+        <AssociationConnector Association="TrustModel.FK__Ms_ProjRa__Modif__6FD49106" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Prospe__Creat__6265874F" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Prospe__Modif__6359AB88" />
+        <AssociationConnector Association="TrustModel.FK__Ms_RiskGr__Creat__544C7222" />
+        <AssociationConnector Association="TrustModel.FK__Ms_RiskGr__Modif__5540965B" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Creat__520F23F5" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Creat__72B0FDB1" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Modif__5303482E" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Modif__73A521EA" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__10615C29" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__11558062" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__000AF8CF" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__00FF1D08" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__01F34141" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__02E7657A" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__03DB89B3" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Check__7F16D496" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Creat__7C3A67EB" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Maker__7E22B05D" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Modif__7D2E8C24" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Creat__4BB72C21" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Modif__4CAB505A" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__01BE3717" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__40306ADC" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__414EAC47" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__44F51FF9" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__4707859D" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__7F6BDA51" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__005FFE8A" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__MOdif__02B25B50" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__41248F15" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__4242D080" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__45E94432" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__47FBA9D6" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Delive__Creat__43C1049E" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Delive__Modif__44B528D7" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Creat__3DD3211E" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Creat__438BFA74" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Modif__3EC74557" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Modif__44801EAD" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Payed__3CDEFCE5" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Prine__3BEAD8AC" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Check__6FBF826D" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Creat__10416098" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Modif__113584D1" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Creat__226010D3" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Modif__2354350C" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Tempor__Creat__0ADD8CFD" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Tempor__Modif__0BD1B136" />
+        <AssociationConnector Association="TrustModel.FK__Tr_TotalL__Creat__0524B3A7" />
+        <AssociationConnector Association="TrustModel.FK__Tr_TotalL__Modif__0618D7E0" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Vehicle_Models" Width="1.5" PointX="41.75" PointY="25.625" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Creat__74994623" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Modif__758D6A5C" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Brand__5EBF139D" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Model__53F76C67" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Model__3B0BC30C" />
+        <EntityTypeShape EntityType="TrustModel.Tr_Applications" Width="1.5" PointX="65" PointY="26" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__FillO__39E294A9" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Locat__0603C947" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Plat___6CA31EA0" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Rent___6BAEFA67" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appli__0F6D37F0" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appro__69C6B1F5" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Quota__6ABAD62E" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Appli__46136164" />
+        <EntityTypeShape EntityType="TrustModel.Tr_Quotations" Width="1.5" PointX="46.5" PointY="30.625" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Creat__2A01329B" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotati__POBy__19EAC663" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Signe__70499252" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Quota__2180FB33" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__114A936A" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" />
+        <EntityTypeShape EntityType="TrustModel.Tr_Calculates" Width="1.5" PointX="32" PointY="22.875" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Creat__3943762B" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Devia__384F51F2" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Modif__3A379A64" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Locat__1B9E04AB" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Plat___118A8A8C" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Rent___10966653" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Calcu__4AC307E8" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Calcu__24E777C3" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Dealers" Width="1.5" PointX="25" PointY="35.5" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Dealer__Creat__2200E977" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Dealer__Modif__22F50DB0" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ApplicationPODetails" Width="1.5" PointX="62" PointY="33.625" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__37F02A96" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__38E44ECF" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Deale__36FC065D" />
+        <EntityTypeShape EntityType="TrustModel.V_ApplicationPO" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ApprovalPOs" Width="1.5" PointX="51.5" PointY="22" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__77D5A581" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__78C9C9BA" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__79BDEDF3" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__7AB2122C" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__7BA63665" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Check__76E18148" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Creat__7C9A5A9E" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Maker__75ED5D0F" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Modif__7D8E7ED7" />
+        <EntityTypeShape EntityType="TrustModel.V_ProspectCusts" Width="2.125" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ProspectCusts" Width="1.5" PointX="38.25" PointY="34.625" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Modif__1BB31344" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__City___3552E9B6" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Compa__1C873BEC" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Prosp__74F938D6" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Invoice_Categorys" Width="1.5" PointX="25" PointY="40.25" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Invoic__Creat__60BD35FF" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Invoic__Modif__61B15A38" />
+        <EntityTypeShape EntityType="TrustModel.Cn_Levels" Width="1.5" PointX="25" PointY="44.125" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Approv__Level__23942C2E" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Levels__Creat__420DC656" />
+        <AssociationConnector Association="TrustModel.FK__Cn_Levels__Modif__4301EA8F" />
+        <EntityTypeShape EntityType="TrustModel.V_Approval" Width="1.5" PointX="6.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ApplicationHeaders" Width="1.5" PointX="59" PointY="23.5" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__75F77EB0" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appli__77DFC722" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appro__090A5324" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ApplicationPOs" Width="1.5" PointX="59.75" PointY="41.375" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__79F2F81D" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__7AE71C56" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Plat___4DDF6BB5" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appli__3607E224" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Prosp__08411774" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Prosp__7BDB408F" />
+        <EntityTypeShape EntityType="TrustModel.V_ProspectCustDetails" Width="1.5" PointX="6.375" PointY="7.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ApprovalApps" Width="1.5" PointX="67.25" PointY="31.5" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__18427513" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__3118447E" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__320C68B7" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__33008CF0" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__33F4B129" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appro__34E8D562" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Check__30242045" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Creat__35DCF99B" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Modif__36D11DD4" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Appro__405A880E" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

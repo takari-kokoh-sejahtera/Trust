@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="manufacturer">
+          <Key>
+            <PropertyRef Name="manufacturer_id" />
+          </Key>
+          <Property Name="manufacturer_id" Type="int" Nullable="false" />
+          <Property Name="manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="owner">
+          <Key>
+            <PropertyRef Name="owner_id" />
+          </Key>
+          <Property Name="owner_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="owner" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="address_1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="address_2" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vehicle">
+          <Key>
+            <PropertyRef Name="vehicle_id" />
+          </Key>
+          <Property Name="vehicle_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="owner_id" Type="int" Nullable="false" />
+          <Property Name="license_no" Type="nvarchar" MaxLength="12" />
+          <Property Name="manufacturer_id" Type="int" />
+          <Property Name="type" Type="nvarchar" MaxLength="100" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+          <Property Name="year" Type="int" />
+          <Property Name="chassis_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="machine_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="title_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="serial_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="registration_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="registration_expdate" Type="smalldatetime" />
+          <Property Name="insurance_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="discount" Type="float" />
+          <Property Name="price" Type="float" />
+          <Property Name="acquisition" Type="float" />
+          <Property Name="coverage" Type="float" />
+          <Property Name="comment" Type="nvarchar" MaxLength="250" />
+          <Property Name="category" Type="bit" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="remove" Type="bit" />
+          <Property Name="date_insurance_start" Type="smalldatetime" />
+          <Property Name="date_insurance_end" Type="smalldatetime" />
+          <Property Name="date_insurance_mod" Type="smalldatetime" />
+          <Property Name="date_book" Type="smalldatetime" />
+          <Property Name="date_entered" Type="smalldatetime" Nullable="false" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="vehicle_test">
+          <Key>
+            <PropertyRef Name="vehicle_id" />
+          </Key>
+          <Property Name="vehicle_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="owner_id" Type="int" Nullable="false" />
+          <Property Name="license_no" Type="nvarchar" MaxLength="12" />
+          <Property Name="manufacturer_id" Type="int" />
+          <Property Name="type" Type="nvarchar" MaxLength="100" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+          <Property Name="year" Type="int" />
+          <Property Name="chassis_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="machine_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="title_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="serial_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="registration_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="registration_expdate" Type="smalldatetime" />
+          <Property Name="insurance_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="discount" Type="float" />
+          <Property Name="price" Type="float" />
+          <Property Name="acquisition" Type="float" />
+          <Property Name="coverage" Type="float" />
+          <Property Name="comment" Type="nvarchar" MaxLength="250" />
+          <Property Name="category" Type="bit" Nullable="false" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+          <Property Name="remove" Type="bit" />
+          <Property Name="date_insurance_start" Type="smalldatetime" />
+          <Property Name="date_insurance_end" Type="smalldatetime" />
+          <Property Name="date_insurance_mod" Type="smalldatetime" />
+          <Property Name="date_book" Type="smalldatetime" />
+          <Property Name="date_entered" Type="smalldatetime" Nullable="false" />
+          <Property Name="date_modified" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="manufacturer" EntityType="Self.manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="owner" EntityType="Self.owner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vehicle" EntityType="Self.vehicle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vehicle_test" EntityType="Self.vehicle_test" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="manufacturer">
+          <Key>
+            <PropertyRef Name="manufacturer_id" />
+          </Key>
+          <Property Name="manufacturer_id" Type="Int32" Nullable="false" />
+          <Property Name="manufacturer1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="owner">
+          <Key>
+            <PropertyRef Name="owner_id" />
+          </Key>
+          <Property Name="owner_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="owner1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TKSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="manufacturers" EntityType="Self.manufacturer" />
+          <EntitySet Name="owners" EntityType="Self.owner" />
+          <EntitySet Name="vehicle_test" EntityType="Model.vehicle_test" />
+          <EntitySet Name="vehicles" EntityType="Model.vehicle" />
+        </EntityContainer>
+        <EntityType Name="vehicle_test">
+          <Key>
+            <PropertyRef Name="vehicle_id" />
+          </Key>
+          <Property Name="vehicle_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="owner_id" Type="Int32" Nullable="false" />
+          <Property Name="license_no" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="manufacturer_id" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="year" Type="Int32" />
+          <Property Name="chassis_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="machine_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serial_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="registration_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="registration_expdate" Type="DateTime" Precision="0" />
+          <Property Name="insurance_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="discount" Type="Double" />
+          <Property Name="price" Type="Double" />
+          <Property Name="acquisition" Type="Double" />
+          <Property Name="coverage" Type="Double" />
+          <Property Name="comment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="Boolean" Nullable="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="remove" Type="Boolean" />
+          <Property Name="date_insurance_start" Type="DateTime" Precision="0" />
+          <Property Name="date_insurance_end" Type="DateTime" Precision="0" />
+          <Property Name="date_insurance_mod" Type="DateTime" Precision="0" />
+          <Property Name="date_book" Type="DateTime" Precision="0" />
+          <Property Name="date_entered" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vehicle">
+          <Key>
+            <PropertyRef Name="vehicle_id" />
+          </Key>
+          <Property Name="vehicle_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="owner_id" Type="Int32" Nullable="false" />
+          <Property Name="license_no" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="manufacturer_id" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="year" Type="Int32" />
+          <Property Name="chassis_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="machine_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serial_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="registration_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="registration_expdate" Type="DateTime" Precision="0" />
+          <Property Name="insurance_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="discount" Type="Double" />
+          <Property Name="price" Type="Double" />
+          <Property Name="acquisition" Type="Double" />
+          <Property Name="coverage" Type="Double" />
+          <Property Name="comment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="Boolean" Nullable="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+          <Property Name="remove" Type="Boolean" />
+          <Property Name="date_insurance_start" Type="DateTime" Precision="0" />
+          <Property Name="date_insurance_end" Type="DateTime" Precision="0" />
+          <Property Name="date_insurance_mod" Type="DateTime" Precision="0" />
+          <Property Name="date_book" Type="DateTime" Precision="0" />
+          <Property Name="date_entered" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="date_modified" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="TKSEntities">
+          <EntitySetMapping Name="manufacturers">
+            <EntityTypeMapping TypeName="Model.manufacturer">
+              <MappingFragment StoreEntitySet="manufacturer">
+                <ScalarProperty Name="manufacturer_id" ColumnName="manufacturer_id" />
+                <ScalarProperty Name="manufacturer1" ColumnName="manufacturer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="owners">
+            <EntityTypeMapping TypeName="Model.owner">
+              <MappingFragment StoreEntitySet="owner">
+                <ScalarProperty Name="owner_id" ColumnName="owner_id" />
+                <ScalarProperty Name="owner1" ColumnName="owner" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="address_1" ColumnName="address_1" />
+                <ScalarProperty Name="address_2" ColumnName="address_2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehicle_test">
+            <EntityTypeMapping TypeName="Model.vehicle_test">
+              <MappingFragment StoreEntitySet="vehicle_test">
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+                <ScalarProperty Name="date_entered" ColumnName="date_entered" />
+                <ScalarProperty Name="date_book" ColumnName="date_book" />
+                <ScalarProperty Name="date_insurance_mod" ColumnName="date_insurance_mod" />
+                <ScalarProperty Name="date_insurance_end" ColumnName="date_insurance_end" />
+                <ScalarProperty Name="date_insurance_start" ColumnName="date_insurance_start" />
+                <ScalarProperty Name="remove" ColumnName="remove" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="coverage" ColumnName="coverage" />
+                <ScalarProperty Name="acquisition" ColumnName="acquisition" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="insurance_no" ColumnName="insurance_no" />
+                <ScalarProperty Name="registration_expdate" ColumnName="registration_expdate" />
+                <ScalarProperty Name="registration_no" ColumnName="registration_no" />
+                <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+                <ScalarProperty Name="title_no" ColumnName="title_no" />
+                <ScalarProperty Name="machine_no" ColumnName="machine_no" />
+                <ScalarProperty Name="chassis_no" ColumnName="chassis_no" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="manufacturer_id" ColumnName="manufacturer_id" />
+                <ScalarProperty Name="license_no" ColumnName="license_no" />
+                <ScalarProperty Name="owner_id" ColumnName="owner_id" />
+                <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehicles">
+            <EntityTypeMapping TypeName="Model.vehicle">
+              <MappingFragment StoreEntitySet="vehicle">
+                <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+                <ScalarProperty Name="date_entered" ColumnName="date_entered" />
+                <ScalarProperty Name="date_book" ColumnName="date_book" />
+                <ScalarProperty Name="date_insurance_mod" ColumnName="date_insurance_mod" />
+                <ScalarProperty Name="date_insurance_end" ColumnName="date_insurance_end" />
+                <ScalarProperty Name="date_insurance_start" ColumnName="date_insurance_start" />
+                <ScalarProperty Name="remove" ColumnName="remove" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="coverage" ColumnName="coverage" />
+                <ScalarProperty Name="acquisition" ColumnName="acquisition" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="insurance_no" ColumnName="insurance_no" />
+                <ScalarProperty Name="registration_expdate" ColumnName="registration_expdate" />
+                <ScalarProperty Name="registration_no" ColumnName="registration_no" />
+                <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+                <ScalarProperty Name="title_no" ColumnName="title_no" />
+                <ScalarProperty Name="machine_no" ColumnName="machine_no" />
+                <ScalarProperty Name="chassis_no" ColumnName="chassis_no" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="manufacturer_id" ColumnName="manufacturer_id" />
+                <ScalarProperty Name="license_no" ColumnName="license_no" />
+                <ScalarProperty Name="owner_id" ColumnName="owner_id" />
+                <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
