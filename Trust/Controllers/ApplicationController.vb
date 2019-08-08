@@ -104,6 +104,7 @@ Namespace Controllers
                             quot.Record_For_Payment = model.Record_For_Payment
                             quot.IsPO = True
                             quot.POBy = user
+                            quot.PODate = DateTime.Now
                             For Each i In detail
                                 Dim app = db.Tr_Applications.Where(Function(x) x.IsDeleted = False And x.Application_ID = i.Application_ID).FirstOrDefault
                                 app.Color = i.Color

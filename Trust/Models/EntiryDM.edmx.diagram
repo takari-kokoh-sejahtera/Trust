@@ -245,14 +245,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appro__69C6B1F5" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Quota__6ABAD62E" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Appli__46136164" />
-        <EntityTypeShape EntityType="TrustModel.Tr_Quotations" Width="1.5" PointX="46.5" PointY="30.625" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Creat__2A01329B" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Quotati__POBy__19EAC663" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Signe__70499252" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Quota__2180FB33" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__114A936A" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" />
         <EntityTypeShape EntityType="TrustModel.Tr_Calculates" Width="1.5" PointX="32" PointY="22.875" />
         <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Creat__3943762B" />
         <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Devia__384F51F2" />
@@ -290,7 +282,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Prosp__74F938D6" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" />
         <EntityTypeShape EntityType="TrustModel.Ms_Invoice_Categorys" Width="1.5" PointX="25" PointY="40.25" />
         <AssociationConnector Association="TrustModel.FK__Ms_Invoic__Creat__60BD35FF" />
         <AssociationConnector Association="TrustModel.FK__Ms_Invoic__Modif__61B15A38" />
@@ -327,6 +318,15 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Modif__36D11DD4" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Appro__405A880E" />
+        <EntityTypeShape EntityType="TrustModel.Tr_Quotations" Width="1.5" PointX="46.5" PointY="30.5" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Creat__2A01329B" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotati__POBy__19EAC663" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Signe__70499252" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Quota__2180FB33" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__114A936A" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -152,9 +152,6 @@ Namespace Trust
         Public Overridable Property Ms_Vehicle_Models As ICollection(Of Ms_Vehicle_Models) = New HashSet(Of Ms_Vehicle_Models)
         Public Overridable Property Ms_Vehicle_Models1 As ICollection(Of Ms_Vehicle_Models) = New HashSet(Of Ms_Vehicle_Models)
         Public Overridable Property Tr_Applications As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
-        Public Overridable Property Tr_Quotations As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
-        Public Overridable Property Tr_Quotations1 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
-        Public Overridable Property Tr_Quotations2 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
         Public Overridable Property Tr_Calculates As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
         Public Overridable Property Tr_Calculates1 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
         Public Overridable Property Tr_Calculates2 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
@@ -193,6 +190,9 @@ Namespace Trust
         Public Overridable Property Tr_ApprovalApps9 As ICollection(Of Tr_ApprovalApps) = New HashSet(Of Tr_ApprovalApps)
         Public Overridable Property Tr_ApprovalApps10 As ICollection(Of Tr_ApprovalApps) = New HashSet(Of Tr_ApprovalApps)
         Public Overridable Property Tr_ApprovalApps11 As ICollection(Of Tr_ApprovalApps) = New HashSet(Of Tr_ApprovalApps)
+        Public Overridable Property Tr_Quotations As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
+        Public Overridable Property Tr_Quotations1 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
+        Public Overridable Property Tr_Quotations2 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
     
     End Class
 

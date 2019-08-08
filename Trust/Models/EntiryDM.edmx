@@ -1448,6 +1448,7 @@
           <Property Name="RemarkInternal" Type="varchar(max)" />
           <Property Name="IsPO" Type="bit" />
           <Property Name="POBy" Type="int" />
+          <Property Name="PODate" Type="datetime" />
           <Property Name="Signer_ID" Type="int" />
           <Property Name="IsNotApproved" Type="bit" />
           <Property Name="RemarkNotApproved" Type="varchar(max)" />
@@ -7285,35 +7286,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Tr_Applications" EntitySet="Tr_Applications" />
             <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
           </AssociationSet>
-          <EntitySet Name="Tr_Quotations" EntityType="TrustModel.Tr_Quotations" />
-          <AssociationSet Name="FK__Tr_Quotat__Creat__2A01329B" Association="TrustModel.FK__Tr_Quotat__Creat__2A01329B">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Modif__2AF556D4" Association="TrustModel.FK__Tr_Quotat__Modif__2AF556D4">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotati__POBy__19EAC663" Association="TrustModel.FK__Tr_Quotati__POBy__19EAC663">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Signe__70499252" Association="TrustModel.FK__Tr_Quotat__Signe__70499252">
-            <End Role="Ms_Contract_Signers" EntitySet="Ms_Contract_Signers" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Approv__Quota__2180FB33" Association="TrustModel.FK__Tr_Approv__Quota__2180FB33">
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-            <End Role="Tr_Approvals" EntitySet="Tr_Approvals" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Quota__114A936A" Association="TrustModel.FK__Tr_Quotat__Quota__114A936A">
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-            <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Quota__6383C8BA" Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA">
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-            <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
-          </AssociationSet>
           <FunctionImport Name="sp_PrintCalculateCashFlow" ReturnType="Collection(TrustModel.sp_PrintCalculateCashFlow_Result)">
           <Parameter Name="Calculate_ID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -7476,10 +7448,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
             <End Role="Tr_ProspectCustHistorys" EntitySet="Tr_ProspectCustHistorys" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Prosp__2116E6DF" Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF">
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
           <EntitySet Name="Ms_Invoice_Categorys" EntityType="TrustModel.Ms_Invoice_Categorys" />
           <AssociationSet Name="FK__Ms_Invoic__Creat__60BD35FF" Association="TrustModel.FK__Ms_Invoic__Creat__60BD35FF">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7616,6 +7584,39 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <AssociationSet Name="FK__Tr_Contra__Appro__405A880E" Association="TrustModel.FK__Tr_Contra__Appro__405A880E">
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
             <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+          </AssociationSet>
+          <EntitySet Name="Tr_Quotations" EntityType="TrustModel.Tr_Quotations" />
+          <AssociationSet Name="FK__Tr_Quotat__Creat__2A01329B" Association="TrustModel.FK__Tr_Quotat__Creat__2A01329B">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Modif__2AF556D4" Association="TrustModel.FK__Tr_Quotat__Modif__2AF556D4">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotati__POBy__19EAC663" Association="TrustModel.FK__Tr_Quotati__POBy__19EAC663">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Signe__70499252" Association="TrustModel.FK__Tr_Quotat__Signe__70499252">
+            <End Role="Ms_Contract_Signers" EntitySet="Ms_Contract_Signers" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Approv__Quota__2180FB33" Association="TrustModel.FK__Tr_Approv__Quota__2180FB33">
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+            <End Role="Tr_Approvals" EntitySet="Tr_Approvals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Prosp__2116E6DF" Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF">
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Quota__114A936A" Association="TrustModel.FK__Tr_Quotat__Quota__114A936A">
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+            <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Quota__6383C8BA" Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA">
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+            <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_CalcucationCharFromUser_Result">
@@ -8277,9 +8278,9 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Quotat__Creat__226010D3" FromRole="Tr_QuotationDetails" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2354350C" FromRole="Tr_QuotationDetails" ToRole="Cn_Users" />
           <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Applic__Quota__6ABAD62E" FromRole="Tr_QuotationDetails" ToRole="Tr_Applications" />
+          <NavigationProperty Name="Tr_Calculates" Relationship="TrustModel.FK__Tr_Quotat__Calcu__24E777C3" FromRole="Tr_QuotationDetails" ToRole="Tr_Calculates" />
           <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Quota__114A936A" FromRole="Tr_QuotationDetails" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_Quotations1" Relationship="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" FromRole="Tr_QuotationDetails" ToRole="Tr_Quotations" />
-          <NavigationProperty Name="Tr_Calculates" Relationship="TrustModel.FK__Tr_Quotat__Calcu__24E777C3" FromRole="Tr_QuotationDetails" ToRole="Tr_Calculates" />
           </EntityType>
         <EntityType Name="V_ProspectHD">
           <Key>
@@ -10299,8 +10300,8 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Cn_Users7" Relationship="TrustModel.FK__Tr_Approv__Maker__7E22B05D" FromRole="Tr_Approvals" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users8" Relationship="TrustModel.FK__Tr_Approv__Modif__7D2E8C24" FromRole="Tr_Approvals" ToRole="Cn_Users" />
           <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Applic__Appro__69C6B1F5" FromRole="Tr_Approvals" ToRole="Tr_Applications" />
-          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Approv__Quota__2180FB33" FromRole="Tr_Approvals" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_ApplicationHeaders" Relationship="TrustModel.FK__Tr_Applic__Appro__090A5324" FromRole="Tr_Approvals" ToRole="Tr_ApplicationHeaders" />
+          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Approv__Quota__2180FB33" FromRole="Tr_Approvals" ToRole="Tr_Quotations" />
         </EntityType>
         <EntityType Name="Cn_Users">
           <Key>
@@ -10444,9 +10445,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Ms_Vehicle_Models" Relationship="TrustModel.FK__Ms_Vehicl__Creat__74994623" FromRole="Cn_Users" ToRole="Ms_Vehicle_Models" />
           <NavigationProperty Name="Ms_Vehicle_Models1" Relationship="TrustModel.FK__Ms_Vehicl__Modif__758D6A5C" FromRole="Cn_Users" ToRole="Ms_Vehicle_Models" />
           <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Applic__FillO__39E294A9" FromRole="Cn_Users" ToRole="Tr_Applications" />
-          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Cn_Users" ToRole="Tr_Quotations" />
-          <NavigationProperty Name="Tr_Quotations1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Cn_Users" ToRole="Tr_Quotations" />
-          <NavigationProperty Name="Tr_Quotations2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Cn_Users" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_Calculates" Relationship="TrustModel.FK__Tr_Calcul__Creat__3943762B" FromRole="Cn_Users" ToRole="Tr_Calculates" />
           <NavigationProperty Name="Tr_Calculates1" Relationship="TrustModel.FK__Tr_Calcul__Devia__384F51F2" FromRole="Cn_Users" ToRole="Tr_Calculates" />
           <NavigationProperty Name="Tr_Calculates2" Relationship="TrustModel.FK__Tr_Calcul__Modif__3A379A64" FromRole="Cn_Users" ToRole="Tr_Calculates" />
@@ -10485,6 +10483,9 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Tr_ApprovalApps9" Relationship="TrustModel.FK__Tr_Approv__Creat__35DCF99B" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
           <NavigationProperty Name="Tr_ApprovalApps10" Relationship="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
           <NavigationProperty Name="Tr_ApprovalApps11" Relationship="TrustModel.FK__Tr_Approv__Modif__36D11DD4" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Cn_Users" ToRole="Tr_Quotations" />
+          <NavigationProperty Name="Tr_Quotations1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Cn_Users" ToRole="Tr_Quotations" />
+          <NavigationProperty Name="Tr_Quotations2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Cn_Users" ToRole="Tr_Quotations" />
           </EntityType>
         <Association Name="FK__Cn_Approv__Creat__24885067">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -12187,125 +12188,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Tr_Quotations">
-          <Key>
-            <PropertyRef Name="Quotation_ID" />
-          </Key>
-          <Property Name="Quotation_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProspectCustomer_ID" Type="Int32" />
-          <Property Name="No_Ref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Quotation_Validity" Type="Int32" />
-          <Property Name="IsDriver" Type="Boolean" />
-          <Property Name="DriverQty" Type="Int32" />
-          <Property Name="DriverAmount" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="IsApplication" Type="Boolean" />
-          <Property Name="THU" Type="Int32" />
-          <Property Name="Record_For_Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="RemarkInternal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="IsPO" Type="Boolean" />
-          <Property Name="POBy" Type="Int32" />
-          <Property Name="Signer_ID" Type="Int32" />
-          <Property Name="IsNotApproved" Type="Boolean" />
-          <Property Name="RemarkNotApproved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Tr_Quotations" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Tr_Quotations" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Tr_Quotations" ToRole="Cn_Users" />
-          <NavigationProperty Name="Ms_Contract_Signers" Relationship="TrustModel.FK__Tr_Quotat__Signe__70499252" FromRole="Tr_Quotations" ToRole="Ms_Contract_Signers" />
-          <NavigationProperty Name="Tr_Approvals" Relationship="TrustModel.FK__Tr_Approv__Quota__2180FB33" FromRole="Tr_Quotations" ToRole="Tr_Approvals" />
-          <NavigationProperty Name="Tr_QuotationDetails" Relationship="TrustModel.FK__Tr_Quotat__Quota__114A936A" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
-          <NavigationProperty Name="Tr_QuotationDetails1" Relationship="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
-          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_Quotations" ToRole="Tr_ProspectCusts" />
-        </EntityType>
-        <Association Name="FK__Tr_Quotat__Creat__2A01329B">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Modif__2AF556D4">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotati__POBy__19EAC663">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="POBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Signe__70499252">
-          <End Type="TrustModel.Ms_Contract_Signers" Role="Ms_Contract_Signers" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ms_Contract_Signers">
-              <PropertyRef Name="Signer_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="Signer_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Quota__2180FB33">
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Approvals" Role="Tr_Approvals" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Quotations">
-              <PropertyRef Name="Quotation_ID" />
-            </Principal>
-            <Dependent Role="Tr_Approvals">
-              <PropertyRef Name="Quotation_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Quota__114A936A">
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_QuotationDetails" Role="Tr_QuotationDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Quotations">
-              <PropertyRef Name="Quotation_ID" />
-            </Principal>
-            <Dependent Role="Tr_QuotationDetails">
-              <PropertyRef Name="Quotation_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Quota__6383C8BA">
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_QuotationDetails" Role="Tr_QuotationDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Quotations">
-              <PropertyRef Name="Quotation_ID" />
-            </Principal>
-            <Dependent Role="Tr_QuotationDetails">
-              <PropertyRef Name="Quotation_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="sp_PrintCalculateCashFlow_Result">
           <Property Type="Int32" Name="Calculate_ID" Nullable="false" />
           <Property Type="Int32" Name="ProspectCustomerDetail_ID" Nullable="true" />
@@ -13006,8 +12888,8 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Tr_ApprovalPOs" Relationship="TrustModel.FK__Tr_Approv__Prosp__74F938D6" FromRole="Tr_ProspectCusts" ToRole="Tr_ApprovalPOs" />
           <NavigationProperty Name="Tr_ProspectCustDetails" Relationship="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" FromRole="Tr_ProspectCusts" ToRole="Tr_ProspectCustDetails" />
           <NavigationProperty Name="Tr_ProspectCustHistorys" Relationship="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" FromRole="Tr_ProspectCusts" ToRole="Tr_ProspectCustHistorys" />
-          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_ProspectCusts" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_ApplicationPOs" Relationship="TrustModel.FK__Tr_Applic__Prosp__08411774" FromRole="Tr_ProspectCusts" ToRole="Tr_ApplicationPOs" />
+          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_ProspectCusts" ToRole="Tr_Quotations" />
         </EntityType>
         <Association Name="FK__Tr_Prospe__Creat__1ABEEF0B">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -13101,18 +12983,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               <PropertyRef Name="ProspectCustomer_ID" />
             </Principal>
             <Dependent Role="Tr_ProspectCustHistorys">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Prosp__2116E6DF">
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ProspectCusts">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
               <PropertyRef Name="ProspectCustomer_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -13880,6 +13750,138 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Principal>
             <Dependent Role="Tr_Contracts">
               <PropertyRef Name="ApprovalApp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tr_Quotations">
+          <Key>
+            <PropertyRef Name="Quotation_ID" />
+          </Key>
+          <Property Name="Quotation_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProspectCustomer_ID" Type="Int32" />
+          <Property Name="No_Ref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quotation_Validity" Type="Int32" />
+          <Property Name="IsDriver" Type="Boolean" />
+          <Property Name="DriverQty" Type="Int32" />
+          <Property Name="DriverAmount" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="IsApplication" Type="Boolean" />
+          <Property Name="THU" Type="Int32" />
+          <Property Name="Record_For_Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RemarkInternal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsPO" Type="Boolean" />
+          <Property Name="POBy" Type="Int32" />
+          <Property Name="PODate" Type="DateTime" Precision="3" />
+          <Property Name="Signer_ID" Type="Int32" />
+          <Property Name="IsNotApproved" Type="Boolean" />
+          <Property Name="RemarkNotApproved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Tr_Quotations" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Tr_Quotations" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Tr_Quotations" ToRole="Cn_Users" />
+          <NavigationProperty Name="Ms_Contract_Signers" Relationship="TrustModel.FK__Tr_Quotat__Signe__70499252" FromRole="Tr_Quotations" ToRole="Ms_Contract_Signers" />
+          <NavigationProperty Name="Tr_Approvals" Relationship="TrustModel.FK__Tr_Approv__Quota__2180FB33" FromRole="Tr_Quotations" ToRole="Tr_Approvals" />
+          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_Quotations" ToRole="Tr_ProspectCusts" />
+          <NavigationProperty Name="Tr_QuotationDetails" Relationship="TrustModel.FK__Tr_Quotat__Quota__114A936A" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
+          <NavigationProperty Name="Tr_QuotationDetails1" Relationship="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
+        </EntityType>
+        <Association Name="FK__Tr_Quotat__Creat__2A01329B">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Modif__2AF556D4">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotati__POBy__19EAC663">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="POBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Signe__70499252">
+          <End Type="TrustModel.Ms_Contract_Signers" Role="Ms_Contract_Signers" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ms_Contract_Signers">
+              <PropertyRef Name="Signer_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="Signer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Quota__2180FB33">
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Approvals" Role="Tr_Approvals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Quotations">
+              <PropertyRef Name="Quotation_ID" />
+            </Principal>
+            <Dependent Role="Tr_Approvals">
+              <PropertyRef Name="Quotation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Prosp__2116E6DF">
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ProspectCusts">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Quota__114A936A">
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_QuotationDetails" Role="Tr_QuotationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Quotations">
+              <PropertyRef Name="Quotation_ID" />
+            </Principal>
+            <Dependent Role="Tr_QuotationDetails">
+              <PropertyRef Name="Quotation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Quota__6383C8BA">
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_QuotationDetails" Role="Tr_QuotationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Quotations">
+              <PropertyRef Name="Quotation_ID" />
+            </Principal>
+            <Dependent Role="Tr_QuotationDetails">
+              <PropertyRef Name="Quotation_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -15996,34 +15998,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tr_Quotations">
-            <EntityTypeMapping TypeName="TrustModel.Tr_Quotations">
-              <MappingFragment StoreEntitySet="Tr_Quotations">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="RemarkNotApproved" ColumnName="RemarkNotApproved" />
-                <ScalarProperty Name="IsNotApproved" ColumnName="IsNotApproved" />
-                <ScalarProperty Name="Signer_ID" ColumnName="Signer_ID" />
-                <ScalarProperty Name="POBy" ColumnName="POBy" />
-                <ScalarProperty Name="IsPO" ColumnName="IsPO" />
-                <ScalarProperty Name="RemarkInternal" ColumnName="RemarkInternal" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Record_For_Payment" ColumnName="Record_For_Payment" />
-                <ScalarProperty Name="THU" ColumnName="THU" />
-                <ScalarProperty Name="IsApplication" ColumnName="IsApplication" />
-                <ScalarProperty Name="DriverAmount" ColumnName="DriverAmount" />
-                <ScalarProperty Name="DriverQty" ColumnName="DriverQty" />
-                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
-                <ScalarProperty Name="Quotation_Validity" ColumnName="Quotation_Validity" />
-                <ScalarProperty Name="No_Ref" ColumnName="No_Ref" />
-                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
-                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_PrintCalculateCashFlow" FunctionName="TrustModel.Store.sp_PrintCalculateCashFlow">
             <ResultMapping>
               <ComplexTypeMapping TypeName="TrustModel.sp_PrintCalculateCashFlow_Result">
@@ -16841,6 +16815,35 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
                 <ScalarProperty Name="MakerDate" ColumnName="MakerDate" />
                 <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
                 <ScalarProperty Name="ApprovalApp_ID" ColumnName="ApprovalApp_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_Quotations">
+            <EntityTypeMapping TypeName="TrustModel.Tr_Quotations">
+              <MappingFragment StoreEntitySet="Tr_Quotations">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="RemarkNotApproved" ColumnName="RemarkNotApproved" />
+                <ScalarProperty Name="IsNotApproved" ColumnName="IsNotApproved" />
+                <ScalarProperty Name="Signer_ID" ColumnName="Signer_ID" />
+                <ScalarProperty Name="PODate" ColumnName="PODate" />
+                <ScalarProperty Name="POBy" ColumnName="POBy" />
+                <ScalarProperty Name="IsPO" ColumnName="IsPO" />
+                <ScalarProperty Name="RemarkInternal" ColumnName="RemarkInternal" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Record_For_Payment" ColumnName="Record_For_Payment" />
+                <ScalarProperty Name="THU" ColumnName="THU" />
+                <ScalarProperty Name="IsApplication" ColumnName="IsApplication" />
+                <ScalarProperty Name="DriverAmount" ColumnName="DriverAmount" />
+                <ScalarProperty Name="DriverQty" ColumnName="DriverQty" />
+                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
+                <ScalarProperty Name="Quotation_Validity" ColumnName="Quotation_Validity" />
+                <ScalarProperty Name="No_Ref" ColumnName="No_Ref" />
+                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
+                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
