@@ -1,4 +1,4 @@
-﻿@ModelType Trust.Tr_ApprovalApps
+﻿@ModelType Trust.Tr_ApprovalApp
 @Code
     ViewData("Title") = "Edit"
 End Code

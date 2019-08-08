@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Tr_Contract_Draft)
+﻿@ModelType PagedList.IPagedList(Of Trust.Tr_Contract_Draft)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "IndexEditDraft"

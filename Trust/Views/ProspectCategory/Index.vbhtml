@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Ms_ProspectCategory)
+﻿@ModelType PagedList.IPagedList(Of Trust.Ms_ProspectCategory)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "ProspectCategory"

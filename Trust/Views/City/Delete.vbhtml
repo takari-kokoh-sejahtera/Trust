@@ -1,4 +1,4 @@
-﻿@ModelType Trust.Ms_Citys
+﻿@ModelType Trust.Trust.Ms_Citys
 @Code
     ViewData("Title") = "Delete"
 End Code

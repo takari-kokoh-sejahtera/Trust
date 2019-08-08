@@ -137,29 +137,36 @@ Finish:
                        From A2 In A2A.DefaultIfEmpty()
                        Group Join A3 In db.Cn_Users On A.Approval1By Equals A3.User_ID Into A3A = Group
                        From A3 In A3A.DefaultIfEmpty()
-                       Group Join A4 In db.Cn_Users On A.MakerBy Equals A4.User_ID Into A4A = Group
+                       Group Join A4 In db.Cn_Users On A.Approval2By Equals A4.User_ID Into A4A = Group
                        From A4 In A4A.DefaultIfEmpty()
-                       Group Join A5 In db.Cn_Users On A.MakerBy Equals A5.User_ID Into A5A = Group
+                       Group Join A5 In db.Cn_Users On A.Approval3By Equals A5.User_ID Into A5A = Group
                        From A5 In A5A.DefaultIfEmpty()
-                       Group Join A6 In db.Cn_Users On A.MakerBy Equals A6.User_ID Into A6A = Group
+                       Group Join A6 In db.Cn_Users On A.Approval4By Equals A6.User_ID Into A6A = Group
                        From A6 In A6A.DefaultIfEmpty()
-                       Group Join A7 In db.Cn_Users On A.MakerBy Equals A7.User_ID Into A7A = Group
+                       Group Join A7 In db.Cn_Users On A.Approval5By Equals A7.User_ID Into A7A = Group
                        From A7 In A7A.DefaultIfEmpty()
-                       Group Join A8 In db.Cn_Users On A.MakerBy Equals A8.User_ID Into A8A = Group
+                       Group Join A8 In db.Cn_Users On A.CreatedBy Equals A8.User_ID Into A8A = Group
                        From A8 In A8A.DefaultIfEmpty()
-                       Group Join A9 In db.Cn_Users On A.MakerBy Equals A9.User_ID Into A9A = Group
+                       Group Join A9 In db.Cn_Users On A.ModifiedBy Equals A9.User_ID Into A9A = Group
                        From A9 In A9A.DefaultIfEmpty()
+                       Group Join A10 In db.Cn_Users On A.Approval6By Equals A10.User_ID Into A10A = Group
+                       From A10 In A10A.DefaultIfEmpty()
+                       Group Join A11 In db.Cn_Users On A.Approval7By Equals A11.User_ID Into A11A = Group
+                       From A11 In A11A.DefaultIfEmpty()
+                       Group Join A12 In db.Cn_Users On A.Approval8By Equals A12.User_ID Into A12A = Group
+                       From A12 In A12A.DefaultIfEmpty()
                        Join B In db.V_ProspectCusts On A.ApplicationHeader_ID Equals B.ApplicationHeader_ID
                        Where A.IsDeleted = 0
                        Group Join C In db.Tr_ApplicationHeaders On A.ApplicationHeader_ID Equals C.ApplicationHeader_ID Into CA = Group
                        From C In CA.DefaultIfEmpty()
                        Select A.ApprovalApp_ID, A.ApplicationHeader_ID, C.Application_No, B.CompanyGroup_Name, B.Company_Name,
                         A.MakerDate, MakerBy = A1.User_Name, A.CheckerDate, CheckerBy = A2.User_Name, A.Approval1Date, Approval1By = A3.User_Name, A.Approval2Date,
-                        Approval2By = A4.User_Name, A.Approval3Date, Approval3By = A5.User_Name, A.Approval4Date, Approval4By = A6.User_Name, A.Approval5Date, Approval5By = A7.User_Name,
+                        Approval2By = A4.User_Name, A.Approval3Date, Approval3By = A5.User_Name, A.Approval4Date, Approval4By = A6.User_Name, A.Approval5Date, Approval5By = A7.User_Name, A.Approval6Date, Approval6By = A10.User_Name, A.Approval7Date, Approval7By = A11.User_Name, A.Approval8Date, Approval8By = A12.User_Name,
                              A.StatusRecord, A.Status, A.Remark, A.CreatedDate, CreatedBy = A8.User_Name, A.ModifiedDate, ModifiedBy = A9.User_Name).Select(
                         Function(x) New Tr_ApprovalApp With {.ApprovalApp_ID = x.ApprovalApp_ID, .ApplicationHeader_ID = x.ApplicationHeader_ID, .Application_No = x.Application_No, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name,
                         .MakerDate = x.MakerDate, .MakerByStr = x.MakerBy, .CheckerDate = x.CheckerDate, .CheckerByStr = x.CheckerBy, .Approval1Date = x.Approval1Date, .Approval1ByStr = x.Approval1By, .Approval2Date = x.Approval2Date,
-                        .Approval2ByStr = x.Approval2By, .Approval3Date = x.Approval3Date, .Approval3ByStr = x.Approval3By, .Approval4Date = x.Approval4Date, .Status = x.Status, .StatusRecord = x.StatusRecord,
+                        .Approval2ByStr = x.Approval2By, .Approval3Date = x.Approval3Date, .Approval3ByStr = x.Approval3By, .Approval4Date = x.Approval4Date, .Approval4ByStr = x.Approval4By, .Approval5Date = x.Approval5Date, .Approval5ByStr = x.Approval5By, .Approval6Date = x.Approval6Date, .Approval6ByStr = x.Approval6By,
+                         .Approval7Date = x.Approval7Date, .Approval7ByStr = x.Approval7By, .Approval8Date = x.Approval8Date, .Approval8ByStr = x.Approval8By, .Status = x.Status, .StatusRecord = x.StatusRecord,
                         .CreatedDate = x.CreatedDate, .CreatedByStr = x.CreatedBy, .ModifiedDate = x.ModifiedDate, .ModifiedByStr = x.ModifiedBy})
 
             If Not String.IsNullOrEmpty(searchString) Then
@@ -365,6 +372,28 @@ Finish:
                             End If
                             Query.Approval6Date = DateTime.Now
                             Query.Approval6By = user
+                            Query.StatusRecord = level
+                            Query.Status = "Finish"
+                            Query.ModifiedDate = DateTime.Now
+                            Query.ModifiedBy = user
+                        ElseIf level = 9 Then
+                            If Appheader.Cost_Price <= Session("Limited_Approval_Application") Then
+                                Query.Status = "Finish"
+                                CreateContract(Query.ApprovalApp_ID, user)
+                            End If
+                            Query.Approval7Date = DateTime.Now
+                            Query.Approval7By = user
+                            Query.StatusRecord = level
+                            Query.Status = "Finish"
+                            Query.ModifiedDate = DateTime.Now
+                            Query.ModifiedBy = user
+                        ElseIf level = 10 Then
+                            If Appheader.Cost_Price <= Session("Limited_Approval_Application") Then
+                                Query.Status = "Finish"
+                                CreateContract(Query.ApprovalApp_ID, user)
+                            End If
+                            Query.Approval8Date = DateTime.Now
+                            Query.Approval8By = user
                             Query.StatusRecord = level
                             Query.Status = "Finish"
                             Query.ModifiedDate = DateTime.Now

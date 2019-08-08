@@ -1,4 +1,4 @@
-﻿@ModelType Trust.Tr_ApprovalApps
+﻿@ModelType Trust.Trust.Tr_ApprovalApps
 @Code
     ViewData("Title") = "Delete"
 End Code

@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Tr_Application)
+﻿@ModelType PagedList.IPagedList(Of Trust.Tr_Application)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "Fill OTR"

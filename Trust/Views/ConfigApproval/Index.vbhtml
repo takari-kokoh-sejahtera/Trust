@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Cn_Approval)
+﻿@ModelType PagedList.IPagedList(Of Trust.Cn_Approval)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "ConfigApproval"

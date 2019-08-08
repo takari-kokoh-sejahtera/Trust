@@ -1,4 +1,4 @@
-﻿@ModelType Trust.Tr_Applications
+﻿@ModelType Trust.Trust.Tr_Applications
 @Code
     ViewData("Title") = "Create"
 End Code

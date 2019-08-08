@@ -1,4 +1,4 @@
-﻿@ModelType Trust.Tr_Applications
+﻿@ModelType Trust.Trust.Tr_Applications
 @Code
     ViewData("Title") = "Details"
 End Code
@@ -9,13 +9,7 @@ End Code
     <h4>Tr_Applications</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(Function(model) model.POFromCustomer)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.POFromCustomer)
-        </dd>
+    
 
         <dt>
             @Html.DisplayNameFor(Function(model) model.Payment_Condition)
@@ -369,17 +363,9 @@ End Code
             @Html.DisplayFor(Function(model) model.Ms_Citys1.City)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(Function(model) model.Tr_ProspectCustDetails.Transaction_Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.Tr_ProspectCustDetails.Transaction_Type)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", New With { .id = Model.Application_ID }) |
+    @Html.ActionLink("Edit", "Edit", New With {.id = Model.Application_ID}) |
     @Html.ActionLink("Back to List", "Index")
 </p>

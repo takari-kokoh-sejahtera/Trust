@@ -1,4 +1,4 @@
-﻿@ModelType Trust.Tr_Applications
+﻿@ModelType Trust.Trust.Tr_Applications
 @Code
     ViewData("Title") = "Delete"
 End Code
@@ -10,13 +10,6 @@ End Code
     <h4>Tr_Applications</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(Function(model) model.POFromCustomer)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.POFromCustomer)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(Function(model) model.Payment_Condition)
@@ -368,14 +361,6 @@ End Code
 
         <dd>
             @Html.DisplayFor(Function(model) model.Ms_Citys1.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(Function(model) model.Tr_ProspectCustDetails.Transaction_Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.Tr_ProspectCustDetails.Transaction_Type)
         </dd>
 
     </dl>

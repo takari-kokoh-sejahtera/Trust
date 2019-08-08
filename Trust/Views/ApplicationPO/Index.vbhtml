@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Tr_ApplicationPO)
+﻿@ModelType PagedList.IPagedList(Of Trust.Tr_ApplicationPO)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "ApplicationPO"

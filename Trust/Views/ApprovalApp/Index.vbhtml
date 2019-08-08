@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Tr_ApprovalApp)
+﻿@ModelType PagedList.IPagedList(Of Trust.Tr_ApprovalApp)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "ApprovalApp"
@@ -84,6 +84,24 @@ End Code
                             </th>
                             <th>
                                 @Html.DisplayNameFor(Function(model) model(0).Approval5ByStr)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).Approval6Date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).Approval6ByStr)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).Approval7Date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).Approval7ByStr)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).Approval8Date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).Approval8ByStr)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(Function(model) model(0).StatusRecord)
@@ -172,6 +190,24 @@ End Code
                                 </td>
                                 <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.Approval5ByStr)
+                                </td>
+                                 <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.Approval6Date)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.Approval6ByStr)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.Approval7Date)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.Approval7ByStr)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.Approval8Date)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.Approval8ByStr)
                                 </td>
                                 <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.StatusRecord)

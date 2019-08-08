@@ -19,44 +19,62 @@ Public Class Tr_ApprovalApp
     Public Property MakerDate As Nullable(Of Date)
     <Display(Name:="Maker By")>
     Public Property MakerBy As Nullable(Of Integer)
-    <Display(Name:="MakerBy Str")>
+    <Display(Name:="MakerBy")>
     Public Property MakerByStr As String
     <Display(Name:="Checker Date")>
     Public Property CheckerDate As Nullable(Of Date)
     <Display(Name:="Checker By")>
     Public Property CheckerBy As Nullable(Of Integer)
-    <Display(Name:="Checker By Str")>
+    <Display(Name:="Checker By")>
     Public Property CheckerByStr As String
     <Display(Name:="Approval1 Date")>
     Public Property Approval1Date As Nullable(Of Date)
     <Display(Name:="Approval1 By")>
     Public Property Approval1By As Nullable(Of Integer)
-    <Display(Name:="Approval1 By Str")>
+    <Display(Name:="Approval1 By")>
     Public Property Approval1ByStr As String
     <Display(Name:="Approval2 Date")>
     Public Property Approval2Date As Nullable(Of Date)
     <Display(Name:="Approval2 By")>
     Public Property Approval2By As Nullable(Of Integer)
-    <Display(Name:="Approval2 By Str")>
+    <Display(Name:="Approval2 By")>
     Public Property Approval2ByStr As String
     <Display(Name:="Approval3 Date")>
     Public Property Approval3Date As Nullable(Of Date)
     <Display(Name:="Approval3 By")>
     Public Property Approval3By As Nullable(Of Integer)
-    <Display(Name:="Approval3 By Str")>
+    <Display(Name:="Approval3 By")>
     Public Property Approval3ByStr As String
     <Display(Name:="Approval4 Date")>
     Public Property Approval4Date As Nullable(Of Date)
     <Display(Name:="Approval4 By")>
     Public Property Approval4By As Nullable(Of Integer)
-    <Display(Name:="Approval4 By Str")>
+    <Display(Name:="Approval4 By")>
     Public Property Approval4ByStr As String
     <Display(Name:="Approval5 Date")>
     Public Property Approval5Date As Nullable(Of Date)
     <Display(Name:="Approval5 By")>
     Public Property Approval5By As Nullable(Of Integer)
-    <Display(Name:="Approval5 By Str")>
+    <Display(Name:="Approval5 By")>
     Public Property Approval5ByStr As String
+    <Display(Name:="Approval6 Date")>
+    Public Property Approval6Date As Nullable(Of Date)
+    <Display(Name:="Approval6 By")>
+    Public Property Approval6By As Nullable(Of Integer)
+    <Display(Name:="Approval6 By")>
+    Public Property Approval6ByStr As String
+    <Display(Name:="Approval7 Date")>
+    Public Property Approval7Date As Nullable(Of Date)
+    <Display(Name:="Approval7 By")>
+    Public Property Approval7By As Nullable(Of Integer)
+    <Display(Name:="Approval7 By")>
+    Public Property Approval7ByStr As String
+    <Display(Name:="Approval8 Date")>
+    Public Property Approval8Date As Nullable(Of Date)
+    <Display(Name:="Approval8 By")>
+    Public Property Approval8By As Nullable(Of Integer)
+    <Display(Name:="Approval8 By")>
+    Public Property Approval8ByStr As String
     <Display(Name:="Status Record")>
     Public Property StatusRecord As Nullable(Of Integer)
     Public Property Status As String
