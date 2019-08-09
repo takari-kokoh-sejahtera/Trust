@@ -216,9 +216,6 @@ Namespace Controllers
                 If ((header.CompanyGroup_ID = 0)) Then
                     Message = "Must fill Company Group"
                     Valid = False
-                ElseIf (header.PT = Nothing) Then
-                    Message = "Must fill PT"
-                    Valid = False
                 ElseIf header.Tbk Is Nothing Then
                     Message = "Must fill TBK"
                     Valid = False
@@ -541,9 +538,6 @@ Namespace Controllers
             Else
                 If ((header.CompanyGroup_ID = 0)) Then
                     Message = "Must fill Company Group"
-                    Valid = False
-                ElseIf (header.PT = Nothing) Then
-                    Message = "Must fill PT"
                     Valid = False
                 ElseIf header.Tbk Is Nothing Then
                     Message = "Must fill TBK"
