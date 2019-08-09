@@ -213,9 +213,9 @@ Namespace Controllers
             Dim fileNameExtension As String = ".pdf"
 
             'akalin kalo signernya kepotong
-            Dim MarginTop = "1cm"
+            Dim MarginBottom = "1cm"
             If List.Count = 10 Then
-                MarginTop = "3cm"
+                MarginBottom = "3cm"
             End If
             'Dim deviceInfo =
             '"<DeviceInfo>" +
@@ -235,7 +235,7 @@ Namespace Controllers
             " <MarginTop>0cm</MarginTop>" +
             " <MarginLeft>0cm</MarginLeft>" +
             " <MarginRight>0cm</MarginRight>" +
-            " <MarginBottom>0cm</MarginBottom>" +
+            " <MarginBottom>" + MarginBottom + "</MarginBottom>" +
             "</DeviceInfo>"
             Dim warnings() As Warning
             Dim streams() As String

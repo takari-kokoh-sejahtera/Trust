@@ -1636,7 +1636,6 @@
               <Source>Embedded</Source>
               <Value>TakariHeader</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0cm</Top>
               <Left>1.40245cm</Left>
               <Height>0.62847in</Height>
               <Width>7.72786in</Width>
@@ -1663,7 +1662,6 @@
               <Value>TakariButton</Value>
               <Sizing>FitProportional</Sizing>
               <Top>0cm</Top>
-              <Left>0cm</Left>
               <Height>1.5cm</Height>
               <Width>21.00476cm</Width>
               <Style>
