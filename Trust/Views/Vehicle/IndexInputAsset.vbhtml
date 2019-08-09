@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Trust.Tr_ContractDetail)
+﻿@ModelType PagedList.IPagedList(Of Trust.Tr_ContractDetail)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "IndexInputAsset"
