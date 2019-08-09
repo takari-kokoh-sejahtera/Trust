@@ -22,7 +22,7 @@ Namespace Trust
         Public Property Module_Name As String
         Public Property Level_ID As Integer
         Public Property Limited_Approval As Decimal
-        Public Property LEVEL As Nullable(Of Integer)
+        Public Property Level As Nullable(Of Integer)
         Public Property Remark As String
     
     End Class

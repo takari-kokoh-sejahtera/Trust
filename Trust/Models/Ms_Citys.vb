@@ -25,7 +25,6 @@ Namespace Trust
         Public Property ModifiedBy As Nullable(Of Integer)
         Public Property isDeleted As Boolean
     
-        Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Ms_Customer_KYCs As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
         Public Overridable Property Ms_Customer_KYCs1 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
         Public Overridable Property Ms_Customer_KYCs2 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
@@ -45,6 +44,7 @@ Namespace Trust
         Public Overridable Property Tr_Calculates2 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
         Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
         Public Overridable Property Tr_ApplicationPOs As ICollection(Of Tr_ApplicationPOs) = New HashSet(Of Tr_ApplicationPOs)
+        Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
     
     End Class
 

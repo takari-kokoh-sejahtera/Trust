@@ -54,9 +54,6 @@
         <EntityTypeShape EntityType="TrustModel.Ms_FixedCosts" Width="1.5" PointX="29" PointY="35.625" />
         <EntityTypeShape EntityType="TrustModel.Tr_CalculateCashFlows" Width="1.5" PointX="37.25" PointY="47.875" />
         <EntityTypeShape EntityType="TrustModel.Tr_ApplicationCashFlows" Width="1.5" PointX="46.5" PointY="38.5" />
-        <EntityTypeShape EntityType="TrustModel.Ms_Customers" Width="1.5" PointX="35" PointY="40.125" />
-        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Compa__5165187F" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Custo__22EA20B8" />
         <EntityTypeShape EntityType="TrustModel.Ms_ProspectCategorys" Width="1.5" PointX="50.25" PointY="54.375" />
         <EntityTypeShape EntityType="TrustModel.Tr_ProspectCustHistorys" Width="1.5" PointX="54.5" PointY="50.5" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__691284DE" />
@@ -65,7 +62,6 @@
         <EntityTypeShape EntityType="TrustModel.Ms_FundingCosts" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="TrustModel.Ms_Contract_Signers" Width="1.5" PointX="27" PointY="30.875" />
         <EntityTypeShape EntityType="TrustModel.Ms_Citys" Width="1.5" PointX="29.75" PointY="29.75" />
-        <AssociationConnector Association="TrustModel.FK_City" />
         <EntityTypeShape EntityType="TrustModel.Ms_Vehicles" Width="1.5" PointX="44" PointY="27.125" />
         <AssociationConnector Association="TrustModel.FK__Ms_Vehicl__Contr__15C52FC4" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Vehic__5B988E2F" />
@@ -94,7 +90,6 @@
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__KYC_I__4376EBDB" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__KYC_I__6B4FD30B" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__KYC_I__76026BA8" />
-        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Custo__30641767" />
         <EntityTypeShape EntityType="TrustModel.Tr_ProspectCustDetails" Width="1.5" PointX="51.5" PointY="37" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Brand__3A179ED3" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Vehic__3CF40B7E" />
@@ -164,7 +159,6 @@
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__4DF47A4E" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__627A95E8" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__6C43F744" />
-        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__6CF8245B" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__1A74D648" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__1E45672C" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__36DC0ACC" />
@@ -174,7 +168,6 @@
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__4EE89E87" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__636EBA21" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__6D381B7D" />
-        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__6DEC4894" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Revie__61074EC2" />
         <AssociationConnector Association="TrustModel.FK__Ms_FixedC__Creat__536D5C82" />
         <AssociationConnector Association="TrustModel.FK__Ms_FixedC__Modif__546180BB" />
@@ -278,7 +271,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Modif__1BB31344" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__City___3552E9B6" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Compa__1C873BEC" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Prosp__74F938D6" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" />
@@ -289,7 +281,6 @@
         <AssociationConnector Association="TrustModel.FK__Cn_Approv__Level__23942C2E" />
         <AssociationConnector Association="TrustModel.FK__Cn_Levels__Creat__420DC656" />
         <AssociationConnector Association="TrustModel.FK__Cn_Levels__Modif__4301EA8F" />
-        <EntityTypeShape EntityType="TrustModel.V_Approval" Width="1.5" PointX="6.375" PointY="3.75" />
         <EntityTypeShape EntityType="TrustModel.Tr_ApplicationHeaders" Width="1.5" PointX="59" PointY="23.5" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__75F77EB0" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" />
@@ -327,6 +318,15 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__114A936A" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" />
+        <EntityTypeShape EntityType="TrustModel.Ms_Customers" Width="1.5" PointX="35" PointY="38.5" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__6CF8245B" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__6DEC4894" />
+        <AssociationConnector Association="TrustModel.FK_City" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Compa__5165187F" />
+        <AssociationConnector Association="TrustModel.FK__Ms_Custom__Custo__30641767" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Custo__22EA20B8" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3" />
+        <EntityTypeShape EntityType="TrustModel.V_Approval" Width="1.5" PointX="6.375" PointY="3.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

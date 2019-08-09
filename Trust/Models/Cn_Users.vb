@@ -83,7 +83,6 @@ Namespace Trust
         Public Overridable Property Ms_Customer_KYC_AuthorizedSigners As ICollection(Of Ms_Customer_KYC_AuthorizedSigners) = New HashSet(Of Ms_Customer_KYC_AuthorizedSigners)
         Public Overridable Property Ms_Customer_CompanyGroups As ICollection(Of Ms_Customer_CompanyGroups) = New HashSet(Of Ms_Customer_CompanyGroups)
         Public Overridable Property Ms_Customer_KYC_LineBussinesss As ICollection(Of Ms_Customer_KYC_LineBussinesss) = New HashSet(Of Ms_Customer_KYC_LineBussinesss)
-        Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Ms_Customer_Identitass1 As ICollection(Of Ms_Customer_Identitass) = New HashSet(Of Ms_Customer_Identitass)
         Public Overridable Property Ms_Customer_BusinessLicenses1 As ICollection(Of Ms_Customer_BusinessLicenses) = New HashSet(Of Ms_Customer_BusinessLicenses)
         Public Overridable Property Ms_Customer_KYC_Shareholders1 As ICollection(Of Ms_Customer_KYC_Shareholders) = New HashSet(Of Ms_Customer_KYC_Shareholders)
@@ -93,7 +92,6 @@ Namespace Trust
         Public Overridable Property Ms_Customer_KYC_AuthorizedSigners1 As ICollection(Of Ms_Customer_KYC_AuthorizedSigners) = New HashSet(Of Ms_Customer_KYC_AuthorizedSigners)
         Public Overridable Property Ms_Customer_CompanyGroups1 As ICollection(Of Ms_Customer_CompanyGroups) = New HashSet(Of Ms_Customer_CompanyGroups)
         Public Overridable Property Ms_Customer_KYC_LineBussinesss1 As ICollection(Of Ms_Customer_KYC_LineBussinesss) = New HashSet(Of Ms_Customer_KYC_LineBussinesss)
-        Public Overridable Property Ms_Customers1 As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Ms_Customer_KYCs2 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
         Public Overridable Property Ms_FixedCosts As ICollection(Of Ms_FixedCosts) = New HashSet(Of Ms_FixedCosts)
         Public Overridable Property Ms_FixedCosts1 As ICollection(Of Ms_FixedCosts) = New HashSet(Of Ms_FixedCosts)
@@ -193,6 +191,8 @@ Namespace Trust
         Public Overridable Property Tr_Quotations As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
         Public Overridable Property Tr_Quotations1 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
         Public Overridable Property Tr_Quotations2 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
+        Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
+        Public Overridable Property Ms_Customers1 As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
     
     End Class
 

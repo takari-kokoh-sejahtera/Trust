@@ -183,10 +183,10 @@ Namespace Trust
         Public Overridable Property Ms_Customer_KYC_Directors As ICollection(Of Ms_Customer_KYC_Directors) = New HashSet(Of Ms_Customer_KYC_Directors)
         Public Overridable Property Ms_Customer_KYC_LineBussinesss As ICollection(Of Ms_Customer_KYC_LineBussinesss) = New HashSet(Of Ms_Customer_KYC_LineBussinesss)
         Public Overridable Property Ms_Customer_KYC_Shareholders As ICollection(Of Ms_Customer_KYC_Shareholders) = New HashSet(Of Ms_Customer_KYC_Shareholders)
-        Public Overridable Property Ms_Customers As Ms_Customers
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Cn_Users2 As Cn_Users
+        Public Overridable Property Ms_Customers As Ms_Customers
     
     End Class
 

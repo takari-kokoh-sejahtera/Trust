@@ -214,7 +214,7 @@ Namespace Controllers
 
             'akalin kalo signernya kepotong
             Dim MarginTop = "1cm"
-            If List.Count = 12 Then
+            If List.Count = 10 Then
                 MarginTop = "3cm"
             End If
             'Dim deviceInfo =
