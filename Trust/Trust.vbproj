@@ -7857,6 +7857,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
     <None Include="My Project\PublishProfiles\Trust.pubxml" />
     <None Include="My Project\PublishProfiles\TrustDEV.pubxml" />
     <None Include="My Project\PublishProfiles\TRUSTPublic.pubxml" />
