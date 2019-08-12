@@ -85,7 +85,7 @@ Namespace Controllers
             If IsNothing(id) Then
                 Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
             End If
-            Dim Query = (From A In db.Tr_Contracts.Where(Function(x) x.IsDeleted = 0)
+            Dim Query = (From A In db.Tr_Contracts.Where(Function(x) x.IsDeleted = False)
                          Join B In db.V_ProspectCusts On A.ApprovalApp_ID Equals B.ApprovalApp_ID
                          Where A.IsInvoicedAll = False And A.IsReceiptContract = True And A.Contract_ID = id
                          Select A.Contract_ID, A.Tr_ApprovalApps.Tr_ApplicationHeaders.Contract_No, B.CompanyGroup_Name, B.Company_Name, A.Penerima, A.Jabatan, A.CreatedDate, B.CustomerExists_ID).
@@ -93,13 +93,13 @@ Namespace Controllers
             If IsNothing(Query) Then
                 Return HttpNotFound()
             End If
-            Dim detail = (From A In db.Tr_ContractDetails.Where(Function(x) x.IsDeleted = 0 And (x.IsDelivery = True Or x.IsTemporaryCar = True))
+            Dim detail = (From A In db.Tr_ContractDetails.Where(Function(x) x.IsDeleted = False And (x.IsDelivery = True Or x.IsTemporaryCar = True))
                           Join B In db.V_ProspectCustDetails On A.Application_ID Equals B.Application_ID
-                          Group Join C In db.Ms_Vehicles.Where(Function(x) x.IsDeleted = 0) On A.Vehicle_ID Equals C.Vehicle_id Into AC = Group
+                          Group Join C In db.Ms_Vehicles.Where(Function(x) x.IsDeleted = False) On A.Vehicle_ID Equals C.Vehicle_id Into AC = Group
                           From C In AC.DefaultIfEmpty
-                          Group Join D In db.Tr_TemporaryCars.Where(Function(x) x.IsDeleted = 0) On A.ContractDetail_ID Equals D.ContractDetail_ID Into AD = Group
+                          Group Join D In db.Tr_TemporaryCars.Where(Function(x) x.IsDeleted = False) On A.ContractDetail_ID Equals D.ContractDetail_ID Into AD = Group
                           From D In AD.DefaultIfEmpty
-                          Group Join E In db.Ms_Vehicles.Where(Function(x) x.IsDeleted = 0) On D.Vehicle_ID Equals E.Vehicle_id Into DE = Group
+                          Group Join E In db.Ms_Vehicles.Where(Function(x) x.IsDeleted = False) On D.Vehicle_ID Equals E.Vehicle_id Into DE = Group
                           From E In DE.DefaultIfEmpty
                           Where A.Contract_ID = id And A.IsInvoiced = False
                           Select A.ContractDetail_ID, B.Brand_Name, B.Type, C.Vehicle_id, C.license_no, C.Tmp_Plat, B.Lease_long, A.Bid_PricePerMonth, A.IsTemporaryCar, Vehicle_ID1 = D.Vehicle_ID, license_no1 = E.license_no).

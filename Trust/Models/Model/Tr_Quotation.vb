@@ -47,7 +47,7 @@ Public Class Tr_Quotation
     Public Property CreatedDate As Nullable(Of Date)
     <Display(Name:="Created By")>
     Public Property CreatedBy As String
-    Public Property CreatedBy_ID As Integer
+    Public Property CreatedBy_ID As Nullable(Of Integer)
     <Display(Name:="Modified Date")>
     Public Property ModifiedDate As Nullable(Of Date)
     <Display(Name:="Modified By")>
@@ -69,7 +69,7 @@ End Class
 
 
 Public Class Tr_QuotationDetail
-    Public Property QuotationDetail_ID As Integer
+    Public Property QuotationDetail_ID As Nullable(Of Integer)
     Public Property Quotation_ID As Nullable(Of Integer)
     Public Property Calculate_ID As Nullable(Of Integer)
     Public Property Application_ID As Nullable(Of Integer)
