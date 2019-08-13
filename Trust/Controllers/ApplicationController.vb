@@ -89,9 +89,6 @@ Namespace Controllers
             If file Is Nothing Then
                 message = "Must fill PDF"
             End If
-            If file1 Is Nothing Then
-                message = "Must fill PDF"
-            End If
             If ModelState.IsValid And file IsNot Nothing Then
                 Using dbs = db.Database.BeginTransaction
                     Try
@@ -143,10 +140,14 @@ Namespace Controllers
                                 appPO.ApproveFinish(db, Pros.ProspectCustomer_ID, user, False)
                             End If
                             file.SaveAs(path)
-                            file1.SaveAs(path1)
+                            If file1 IsNot Nothing Then
+                                file1.SaveAs(path1)
+                            End If
                             Using ms As MemoryStream = New MemoryStream()
                                 file.InputStream.CopyTo(ms)
-                                file1.InputStream.CopyTo(ms)
+                                If file1 IsNot Nothing Then
+                                    file1.InputStream.CopyTo(ms)
+                                End If
                                 Dim array As Byte() = ms.GetBuffer()
                             End Using
                             'Session("Pic") = pic
