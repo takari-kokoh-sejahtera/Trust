@@ -834,6 +834,118 @@ Namespace Controllers
             ViewBag.Code_Open = New SelectList(IsCode_Open, "Value", "Text")
             Return View()
         End Function
+        Function TestRecal(ByVal id As Integer?) As ActionResult
+            Dim i = db.Tr_Applications.Where(Function(x) x.Application_ID = id).FirstOrDefault()
+            'Hitung Ulang
+            Dim vProcDet = db.V_ProspectCustDetails.Where(Function(x) x.Application_ID = i.Application_ID).FirstOrDefault
+            Dim cal As New Tr_Calculate
+            cal.Lease_long = vProcDet.Lease_long
+            cal.Replacement_Tick = i.Replacement_Tick
+            cal.Maintenance_Tick = i.Maintenance_Tick
+            cal.STNK_Tick = i.STNK_Tick
+            cal.Assurance_Tick = i.Assurance_Tick
+            cal.IsVehicleExists = vProcDet.IsVehicleExists
+            cal.Transaction_Type = vProcDet.Transaction_Type
+            cal.Type = vProcDet.Type
+            cal.Lease_price = vProcDet.Lease_price
+            cal.Rent_Location_ID = i.Rent_Location_ID
+            cal.Plat_Location = i.Plat_Location
+            cal.Term_Of_Payment = i.Term_Of_Payment
+            cal.PayMonth = i.PayMonth
+            cal.Payment_Condition = i.Payment_Condition
+            cal.Modification = i.Modification
+            cal.GPS_Cost = i.GPS_Cost
+            cal.GPS_CostPerMonth = i.GPS_CostPerMonth
+            cal.Agent_Fee = i.Agent_Fee
+            cal.Agent_FeePerMonth = i.Agent_FeePerMonth
+            cal.Update_OTR = i.Update_OTR
+            cal.Residual_Value = i.Residual_Value
+            cal.Residual_ValuePercent = i.Residual_ValuePercent
+            cal.Expedition_Status = i.Expedition_Status
+            cal.Expedition_Cost = i.Expedition_Cost
+            cal.Keur = i.Keur
+            cal.Update_Diskon = i.Update_Diskon
+            cal.Cost_Price = i.Cost_Price
+            cal.Up_Front_Fee = i.Up_Front_Fee
+            cal.Up_Front_Fee_Percent = i.Up_Front_Fee_Percent
+            cal.Other = i.Other
+            cal.Efektif_Date = i.Efektif_Date
+            cal.Replacement_Percent = i.Replacement_Percent
+            cal.Replacement = i.Replacement
+            cal.Maintenance_Percent = i.Maintenance_Percent
+            cal.Maintenance = i.Maintenance
+            cal.STNK_Percent = i.STNK_Percent
+            cal.STNK = i.STNK
+            cal.Overhead_Percent = i.Overhead_Percent
+            cal.Overhead = i.Overhead
+            cal.Assurance_Percent = i.Assurance_Percent
+            cal.Assurance = i.Assurance
+            cal.AssuranceExtra = i.AssuranceExtra
+            cal.Lease_Profit = i.Lease_Profit
+            cal.Lease_Profit_Percent = i.Lease_Profit_Percent
+            cal.Depresiasi = i.Depresiasi
+            cal.Depresiasi_Percent = i.Depresiasi_Percent
+            cal.Funding_Interest = i.Funding_Interest
+            cal.Funding_Interest_Percent = i.Funding_Interest_Percent
+            cal.Bid_PricePerMonth = i.Bid_PricePerMonth
+            cal.Premium = i.Premium
+            cal.OJK = i.OJK
+            cal.SwapRate = i.SwapRate
+            cal.Project_Rating = i.Project_Rating
+            cal.IRR = i.IRR
+            cal.Funding_Rate = i.Funding_Rate
+            cal.Spread = i.Spread
+            cal.Profit = i.Profit
+            cal.IsTruck = vProcDet.IsTruck
+            cal.New_Vehicle_Price = i.New_Vehicle_Price
+            'Recalculate
+            cal = calControl.ReCalculate(db, cal)
+
+            i.GPS_Cost = cal.GPS_Cost
+            i.GPS_CostPerMonth = cal.GPS_CostPerMonth
+            i.Agent_Fee = cal.Agent_Fee
+            i.Agent_FeePerMonth = cal.Agent_FeePerMonth
+            i.Update_OTR = cal.Update_OTR
+            i.Residual_Value = cal.Residual_Value
+            i.Residual_ValuePercent = cal.Residual_ValuePercent
+            i.Expedition_Status = cal.Expedition_Status
+            i.Expedition_Cost = cal.Expedition_Cost
+            i.Keur = cal.Keur
+            i.Update_Diskon = cal.Update_Diskon
+            i.Cost_Price = cal.Cost_Price
+            i.Up_Front_Fee = cal.Up_Front_Fee
+            i.Up_Front_Fee_Percent = cal.Up_Front_Fee_Percent
+            i.Other = cal.Other
+            i.Replacement_Percent = cal.Replacement_Percent
+            i.Replacement = cal.Replacement
+            i.Maintenance_Percent = cal.Maintenance_Percent
+            i.Maintenance = cal.Maintenance
+            i.STNK_Percent = cal.STNK_Percent
+            i.STNK = cal.STNK
+            i.Overhead_Percent = cal.Overhead_Percent
+            i.Overhead = cal.Overhead
+            i.Assurance_Percent = cal.Assurance_Percent
+            i.Assurance = cal.Assurance
+            i.AssuranceExtra = cal.AssuranceExtra
+            i.Lease_Profit = cal.Lease_Profit
+            i.Lease_Profit_Percent = cal.Lease_Profit_Percent
+            i.Depresiasi = cal.Depresiasi
+            i.Depresiasi_Percent = cal.Depresiasi_Percent
+            i.Funding_Interest = cal.Funding_Interest
+            i.Funding_Interest_Percent = cal.Funding_Interest_Percent
+            i.Bid_PricePerMonth = cal.Bid_PricePerMonth
+            i.Premium = cal.Premium
+            i.OJK = cal.OJK
+            i.SwapRate = cal.SwapRate
+            i.Project_Rating = cal.Project_Rating
+            i.IRR = cal.IRR
+            i.Funding_Rate = cal.Funding_Rate
+            i.Spread = cal.Spread
+            i.Profit = cal.Profit
+
+            db.SaveChanges()
+            Return RedirectToAction("Index")
+        End Function
         'Save Detail
         Public Function SaveOrder(orderHeader() As Tr_ApplicationHeader, order() As Tr_Application) As ActionResult
             Dim user As String

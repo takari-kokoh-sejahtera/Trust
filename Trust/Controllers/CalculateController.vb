@@ -2234,7 +2234,7 @@ last1:
                 cal.Expedition_Cost = calExpedition.Expedition_Cost
             End If
             cal.Keur = calExpedition.Keur
-            Dim amount = If(If(cal.Update_OTR, 0), cal.Lease_price, cal.Update_OTR)
+            Dim amount = If(If(cal.Update_OTR, 0) = 0, cal.Lease_price, cal.Update_OTR)
             cal.Cost_Price = amount - If(cal.Update_Diskon, 0)
             cal.Replacement = (cal.Replacement_Percent * cal.Cost_Price) / 100
             If cal.IsVehicleExists Then
