@@ -1,4 +1,4 @@
-﻿@ModelType Trust.Cn_Roles
+﻿@ModelType Trust.Trust.Cn_Roles
 @Code
     ViewData("Title") = "Edit"
 End Code
