@@ -137,6 +137,11 @@ Namespace Controllers
                                 ProsH.CustomerExists_ID = customer.Customer_ID
                             End If
                             db.SaveChanges()
+                            'jika nga ada mobil baru maka langsung ke Applikasi
+                            If (Not db.V_ProspectCustDetails.Where(Function(x) x.IsVehicleExists = False And x.ProspectCustomer_ID = Pros.ProspectCustomer_ID).Any) Then
+                                Dim appPO As New ApprovalPOController
+                                appPO.ApproveFinish(db, Pros.ProspectCustomer_ID, user, False)
+                            End If
                             file.SaveAs(path)
                             file1.SaveAs(path1)
                             Using ms As MemoryStream = New MemoryStream()

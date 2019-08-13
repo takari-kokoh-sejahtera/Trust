@@ -344,104 +344,111 @@ Namespace Controllers
         ' POST: Approval/Create
         'To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        Private Sub ApproveFinish(db As TrustEntities, ProspectCustomer_ID As Integer, user As Integer)
+        Public Sub ApproveFinish(db As TrustEntities, ProspectCustomer_ID As Integer, user As Integer, WithPO As Boolean)
             Try
                 Dim transaction = "PO DEALER"
                 Dim Vpro = db.V_ProspectCusts.Where(Function(x) x.ProspectCustomer_ID = ProspectCustomer_ID).FirstOrDefault
 
                 Dim proc = db.Tr_ProspectCusts.Where(Function(x) x.ProspectCustomer_ID = ProspectCustomer_ID).FirstOrDefault
                 proc.IsApplicationPO = True
-                Dim no As Integer = GenerateNo(db, transaction, user)
-                proc.PO_No = Right("000" + no.ToString, 4) + "-PO/TKS/" + If(Vpro.Transaction_Type, "") + "/" + GeneralControl.RomawiMonth(DateTime.Now.Month) + "/" + DateTime.Now.Year.ToString
+                If WithPO Then
+                    Dim no As Integer = GenerateNo(db, transaction, user)
+                    proc.PO_No = Right("000" + no.ToString, 4) + "-PO/TKS/" + If(Vpro.Transaction_Type, "") + "/" + GeneralControl.RomawiMonth(DateTime.Now.Month) + "/" + DateTime.Now.Year.ToString
+                End If
                 db.SaveChanges()
 
-                'Ubah ISFillOTR nya di applikasi
-                Dim procCustDetailIDList = db.Tr_ApplicationPOs.Where(Function(x) x.IsDeleted = False And x.ProspectCustomer_ID = ProspectCustomer_ID).Select(Function(x) x.ProspectCustomerDetail_ID).ToArray
-                Dim appIDLst = db.V_ProspectCustDetails.Where(Function(x) procCustDetailIDList.Contains(x.ProspectCustomerDetail_ID) And x.Application_ID IsNot Nothing).Select(Function(x) x.Application_ID).ToArray
-                Dim app = db.Tr_Applications.Where(Function(x) x.IsDeleted = False And appIDLst.Contains(x.Application_ID)).ToList
 
                 'Upadte Approval
                 Dim approval = db.Tr_Approvals.Where(Function(x) x.IsDeleted = False And x.Quotation_ID = Vpro.Quotation_ID).FirstOrDefault
                 approval.IsApplicationHeader = CType(True, Boolean)
                 db.SaveChanges()
-                Dim cal As New CalculateController
-                For Each i In app
-                    Dim vProcDet = db.V_ProspectCustDetails.Where(Function(x) x.Application_ID = i.Application_ID).FirstOrDefault
-                    Dim OTR_Price As Decimal? = db.Tr_ApplicationPOs.Where(Function(x) x.IsDeleted = False And
-                                                           x.ProspectCustomerDetail_ID = vProcDet.ProspectCustomerDetail_ID).
-                                                           Max(Function(x) x.Tr_ApplicationPODetails.Where(Function(z) z.IsDeleted = False And z.IsChecked = True).
-                                                           Max(Function(y) y.OTR_Price))
-                    Dim Discount As Decimal? = db.Tr_ApplicationPOs.Where(Function(x) x.IsDeleted = False And
-                                                           x.ProspectCustomerDetail_ID = vProcDet.ProspectCustomerDetail_ID).
-                                                           Max(Function(x) x.Tr_ApplicationPODetails.Where(Function(z) z.IsDeleted = False And z.IsChecked = True).
-                                                           Max(Function(y) y.Discount))
-                    Dim CostPrice = OTR_Price - Discount
-                    i.Update_OTR = OTR_Price
-                    i.Update_Diskon = Discount
-                    i.Cost_Price = CostPrice
-                    i.Replacement = i.Replacement_Percent * CostPrice / 100
-                    If Not vProcDet.IsVehicleExists Then
 
-                        i.STNK = OTR_Price * i.STNK_Percent / 100
-                        i.Assurance = (OTR_Price + i.Modification) * vProcDet.Lease_long / 12 * ((i.Assurance_Percent * Math.Pow(0.955, vProcDet.Lease_long / 12)) / 100)
-                        i.Maintenance = i.Maintenance_Percent * CostPrice / 100
-                    End If
-                    i.Overhead = CostPrice * i.Overhead_Percent / 100
-                    i.Lease_Profit = (i.Lease_Profit_Percent * CostPrice * vProcDet.Lease_long) / 12 / 100
-                    i.Up_Front_Fee = (i.Up_Front_Fee_Percent * CostPrice * vProcDet.Lease_long) / 100
-                    i.Funding_Interest = (i.Funding_Interest_Percent * CostPrice) / 100 * (vProcDet.Lease_long / 12)
-
-
-                    Dim Replacement = i.Replacement, Maintenance = i.Maintenance, STNK = i.STNK, Overhead = i.Overhead, GPS_Cost = i.GPS_Cost, GPS_CostPerMonth = i.GPS_CostPerMonth,
-                    Lease_long = vProcDet.Lease_long, Assurance = i.Assurance + i.AssuranceExtra, Depresiasi = i.Depresiasi, Expedition_Cost = i.Expedition_Cost, Modification = i.Modification,
-                    Funding_Interest = i.Funding_Interest, Other = i.Other, Lease_Profit = i.Lease_Profit
-                    i.Bid_PricePerMonth = cal.CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, Lease_long, Assurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-
-                    Dim Expedition_Status = i.Expedition_Status, PayMonth = i.PayMonth, Up_Front_Fee = i.Up_Front_Fee, Bid_PricePerMonth = i.Bid_PricePerMonth,
-                        Residual_Value = i.Residual_Value, Payment_Condition = i.Payment_Condition, Term_Of_Payment = i.Term_Of_Payment, Agent_Fee = i.Agent_Fee, Keur = i.Keur,
-                        Agent_FeePerMonth = i.Agent_FeePerMonth, Funding_Rate = i.Funding_Rate, IRR = i.IRR, Profit = i.Profit
-
-                    cal.CalIRR(Expedition_Status, PayMonth, CostPrice, Up_Front_Fee, Replacement, Maintenance, STNK, Overhead, Assurance, Bid_PricePerMonth,
-                           Residual_Value, vProcDet.Lease_long, Expedition_Cost, vProcDet.Transaction_Type, Payment_Condition, Term_Of_Payment, Modification,
-                           GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRR, Profit)
-                    i.IRR = IRR
-                    i.Profit = Profit
-                    i.IsFillOTR = True
-                    i.FillOTRBy = user
+                If WithPO Then
+                    'Ubah ISFillOTR nya di applikasi
+                    Dim procCustDetailIDList = db.Tr_ApplicationPOs.Where(Function(x) x.IsDeleted = False And x.ProspectCustomer_ID = ProspectCustomer_ID).Select(Function(x) x.ProspectCustomerDetail_ID).ToArray
+                    Dim appIDLst = db.V_ProspectCustDetails.Where(Function(x) procCustDetailIDList.Contains(x.ProspectCustomerDetail_ID) And x.Application_ID IsNot Nothing).Select(Function(x) x.Application_ID).ToArray
+                    Dim app = db.Tr_Applications.Where(Function(x) x.IsDeleted = False And appIDLst.Contains(x.Application_ID)).ToList
                     db.SaveChanges()
+                    Dim cal As New CalculateController
+                    For Each i In app
+                        Dim vProcDet = db.V_ProspectCustDetails.Where(Function(x) x.Application_ID = i.Application_ID).FirstOrDefault
+                        Dim OTR_Price As Decimal? = db.Tr_ApplicationPOs.Where(Function(x) x.IsDeleted = False And
+                                                               x.ProspectCustomerDetail_ID = vProcDet.ProspectCustomerDetail_ID).
+                                                               Max(Function(x) x.Tr_ApplicationPODetails.Where(Function(z) z.IsDeleted = False And z.IsChecked = True).
+                                                               Max(Function(y) y.OTR_Price))
+                        Dim Discount As Decimal? = db.Tr_ApplicationPOs.Where(Function(x) x.IsDeleted = False And
+                                                               x.ProspectCustomerDetail_ID = vProcDet.ProspectCustomerDetail_ID).
+                                                               Max(Function(x) x.Tr_ApplicationPODetails.Where(Function(z) z.IsDeleted = False And z.IsChecked = True).
+                                                               Max(Function(y) y.Discount))
+                        Dim CostPrice = OTR_Price - Discount
+                        i.Update_OTR = OTR_Price
+                        i.Update_Diskon = Discount
+                        i.Cost_Price = CostPrice
+                        i.Replacement = i.Replacement_Percent * CostPrice / 100
+                        If Not vProcDet.IsVehicleExists Then
+
+                            i.STNK = OTR_Price * i.STNK_Percent / 100
+                            i.Assurance = (OTR_Price + i.Modification) * vProcDet.Lease_long / 12 * ((i.Assurance_Percent * Math.Pow(0.955, vProcDet.Lease_long / 12)) / 100)
+                            i.Maintenance = i.Maintenance_Percent * CostPrice / 100
+                        End If
+                        i.Overhead = CostPrice * i.Overhead_Percent / 100
+                        i.Lease_Profit = (i.Lease_Profit_Percent * CostPrice * vProcDet.Lease_long) / 12 / 100
+                        i.Up_Front_Fee = (i.Up_Front_Fee_Percent * CostPrice * vProcDet.Lease_long) / 100
+                        i.Funding_Interest = (i.Funding_Interest_Percent * CostPrice) / 100 * (vProcDet.Lease_long / 12)
 
 
-                    'samain di FillOTR
-                    Dim AssuranceCashFlow = (i.Assurance + i.AssuranceExtra) / (vProcDet.Lease_long / 12)
-                    Dim Application_ID = i.Application_ID
-                    'Dim appCaseFlow = db.Tr_ApplicationCashFlows.Where(Function(x) x.Application_ID = i.Application_ID And x.IsDeleted = False).ToList
-                    'For Each p In appCaseFlow
-                    '    p.IsDeleted = True
-                    '    p.ModifiedBy = user
-                    '    p.ModifiedDate = DateTime.Now
-                    'Next
-                    'db.SaveChanges()
+                        Dim Replacement = i.Replacement, Maintenance = i.Maintenance, STNK = i.STNK, Overhead = i.Overhead, GPS_Cost = i.GPS_Cost, GPS_CostPerMonth = i.GPS_CostPerMonth,
+                        Lease_long = vProcDet.Lease_long, Assurance = i.Assurance + i.AssuranceExtra, Depresiasi = i.Depresiasi, Expedition_Cost = i.Expedition_Cost, Modification = i.Modification,
+                        Funding_Interest = i.Funding_Interest, Other = i.Other, Lease_Profit = i.Lease_Profit
+                        i.Bid_PricePerMonth = cal.CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, Lease_long, Assurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
 
-                    Dim message = db.sp_SaveCashFlow(False, Application_ID, user, Expedition_Status, PayMonth, CostPrice, Up_Front_Fee, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow,
-                                     Bid_PricePerMonth, Residual_Value, vProcDet.Lease_long, Expedition_Cost, vProcDet.Transaction_Type, Payment_Condition, Term_Of_Payment, Modification,
-                                     GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate).ToList
+                        Dim Expedition_Status = i.Expedition_Status, PayMonth = i.PayMonth, Up_Front_Fee = i.Up_Front_Fee, Bid_PricePerMonth = i.Bid_PricePerMonth,
+                            Residual_Value = i.Residual_Value, Payment_Condition = i.Payment_Condition, Term_Of_Payment = i.Term_Of_Payment, Agent_Fee = i.Agent_Fee, Keur = i.Keur,
+                            Agent_FeePerMonth = i.Agent_FeePerMonth, Funding_Rate = i.Funding_Rate, IRR = i.IRR, Profit = i.Profit
 
-                    If message.Select(Function(x) x.Message).FirstOrDefault <> "Success" Then
-                        Throw New System.Exception(message.Select(Function(x) x.Message).FirstOrDefault)
-                    End If
-                    'cal.SaveCashFlow(False, Application_ID, user, Expedition_Status, PayMonth, CostPrice, Up_Front_Fee, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow,
-                    '                 Bid_PricePerMonth, Residual_Value, vProcDet.Lease_long, Expedition_Cost, vProcDet.Transaction_Type, Payment_Condition, Term_Of_Payment, Modification,
-                    '                 GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate)
-                    ''samain Qty, kalo Qty sama maka dia bisa buat Application Header
-                    'Dim CountApp = db.Tr_Applications.Where(Function(x) x.Approval_ID = i.Approval_ID And x.IsFillOTR = True And x.IsDeleted = False).Count
-                    'Dim CountQuotDetail = db.Tr_QuotationDetails.Where(Function(x) x.Quotation_ID = approval.Quotation_ID And x.IsDeleted = False).Count
+                        cal.CalIRR(Expedition_Status, PayMonth, CostPrice, Up_Front_Fee, Replacement, Maintenance, STNK, Overhead, Assurance, Bid_PricePerMonth,
+                               Residual_Value, vProcDet.Lease_long, Expedition_Cost, vProcDet.Transaction_Type, Payment_Condition, Term_Of_Payment, Modification,
+                               GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRR, Profit)
+                        i.IRR = IRR
+                        i.Profit = Profit
+                        i.IsFillOTR = True
+                        i.FillOTRBy = user
+                        db.SaveChanges()
 
-                    'If CountApp + 1 = CountQuotDetail Then
-                    '    approval.IsApplicationHeader = CType(True, Boolean)
-                    'End If
 
-                    db.SaveChanges()
-                Next
+                        'samain di FillOTR
+                        Dim AssuranceCashFlow = (i.Assurance + i.AssuranceExtra) / (vProcDet.Lease_long / 12)
+                        Dim Application_ID = i.Application_ID
+                        'Dim appCaseFlow = db.Tr_ApplicationCashFlows.Where(Function(x) x.Application_ID = i.Application_ID And x.IsDeleted = False).ToList
+                        'For Each p In appCaseFlow
+                        '    p.IsDeleted = True
+                        '    p.ModifiedBy = user
+                        '    p.ModifiedDate = DateTime.Now
+                        'Next
+                        'db.SaveChanges()
+
+                        Dim message = db.sp_SaveCashFlow(False, Application_ID, user, Expedition_Status, PayMonth, CostPrice, Up_Front_Fee, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow,
+                                         Bid_PricePerMonth, Residual_Value, vProcDet.Lease_long, Expedition_Cost, vProcDet.Transaction_Type, Payment_Condition, Term_Of_Payment, Modification,
+                                         GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate).ToList
+
+                        If message.Select(Function(x) x.Message).FirstOrDefault <> "Success" Then
+                            Throw New System.Exception(message.Select(Function(x) x.Message).FirstOrDefault)
+                        End If
+                        'cal.SaveCashFlow(False, Application_ID, user, Expedition_Status, PayMonth, CostPrice, Up_Front_Fee, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow,
+                        '                 Bid_PricePerMonth, Residual_Value, vProcDet.Lease_long, Expedition_Cost, vProcDet.Transaction_Type, Payment_Condition, Term_Of_Payment, Modification,
+                        '                 GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate)
+                        ''samain Qty, kalo Qty sama maka dia bisa buat Application Header
+                        'Dim CountApp = db.Tr_Applications.Where(Function(x) x.Approval_ID = i.Approval_ID And x.IsFillOTR = True And x.IsDeleted = False).Count
+                        'Dim CountQuotDetail = db.Tr_QuotationDetails.Where(Function(x) x.Quotation_ID = approval.Quotation_ID And x.IsDeleted = False).Count
+
+                        'If CountApp + 1 = CountQuotDetail Then
+                        '    approval.IsApplicationHeader = CType(True, Boolean)
+                        'End If
+
+                        db.SaveChanges()
+                    Next
+                End If
+
 
                 'update Application
             Catch ex As Exception
@@ -479,7 +486,7 @@ Namespace Controllers
                         ElseIf level = 3 Then
                             If Cost_Price <= Session("Limited_Approval_ApplicationPO") Then
                                 Query.Status = "Finish"
-                                ApproveFinish(db, appPO.ProspectCustomer_ID, user)
+                                ApproveFinish(db, appPO.ProspectCustomer_ID, user, True)
                             End If
                             Query.Approval1Date = DateTime.Now
                             Query.Approval1By = user
@@ -490,7 +497,7 @@ Namespace Controllers
                         ElseIf level = 4 Then
                             If Cost_Price <= Session("Limited_Approval_ApplicationPO") Then
                                 Query.Status = "Finish"
-                                ApproveFinish(db, appPO.ProspectCustomer_ID, user)
+                                ApproveFinish(db, appPO.ProspectCustomer_ID, user, True)
                             End If
                             Query.Approval2Date = DateTime.Now
                             Query.Approval2By = user
@@ -501,7 +508,7 @@ Namespace Controllers
                         ElseIf level = 5 Then
                             If Cost_Price <= Session("Limited_Approval_ApplicationPO") Then
                                 Query.Status = "Finish"
-                                ApproveFinish(db, appPO.ProspectCustomer_ID, user)
+                                ApproveFinish(db, appPO.ProspectCustomer_ID, user, True)
                             End If
                             Query.Approval3Date = DateTime.Now
                             Query.Approval3By = user
@@ -512,7 +519,7 @@ Namespace Controllers
                         ElseIf level = 6 Then
                             If Cost_Price <= Session("Limited_Approval_ApplicationPO") Then
                                 Query.Status = "Finish"
-                                ApproveFinish(db, appPO.ProspectCustomer_ID, user)
+                                ApproveFinish(db, appPO.ProspectCustomer_ID, user, True)
                             End If
                             Query.Approval4Date = DateTime.Now
                             Query.Approval4By = user
@@ -523,7 +530,7 @@ Namespace Controllers
                         ElseIf level = 7 Then
                             If Cost_Price <= Session("Limited_Approval_ApplicationPO") Then
                                 Query.Status = "Finish"
-                                ApproveFinish(db, appPO.ProspectCustomer_ID, user)
+                                ApproveFinish(db, appPO.ProspectCustomer_ID, user, True)
                             End If
                             Query.Approval5Date = DateTime.Now
                             Query.Approval5By = user
