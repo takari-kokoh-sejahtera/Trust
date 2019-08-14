@@ -1,4 +1,4 @@
-﻿@ModelType Trust.Ms_Customers
+﻿@ModelType Trust.Trust.Ms_Customers
 @Code
     ViewData("Title") = "Details"
 End Code

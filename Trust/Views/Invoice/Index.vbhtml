@@ -33,7 +33,7 @@ End Code
                                 @Html.ActionLink("Invoice No", "Index", New With {.sortOrder = "Invoice_No", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
                             </th>
                             <th>
-                                Published Date
+                                @Html.ActionLink("Published Date", "Index", New With {.sortOrder = "Published_Date", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
                             </th>
                             <th>
                                 @Html.ActionLink("Contract No", "Index", New With {.sortOrder = "Contract_No", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
@@ -42,7 +42,7 @@ End Code
                                 @Html.ActionLink("Company Name", "Index", New With {.sortOrder = "Company_Name", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
                             </th>
                             <th>
-                                @Html.DisplayNameFor(Function(model) model(0).Sub_Total)
+                                @Html.ActionLink("Sub Total", "Index", New With {.sortOrder = "Sub Total", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
                             </th>
                         </tr>
 
