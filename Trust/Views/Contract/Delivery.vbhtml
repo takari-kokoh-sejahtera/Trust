@@ -86,7 +86,7 @@ End Code
         <!-- Profile Image -->
         <div class="box box-primary">
             <div class="box-body box-profile">
-                <label for="file">Upload PO:</label>
+                <label for="file">Upload BSTK:</label>
                 <input type="file" name="file" id="file" style="width: 100%;" accept="application/pdf,application/vnd.ms-excel" />
                 <input type="submit" value="Upload" class="submit" />
                 @Html.ValidationMessageFor(Function(model) model.Delivery_ID, "", New With {.class = "text-danger"})
