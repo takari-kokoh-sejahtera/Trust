@@ -224,7 +224,7 @@ Finish:
                             From B In Group.DefaultIfEmpty()
                             Group Join C In db.V_QuotationHD On B.Calculate_ID Equals C.Calculate_ID Into CB = Group
                             From C In CB.DefaultIfEmpty()
-                            Where H.ApplicationHeader_ID = A.ApplicationHeader_ID And A.IsCalculate = True And B.IsDeleted = False
+                            Where H.ApplicationHeader_ID = query.ApplicationHeader_ID And A.IsCalculate = True And B.IsDeleted = False
                             Select New Tr_ApplicationHeaderDetail With {.Application_ID = A.Application_ID, .QuotationDetail_ID = CType(C.QuotationDetail_ID, Integer?),
                               .IsVehicleExists = If(A.IsVehicleExists, "Used Car", "New Car"), .Brand_Name = A.Brand_Name,
                               .Vehicle = If(A.IsVehicleExists, A.Vehicle + " " + A.Type, A.Vehicle),

@@ -118,6 +118,10 @@ Namespace Trust
         Public Property App6Sign As Byte()
         Public Property Approval6Date As Nullable(Of Date)
         Public Property Title6 As String
+        Public Property App7Name As String
+        Public Property App7Sign As Byte()
+        Public Property Approval7Date As Nullable(Of Date)
+        Public Property Title7 As String
     
     End Class
 

@@ -54,7 +54,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>0.11969cm</Top>
-        <Left>3.17555cm</Left>
+        <Left>6.35055cm</Left>
         <Height>2.26688cm</Height>
         <Width>3.30986cm</Width>
         <ZIndex>1</ZIndex>
@@ -88,7 +88,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>0.11969cm</Top>
-        <Left>0cm</Left>
+        <Left>3.175cm</Left>
         <Height>2.26688cm</Height>
         <Width>3.30986cm</Width>
         <ZIndex>2</ZIndex>
@@ -1829,7 +1829,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.04859cm</Top>
-        <Left>0.02715cm</Left>
+        <Left>3.20215cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>52</ZIndex>
@@ -1870,7 +1870,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.04887cm</Top>
-        <Left>3.17555cm</Left>
+        <Left>6.35055cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>53</ZIndex>
@@ -1923,7 +1923,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.64859cm</Top>
-        <Left>0.02715cm</Left>
+        <Left>3.20215cm</Left>
         <Height>1.73771cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>54</ZIndex>
@@ -1963,7 +1963,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>2.38629cm</Top>
-        <Left>0.02715cm</Left>
+        <Left>3.20215cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>55</ZIndex>
@@ -2098,7 +2098,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.64886cm</Top>
-        <Left>3.17567cm</Left>
+        <Left>6.35067cm</Left>
         <Height>1.73771cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>58</ZIndex>
@@ -2138,7 +2138,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>2.38656cm</Top>
-        <Left>3.17567cm</Left>
+        <Left>6.35067cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>59</ZIndex>
@@ -4871,7 +4871,7 @@
         <MIMEType>image/png</MIMEType>
         <Sizing>FitProportional</Sizing>
         <Top>0.61358cm</Top>
-        <Left>3.17531cm</Left>
+        <Left>6.35031cm</Left>
         <Height>1.73798cm</Height>
         <Width>3.14864cm</Width>
         <ZIndex>117</ZIndex>
@@ -4887,7 +4887,7 @@
         <MIMEType>image/png</MIMEType>
         <Sizing>FitProportional</Sizing>
         <Top>0.64831cm</Top>
-        <Left>0.0275cm</Left>
+        <Left>3.2025cm</Left>
         <Height>1.70325cm</Height>
         <Width>3.14817cm</Width>
         <ZIndex>118</ZIndex>
@@ -4916,7 +4916,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>0.11997cm</Top>
-        <Left>6.32407cm</Left>
+        <Left>9.49907cm</Left>
         <Height>2.26688cm</Height>
         <Width>3.30986cm</Width>
         <ZIndex>119</ZIndex>
@@ -4955,7 +4955,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.04915cm</Top>
-        <Left>6.32407cm</Left>
+        <Left>9.49907cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>120</ZIndex>
@@ -5009,7 +5009,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.64914cm</Top>
-        <Left>6.32419cm</Left>
+        <Left>9.49919cm</Left>
         <Height>1.73771cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>121</ZIndex>
@@ -5049,7 +5049,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>2.38684cm</Top>
-        <Left>6.32419cm</Left>
+        <Left>9.49919cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>122</ZIndex>
@@ -5070,7 +5070,7 @@
         <MIMEType>image/png</MIMEType>
         <Sizing>FitProportional</Sizing>
         <Top>0.61358cm</Top>
-        <Left>6.32395cm</Left>
+        <Left>9.49895cm</Left>
         <Height>1.73798cm</Height>
         <Width>3.14864cm</Width>
         <ZIndex>123</ZIndex>
@@ -5099,7 +5099,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>0.12024cm</Top>
-        <Left>9.47271cm</Left>
+        <Left>12.64771cm</Left>
         <Height>2.26688cm</Height>
         <Width>3.30986cm</Width>
         <ZIndex>124</ZIndex>
@@ -5138,7 +5138,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.04942cm</Top>
-        <Left>9.47271cm</Left>
+        <Left>12.64771cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>125</ZIndex>
@@ -5192,7 +5192,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.64941cm</Top>
-        <Left>9.47283cm</Left>
+        <Left>12.64783cm</Left>
         <Height>1.73771cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>126</ZIndex>
@@ -5232,7 +5232,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>2.38711cm</Top>
-        <Left>9.47283cm</Left>
+        <Left>12.64783cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>127</ZIndex>
@@ -5253,7 +5253,7 @@
         <MIMEType>image/png</MIMEType>
         <Sizing>FitProportional</Sizing>
         <Top>0.6133cm</Top>
-        <Left>9.47259cm</Left>
+        <Left>12.64759cm</Left>
         <Height>1.73798cm</Height>
         <Width>3.14864cm</Width>
         <ZIndex>128</ZIndex>
@@ -5282,7 +5282,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>0.12052cm</Top>
-        <Left>12.62123cm</Left>
+        <Left>15.79623cm</Left>
         <Height>2.26688cm</Height>
         <Width>3.30986cm</Width>
         <ZIndex>129</ZIndex>
@@ -5321,7 +5321,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.0497cm</Top>
-        <Left>12.62123cm</Left>
+        <Left>15.79623cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>130</ZIndex>
@@ -5375,7 +5375,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>0.64969cm</Top>
-        <Left>12.62135cm</Left>
+        <Left>15.79635cm</Left>
         <Height>1.73771cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>131</ZIndex>
@@ -5415,7 +5415,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox133</rd:DefaultName>
         <Top>2.38739cm</Top>
-        <Left>12.62135cm</Left>
+        <Left>15.79635cm</Left>
         <Height>0.6cm</Height>
         <Width>3.14852cm</Width>
         <ZIndex>132</ZIndex>
@@ -5436,10 +5436,193 @@
         <MIMEType>image/png</MIMEType>
         <Sizing>FitProportional</Sizing>
         <Top>0.64942cm</Top>
-        <Left>12.62123cm</Left>
+        <Left>15.79623cm</Left>
         <Height>1.70186cm</Height>
         <Width>3.14864cm</Width>
         <ZIndex>133</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="Textbox134">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>DS</Value>
+                <Style>
+                  <FontSize>60pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>WhiteSmoke</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>0.12107cm</Top>
+        <Left>0.02648cm</Left>
+        <Height>2.26688cm</Height>
+        <Width>3.30986cm</Width>
+        <ZIndex>134</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox156">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Title7.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>arial</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox133</rd:DefaultName>
+        <Top>0.04997cm</Top>
+        <Left>0.05363cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.14852cm</Width>
+        <ZIndex>135</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <BackgroundColor>NavajoWhite</BackgroundColor>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox157">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Date :</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>arial</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <Format>0.00;(0.00)</Format>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!Approval7Date.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>arial</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <Format>dd-MMM-yy</Format>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox133</rd:DefaultName>
+        <Top>0.64997cm</Top>
+        <Left>0.05363cm</Left>
+        <Height>1.73771cm</Height>
+        <Width>3.14852cm</Width>
+        <ZIndex>136</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <VerticalAlign>Bottom</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox158">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!App7Name.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>arial</FontFamily>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox133</rd:DefaultName>
+        <Top>2.38767cm</Top>
+        <Left>0.05363cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.14852cm</Width>
+        <ZIndex>137</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image8">
+        <Source>Database</Source>
+        <Value>=First(Fields!App7Sign.Value, "DS")</Value>
+        <MIMEType>image/png</MIMEType>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.68304cm</Top>
+        <Left>0.05433cm</Left>
+        <Height>1.70325cm</Height>
+        <Width>3.14817cm</Width>
+        <ZIndex>138</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -6113,10 +6296,26 @@
           <DataField>Title6</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="App7Name">
+          <DataField>App7Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App7Sign">
+          <DataField>App7Sign</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Approval7Date">
+          <DataField>Approval7Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Title7">
+          <DataField>Title7</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DSApplication</rd:DataSetName>
-        <rd:SchemaPath>D:\Work\VB\Trust\Trust\DSApplication.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ramdan.nur\source\repos\takari-kokoh-sejahtera\Trust\Trust\DSApplication.xsd</rd:SchemaPath>
         <rd:TableName>sp_PrintApplicationDetailNew</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

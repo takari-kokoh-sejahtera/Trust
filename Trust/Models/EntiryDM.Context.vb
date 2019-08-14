@@ -398,12 +398,6 @@ Namespace Trust
             Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of sp_PrintApplicationPODealer_Result)("sp_PrintApplicationPODealer", prospectCustomer_IDParameter, dealer_IDParameter)
         End Function
     
-        Public Overridable Function sp_PrintApplicationDetailNew(applicationHeader_ID As Nullable(Of Integer)) As ObjectResult(Of sp_PrintApplicationDetailNew_Result)
-            Dim applicationHeader_IDParameter As ObjectParameter = If(applicationHeader_ID.HasValue, New ObjectParameter("ApplicationHeader_ID", applicationHeader_ID), New ObjectParameter("ApplicationHeader_ID", GetType(Integer)))
-    
-            Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of sp_PrintApplicationDetailNew_Result)("sp_PrintApplicationDetailNew", applicationHeader_IDParameter)
-        End Function
-    
         Public Overridable Function sp_QuotationJoin(procIDTo As Nullable(Of Integer), procIDFrom As Nullable(Of Integer), user_id As Nullable(Of Integer)) As ObjectResult(Of sp_QuotationJoin_Result)
             Dim procIDToParameter As ObjectParameter = If(procIDTo.HasValue, New ObjectParameter("ProcIDTo", procIDTo), New ObjectParameter("ProcIDTo", GetType(Integer)))
     
@@ -412,6 +406,12 @@ Namespace Trust
             Dim user_idParameter As ObjectParameter = If(user_id.HasValue, New ObjectParameter("User_id", user_id), New ObjectParameter("User_id", GetType(Integer)))
     
             Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of sp_QuotationJoin_Result)("sp_QuotationJoin", procIDToParameter, procIDFromParameter, user_idParameter)
+        End Function
+    
+        Public Overridable Function sp_PrintApplicationDetailNew(applicationHeader_ID As Nullable(Of Integer)) As ObjectResult(Of sp_PrintApplicationDetailNew_Result)
+            Dim applicationHeader_IDParameter As ObjectParameter = If(applicationHeader_ID.HasValue, New ObjectParameter("ApplicationHeader_ID", applicationHeader_ID), New ObjectParameter("ApplicationHeader_ID", GetType(Integer)))
+    
+            Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of sp_PrintApplicationDetailNew_Result)("sp_PrintApplicationDetailNew", applicationHeader_IDParameter)
         End Function
     
     End Class

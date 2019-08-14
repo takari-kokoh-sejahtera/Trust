@@ -150,6 +150,7 @@ Namespace Controllers
                                 app.Color = i.Color
                                 app.ModifiedDate = DateTime.Now
                                 app.ModifiedBy = user
+                                app.IsDeleted = Not i.Check
                             Next
                             Dim Pros = db.V_ProspectCusts.Where(Function(x) x.Quotation_ID = model.Quotation_ID).FirstOrDefault
                             If Not Pros.IsExists Then
@@ -231,7 +232,7 @@ Namespace Controllers
                           Join B In db.V_ProspectCustDetails On A.Application_ID Equals B.Application_ID
                           Where B.ProspectCustomer_ID = Quotation.ProspectCustomer_ID
                           Select A.Application_ID, B.Vehicle, B.IsVehicleExists, Color = If(B.IsVehicleExists, B.Color, ""), B.Lease_price, B.Qty, B.Amount, B.Bid_PricePerMonth).
-                          Select(Function(x) New Tr_QuotationDetailnya With {.Application_ID = x.Application_ID, .Vehicle = x.Vehicle, .IsVehicleExists = x.IsVehicleExists, .Color = x.Color, .Lease_price = x.Lease_price, .Qty = x.Qty, .Amount = x.Amount, .Bid_Price = x.Bid_PricePerMonth}).ToList
+                          Select(Function(x) New Tr_QuotationDetailnya With {.Application_ID = x.Application_ID, .Vehicle = x.Vehicle, .IsVehicleExists = x.IsVehicleExists, .Color = x.Color, .Lease_price = x.Lease_price, .Qty = x.Qty, .Amount = x.Amount, .Bid_Price = x.Bid_PricePerMonth, .Check = True}).ToList
             Quotation.Detail = detail
             ViewBag.Record_For_Payment = New SelectList(myRecord_For_Payment, "Value", "Text")
 
