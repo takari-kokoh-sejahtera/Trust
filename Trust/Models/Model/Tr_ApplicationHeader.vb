@@ -294,7 +294,6 @@ Public Class Tr_ApplicationHeader
     <Display(Name:="Is Quick")>
     Public Property IsQuick As Boolean
     <Display(Name:="Contract No")>
-    <Required>
     Public Property Contract_No As String
     Public Property IsNotApproved As Boolean
     Public Property RemarkNotApproved As String
