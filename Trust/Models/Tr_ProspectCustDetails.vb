@@ -37,8 +37,8 @@ Namespace Trust
         Public Overridable Property Ms_Vehicle_Brands As Ms_Vehicle_Brands
         Public Overridable Property Ms_Vehicles As Ms_Vehicles
         Public Overridable Property Ms_Vehicle_Models As Ms_Vehicle_Models
-        Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
         Public Overridable Property Tr_ApplicationPOs As ICollection(Of Tr_ApplicationPOs) = New HashSet(Of Tr_ApplicationPOs)
+        Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
     
     End Class
 

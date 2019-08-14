@@ -41,8 +41,8 @@ Namespace Trust
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Ms_Citys As Ms_Citys
         Public Overridable Property Tr_ApplicationPODetails As ICollection(Of Tr_ApplicationPODetails) = New HashSet(Of Tr_ApplicationPODetails)
-        Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
         Public Overridable Property Tr_ProspectCustDetails As Tr_ProspectCustDetails
+        Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
     
     End Class
 

@@ -39,6 +39,49 @@ Namespace Controllers
             Return View(Await tr_Applications.ToListAsync())
         End Function
 
+
+        Function JoinQuotation() As ActionResult
+            Dim Quotation = (From A In db.Tr_Quotations
+                             Join B In db.V_ProspectCusts On A.Quotation_ID Equals B.Quotation_ID
+                             Where A.IsPO = False And A.IsDeleted = False And A.IsApplication = True
+                             Order By A.CreatedDate Descending
+                             Select New Tr_QuotationPO With {.ProspectCustomer_ID = B.ProspectCustomer_ID, .No_Ref = A.No_Ref})
+
+            ViewBag.ProspectCustomer_IDTo = New SelectList(Quotation, "ProspectCustomer_ID", "No_Ref")
+            ViewBag.ProspectCustomer_IDFrom = New SelectList(Quotation, "ProspectCustomer_ID", "No_Ref")
+            Return View()
+        End Function
+        <HttpPost()>
+        <ValidateAntiForgeryToken()>
+        Function JoinQuotation(ByVal quotJoin As Tr_QuotationJoin) As ActionResult
+
+            'validasi
+            If quotJoin.ProspectCustomer_IDFrom = quotJoin.ProspectCustomer_IDTo Then
+                ModelState.AddModelError("", "No Ref can't be same")
+            End If
+            If ModelState.IsValid Then
+                Dim user As Integer
+                If ((Session("ID")) Is Nothing) Then Return RedirectToAction("Login", "Home") Else user = Session("ID").ToString
+                Dim result = db.sp_QuotationJoin(quotJoin.ProspectCustomer_IDTo, quotJoin.ProspectCustomer_IDFrom, user).ToList
+                'kalo error
+                If result.Select(Function(x) x.Results).FirstOrDefault <> "Success" Then
+                    Return New HttpStatusCodeResult(HttpStatusCode.BadRequest, result.Select(Function(x) x.Results).FirstOrDefault)
+                End If
+                Return RedirectToAction("IndexPOFromCustomer")
+            End If
+            Dim Quotation = (From A In db.Tr_Quotations
+                             Join B In db.V_ProspectCusts On A.Quotation_ID Equals B.Quotation_ID
+                             Where A.IsPO = False And A.IsDeleted = False And A.IsApplication = True
+                             Order By A.CreatedDate Descending
+                             Select New Tr_QuotationPO With {.ProspectCustomer_ID = B.ProspectCustomer_ID, .No_Ref = A.No_Ref})
+
+            ViewBag.ProspectCustomer_IDTo = New SelectList(Quotation, "ProspectCustomer_ID", "No_Ref", quotJoin.ProspectCustomer_IDTo)
+            ViewBag.ProspectCustomer_IDFrom = New SelectList(Quotation, "ProspectCustomer_ID", "No_Ref", quotJoin.ProspectCustomer_IDFrom)
+
+            Return View(quotJoin)
+        End Function
+
+
         Function IndexPOFromCustomer(ByVal sortOrder As String, currentFilter As String, searchString As String, page As Integer?, pageSize As Integer?) As ActionResult
 #If Not DEBUG Then
             If ((Session("User_ID")) Is Nothing) Then Return RedirectToAction("Login", "Home")

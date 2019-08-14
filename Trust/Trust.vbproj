@@ -684,6 +684,9 @@
     <Compile Include="Models\sp_QuotationCharFromUser_Result.vb">
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_QuotationJoin_Result.vb">
+      <DependentUpon>EntiryDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_QuotationList_Result.vb">
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>
@@ -8257,6 +8260,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Application\JoinQuotation.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

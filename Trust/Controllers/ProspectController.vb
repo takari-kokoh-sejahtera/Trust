@@ -296,6 +296,7 @@ Namespace Controllers
                         prospectCustomer.Notes = header.Notes
                         prospectCustomer.IsQuotation = False
                         prospectCustomer.IsApplicationPO = False
+                        prospectCustomer.IsApplication = False
                         prospectCustomer.CreatedBy = user
                         prospectCustomer.CreatedDate = DateTime.Now
                         prospectCustomer.IsDeleted = False

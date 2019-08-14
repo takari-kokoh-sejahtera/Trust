@@ -266,14 +266,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Maker__75ED5D0F" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Modif__7D8E7ED7" />
         <EntityTypeShape EntityType="TrustModel.V_ProspectCusts" Width="2.125" PointX="3.375" PointY="6.75" />
-        <EntityTypeShape EntityType="TrustModel.Tr_ProspectCusts" Width="1.5" PointX="38.25" PointY="34.625" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Modif__1BB31344" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__City___3552E9B6" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Compa__1C873BEC" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Prosp__74F938D6" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" />
         <EntityTypeShape EntityType="TrustModel.Ms_Invoice_Categorys" Width="1.5" PointX="25" PointY="40.25" />
         <AssociationConnector Association="TrustModel.FK__Ms_Invoic__Creat__60BD35FF" />
         <AssociationConnector Association="TrustModel.FK__Ms_Invoic__Modif__61B15A38" />
@@ -291,7 +283,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__7AE71C56" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Plat___4DDF6BB5" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appli__3607E224" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Prosp__08411774" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Prosp__7BDB408F" />
         <EntityTypeShape EntityType="TrustModel.V_ProspectCustDetails" Width="1.5" PointX="6.375" PointY="7.75" />
         <EntityTypeShape EntityType="TrustModel.Tr_ApprovalApps" Width="1.5" PointX="67.25" PointY="31.125" />
@@ -315,7 +306,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Quotati__POBy__19EAC663" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Signe__70499252" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Quota__2180FB33" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__114A936A" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" />
         <EntityTypeShape EntityType="TrustModel.Ms_Customers" Width="1.5" PointX="35" PointY="38.5" />
@@ -325,8 +315,18 @@
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Compa__5165187F" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Custo__30641767" />
         <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Custo__22EA20B8" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3" />
         <EntityTypeShape EntityType="TrustModel.V_Approval" Width="1.5" PointX="6.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ProspectCusts" Width="1.5" PointX="38.25" PointY="34" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Modif__1BB31344" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__City___3552E9B6" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Compa__1C873BEC" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Prosp__08411774" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Prosp__0EEE1503" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

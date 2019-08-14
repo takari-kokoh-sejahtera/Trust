@@ -166,8 +166,6 @@ Namespace Trust
         Public Overridable Property Tr_ApprovalPOs6 As ICollection(Of Tr_ApprovalPOs) = New HashSet(Of Tr_ApprovalPOs)
         Public Overridable Property Tr_ApprovalPOs7 As ICollection(Of Tr_ApprovalPOs) = New HashSet(Of Tr_ApprovalPOs)
         Public Overridable Property Tr_ApprovalPOs8 As ICollection(Of Tr_ApprovalPOs) = New HashSet(Of Tr_ApprovalPOs)
-        Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
-        Public Overridable Property Tr_ProspectCusts1 As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
         Public Overridable Property Ms_Invoice_Categorys As ICollection(Of Ms_Invoice_Categorys) = New HashSet(Of Ms_Invoice_Categorys)
         Public Overridable Property Ms_Invoice_Categorys1 As ICollection(Of Ms_Invoice_Categorys) = New HashSet(Of Ms_Invoice_Categorys)
         Public Overridable Property Cn_Levels As ICollection(Of Cn_Levels) = New HashSet(Of Cn_Levels)
@@ -193,6 +191,8 @@ Namespace Trust
         Public Overridable Property Tr_Quotations2 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
         Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Ms_Customers1 As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
+        Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
+        Public Overridable Property Tr_ProspectCusts1 As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
     
     End Class
 

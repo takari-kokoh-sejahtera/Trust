@@ -89,3 +89,12 @@ Public Class Tr_QuotationDetailnya
     Public Property disabled As String
 
 End Class
+Public Class Tr_QuotationJoin
+    <Required>
+    <Display(Name:="No Ref To")>
+    Public Property ProspectCustomer_IDTo As Integer
+    <Required>
+    <Display(Name:="No Ref From")>
+    Public Property ProspectCustomer_IDFrom As Integer
+
+End Class

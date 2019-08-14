@@ -1410,6 +1410,7 @@
           <Property Name="Notes" Type="varchar(max)" />
           <Property Name="IsQuotation" Type="bit" />
           <Property Name="IsApplicationPO" Type="bit" />
+          <Property Name="IsApplication" Type="bit" />
           <Property Name="PO_No" Type="varchar" MaxLength="50" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
@@ -4961,6 +4962,11 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <Parameter Name="FA" Type="int" Mode="In" />
           <Parameter Name="User_ID" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_QuotationJoin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProcIDTo" Type="int" Mode="In" />
+          <Parameter Name="ProcIDFrom" Type="int" Mode="In" />
+          <Parameter Name="User_id" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_QuotationList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="User_ID" Type="int" Mode="In" />
         </Function>
@@ -7390,35 +7396,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             <Parameter Name="Keur" Mode="In" Type="Decimal" />
             <Parameter Name="Funding_Rate" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <EntitySet Name="Tr_ProspectCusts" EntityType="TrustModel.Tr_ProspectCusts" />
-          <AssociationSet Name="FK__Tr_Prospe__Creat__1ABEEF0B" Association="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Prospe__Modif__1BB31344" Association="TrustModel.FK__Tr_Prospe__Modif__1BB31344">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Prospe__City___3552E9B6" Association="TrustModel.FK__Tr_Prospe__City___3552E9B6">
-            <End Role="Ms_Citys" EntitySet="Ms_Citys" />
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Prospe__Compa__1C873BEC" Association="TrustModel.FK__Tr_Prospe__Compa__1C873BEC">
-            <End Role="Ms_Customer_CompanyGroups" EntitySet="Ms_Customer_CompanyGroups" />
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Approv__Prosp__74F938D6" Association="TrustModel.FK__Tr_Approv__Prosp__74F938D6">
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-            <End Role="Tr_ApprovalPOs" EntitySet="Tr_ApprovalPOs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Prospe__Prosp__1F63A897" Association="TrustModel.FK__Tr_Prospe__Prosp__1F63A897">
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-            <End Role="Tr_ProspectCustDetails" EntitySet="Tr_ProspectCustDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Prospe__Prosp__251C81ED" Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED">
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-            <End Role="Tr_ProspectCustHistorys" EntitySet="Tr_ProspectCustHistorys" />
-          </AssociationSet>
           <EntitySet Name="Ms_Invoice_Categorys" EntityType="TrustModel.Ms_Invoice_Categorys" />
           <AssociationSet Name="FK__Ms_Invoic__Creat__60BD35FF" Association="TrustModel.FK__Ms_Invoic__Creat__60BD35FF">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7485,10 +7462,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <AssociationSet Name="FK__Tr_Applic__Appli__3607E224" Association="TrustModel.FK__Tr_Applic__Appli__3607E224">
             <End Role="Tr_ApplicationPOs" EntitySet="Tr_ApplicationPOs" />
             <End Role="Tr_ApplicationPODetails" EntitySet="Tr_ApplicationPODetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Applic__Prosp__08411774" Association="TrustModel.FK__Tr_Applic__Prosp__08411774">
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-            <End Role="Tr_ApplicationPOs" EntitySet="Tr_ApplicationPOs" />
           </AssociationSet>
           <AssociationSet Name="FK__Tr_Applic__Prosp__7BDB408F" Association="TrustModel.FK__Tr_Applic__Prosp__7BDB408F">
             <End Role="Tr_ProspectCustDetails" EntitySet="Tr_ProspectCustDetails" />
@@ -7576,10 +7549,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
             <End Role="Tr_Approvals" EntitySet="Tr_Approvals" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Prosp__2116E6DF" Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF">
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
           <AssociationSet Name="FK__Tr_Quotat__Quota__114A936A" Association="TrustModel.FK__Tr_Quotat__Quota__114A936A">
             <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
             <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
@@ -7613,11 +7582,53 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             <End Role="Ms_Customers" EntitySet="Ms_Customers" />
             <End Role="Tr_Invoices" EntitySet="Tr_Invoices" />
           </AssociationSet>
+          <EntitySet Name="V_Approval" EntityType="TrustModel.V_Approval" />
+          <FunctionImport Name="sp_QuotationJoin" ReturnType="Collection(TrustModel.sp_QuotationJoin_Result)">
+            <Parameter Name="ProcIDTo" Mode="In" Type="Int32" />
+            <Parameter Name="ProcIDFrom" Mode="In" Type="Int32" />
+            <Parameter Name="User_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Tr_ProspectCusts" EntityType="TrustModel.Tr_ProspectCusts" />
+          <AssociationSet Name="FK__Tr_Prospe__Creat__1ABEEF0B" Association="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Prospe__Modif__1BB31344" Association="TrustModel.FK__Tr_Prospe__Modif__1BB31344">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Prospe__City___3552E9B6" Association="TrustModel.FK__Tr_Prospe__City___3552E9B6">
+            <End Role="Ms_Citys" EntitySet="Ms_Citys" />
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Prospe__Compa__1C873BEC" Association="TrustModel.FK__Tr_Prospe__Compa__1C873BEC">
+            <End Role="Ms_Customer_CompanyGroups" EntitySet="Ms_Customer_CompanyGroups" />
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+          </AssociationSet>
           <AssociationSet Name="FK__Tr_Prospe__Custo__1B9317B3" Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3">
             <End Role="Ms_Customers" EntitySet="Ms_Customers" />
             <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
           </AssociationSet>
-          <EntitySet Name="V_Approval" EntityType="TrustModel.V_Approval" />
+          <AssociationSet Name="FK__Tr_Applic__Prosp__08411774" Association="TrustModel.FK__Tr_Applic__Prosp__08411774">
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+            <End Role="Tr_ApplicationPOs" EntitySet="Tr_ApplicationPOs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Approv__Prosp__0EEE1503" Association="TrustModel.FK__Tr_Approv__Prosp__0EEE1503">
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+            <End Role="Tr_ApprovalPOs" EntitySet="Tr_ApprovalPOs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Prospe__Prosp__1F63A897" Association="TrustModel.FK__Tr_Prospe__Prosp__1F63A897">
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+            <End Role="Tr_ProspectCustDetails" EntitySet="Tr_ProspectCustDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Prospe__Prosp__251C81ED" Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED">
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+            <End Role="Tr_ProspectCustHistorys" EntitySet="Tr_ProspectCustHistorys" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Prosp__2116E6DF" Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF">
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_CalcucationCharFromUser_Result">
           <Property Type="Int32" Name="Year" Nullable="true" />
@@ -8226,8 +8237,8 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Ms_Custom__Creat__627A95E8" FromRole="Ms_Customer_CompanyGroups" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Ms_Custom__Modif__636EBA21" FromRole="Ms_Customer_CompanyGroups" ToRole="Cn_Users" />
-          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Prospe__Compa__1C873BEC" FromRole="Ms_Customer_CompanyGroups" ToRole="Tr_ProspectCusts" />
           <NavigationProperty Name="Ms_Customers" Relationship="TrustModel.FK__Ms_Custom__Compa__5165187F" FromRole="Ms_Customer_CompanyGroups" ToRole="Ms_Customers" />
+          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Prospe__Compa__1C873BEC" FromRole="Ms_Customer_CompanyGroups" ToRole="Tr_ProspectCusts" />
           </EntityType>
         <EntityType Name="Ms_Vehicle_Brands">
           <Key>
@@ -9079,9 +9090,9 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Tr_Calculates" Relationship="TrustModel.FK__Tr_Calcul__Locat__1B9E04AB" FromRole="Ms_Citys" ToRole="Tr_Calculates" />
           <NavigationProperty Name="Tr_Calculates1" Relationship="TrustModel.FK__Tr_Calcul__Plat___118A8A8C" FromRole="Ms_Citys" ToRole="Tr_Calculates" />
           <NavigationProperty Name="Tr_Calculates2" Relationship="TrustModel.FK__Tr_Calcul__Rent___10966653" FromRole="Ms_Citys" ToRole="Tr_Calculates" />
-          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Prospe__City___3552E9B6" FromRole="Ms_Citys" ToRole="Tr_ProspectCusts" />
           <NavigationProperty Name="Tr_ApplicationPOs" Relationship="TrustModel.FK__Tr_Applic__Plat___4DDF6BB5" FromRole="Ms_Citys" ToRole="Tr_ApplicationPOs" />
           <NavigationProperty Name="Ms_Customers" Relationship="TrustModel.FK_City" FromRole="Ms_Citys" ToRole="Ms_Customers" />
+          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Prospe__City___3552E9B6" FromRole="Ms_Citys" ToRole="Tr_ProspectCusts" />
           </EntityType>
         <EntityType Name="Ms_Vehicles">
           <Key>
@@ -9862,8 +9873,8 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Ms_Vehicle_Brands" Relationship="TrustModel.FK__Tr_Prospe__Brand__3A179ED3" FromRole="Tr_ProspectCustDetails" ToRole="Ms_Vehicle_Brands" />
           <NavigationProperty Name="Ms_Vehicles" Relationship="TrustModel.FK__Tr_Prospe__Vehic__3CF40B7E" FromRole="Tr_ProspectCustDetails" ToRole="Ms_Vehicles" />
           <NavigationProperty Name="Ms_Vehicle_Models" Relationship="TrustModel.FK__Tr_Prospe__Model__3B0BC30C" FromRole="Tr_ProspectCustDetails" ToRole="Ms_Vehicle_Models" />
-          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" FromRole="Tr_ProspectCustDetails" ToRole="Tr_ProspectCusts" />
           <NavigationProperty Name="Tr_ApplicationPOs" Relationship="TrustModel.FK__Tr_Applic__Prosp__7BDB408F" FromRole="Tr_ProspectCustDetails" ToRole="Tr_ApplicationPOs" />
+          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" FromRole="Tr_ProspectCustDetails" ToRole="Tr_ProspectCusts" />
         </EntityType>
         <Association Name="FK__Tr_Prospe__Brand__3A179ED3">
           <End Type="TrustModel.Ms_Vehicle_Brands" Role="Ms_Vehicle_Brands" Multiplicity="0..1" />
@@ -10365,8 +10376,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Tr_ApprovalPOs6" Relationship="TrustModel.FK__Tr_Approv__Creat__7C9A5A9E" FromRole="Cn_Users" ToRole="Tr_ApprovalPOs" />
           <NavigationProperty Name="Tr_ApprovalPOs7" Relationship="TrustModel.FK__Tr_Approv__Maker__75ED5D0F" FromRole="Cn_Users" ToRole="Tr_ApprovalPOs" />
           <NavigationProperty Name="Tr_ApprovalPOs8" Relationship="TrustModel.FK__Tr_Approv__Modif__7D8E7ED7" FromRole="Cn_Users" ToRole="Tr_ApprovalPOs" />
-          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B" FromRole="Cn_Users" ToRole="Tr_ProspectCusts" />
-          <NavigationProperty Name="Tr_ProspectCusts1" Relationship="TrustModel.FK__Tr_Prospe__Modif__1BB31344" FromRole="Cn_Users" ToRole="Tr_ProspectCusts" />
           <NavigationProperty Name="Ms_Invoice_Categorys" Relationship="TrustModel.FK__Ms_Invoic__Creat__60BD35FF" FromRole="Cn_Users" ToRole="Ms_Invoice_Categorys" />
           <NavigationProperty Name="Ms_Invoice_Categorys1" Relationship="TrustModel.FK__Ms_Invoic__Modif__61B15A38" FromRole="Cn_Users" ToRole="Ms_Invoice_Categorys" />
           <NavigationProperty Name="Cn_Levels" Relationship="TrustModel.FK__Cn_Levels__Creat__420DC656" FromRole="Cn_Users" ToRole="Cn_Levels" />
@@ -10392,6 +10401,8 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Tr_Quotations2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Cn_Users" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Ms_Customers" Relationship="TrustModel.FK__Ms_Custom__Creat__6CF8245B" FromRole="Cn_Users" ToRole="Ms_Customers" />
           <NavigationProperty Name="Ms_Customers1" Relationship="TrustModel.FK__Ms_Custom__Modif__6DEC4894" FromRole="Cn_Users" ToRole="Ms_Customers" />
+          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B" FromRole="Cn_Users" ToRole="Tr_ProspectCusts" />
+          <NavigationProperty Name="Tr_ProspectCusts1" Relationship="TrustModel.FK__Tr_Prospe__Modif__1BB31344" FromRole="Cn_Users" ToRole="Tr_ProspectCusts" />
           </EntityType>
         <Association Name="FK__Cn_Approv__Creat__24885067">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -12552,7 +12563,7 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Cn_Users6" Relationship="TrustModel.FK__Tr_Approv__Creat__7C9A5A9E" FromRole="Tr_ApprovalPOs" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users7" Relationship="TrustModel.FK__Tr_Approv__Maker__75ED5D0F" FromRole="Tr_ApprovalPOs" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users8" Relationship="TrustModel.FK__Tr_Approv__Modif__7D8E7ED7" FromRole="Tr_ApprovalPOs" ToRole="Cn_Users" />
-          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Approv__Prosp__74F938D6" FromRole="Tr_ApprovalPOs" ToRole="Tr_ProspectCusts" />
+          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Approv__Prosp__0EEE1503" FromRole="Tr_ApprovalPOs" ToRole="Tr_ProspectCusts" />
         </EntityType>
         <Association Name="FK__Tr_Approv__Appro__77D5A581">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
@@ -12733,130 +12744,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
         <ComplexType Name="sp_SaveCashFlow_Result">
           <Property Type="String" Name="Message" Nullable="false" MaxLength="100" />
         </ComplexType>
-        <EntityType Name="Tr_ProspectCusts">
-          <Key>
-            <PropertyRef Name="ProspectCustomer_ID" />
-          </Key>
-          <Property Name="ProspectCustomer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IsExists" Type="Boolean" Nullable="false" />
-          <Property Name="CustomerExists_ID" Type="Int32" />
-          <Property Name="CompanyGroup_ID" Type="Int32" />
-          <Property Name="Company_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Tbk" Type="Boolean" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="City_id" Type="Int32" />
-          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PIC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PIC_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PIC_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Credit_Rating" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="IsQuotation" Type="Boolean" />
-          <Property Name="IsApplicationPO" Type="Boolean" />
-          <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B" FromRole="Tr_ProspectCusts" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Prospe__Modif__1BB31344" FromRole="Tr_ProspectCusts" ToRole="Cn_Users" />
-          <NavigationProperty Name="Ms_Citys" Relationship="TrustModel.FK__Tr_Prospe__City___3552E9B6" FromRole="Tr_ProspectCusts" ToRole="Ms_Citys" />
-          <NavigationProperty Name="Ms_Customer_CompanyGroups" Relationship="TrustModel.FK__Tr_Prospe__Compa__1C873BEC" FromRole="Tr_ProspectCusts" ToRole="Ms_Customer_CompanyGroups" />
-          <NavigationProperty Name="Tr_ApprovalPOs" Relationship="TrustModel.FK__Tr_Approv__Prosp__74F938D6" FromRole="Tr_ProspectCusts" ToRole="Tr_ApprovalPOs" />
-          <NavigationProperty Name="Tr_ProspectCustDetails" Relationship="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" FromRole="Tr_ProspectCusts" ToRole="Tr_ProspectCustDetails" />
-          <NavigationProperty Name="Tr_ProspectCustHistorys" Relationship="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" FromRole="Tr_ProspectCusts" ToRole="Tr_ProspectCustHistorys" />
-          <NavigationProperty Name="Tr_ApplicationPOs" Relationship="TrustModel.FK__Tr_Applic__Prosp__08411774" FromRole="Tr_ProspectCusts" ToRole="Tr_ApplicationPOs" />
-          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_ProspectCusts" ToRole="Tr_Quotations" />
-          <NavigationProperty Name="Ms_Customers" Relationship="TrustModel.FK__Tr_Prospe__Custo__1B9317B3" FromRole="Tr_ProspectCusts" ToRole="Ms_Customers" />
-        </EntityType>
-        <Association Name="FK__Tr_Prospe__Creat__1ABEEF0B">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ProspectCusts">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Prospe__Modif__1BB31344">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ProspectCusts">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Prospe__City___3552E9B6">
-          <End Type="TrustModel.Ms_Citys" Role="Ms_Citys" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ms_Citys">
-              <PropertyRef Name="CIty_ID" />
-            </Principal>
-            <Dependent Role="Tr_ProspectCusts">
-              <PropertyRef Name="City_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Prospe__Compa__1C873BEC">
-          <End Type="TrustModel.Ms_Customer_CompanyGroups" Role="Ms_Customer_CompanyGroups" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ms_Customer_CompanyGroups">
-              <PropertyRef Name="CompanyGroup_ID" />
-            </Principal>
-            <Dependent Role="Tr_ProspectCusts">
-              <PropertyRef Name="CompanyGroup_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Prosp__74F938D6">
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApprovalPOs" Role="Tr_ApprovalPOs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ProspectCusts">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalPOs">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Prospe__Prosp__1F63A897">
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ProspectCustDetails" Role="Tr_ProspectCustDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ProspectCusts">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Principal>
-            <Dependent Role="Tr_ProspectCustDetails">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Prospe__Prosp__251C81ED">
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ProspectCustHistorys" Role="Tr_ProspectCustHistorys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ProspectCusts">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Principal>
-            <Dependent Role="Tr_ProspectCustHistorys">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Ms_Invoice_Categorys">
           <Key>
             <PropertyRef Name="Invoice_Category_ID" />
@@ -13144,8 +13031,8 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Applic__Modif__7AE71C56" FromRole="Tr_ApplicationPOs" ToRole="Cn_Users" />
           <NavigationProperty Name="Ms_Citys" Relationship="TrustModel.FK__Tr_Applic__Plat___4DDF6BB5" FromRole="Tr_ApplicationPOs" ToRole="Ms_Citys" />
           <NavigationProperty Name="Tr_ApplicationPODetails" Relationship="TrustModel.FK__Tr_Applic__Appli__3607E224" FromRole="Tr_ApplicationPOs" ToRole="Tr_ApplicationPODetails" />
-          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Applic__Prosp__08411774" FromRole="Tr_ApplicationPOs" ToRole="Tr_ProspectCusts" />
           <NavigationProperty Name="Tr_ProspectCustDetails" Relationship="TrustModel.FK__Tr_Applic__Prosp__7BDB408F" FromRole="Tr_ApplicationPOs" ToRole="Tr_ProspectCustDetails" />
+          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Applic__Prosp__08411774" FromRole="Tr_ApplicationPOs" ToRole="Tr_ProspectCusts" />
         </EntityType>
         <Association Name="FK__Tr_Applic__Creat__79F2F81D">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -13192,18 +13079,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             </Principal>
             <Dependent Role="Tr_ApplicationPODetails">
               <PropertyRef Name="ApplicationPO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Applic__Prosp__08411774">
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApplicationPOs" Role="Tr_ApplicationPOs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ProspectCusts">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApplicationPOs">
-              <PropertyRef Name="ProspectCustomer_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -13633,9 +13508,9 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Cn_Users2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Tr_Quotations" ToRole="Cn_Users" />
           <NavigationProperty Name="Ms_Contract_Signers" Relationship="TrustModel.FK__Tr_Quotat__Signe__70499252" FromRole="Tr_Quotations" ToRole="Ms_Contract_Signers" />
           <NavigationProperty Name="Tr_Approvals" Relationship="TrustModel.FK__Tr_Approv__Quota__2180FB33" FromRole="Tr_Quotations" ToRole="Tr_Approvals" />
-          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_Quotations" ToRole="Tr_ProspectCusts" />
           <NavigationProperty Name="Tr_QuotationDetails" Relationship="TrustModel.FK__Tr_Quotat__Quota__114A936A" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
           <NavigationProperty Name="Tr_QuotationDetails1" Relationship="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
+          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_Quotations" ToRole="Tr_ProspectCusts" />
         </EntityType>
         <Association Name="FK__Tr_Quotat__Creat__2A01329B">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
@@ -13694,18 +13569,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             </Principal>
             <Dependent Role="Tr_Approvals">
               <PropertyRef Name="Quotation_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Prosp__2116E6DF">
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ProspectCusts">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="ProspectCustomer_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -13851,18 +13714,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tr_Prospe__Custo__1B9317B3">
-          <End Type="TrustModel.Ms_Customers" Role="Ms_Customers" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ms_Customers">
-              <PropertyRef Name="Customer_ID" />
-            </Principal>
-            <Dependent Role="Tr_ProspectCusts">
-              <PropertyRef Name="CustomerExists_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="V_Approval">
           <Key>
             <PropertyRef Name="ApprovalUser_ID" />
@@ -13885,6 +13736,170 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <Property Name="Level" Type="Int32" />
           <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="sp_QuotationJoin_Result">
+          <Property Type="String" Name="Results" Nullable="false" MaxLength="7" />
+        </ComplexType>
+        <EntityType Name="Tr_ProspectCusts">
+          <Key>
+            <PropertyRef Name="ProspectCustomer_ID" />
+          </Key>
+          <Property Name="ProspectCustomer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsExists" Type="Boolean" Nullable="false" />
+          <Property Name="CustomerExists_ID" Type="Int32" />
+          <Property Name="CompanyGroup_ID" Type="Int32" />
+          <Property Name="Company_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tbk" Type="Boolean" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="City_id" Type="Int32" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Credit_Rating" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsQuotation" Type="Boolean" />
+          <Property Name="IsApplicationPO" Type="Boolean" />
+          <Property Name="IsApplication" Type="Boolean" />
+          <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B" FromRole="Tr_ProspectCusts" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Prospe__Modif__1BB31344" FromRole="Tr_ProspectCusts" ToRole="Cn_Users" />
+          <NavigationProperty Name="Ms_Citys" Relationship="TrustModel.FK__Tr_Prospe__City___3552E9B6" FromRole="Tr_ProspectCusts" ToRole="Ms_Citys" />
+          <NavigationProperty Name="Ms_Customer_CompanyGroups" Relationship="TrustModel.FK__Tr_Prospe__Compa__1C873BEC" FromRole="Tr_ProspectCusts" ToRole="Ms_Customer_CompanyGroups" />
+          <NavigationProperty Name="Ms_Customers" Relationship="TrustModel.FK__Tr_Prospe__Custo__1B9317B3" FromRole="Tr_ProspectCusts" ToRole="Ms_Customers" />
+          <NavigationProperty Name="Tr_ApplicationPOs" Relationship="TrustModel.FK__Tr_Applic__Prosp__08411774" FromRole="Tr_ProspectCusts" ToRole="Tr_ApplicationPOs" />
+          <NavigationProperty Name="Tr_ApprovalPOs" Relationship="TrustModel.FK__Tr_Approv__Prosp__0EEE1503" FromRole="Tr_ProspectCusts" ToRole="Tr_ApprovalPOs" />
+          <NavigationProperty Name="Tr_ProspectCustDetails" Relationship="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" FromRole="Tr_ProspectCusts" ToRole="Tr_ProspectCustDetails" />
+          <NavigationProperty Name="Tr_ProspectCustHistorys" Relationship="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" FromRole="Tr_ProspectCusts" ToRole="Tr_ProspectCustHistorys" />
+          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_ProspectCusts" ToRole="Tr_Quotations" />
+        </EntityType>
+        <Association Name="FK__Tr_Prospe__Creat__1ABEEF0B">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ProspectCusts">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Prospe__Modif__1BB31344">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ProspectCusts">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Prospe__City___3552E9B6">
+          <End Type="TrustModel.Ms_Citys" Role="Ms_Citys" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ms_Citys">
+              <PropertyRef Name="CIty_ID" />
+            </Principal>
+            <Dependent Role="Tr_ProspectCusts">
+              <PropertyRef Name="City_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Prospe__Compa__1C873BEC">
+          <End Type="TrustModel.Ms_Customer_CompanyGroups" Role="Ms_Customer_CompanyGroups" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ms_Customer_CompanyGroups">
+              <PropertyRef Name="CompanyGroup_ID" />
+            </Principal>
+            <Dependent Role="Tr_ProspectCusts">
+              <PropertyRef Name="CompanyGroup_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Prospe__Custo__1B9317B3">
+          <End Type="TrustModel.Ms_Customers" Role="Ms_Customers" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ms_Customers">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="Tr_ProspectCusts">
+              <PropertyRef Name="CustomerExists_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Applic__Prosp__08411774">
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApplicationPOs" Role="Tr_ApplicationPOs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ProspectCusts">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApplicationPOs">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Prosp__0EEE1503">
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApprovalPOs" Role="Tr_ApprovalPOs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ProspectCusts">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalPOs">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Prospe__Prosp__1F63A897">
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ProspectCustDetails" Role="Tr_ProspectCustDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ProspectCusts">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Principal>
+            <Dependent Role="Tr_ProspectCustDetails">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Prospe__Prosp__251C81ED">
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ProspectCustHistorys" Role="Tr_ProspectCustHistorys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ProspectCusts">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Principal>
+            <Dependent Role="Tr_ProspectCustHistorys">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Prosp__2116E6DF">
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ProspectCusts">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -16346,37 +16361,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="Tr_ProspectCusts">
-            <EntityTypeMapping TypeName="TrustModel.Tr_ProspectCusts">
-              <MappingFragment StoreEntitySet="Tr_ProspectCusts">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
-                <ScalarProperty Name="IsApplicationPO" ColumnName="IsApplicationPO" />
-                <ScalarProperty Name="IsQuotation" ColumnName="IsQuotation" />
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
-                <ScalarProperty Name="PIC_Email" ColumnName="PIC_Email" />
-                <ScalarProperty Name="PIC_Phone" ColumnName="PIC_Phone" />
-                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="City_id" ColumnName="City_id" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Tbk" ColumnName="Tbk" />
-                <ScalarProperty Name="PT" ColumnName="PT" />
-                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
-                <ScalarProperty Name="CompanyGroup_ID" ColumnName="CompanyGroup_ID" />
-                <ScalarProperty Name="CustomerExists_ID" ColumnName="CustomerExists_ID" />
-                <ScalarProperty Name="IsExists" ColumnName="IsExists" />
-                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Ms_Invoice_Categorys">
             <EntityTypeMapping TypeName="TrustModel.Ms_Invoice_Categorys">
               <MappingFragment StoreEntitySet="Ms_Invoice_Categorys">
@@ -16844,6 +16828,45 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />
                 <ScalarProperty Name="Approval_ID" ColumnName="Approval_ID" />
                 <ScalarProperty Name="ApprovalUser_ID" ColumnName="ApprovalUser_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_QuotationJoin" FunctionName="TrustModel.Store.sp_QuotationJoin" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TrustModel.sp_QuotationJoin_Result">
+                <ScalarProperty Name="Results" ColumnName="Results" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Tr_ProspectCusts">
+            <EntityTypeMapping TypeName="TrustModel.Tr_ProspectCusts">
+              <MappingFragment StoreEntitySet="Tr_ProspectCusts">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
+                <ScalarProperty Name="IsApplication" ColumnName="IsApplication" />
+                <ScalarProperty Name="IsApplicationPO" ColumnName="IsApplicationPO" />
+                <ScalarProperty Name="IsQuotation" ColumnName="IsQuotation" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
+                <ScalarProperty Name="PIC_Email" ColumnName="PIC_Email" />
+                <ScalarProperty Name="PIC_Phone" ColumnName="PIC_Phone" />
+                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City_id" ColumnName="City_id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tbk" ColumnName="Tbk" />
+                <ScalarProperty Name="PT" ColumnName="PT" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="CompanyGroup_ID" ColumnName="CompanyGroup_ID" />
+                <ScalarProperty Name="CustomerExists_ID" ColumnName="CustomerExists_ID" />
+                <ScalarProperty Name="IsExists" ColumnName="IsExists" />
+                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

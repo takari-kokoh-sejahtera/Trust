@@ -89,7 +89,6 @@ Namespace Trust
         Public Overridable Property V_ApplicationPO() As DbSet(Of V_ApplicationPO)
         Public Overridable Property Tr_ApprovalPOs() As DbSet(Of Tr_ApprovalPOs)
         Public Overridable Property V_ProspectCusts() As DbSet(Of V_ProspectCusts)
-        Public Overridable Property Tr_ProspectCusts() As DbSet(Of Tr_ProspectCusts)
         Public Overridable Property Ms_Invoice_Categorys() As DbSet(Of Ms_Invoice_Categorys)
         Public Overridable Property Cn_Levels() As DbSet(Of Cn_Levels)
         Public Overridable Property Tr_ApplicationHeaders() As DbSet(Of Tr_ApplicationHeaders)
@@ -99,6 +98,7 @@ Namespace Trust
         Public Overridable Property Tr_Quotations() As DbSet(Of Tr_Quotations)
         Public Overridable Property Ms_Customers() As DbSet(Of Ms_Customers)
         Public Overridable Property V_Approval() As DbSet(Of V_Approval)
+        Public Overridable Property Tr_ProspectCusts() As DbSet(Of Tr_ProspectCusts)
     
         Public Overridable Function sp_CalcucationCharFromUser(fA As Nullable(Of Integer), user_ID As Nullable(Of Integer)) As ObjectResult(Of sp_CalcucationCharFromUser_Result)
             Dim fAParameter As ObjectParameter = If(fA.HasValue, New ObjectParameter("FA", fA), New ObjectParameter("FA", GetType(Integer)))
@@ -402,6 +402,16 @@ Namespace Trust
             Dim applicationHeader_IDParameter As ObjectParameter = If(applicationHeader_ID.HasValue, New ObjectParameter("ApplicationHeader_ID", applicationHeader_ID), New ObjectParameter("ApplicationHeader_ID", GetType(Integer)))
     
             Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of sp_PrintApplicationDetailNew_Result)("sp_PrintApplicationDetailNew", applicationHeader_IDParameter)
+        End Function
+    
+        Public Overridable Function sp_QuotationJoin(procIDTo As Nullable(Of Integer), procIDFrom As Nullable(Of Integer), user_id As Nullable(Of Integer)) As ObjectResult(Of sp_QuotationJoin_Result)
+            Dim procIDToParameter As ObjectParameter = If(procIDTo.HasValue, New ObjectParameter("ProcIDTo", procIDTo), New ObjectParameter("ProcIDTo", GetType(Integer)))
+    
+            Dim procIDFromParameter As ObjectParameter = If(procIDFrom.HasValue, New ObjectParameter("ProcIDFrom", procIDFrom), New ObjectParameter("ProcIDFrom", GetType(Integer)))
+    
+            Dim user_idParameter As ObjectParameter = If(user_id.HasValue, New ObjectParameter("User_id", user_id), New ObjectParameter("User_id", GetType(Integer)))
+    
+            Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of sp_QuotationJoin_Result)("sp_QuotationJoin", procIDToParameter, procIDFromParameter, user_idParameter)
         End Function
     
     End Class
