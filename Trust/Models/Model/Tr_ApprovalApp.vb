@@ -4,6 +4,8 @@ Public Class Tr_ApprovalApp
     Public Property ApprovalApp_ID As Integer
     Public Property ApplicationHeader_ID As Integer
 
+    Public Property IsApplication As Boolean
+
 
     <Display(Name:="Application No")>
     Public Property Application_No As String

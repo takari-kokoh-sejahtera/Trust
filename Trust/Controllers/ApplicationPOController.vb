@@ -9,12 +9,141 @@ Imports System.Web
 Imports System.Web.Mvc
 Imports Trust.Trust
 Imports PagedList
+Imports System.IO
+Imports Ionic.Zip
+Imports Microsoft.Reporting.WebForms
 
 Namespace Controllers
     Public Class ApplicationPOController
         Inherits System.Web.Mvc.Controller
 
         Private db As New TrustEntities
+        Function Zip(id As String) As ActionResult
+            Dim outputStream = New MemoryStream
+            Using zip1 As ZipFile = New ZipFile()
+                Dim detailCal = db.Tr_ApplicationPODetails.Where(Function(x) x.Tr_ApplicationPOs.ProspectCustomer_ID = id And x.IsChecked And x.IsDeleted = False).
+                GroupBy(Function(x) x.Dealer_ID).Select(Function(x) x.Key).ToList
+                Dim no = 1
+                For Each i In detailCal
+                    Report(id, i.Value, no, zip1)
+                    'ReportCalCashFlow(i.Calculate_ID, zip1)
+                    no = no + 1
+                Next
+                zip1.Save(outputStream)
+            End Using
+            outputStream.Position = 0
+            Return File(outputStream, "application/zip", "ApplicationPO.zip")
+        End Function
+        Function Zip2(id As String) As ActionResult
+            Dim outputStream = New MemoryStream
+            Using zip1 As ZipFile = New ZipFile()
+                Dim detailCal = db.Tr_ApplicationPODetails.Where(Function(x) x.Tr_ApplicationPOs.ProspectCustomer_ID = id And x.IsChecked And x.IsDeleted = False).
+                GroupBy(Function(x) x.Dealer_ID).Select(Function(x) x.Key).ToList
+                Dim no = 1
+                For Each i In detailCal
+                    ReportDealer(id, i.Value, no, zip1)
+                    'ReportCalCashFlow(i.Calculate_ID, zip1)
+                    no = no + 1
+                Next
+                zip1.Save(outputStream)
+            End Using
+            outputStream.Position = 0
+            Return File(outputStream, "application/zip", "ApplicationPOForDealer.zip")
+        End Function
+        Sub Report(id As Integer, dealer_ID As Integer, no As Integer, zip As ZipFile)
+            Dim List = db.sp_PrintApplicationPO(id, dealer_ID).ToList
+            Dim lr = New LocalReport()
+            Dim path As String
+            path = Server.MapPath("~/Report/ApplicationPO.rdlc")
+            If (System.IO.File.Exists(path)) Then
+                lr.ReportPath = path
+            End If
+            Dim rd = New ReportDataSource("DS", List)
+            lr.DataSources.Add(rd)
+
+            Dim header = List.FirstOrDefault
+            Dim param1 = New ReportParameter("AppPONo", header.ApplicationPO_No, False)
+            Dim param2 = New ReportParameter("CreatedDate", header.CreatedDate, False)
+            Dim param3 = New ReportParameter("CreatedBy", header.CreatedBy, False)
+            Dim param4 = New ReportParameter("DealerChecked", header.Dealer_NameChecked, False)
+            lr.SetParameters(New ReportParameter() {param1, param2, param3, param4})
+            lr.Refresh()
+            Dim reportType = "PDF"
+            Dim MimeType As String = MimeMapping.GetMimeMapping(path)
+            Dim endcoding As String
+            Dim fileNameExtension As String = ".pdf"
+            Dim deviceInfo =
+            "<DeviceInfo>" +
+            " <OutputFormat>" + "PDF" + "</OutputFormat>" +
+            " <PageWidth>20cm</PageWidth>" +
+            " <PageHeight>28.7cm</PageHeight>" +
+            " <MarginTop>0.5cm</MarginTop>" +
+            " <MarginLeft>0.5cm</MarginLeft>" +
+            " <MarginRight>0.5cm</MarginRight>" +
+            " <MarginBottom>0.5cm</MarginBottom>" +
+            "</DeviceInfo>"
+            Dim warnings() As Warning
+            Dim streams() As String
+            Dim renderedBytes() As Byte
+            renderedBytes = lr.Render(
+            reportType,
+            deviceInfo,
+            MimeType,
+            endcoding,
+            fileNameExtension,
+            streams,
+            warnings
+            )
+            zip.AddEntry("Application PO Vehicle" + no.ToString + ".pdf", renderedBytes)
+
+        End Sub
+        Sub ReportDealer(id As Integer, dealer_ID As Integer, no As Integer, zip As ZipFile)
+            Dim List = db.sp_PrintApplicationPODealer(id, dealer_ID).ToList
+            Dim lr = New LocalReport()
+            Dim path As String
+            path = Server.MapPath("~/Report/ApplicationPODealer.rdlc")
+            If (System.IO.File.Exists(path)) Then
+                lr.ReportPath = path
+            End If
+            Dim rd = New ReportDataSource("DS", List)
+            lr.DataSources.Add(rd)
+
+            Dim header = List.FirstOrDefault
+            'Dim param1 = New ReportParameter("AppPONo", header.ApplicationPO_No, False)
+            'Dim param2 = New ReportParameter("CreatedDate", header.CreatedDate, False)
+            'Dim param3 = New ReportParameter("CreatedBy", header.CreatedBy, False)
+            'Dim param4 = New ReportParameter("DealerChecked", header.Dealer_NameChecked, False)
+            'lr.SetParameters(New ReportParameter() {param1, param2, param3, param4})
+            lr.Refresh()
+            Dim reportType = "PDF"
+            Dim MimeType As String = MimeMapping.GetMimeMapping(path)
+            Dim endcoding As String
+            Dim fileNameExtension As String = ".pdf"
+            Dim deviceInfo =
+            "<DeviceInfo>" +
+            " <OutputFormat>" + "PDF" + "</OutputFormat>" +
+            " <PageWidth>21cm</PageWidth>" +
+            " <PageHeight>29.7cm</PageHeight>" +
+            " <MarginTop>0cm</MarginTop>" +
+            " <MarginLeft>0cm</MarginLeft>" +
+            " <MarginRight>0cm</MarginRight>" +
+            " <MarginBottom>0cm</MarginBottom>" +
+            "</DeviceInfo>"
+            Dim warnings() As Warning
+            Dim streams() As String
+            Dim renderedBytes() As Byte
+            renderedBytes = lr.Render(
+            reportType,
+            deviceInfo,
+            MimeType,
+            endcoding,
+            fileNameExtension,
+            streams,
+            warnings
+            )
+            zip.AddEntry("Application PO For Dealer" + no.ToString + ".pdf", renderedBytes)
+
+        End Sub
 
         ' GET: ApplicationPO
         Function Index(ByVal sortOrder As String, currentFilter As String, searchString As String, page As Integer?, pageSize As Integer?) As ActionResult
@@ -36,8 +165,8 @@ Namespace Controllers
                         Join b In db.V_ProspectCustDetails On x.ProspectCustomerDetail_ID Equals b.ProspectCustomerDetail_ID
                         Join h In db.Tr_ProspectCusts On x.ProspectCustomer_ID Equals h.ProspectCustomer_ID
                         Select New Tr_ApplicationPO With {.ApplicationPO_ID = x.ApplicationPO_ID, .ApplicationPO_No = x.ApplicationPO_No, .CompanyName = b.Company_Name,
-                            .Color = x.Color, .Delivery_Date = x.Delivery_Date, .Usage = x.Usage, .Qty = x.Qty, .Refund = x.Refund, .PaymentByUser = x.PaymentByUser, .Vehicle = b.Vehicle, .IsApplicationPO = h.IsApplicationPO,
-                             .CreatedBy = x.Cn_Users.User_Name, .CreatedDate = x.CreatedDate, .ModifiedBy = x.Cn_Users1.User_Name, .ModifiedDate = x.ModifiedDate, .IsNotApproved = If(x.IsNotApproved, False)}
+                            .Color = x.Color, .Delivery_Date = x.Delivery_Date, .Usage = x.Usage, .Qty = x.Qty, .Refund = x.Refund, .PaymentByUser = x.PaymentByUser, .Vehicle = b.Vehicle, .IsApplicationPO = h.IsApplicationPO, .IsApplication = h.IsApplication,
+                             .CreatedBy = x.Cn_Users.User_Name, .CreatedDate = x.CreatedDate, .ModifiedBy = x.Cn_Users1.User_Name, .ModifiedDate = x.ModifiedDate, .IsNotApproved = If(x.IsNotApproved, False), .ProspectCustomer_ID = h.ProspectCustomer_ID}
             If Not String.IsNullOrEmpty(searchString) Then
                 appPO = appPO.Where(Function(s) s.ApplicationPO_No.Contains(searchString) OrElse s.CompanyName.Contains(searchString) OrElse s.Vehicle.Contains(searchString))
             End If

@@ -82,6 +82,8 @@ Public Class Tr_ApplicationPO
 
     'dari ProspectCustomer
     Public Property IsApplicationPO As Boolean
+
+    Public Property IsApplication As Boolean
     Public Property IsNotApproved As Boolean
     <Display(Name:="Remark Not Approved")>
     Public Property RemarkNotApproved As String

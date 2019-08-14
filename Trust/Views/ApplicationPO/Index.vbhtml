@@ -130,6 +130,16 @@ End Code
                                         @Html.ActionLink("Not Approve", "Details", New With {.id = item.ApplicationPO_ID})
                                     End If
                                 </td>
+                                <td style="white-space:nowrap">
+                                    @If item.IsApplicationPO = True Then
+                                        @Html.ActionLink("Print Application PO", "Zip", New With {.id = item.ProspectCustomer_ID})
+                                    End If
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @If item.IsApplication = True Then
+                                     @Html.ActionLink("Print PO For Dealer", "Zip2", New With {.id = item.ProspectCustomer_ID})
+                                    End If
+                                </td>
                             </tr>
 
                         Next

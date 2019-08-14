@@ -45,6 +45,7 @@ Namespace Controllers
                 approval.IsApplicationHeader = True
                 approval.IsApplicationHeaderDone = False
                 approval.ModifiedBy = user
+
                 approval.ModifiedDate = DateTime.Now
 
                 'jika BackTo applikasi maka sampai disini
@@ -538,6 +539,7 @@ Finish:
             'quotation.ModifiedBy = user
             'Jika dia User baru di buatin otomatis di Customer
             Dim Pros = db.V_ProspectCusts.Where(Function(x) x.ApplicationHeader_ID = appheader_ID).FirstOrDefault
+            Dim ProsH = db.Tr_ProspectCusts.Where(Function(x) x.ProspectCustomer_ID = Pros.ProspectCustomer_ID).FirstOrDefault
             If Not Pros.IsExists Then
                 Dim AppHeader = db.Tr_ApplicationHeaders.Where(Function(x) x.ApplicationHeader_ID = appheader_ID).FirstOrDefault
                 Dim customer = db.Ms_Customers.Where(Function(x) x.Customer_ID = Pros.Customer_ID).FirstOrDefault
@@ -569,10 +571,10 @@ Finish:
                 'customer.IsDeleted = False
                 'customer.IsKYC = False
                 'db.Ms_Customers.Add(customer)
-                Dim ProsH = db.Tr_ProspectCusts.Where(Function(x) x.ProspectCustomer_ID = Pros.ProspectCustomer_ID).FirstOrDefault
                 ProsH.CustomerExists_ID = customer.Customer_ID
-                db.SaveChanges()
             End If
+            ProsH.IsApplication = True
+            db.SaveChanges()
         End Sub
 
 
