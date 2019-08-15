@@ -32,6 +32,7 @@ End Code
                     <thead>
                         <tr>
                             <th></th>
+                            <th></th>
                             <th>
                                 @Html.DisplayNameFor(Function(model) model(0).IsExists)
                             </th>
@@ -66,11 +67,14 @@ End Code
                         @For Each item In Model
 
                             @<tr style="@item.Color">
-                                 <td style="white-space:nowrap">
-                                     @If item.Status = "Finish" Then
-                                         @Html.ActionLink("Print", "Zip", New With {.id = item.ApplicationHeader_ID})
-                                     End If
-                                 </td>
+                                <td style="white-space:nowrap">
+                                    @Html.ActionLink("View", "Views", New With {.id = item.ApplicationHeader_ID})
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @If item.Status = "Finish" Then
+                                        @Html.ActionLink("Print", "Zip", New With {.id = item.ApplicationHeader_ID})
+                                    End If
+                                </td>
 
                                 <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.IsExists)

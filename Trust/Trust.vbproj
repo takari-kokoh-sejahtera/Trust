@@ -841,6 +841,7 @@
     <EmbeddedResource Include="Report\ApplicationTmpCOP.rdlc" />
     <EmbeddedResource Include="Report\ApplicationTmpOPL.rdlc" />
     <EmbeddedResource Include="Report\ApplicationTmpAtt.rdlc" />
+    <EmbeddedResource Include="Report\ApplicationTmpView.rdlc" />
     <EmbeddedResource Include="Report\CalculateApplication.rdlc" />
     <EmbeddedResource Include="Report\CalculateApplicationCashFlow.rdlc" />
     <EmbeddedResource Include="Report\CalculateCashFlow.rdlc" />

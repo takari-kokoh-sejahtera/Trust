@@ -31,6 +31,7 @@ Namespace Trust
         Public Property Brand_Name As String
         Public Property Color As String
         Public Property Vehicle As String
+        Public Property VehicleType As String
         Public Property Lease_price As Nullable(Of Decimal)
         Public Property Qty As Nullable(Of Integer)
         Public Property RVPersen As Nullable(Of Integer)
@@ -47,6 +48,7 @@ Namespace Trust
         Public Property FundingCost As Nullable(Of Decimal)
         Public Property Rent_Location As String
         Public Property Bid_PricePerMonth As Nullable(Of Decimal)
+        Public Property Residual_Value As Nullable(Of Decimal)
         Public Property QuotationDetail_ID As Nullable(Of Integer)
         Public Property Status As String
         Public Property CreatedBy As Integer

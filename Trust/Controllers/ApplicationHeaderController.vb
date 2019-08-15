@@ -106,6 +106,60 @@ Namespace Controllers
         End Sub
 #End Region
 #Region "Java"
+
+
+        Function Views(id As String) As ActionResult
+            Dim user As Integer
+            If ((Session("ID")) Is Nothing) Then Return RedirectToAction("Login", "Home") Else user = Session("ID")
+            Dim lr = New LocalReport()
+            Dim path = Server.MapPath("~/Report/ApplicationTmpView.rdlc")
+            If (System.IO.File.Exists(path)) Then
+                lr.ReportPath = path
+            End If
+
+            Dim List = db.sp_PrintApplicationDetailNew(id).ToList
+            Dim rd = New ReportDataSource("DS", List)
+            lr.DataSources.Add(rd)
+            Dim reportType = "PDF"
+            Dim MimeType As String = MimeMapping.GetMimeMapping(path)
+            Dim endcoding As String
+            Dim fileNameExtension As String = ".pdf"
+
+            Dim deviceInfo =
+            "<DeviceInfo>" +
+            " <OutputFormat>" + "PDF" + "</OutputFormat>" +
+            " <PageWidth>29.7cm</PageWidth>" +
+            " <PageHeight>21cm</PageHeight>" +
+            " <MarginTop>1cm</MarginTop>" +
+            " <MarginLeft>1.5cm</MarginLeft>" +
+            " <MarginRight>0.5cm</MarginRight>" +
+            " <MarginBottom>1cm</MarginBottom>" +
+            "</DeviceInfo>"
+            Dim warnings() As Warning
+            Dim streams() As String
+            Dim renderedBytes() As Byte
+            renderedBytes = lr.Render(
+            reportType,
+            deviceInfo,
+            MimeType,
+            endcoding,
+            fileNameExtension,
+            streams,
+            warnings
+            )
+            'Dim outputStream = New MemoryStream
+            'Using zip1 As ZipFile = New ZipFile()
+            '    Dim H = Print(id)
+            '    If H <> "" Then
+            '        zip1.AddFile(H, "")
+            '    End If
+            '    Report(id, zip1)
+            '    zip1.Save(outputStream)
+            'End Using
+            'outputStream.Position = 0
+            Return File(renderedBytes, MimeType)
+        End Function
+
         <HandleError>
         Function Zip(id As String) As ActionResult
             Try
