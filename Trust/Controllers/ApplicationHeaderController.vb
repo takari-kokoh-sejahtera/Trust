@@ -71,6 +71,28 @@ Namespace Controllers
                     .Value = "Non Open"
                 }
             }
+        ReadOnly ApplicationType As List(Of SelectListItem) = New List(Of SelectListItem)() From {
+                New SelectListItem With {
+                    .Text = "New Transaction",
+                    .Value = "New Transaction"
+                },
+                New SelectListItem With {
+                    .Text = "List Extantion",
+                    .Value = "List Extantion"
+                },
+                 New SelectListItem With {
+                    .Text = "Agrement Transfer",
+                    .Value = "Agrement Transfer"
+                },
+                 New SelectListItem With {
+                    .Text = "Permanet Extantion",
+                    .Value = "Permanet Extantion"
+                },
+                 New SelectListItem With {
+                    .Text = "Changing Application",
+                    .Value = "Changing Application"
+                }
+            }
 
         Sub Validasi(Header As Tr_ApplicationHeader, ByRef Valid As Boolean, ByRef Message As String, order As Tr_Application(), Optional Status As String = "Create")
             If (Status = "Create" And Header.Approval_ID = Nothing) Then
@@ -883,6 +905,7 @@ Namespace Controllers
             ViewBag.Credit_Rating = New SelectList(db.Ms_ProjRatingMatrixs.GroupBy(Function(x) x.Credit_Rating), "Key", "Key")
             ViewBag.Customer_Class = New SelectList(Customer_Class, "Value", "Text")
             ViewBag.Contracted_by = New SelectList(Contracted_by, "Value", "Text")
+            ViewBag.ApplicationType = New SelectList(ApplicationType, "Value", "Text")
             ViewBag.IsTruck = New SelectList(IsTruck, "Value", "Text")
             ViewBag.IsQuick = New SelectList(IsQuick, "Value", "Text")
             ViewBag.Code_Open = New SelectList(IsCode_Open, "Value", "Text")
@@ -1050,6 +1073,7 @@ Namespace Controllers
                         appHeader.Contract_No = Header.Contract_No
                         appHeader.Credit_Rating = Header.Credit_Rating
                         appHeader.Contracted_by = Header.Contracted_by
+                        appHeader.ApplicationType = Header.ApplicationType
                         appHeader.Customer_Class = Header.Customer_Class
                         appHeader.Line_of_Business = Header.Line_of_Business
                         appHeader.Authorized_Capital = Header.Authorized_Capital
@@ -1284,7 +1308,7 @@ Namespace Controllers
                              B.IsExists, A.Credit_Rating, CCredit_Rating = C.Credit_Rating, A.Line_of_Business, CLine_of_Business = C.Line_of_Business, A.Authorized_Capital, CAuthorized_Capital = C.Authorized_Capital, A.Authorized_Signer_Name1, CAuthorized_Signer_Name1 = C.Authorized_Signer_Name1,
                              CC = A.Customer_Class, CCC = C.Customer_Class, A.Authorized_Signer_Position1, CAuthorized_Signer_Position1 = C.Authorized_Signer_Position1, A.Authorized_Signer_Name2, CAuthorized_Signer_Name2 = C.Authorized_Signer_Name2,
                              A.Authorized_Signer_Position2, CAuthorized_Signer_Position2 = C.Authorized_Signer_Position2, A.IntroducedBy, CIntroducedBy = C.IntroducedBy,
-                             CB = A.Contracted_by, A.Outstanding_Balance_Group, A.Outstanding_Balance_MUL_Group, A.RunContractCompany, A.RunContractGroup, A.Expec_Contract_Date,
+                             CB = A.Contracted_by, A.ApplicationType, A.Outstanding_Balance_Group, A.Outstanding_Balance_MUL_Group, A.RunContractCompany, A.RunContractGroup, A.Expec_Contract_Date,
                              A.Remark, A.IsTruck, A.IsQuick, A.Contract_No,
                              A.Outstanding_Balance_Application, A.Outstanding_Balance_Transaction_FL, A.Outstanding_Balance_Application_FL,
                              A.Outstanding_Balance_Group_FL, A.Outstanding_Balance_MUL_Group_FL, A.Run_Application, A.Run_Transaction_FL, A.Run_Application_FL,
@@ -1337,6 +1361,7 @@ Namespace Controllers
 
             ViewBag.Customer_Class = New SelectList(Customer_Class, "Value", "Text", query.Customer_Class)
             ViewBag.Contracted_by = New SelectList(Contracted_by, "Value", "Text", query.Contracted_by)
+            ViewBag.ApplicationType = New SelectList(ApplicationType, "Value", "Text", query.ApplicationType)
             ViewBag.Credit_Rating = New SelectList(db.Ms_ProjRatingMatrixs.GroupBy(Function(x) x.Credit_Rating), "Key", "Key", query.Credit_Rating)
             ViewBag.IsQuick = New SelectList(IsQuick, "Value", "Text", query.IsQuick)
             ViewBag.IsTruck = New SelectList(IsTruck, "Value", "Text", query.IsTruck)
@@ -1365,6 +1390,7 @@ Namespace Controllers
                 Dim appHeader = db.Tr_ApplicationHeaders.Where(Function(x) x.ApplicationHeader_ID = Header.ApplicationHeader_ID And x.IsDeleted = False).FirstOrDefault
                 appHeader.Credit_Rating = Header.Credit_Rating
                 appHeader.Contracted_by = Header.Contracted_by
+                appHeader.ApplicationType = Header.ApplicationType
                 appHeader.Contract_No = Header.Contract_No
                 appHeader.Customer_Class = Header.Customer_Class
                 appHeader.Line_of_Business = Header.Line_of_Business
@@ -1432,7 +1458,7 @@ Namespace Controllers
                          Where A.IsDeleted = False And A.ApplicationHeader_ID = id
                          Select A.ApplicationHeader_ID, B.Address, B.CompanyGroup_Name, B.Company_Name, B.City, B.PIC_Name, B.PIC_Phone, B.PIC_Email, B.Phone, B.Email,
                              B.IsExists, A.Credit_Rating, A.Authorized_Capital, A.Authorized_Signer_Name1, CC = A.Customer_Class, A.Authorized_Signer_Position1, A.Authorized_Signer_Name2,
-                             A.Authorized_Signer_Position2, A.IntroducedBy, CB = A.Contracted_by, A.Outstanding_Balance_Group, A.Outstanding_Balance_MUL_Group, A.RunContractCompany, A.RunContractGroup, A.IsTruck, A.IsQuick).
+                             A.Authorized_Signer_Position2, A.IntroducedBy, CB = A.Contracted_by, A.ApplicationType, A.Outstanding_Balance_Group, A.Outstanding_Balance_MUL_Group, A.RunContractCompany, A.RunContractGroup, A.IsTruck, A.IsQuick).
             Select(Function(x) New Tr_ApplicationHeader With {.ApplicationHeader_ID = x.ApplicationHeader_ID, .Address = x.Address, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name,
                              .City = x.City, .PIC_Name = x.PIC_Name, .PIC_Phone = x.PIC_Phone, .PIC_Email = x.PIC_Email, .Phone = x.Phone, .Email = x.Email, .IsExists = x.IsExists, .Credit_Rating = x.Credit_Rating,
                              .Authorized_Capital = x.Authorized_Capital, .Authorized_Signer_Name1 = x.Authorized_Signer_Name1, .Customer_Class = x.CC, .Authorized_Signer_Position1 = x.Authorized_Signer_Position1,

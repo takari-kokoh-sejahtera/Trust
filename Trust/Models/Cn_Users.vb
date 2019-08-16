@@ -170,8 +170,6 @@ Namespace Trust
         Public Overridable Property Ms_Invoice_Categorys1 As ICollection(Of Ms_Invoice_Categorys) = New HashSet(Of Ms_Invoice_Categorys)
         Public Overridable Property Cn_Levels As ICollection(Of Cn_Levels) = New HashSet(Of Cn_Levels)
         Public Overridable Property Cn_Levels1 As ICollection(Of Cn_Levels) = New HashSet(Of Cn_Levels)
-        Public Overridable Property Tr_ApplicationHeaders As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
-        Public Overridable Property Tr_ApplicationHeaders1 As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
         Public Overridable Property Tr_ApplicationPOs As ICollection(Of Tr_ApplicationPOs) = New HashSet(Of Tr_ApplicationPOs)
         Public Overridable Property Tr_ApplicationPOs1 As ICollection(Of Tr_ApplicationPOs) = New HashSet(Of Tr_ApplicationPOs)
         Public Overridable Property Tr_ApprovalApps As ICollection(Of Tr_ApprovalApps) = New HashSet(Of Tr_ApprovalApps)
@@ -193,6 +191,8 @@ Namespace Trust
         Public Overridable Property Ms_Customers1 As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
         Public Overridable Property Tr_ProspectCusts1 As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
+        Public Overridable Property Tr_ApplicationHeaders As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
+        Public Overridable Property Tr_ApplicationHeaders1 As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
     
     End Class
 

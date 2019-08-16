@@ -16,6 +16,7 @@ Public Class Tr_ApplicationHeader
     <Display(Name:="PIC Name")>
     Public Property PIC_Name As String
 
+
     'for APPROVAL
     Public Property StatusRecord As Nullable(Of Integer)
     Public Property Status As String
@@ -276,6 +277,8 @@ Public Class Tr_ApplicationHeader
     Public Property RunContractCompany_FL As Nullable(Of Integer)
     <Display(Name:="Run Contract Group FL")>
     Public Property RunContractGroup_FL As Nullable(Of Integer)
+    <Display(Name:="Application Type")>
+    Public Property ApplicationType As String
     <Display(Name:="Created Date")>
     Public Property CreatedDate As Date
     <Display(Name:="Created By")>

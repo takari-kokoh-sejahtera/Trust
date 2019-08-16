@@ -44,6 +44,7 @@ Namespace Trust
         Public Property Run_Application_FL As Nullable(Of Integer)
         Public Property RunContractCompany_FL As Nullable(Of Integer)
         Public Property RunContractGroup_FL As Nullable(Of Integer)
+        Public Property ApplicationType As String
         Public Property Remark As String
         Public Property IsTruck As Nullable(Of Boolean)
         Public Property IsQuick As Nullable(Of Boolean)

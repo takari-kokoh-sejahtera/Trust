@@ -942,7 +942,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>New Transaction</Value>
+                <Value>=Fields!ApplicationType.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -6739,6 +6739,10 @@
           <DataField>Payee</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="ApplicationType">
+          <DataField>ApplicationType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="CreatedDateCust">
           <DataField>CreatedDateCust</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -6870,7 +6874,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DSApplication</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Ramdan.nur\source\repos\takari-kokoh-sejahtera\Trust\Trust\DSApplication.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\riana.ayu\source\repos\Trust\Trust\DSApplication.xsd</rd:SchemaPath>
         <rd:TableName>sp_PrintApplicationDetailNew</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

@@ -1610,12 +1610,40 @@
           <DataField>THU</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="Run_Application">
+          <DataField>Run_Application</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="RunContractCompany">
           <DataField>RunContractCompany</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="RunContractGroup">
           <DataField>RunContractGroup</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TotQty">
+          <DataField>TotQty</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Run_Transaction_FL">
+          <DataField>Run_Transaction_FL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Run_Application_FL">
+          <DataField>Run_Application_FL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="RunContractCompany_FL">
+          <DataField>RunContractCompany_FL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="RunContractGroup_FL">
+          <DataField>RunContractGroup_FL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TotQty_FL">
+          <DataField>TotQty_FL</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="CreatedDate">
@@ -1690,12 +1718,44 @@
           <DataField>Line_of_Business</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Outstanding_Balance_Application">
+          <DataField>Outstanding_Balance_Application</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="Outstanding_Balance_Group">
           <DataField>Outstanding_Balance_Group</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Outstanding_Balance_MUL_Group">
           <DataField>Outstanding_Balance_MUL_Group</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TotCostPrice">
+          <DataField>TotCostPrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Outstanding_Balance_Transaction_FL">
+          <DataField>Outstanding_Balance_Transaction_FL</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Outstanding_Balance_Application_FL">
+          <DataField>Outstanding_Balance_Application_FL</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Outstanding_Balance_Group_FL">
+          <DataField>Outstanding_Balance_Group_FL</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Outstanding_Balance_MUL_Group_FL">
+          <DataField>Outstanding_Balance_MUL_Group_FL</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TotCostPrice_FL">
+          <DataField>TotCostPrice_FL</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="GrandTotal">
+          <DataField>GrandTotal</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Remark">
@@ -1806,13 +1866,9 @@
           <DataField>Payee</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TotQty">
-          <DataField>TotQty</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TotCostPrice">
-          <DataField>TotCostPrice</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="ApplicationType">
+          <DataField>ApplicationType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CreatedDateCust">
           <DataField>CreatedDateCust</DataField>
@@ -1830,10 +1886,122 @@
           <DataField>Expec_Delivery_Date</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="App1Name">
+          <DataField>App1Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App1Sign">
+          <DataField>App1Sign</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Approval1Date">
+          <DataField>Approval1Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Title1">
+          <DataField>Title1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App2Name">
+          <DataField>App2Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App2Sign">
+          <DataField>App2Sign</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Approval2Date">
+          <DataField>Approval2Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Title2">
+          <DataField>Title2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App3Name">
+          <DataField>App3Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App3Sign">
+          <DataField>App3Sign</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Approval3Date">
+          <DataField>Approval3Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Title3">
+          <DataField>Title3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App4Name">
+          <DataField>App4Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App4Sign">
+          <DataField>App4Sign</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Approval4Date">
+          <DataField>Approval4Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Title4">
+          <DataField>Title4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App5Name">
+          <DataField>App5Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App5Sign">
+          <DataField>App5Sign</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Approval5Date">
+          <DataField>Approval5Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Title5">
+          <DataField>Title5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App6Name">
+          <DataField>App6Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App6Sign">
+          <DataField>App6Sign</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Approval6Date">
+          <DataField>Approval6Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Title6">
+          <DataField>Title6</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App7Name">
+          <DataField>App7Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="App7Sign">
+          <DataField>App7Sign</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Approval7Date">
+          <DataField>Approval7Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Title7">
+          <DataField>Title7</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DSApplication</rd:DataSetName>
-        <rd:SchemaPath>D:\Work\VB\Trust\Trust\DSApplication.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\riana.ayu\source\repos\Trust\Trust\DSApplication.xsd</rd:SchemaPath>
         <rd:TableName>sp_PrintApplicationDetailNew</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

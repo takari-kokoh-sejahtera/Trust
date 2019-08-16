@@ -253,6 +253,7 @@
               <Mapping SourceColumn="Transaction_Type" DataSetColumn="Transaction_Type" />
               <Mapping SourceColumn="Agent_FeeStat" DataSetColumn="Agent_FeeStat" />
               <Mapping SourceColumn="Payee" DataSetColumn="Payee" />
+              <Mapping SourceColumn="ApplicationType" DataSetColumn="ApplicationType" />
               <Mapping SourceColumn="CreatedDateCust" DataSetColumn="CreatedDateCust" />
               <Mapping SourceColumn="Up_Front_Fee" DataSetColumn="Up_Front_Fee" />
               <Mapping SourceColumn="AvgSpread" DataSetColumn="AvgSpread" />
@@ -296,7 +297,7 @@
   <xs:element name="DSApplication" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSApplication" msprop:Generator_UserDSName="DSApplication">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sp_PrintApplicationDetail" msprop:Generator_TableClassName="sp_PrintApplicationDetailDataTable" msprop:Generator_TableVarName="tablesp_PrintApplicationDetail" msprop:Generator_TablePropName="sp_PrintApplicationDetail" msprop:Generator_RowDeletingName="sp_PrintApplicationDetailRowDeleting" msprop:Generator_RowChangingName="sp_PrintApplicationDetailRowChanging" msprop:Generator_RowEvHandlerName="sp_PrintApplicationDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_PrintApplicationDetailRowDeleted" msprop:Generator_UserTableName="sp_PrintApplicationDetail" msprop:Generator_RowChangedName="sp_PrintApplicationDetailRowChanged" msprop:Generator_RowEvArgName="sp_PrintApplicationDetailRowChangeEvent" msprop:Generator_RowClassName="sp_PrintApplicationDetailRow">
+        <xs:element name="sp_PrintApplicationDetail" msprop:Generator_TableClassName="sp_PrintApplicationDetailDataTable" msprop:Generator_TableVarName="tablesp_PrintApplicationDetail" msprop:Generator_RowChangedName="sp_PrintApplicationDetailRowChanged" msprop:Generator_TablePropName="sp_PrintApplicationDetail" msprop:Generator_RowDeletingName="sp_PrintApplicationDetailRowDeleting" msprop:Generator_RowChangingName="sp_PrintApplicationDetailRowChanging" msprop:Generator_RowEvHandlerName="sp_PrintApplicationDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_PrintApplicationDetailRowDeleted" msprop:Generator_RowClassName="sp_PrintApplicationDetailRow" msprop:Generator_UserTableName="sp_PrintApplicationDetail" msprop:Generator_RowEvArgName="sp_PrintApplicationDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Company_Name" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn" msprop:Generator_UserColumnName="Company_Name" minOccurs="0">
@@ -371,7 +372,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sp_PrintApplicationCOP" msprop:Generator_TableClassName="sp_PrintApplicationCOPDataTable" msprop:Generator_TableVarName="tablesp_PrintApplicationCOP" msprop:Generator_RowChangedName="sp_PrintApplicationCOPRowChanged" msprop:Generator_TablePropName="sp_PrintApplicationCOP" msprop:Generator_RowDeletingName="sp_PrintApplicationCOPRowDeleting" msprop:Generator_RowChangingName="sp_PrintApplicationCOPRowChanging" msprop:Generator_RowEvHandlerName="sp_PrintApplicationCOPRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_PrintApplicationCOPRowDeleted" msprop:Generator_RowClassName="sp_PrintApplicationCOPRow" msprop:Generator_UserTableName="sp_PrintApplicationCOP" msprop:Generator_RowEvArgName="sp_PrintApplicationCOPRowChangeEvent">
+        <xs:element name="sp_PrintApplicationCOP" msprop:Generator_TableClassName="sp_PrintApplicationCOPDataTable" msprop:Generator_TableVarName="tablesp_PrintApplicationCOP" msprop:Generator_TablePropName="sp_PrintApplicationCOP" msprop:Generator_RowDeletingName="sp_PrintApplicationCOPRowDeleting" msprop:Generator_RowChangingName="sp_PrintApplicationCOPRowChanging" msprop:Generator_RowEvHandlerName="sp_PrintApplicationCOPRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_PrintApplicationCOPRowDeleted" msprop:Generator_UserTableName="sp_PrintApplicationCOP" msprop:Generator_RowChangedName="sp_PrintApplicationCOPRowChanged" msprop:Generator_RowEvArgName="sp_PrintApplicationCOPRowChangeEvent" msprop:Generator_RowClassName="sp_PrintApplicationCOPRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Company_Name" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn" msprop:Generator_UserColumnName="Company_Name" minOccurs="0">
@@ -398,7 +399,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sp_PrintApplicationPO" msprop:Generator_TableClassName="sp_PrintApplicationPODataTable" msprop:Generator_TableVarName="tablesp_PrintApplicationPO" msprop:Generator_TablePropName="sp_PrintApplicationPO" msprop:Generator_RowDeletingName="sp_PrintApplicationPORowDeleting" msprop:Generator_RowChangingName="sp_PrintApplicationPORowChanging" msprop:Generator_RowEvHandlerName="sp_PrintApplicationPORowChangeEventHandler" msprop:Generator_RowDeletedName="sp_PrintApplicationPORowDeleted" msprop:Generator_UserTableName="sp_PrintApplicationPO" msprop:Generator_RowChangedName="sp_PrintApplicationPORowChanged" msprop:Generator_RowEvArgName="sp_PrintApplicationPORowChangeEvent" msprop:Generator_RowClassName="sp_PrintApplicationPORow">
+        <xs:element name="sp_PrintApplicationPO" msprop:Generator_TableClassName="sp_PrintApplicationPODataTable" msprop:Generator_TableVarName="tablesp_PrintApplicationPO" msprop:Generator_RowChangedName="sp_PrintApplicationPORowChanged" msprop:Generator_TablePropName="sp_PrintApplicationPO" msprop:Generator_RowDeletingName="sp_PrintApplicationPORowDeleting" msprop:Generator_RowChangingName="sp_PrintApplicationPORowChanging" msprop:Generator_RowEvHandlerName="sp_PrintApplicationPORowChangeEventHandler" msprop:Generator_RowDeletedName="sp_PrintApplicationPORowDeleted" msprop:Generator_RowClassName="sp_PrintApplicationPORow" msprop:Generator_UserTableName="sp_PrintApplicationPO" msprop:Generator_RowEvArgName="sp_PrintApplicationPORowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ApplicationPO_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnApplicationPO_ID" msprop:Generator_ColumnPropNameInRow="ApplicationPO_ID" msprop:Generator_ColumnPropNameInTable="ApplicationPO_IDColumn" msprop:Generator_UserColumnName="ApplicationPO_ID" type="xs:int" />
@@ -494,7 +495,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sp_PrintApplicationPODealer" msprop:Generator_TableClassName="sp_PrintApplicationPODealerDataTable" msprop:Generator_TableVarName="tablesp_PrintApplicationPODealer" msprop:Generator_TablePropName="sp_PrintApplicationPODealer" msprop:Generator_RowDeletingName="sp_PrintApplicationPODealerRowDeleting" msprop:Generator_RowChangingName="sp_PrintApplicationPODealerRowChanging" msprop:Generator_RowEvHandlerName="sp_PrintApplicationPODealerRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_PrintApplicationPODealerRowDeleted" msprop:Generator_UserTableName="sp_PrintApplicationPODealer" msprop:Generator_RowChangedName="sp_PrintApplicationPODealerRowChanged" msprop:Generator_RowEvArgName="sp_PrintApplicationPODealerRowChangeEvent" msprop:Generator_RowClassName="sp_PrintApplicationPODealerRow">
+        <xs:element name="sp_PrintApplicationPODealer" msprop:Generator_TableClassName="sp_PrintApplicationPODealerDataTable" msprop:Generator_TableVarName="tablesp_PrintApplicationPODealer" msprop:Generator_RowChangedName="sp_PrintApplicationPODealerRowChanged" msprop:Generator_TablePropName="sp_PrintApplicationPODealer" msprop:Generator_RowDeletingName="sp_PrintApplicationPODealerRowDeleting" msprop:Generator_RowChangingName="sp_PrintApplicationPODealerRowChanging" msprop:Generator_RowEvHandlerName="sp_PrintApplicationPODealerRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_PrintApplicationPODealerRowDeleted" msprop:Generator_RowClassName="sp_PrintApplicationPODealerRow" msprop:Generator_UserTableName="sp_PrintApplicationPODealer" msprop:Generator_RowEvArgName="sp_PrintApplicationPODealerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ApplicationPO_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnApplicationPO_ID" msprop:Generator_ColumnPropNameInRow="ApplicationPO_ID" msprop:Generator_ColumnPropNameInTable="ApplicationPO_IDColumn" msprop:Generator_UserColumnName="ApplicationPO_ID" type="xs:int" />
@@ -660,7 +661,7 @@
               <xs:element name="Vehicle" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVehicle" msprop:Generator_ColumnPropNameInRow="Vehicle" msprop:Generator_ColumnPropNameInTable="VehicleColumn" msprop:Generator_UserColumnName="Vehicle" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="115" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -881,6 +882,13 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Payee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPayee" msprop:Generator_ColumnPropNameInRow="Payee" msprop:Generator_ColumnPropNameInTable="PayeeColumn" msprop:Generator_UserColumnName="Payee" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApplicationType" msprop:Generator_ColumnVarNameInTable="columnApplicationType" msprop:Generator_ColumnPropNameInRow="ApplicationType" msprop:Generator_ColumnPropNameInTable="ApplicationTypeColumn" msprop:Generator_UserColumnName="ApplicationType" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />

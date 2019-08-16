@@ -273,11 +273,6 @@
         <AssociationConnector Association="TrustModel.FK__Cn_Approv__Level__23942C2E" />
         <AssociationConnector Association="TrustModel.FK__Cn_Levels__Creat__420DC656" />
         <AssociationConnector Association="TrustModel.FK__Cn_Levels__Modif__4301EA8F" />
-        <EntityTypeShape EntityType="TrustModel.Tr_ApplicationHeaders" Width="1.5" PointX="59" PointY="23.5" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__75F77EB0" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appli__77DFC722" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appro__090A5324" />
         <EntityTypeShape EntityType="TrustModel.Tr_ApplicationPOs" Width="1.5" PointX="59.75" PointY="41.375" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__79F2F81D" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__7AE71C56" />
@@ -297,7 +292,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Creat__35DCF99B" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Modif__36D11DD4" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Appro__405A880E" />
         <EntityTypeShape EntityType="TrustModel.Tr_Quotations" Width="1.5" PointX="46.5" PointY="30.5" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Creat__2A01329B" />
@@ -327,6 +321,12 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" />
         <EntityTypeShape EntityType="TrustModel.V_ProspectCustDetails" Width="2.375" PointX="6.375" PointY="7.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ApplicationHeaders" Width="1.5" PointX="59" PointY="24" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__75F77EB0" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appli__77DFC722" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appro__090A5324" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

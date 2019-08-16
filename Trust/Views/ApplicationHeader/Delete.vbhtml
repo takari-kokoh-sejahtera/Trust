@@ -65,6 +65,15 @@ End Code
         </dd>
 
         <dt>
+        <dt>
+            @Html.DisplayNameFor(Function(model) model.ApplicationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Function(model) model.ApplicationType)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(Function(model) model.Customer_Class)
         </dt>
 
