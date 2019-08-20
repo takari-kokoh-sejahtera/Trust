@@ -91,6 +91,7 @@ Namespace Trust
         Public Property Agent_FeeStat As String
         Public Property Payee As String
         Public Property ApplicationType As String
+        Public Property PeriodeType As String
         Public Property CreatedDateCust As Nullable(Of Date)
         Public Property Up_Front_Fee As Nullable(Of Decimal)
         Public Property AvgSpread As Nullable(Of Decimal)

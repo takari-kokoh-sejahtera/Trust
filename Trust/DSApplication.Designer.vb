@@ -2717,6 +2717,8 @@ Partial Public Class DSApplication
         
         Private columnApplicationType As Global.System.Data.DataColumn
         
+        Private columnPeriodeType As Global.System.Data.DataColumn
+        
         Private columnCreatedDateCust As Global.System.Data.DataColumn
         
         Private columnUp_Front_Fee As Global.System.Data.DataColumn
@@ -3442,6 +3444,14 @@ Partial Public Class DSApplication
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PeriodeTypeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPeriodeType
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property CreatedDateCustColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCreatedDateCust
@@ -3811,6 +3821,7 @@ Partial Public Class DSApplication
                     ByVal Agent_FeeStat As String,  _
                     ByVal Payee As String,  _
                     ByVal ApplicationType As String,  _
+                    ByVal PeriodeType As String,  _
                     ByVal CreatedDateCust As Date,  _
                     ByVal Up_Front_Fee As Decimal,  _
                     ByVal AvgSpread As Decimal,  _
@@ -3844,7 +3855,7 @@ Partial Public Class DSApplication
                     ByVal Approval7Date As Date,  _
                     ByVal Title7 As String) As sp_PrintApplicationDetailNewRow
             Dim rowsp_PrintApplicationDetailNewRow As sp_PrintApplicationDetailNewRow = CType(Me.NewRow,sp_PrintApplicationDetailNewRow)
-            Dim columnValuesArray() As Object = New Object() {No, Company_Name, Contract_No, Vehicle, Year, Application_No, Rent_Location, Bid_PricePerMonth, Update_OTR, Update_Diskon, PurchasePrice, Credit_Rating, THU, Run_Application, RunContractCompany, RunContractGroup, TotQty, Run_Transaction_FL, Run_Application_FL, RunContractCompany_FL, RunContractGroup_FL, TotQty_FL, CreatedDate, Customer_ID, Address, PIC_Name, IsExists, CreatedBy, User_Name, Department, Nothing, Authorized_Capital, Authorized_Signer_Name1, Authorized_Signer_Name2, Authorized_Signer_Position1, Authorized_Signer_Position2, IntroducedBy, Customer_Class, CompanyGroup_Name, Line_of_Business, Outstanding_Balance_Application, Outstanding_Balance_Group, Outstanding_Balance_MUL_Group, TotCostPrice, Outstanding_Balance_Transaction_FL, Outstanding_Balance_Application_FL, Outstanding_Balance_Group_FL, Outstanding_Balance_MUL_Group_FL, TotCostPrice_FL, GrandTotal, Remark, Record_For_Payment, Asset_Rating, Project_Rating, IRR, Funding_Rate, Spread, Lease_Profit, Residual_Value, Purchaser, Assurance, Modification, Contracted_by, IsDriver, Qty, QtyDetail, Cost_PriceAll, IsQuick, IsTruck, Lease_long, Payment_Condition, Other, Term_Of_Payment, Code_Open, Transaction_Type, Agent_FeeStat, Payee, ApplicationType, CreatedDateCust, Up_Front_Fee, AvgSpread, Expec_Delivery_Date, App1Name, App1Sign, Approval1Date, Title1, App2Name, App2Sign, Approval2Date, Title2, App3Name, App3Sign, Approval3Date, Title3, App4Name, App4Sign, Approval4Date, Title4, App5Name, App5Sign, Approval5Date, Title5, App6Name, App6Sign, Approval6Date, Title6, App7Name, App7Sign, Approval7Date, Title7}
+            Dim columnValuesArray() As Object = New Object() {No, Company_Name, Contract_No, Vehicle, Year, Application_No, Rent_Location, Bid_PricePerMonth, Update_OTR, Update_Diskon, PurchasePrice, Credit_Rating, THU, Run_Application, RunContractCompany, RunContractGroup, TotQty, Run_Transaction_FL, Run_Application_FL, RunContractCompany_FL, RunContractGroup_FL, TotQty_FL, CreatedDate, Customer_ID, Address, PIC_Name, IsExists, CreatedBy, User_Name, Department, Nothing, Authorized_Capital, Authorized_Signer_Name1, Authorized_Signer_Name2, Authorized_Signer_Position1, Authorized_Signer_Position2, IntroducedBy, Customer_Class, CompanyGroup_Name, Line_of_Business, Outstanding_Balance_Application, Outstanding_Balance_Group, Outstanding_Balance_MUL_Group, TotCostPrice, Outstanding_Balance_Transaction_FL, Outstanding_Balance_Application_FL, Outstanding_Balance_Group_FL, Outstanding_Balance_MUL_Group_FL, TotCostPrice_FL, GrandTotal, Remark, Record_For_Payment, Asset_Rating, Project_Rating, IRR, Funding_Rate, Spread, Lease_Profit, Residual_Value, Purchaser, Assurance, Modification, Contracted_by, IsDriver, Qty, QtyDetail, Cost_PriceAll, IsQuick, IsTruck, Lease_long, Payment_Condition, Other, Term_Of_Payment, Code_Open, Transaction_Type, Agent_FeeStat, Payee, ApplicationType, PeriodeType, CreatedDateCust, Up_Front_Fee, AvgSpread, Expec_Delivery_Date, App1Name, App1Sign, Approval1Date, Title1, App2Name, App2Sign, Approval2Date, Title2, App3Name, App3Sign, Approval3Date, Title3, App4Name, App4Sign, Approval4Date, Title4, App5Name, App5Sign, Approval5Date, Title5, App6Name, App6Sign, Approval6Date, Title6, App7Name, App7Sign, Approval7Date, Title7}
             rowsp_PrintApplicationDetailNewRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowsp_PrintApplicationDetailNewRow)
             Return rowsp_PrintApplicationDetailNewRow
@@ -3945,6 +3956,7 @@ Partial Public Class DSApplication
             Me.columnAgent_FeeStat = MyBase.Columns("Agent_FeeStat")
             Me.columnPayee = MyBase.Columns("Payee")
             Me.columnApplicationType = MyBase.Columns("ApplicationType")
+            Me.columnPeriodeType = MyBase.Columns("PeriodeType")
             Me.columnCreatedDateCust = MyBase.Columns("CreatedDateCust")
             Me.columnUp_Front_Fee = MyBase.Columns("Up_Front_Fee")
             Me.columnAvgSpread = MyBase.Columns("AvgSpread")
@@ -4138,6 +4150,8 @@ Partial Public Class DSApplication
             MyBase.Columns.Add(Me.columnPayee)
             Me.columnApplicationType = New Global.System.Data.DataColumn("ApplicationType", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnApplicationType)
+            Me.columnPeriodeType = New Global.System.Data.DataColumn("PeriodeType", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPeriodeType)
             Me.columnCreatedDateCust = New Global.System.Data.DataColumn("CreatedDateCust", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCreatedDateCust)
             Me.columnUp_Front_Fee = New Global.System.Data.DataColumn("Up_Front_Fee", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -4259,6 +4273,7 @@ Partial Public Class DSApplication
             Me.columnPayee.ReadOnly = true
             Me.columnPayee.MaxLength = 100
             Me.columnApplicationType.MaxLength = 100
+            Me.columnPeriodeType.MaxLength = 100
             Me.columnAvgSpread.ReadOnly = true
             Me.columnApp1Name.MaxLength = 100
             Me.columnTitle1.MaxLength = 50
@@ -7773,6 +7788,22 @@ Partial Public Class DSApplication
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PeriodeType() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablesp_PrintApplicationDetailNew.PeriodeTypeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PeriodeType' in table 'sp_PrintApplicationDetailNew' is DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablesp_PrintApplicationDetailNew.PeriodeTypeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property CreatedDateCust() As Date
             Get
                 Try 
@@ -9198,6 +9229,18 @@ Partial Public Class DSApplication
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetApplicationTypeNull()
             Me(Me.tablesp_PrintApplicationDetailNew.ApplicationTypeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPeriodeTypeNull() As Boolean
+            Return Me.IsNull(Me.tablesp_PrintApplicationDetailNew.PeriodeTypeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPeriodeTypeNull()
+            Me(Me.tablesp_PrintApplicationDetailNew.PeriodeTypeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10810,6 +10853,7 @@ Namespace DSApplicationTableAdapters
             tableMapping.ColumnMappings.Add("Agent_FeeStat", "Agent_FeeStat")
             tableMapping.ColumnMappings.Add("Payee", "Payee")
             tableMapping.ColumnMappings.Add("ApplicationType", "ApplicationType")
+            tableMapping.ColumnMappings.Add("PeriodeType", "PeriodeType")
             tableMapping.ColumnMappings.Add("CreatedDateCust", "CreatedDateCust")
             tableMapping.ColumnMappings.Add("Up_Front_Fee", "Up_Front_Fee")
             tableMapping.ColumnMappings.Add("AvgSpread", "AvgSpread")

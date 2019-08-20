@@ -321,6 +321,13 @@ End Code
                     @Html.ValidationMessageFor(Function(model) model.ApplicationType, "", New With {.class = "text-danger"})
                 </div>
             </div>
+            <div class="form-group">
+                @Html.LabelFor(Function(model) model.PeriodeType, htmlAttributes:=New With {.class = "control-label col-md-3"})
+                <div class="col-md-9">
+                    @Html.DropDownList("PeriodeType", Nothing, "Please Select", htmlAttributes:=New With {.class = "form-control"})
+                    @Html.ValidationMessageFor(Function(model) model.PeriodeType, "", New With {.class = "text-danger"})
+                </div>
+            </div>
         </dim>
     </div>
     <hr />
@@ -485,7 +492,8 @@ End Using
                 Run_Application_FL: $("#Run_Application_FL").val(),
                 RunContractCompany_FL: $("#RunContractCompany_FL").val(),
                 RunContractGroup_FL: $("#RunContractGroup_FL").val(),
-                ApplicationType: $("#ApplicationType").val()
+                ApplicationType: $("#ApplicationType").val(),
+                PeriodeType:$("#PeriodeType").val()
             });
 
             var data = JSON.stringify({

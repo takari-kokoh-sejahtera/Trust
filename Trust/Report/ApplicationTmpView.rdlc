@@ -3628,7 +3628,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>4.74036cm</Top>
+        <Top>4.75372cm</Top>
         <Left>21.40678cm</Left>
         <Height>0.52063cm</Height>
         <Width>5.22916cm</Width>
@@ -3662,7 +3662,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.26099cm</Top>
+        <Top>5.27435cm</Top>
         <Left>21.40683cm</Left>
         <Height>0.52063cm</Height>
         <Width>1.46941cm</Width>
@@ -3696,7 +3696,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.26099cm</Top>
+        <Top>5.27435cm</Top>
         <Left>22.87624cm</Left>
         <Height>0.52063cm</Height>
         <Width>1.02664cm</Width>
@@ -3731,7 +3731,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.26099cm</Top>
+        <Top>5.27435cm</Top>
         <Left>23.90288cm</Left>
         <Height>0.52063cm</Height>
         <Width>2.73306cm</Width>
@@ -4405,6 +4405,75 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox83">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Periode Type</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>5.79498cm</Top>
+        <Left>19.20227cm</Left>
+        <Height>0.52063cm</Height>
+        <Width>2.20456cm</Width>
+        <ZIndex>89</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <BackgroundColor>NavajoWhite</BackgroundColor>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox84">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!PeriodeType.Value</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>5.79498cm</Top>
+        <Left>21.40683cm</Left>
+        <Height>0.52063cm</Height>
+        <Width>5.22916cm</Width>
+        <ZIndex>90</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>9.75108cm</Height>
     <Style />
@@ -4747,6 +4816,10 @@
         </Field>
         <Field Name="ApplicationType">
           <DataField>ApplicationType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PeriodeType">
+          <DataField>PeriodeType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CreatedDateCust">

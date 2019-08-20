@@ -279,6 +279,8 @@ Public Class Tr_ApplicationHeader
     Public Property RunContractGroup_FL As Nullable(Of Integer)
     <Display(Name:="Application Type")>
     Public Property ApplicationType As String
+    <Display(Name:="Periode Type")>
+    Public Property PeriodeType As String
     <Display(Name:="Created Date")>
     Public Property CreatedDate As Date
     <Display(Name:="Created By")>

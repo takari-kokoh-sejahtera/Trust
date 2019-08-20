@@ -818,6 +818,7 @@
           <Property Name="RunContractCompany_FL" Type="int" />
           <Property Name="RunContractGroup_FL" Type="int" />
           <Property Name="ApplicationType" Type="varchar" MaxLength="100" />
+          <Property Name="PeriodeType" Type="varchar" MaxLength="100" />
           <Property Name="Remark" Type="varchar(max)" />
           <Property Name="IsTruck" Type="bit" />
           <Property Name="IsQuick" Type="bit" />
@@ -13725,6 +13726,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="RunContractCompany_FL" Type="Int32" />
           <Property Name="RunContractGroup_FL" Type="Int32" />
           <Property Name="ApplicationType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PeriodeType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IsTruck" Type="Boolean" />
           <Property Name="IsQuick" Type="Boolean" />
@@ -13880,6 +13882,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Type="String" Name="Agent_FeeStat" Nullable="false" MaxLength="3" />
           <Property Type="String" Name="Payee" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="ApplicationType" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PeriodeType" Nullable="true" MaxLength="100" />
           <Property Type="DateTime" Name="CreatedDateCust" Nullable="true" Precision="23" />
           <Property Type="Decimal" Name="Up_Front_Fee" Nullable="true" Precision="16" Scale="2" />
           <Property Type="Decimal" Name="AvgSpread" Nullable="true" Precision="38" Scale="6" />
@@ -16740,6 +16743,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
                 <ScalarProperty Name="IsQuick" ColumnName="IsQuick" />
                 <ScalarProperty Name="IsTruck" ColumnName="IsTruck" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PeriodeType" ColumnName="PeriodeType" />
                 <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
                 <ScalarProperty Name="RunContractGroup_FL" ColumnName="RunContractGroup_FL" />
                 <ScalarProperty Name="RunContractCompany_FL" ColumnName="RunContractCompany_FL" />
@@ -16856,6 +16860,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
                 <ScalarProperty Name="Agent_FeeStat" ColumnName="Agent_FeeStat" />
                 <ScalarProperty Name="Payee" ColumnName="Payee" />
                 <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="PeriodeType" ColumnName="PeriodeType" />
                 <ScalarProperty Name="CreatedDateCust" ColumnName="CreatedDateCust" />
                 <ScalarProperty Name="Up_Front_Fee" ColumnName="Up_Front_Fee" />
                 <ScalarProperty Name="AvgSpread" ColumnName="AvgSpread" />

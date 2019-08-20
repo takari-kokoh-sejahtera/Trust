@@ -72,6 +72,14 @@ End Code
         <dd>
             @Html.DisplayFor(Function(model) model.ApplicationType)
         </dd>
+        <dt>
+        <dt>
+            @Html.DisplayNameFor(Function(model) model.PeriodeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Function(model) model.PeriodeType)
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(Function(model) model.Customer_Class)
