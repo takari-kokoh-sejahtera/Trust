@@ -149,7 +149,6 @@ Namespace Trust
         Public Overridable Property Tr_TotalLossOnlys1 As ICollection(Of Tr_TotalLossOnlys) = New HashSet(Of Tr_TotalLossOnlys)
         Public Overridable Property Ms_Vehicle_Models As ICollection(Of Ms_Vehicle_Models) = New HashSet(Of Ms_Vehicle_Models)
         Public Overridable Property Ms_Vehicle_Models1 As ICollection(Of Ms_Vehicle_Models) = New HashSet(Of Ms_Vehicle_Models)
-        Public Overridable Property Tr_Applications As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
         Public Overridable Property Tr_Calculates As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
         Public Overridable Property Tr_Calculates1 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
         Public Overridable Property Tr_Calculates2 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
@@ -193,6 +192,7 @@ Namespace Trust
         Public Overridable Property Tr_ProspectCusts1 As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
         Public Overridable Property Tr_ApplicationHeaders As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
         Public Overridable Property Tr_ApplicationHeaders1 As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
+        Public Overridable Property Tr_Applications As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
     
     End Class
 

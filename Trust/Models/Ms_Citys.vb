@@ -36,15 +36,15 @@ Namespace Trust
         Public Overridable Property Ms_Customer_KYCs8 As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
-        Public Overridable Property Tr_Applications As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
-        Public Overridable Property Tr_Applications1 As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
-        Public Overridable Property Tr_Applications2 As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
         Public Overridable Property Tr_Calculates As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
         Public Overridable Property Tr_Calculates1 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
         Public Overridable Property Tr_Calculates2 As ICollection(Of Tr_Calculates) = New HashSet(Of Tr_Calculates)
         Public Overridable Property Tr_ApplicationPOs As ICollection(Of Tr_ApplicationPOs) = New HashSet(Of Tr_ApplicationPOs)
         Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
+        Public Overridable Property Tr_Applications As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
+        Public Overridable Property Tr_Applications1 As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
+        Public Overridable Property Tr_Applications2 As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
     
     End Class
 

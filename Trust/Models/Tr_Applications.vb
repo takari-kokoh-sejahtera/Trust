@@ -99,10 +99,10 @@ Namespace Trust
         Public Overridable Property Ms_Citys1 As Ms_Citys
         Public Overridable Property Ms_Citys2 As Ms_Citys
         Public Overridable Property Tr_ApplicationCashFlows As ICollection(Of Tr_ApplicationCashFlows) = New HashSet(Of Tr_ApplicationCashFlows)
+        Public Overridable Property Tr_ApplicationHeaders As Tr_ApplicationHeaders
         Public Overridable Property Tr_Approvals As Tr_Approvals
         Public Overridable Property Tr_QuotationDetails As Tr_QuotationDetails
         Public Overridable Property Tr_ContractDetails As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
-        Public Overridable Property Tr_ApplicationHeaders As Tr_ApplicationHeaders
     
     End Class
 

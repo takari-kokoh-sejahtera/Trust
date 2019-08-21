@@ -82,7 +82,6 @@ Namespace Trust
         Public Overridable Property Tr_Approvals() As DbSet(Of Tr_Approvals)
         Public Overridable Property Cn_Users() As DbSet(Of Cn_Users)
         Public Overridable Property Ms_Vehicle_Models() As DbSet(Of Ms_Vehicle_Models)
-        Public Overridable Property Tr_Applications() As DbSet(Of Tr_Applications)
         Public Overridable Property Tr_Calculates() As DbSet(Of Tr_Calculates)
         Public Overridable Property Ms_Dealers() As DbSet(Of Ms_Dealers)
         Public Overridable Property Tr_ApplicationPODetails() As DbSet(Of Tr_ApplicationPODetails)
@@ -99,6 +98,7 @@ Namespace Trust
         Public Overridable Property Tr_ProspectCusts() As DbSet(Of Tr_ProspectCusts)
         Public Overridable Property V_ProspectCustDetails() As DbSet(Of V_ProspectCustDetails)
         Public Overridable Property Tr_ApplicationHeaders() As DbSet(Of Tr_ApplicationHeaders)
+        Public Overridable Property Tr_Applications() As DbSet(Of Tr_Applications)
     
         Public Overridable Function sp_CalcucationCharFromUser(fA As Nullable(Of Integer), user_ID As Nullable(Of Integer)) As ObjectResult(Of sp_CalcucationCharFromUser_Result)
             Dim fAParameter As ObjectParameter = If(fA.HasValue, New ObjectParameter("FA", fA), New ObjectParameter("FA", GetType(Integer)))
