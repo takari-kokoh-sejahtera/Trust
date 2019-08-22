@@ -2891,8 +2891,8 @@ last1:
             .New_Vehicle_Price = x.New_Vehicle_Price, .Location_Vehicle_ID = x.Location_Vehicle_ID, .AssuranceExtra = x.AssuranceExtra, .Replacement_Tick = x.Replacement_Tick, .Maintenance_Tick = x.Maintenance_Tick, .STNK_Tick = x.STNK_Tick, .Assurance_Tick = x.Assurance_Tick
             }).FirstOrDefault()
             Dim city = db.Ms_Citys.OrderBy(Function(x) x.City).ToList()
-            ViewBag.Plat_Location = New SelectList(city, "CIty_ID", "City", Query.Rent_Location_ID)
-            ViewBag.Rent_Location_ID = New SelectList(city, "CIty_ID", "City", Query.Plat_Location)
+            ViewBag.Plat_Location = New SelectList(city, "CIty_ID", "City", Query.Plat_Location)
+            ViewBag.Rent_Location_ID = New SelectList(city, "CIty_ID", "City", Query.Rent_Location_ID)
             Dim month As List(Of SelectListItem) = New List(Of SelectListItem)() From {
                 New SelectListItem With {
                     .Text = "Month",
