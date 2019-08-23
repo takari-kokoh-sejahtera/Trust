@@ -2891,14 +2891,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=Fields!Remark.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
@@ -3969,7 +3969,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>12.17889cm</Top>
-        <Left>0.0271cm</Left>
+        <Left>0.05363cm</Left>
         <Height>0.52063cm</Height>
         <Width>26.61654cm</Width>
         <ZIndex>90</ZIndex>
