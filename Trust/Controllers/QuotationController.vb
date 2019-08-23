@@ -59,7 +59,7 @@ Namespace Controllers
             outputStream.Position = 0
             Return File(outputStream, "application/zip", "" + noref + ".zip")
         End Function
-        Sub ReportCalCashFlow(Calculate_ID As String, zip As ZipFile)
+        Public Sub ReportCalCashFlow(Calculate_ID As String, zip As ZipFile)
             Dim lr = New LocalReport()
             Dim path = Server.MapPath("~/Report/CalculateCashFlow.rdlc")
             If (System.IO.File.Exists(path)) Then
@@ -99,7 +99,7 @@ Namespace Controllers
             zip.AddEntry(List.FirstOrDefault.Type.Replace("/", "") + " CashFlow " + Calculate_ID.ToString + ".pdf", renderedBytes)
 
         End Sub
-        Sub ReportCal(Calculate_ID As String, zip As ZipFile)
+        Public Sub ReportCal(Calculate_ID As String, zip As ZipFile)
             Dim lr = New LocalReport()
             Dim path = Server.MapPath("~/Report/CalculateNew.rdlc")
             If (System.IO.File.Exists(path)) Then
@@ -140,7 +140,7 @@ Namespace Controllers
 
         End Sub
 
-        Sub Report(id As String, zip As ZipFile)
+        Public Sub Report(id As String, zip As ZipFile)
             Dim List = db.sp_PrintQuotation(id).ToList
             Dim lr = New LocalReport()
             Dim path As String

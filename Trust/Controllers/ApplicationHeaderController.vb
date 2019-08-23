@@ -19,6 +19,7 @@ Namespace Controllers
 
         Private db As New TrustEntities
         Private calControl As New CalculateController
+        Private quotControl As New QuotationController
 
 #Region "Declare"
         ReadOnly Customer_Class As List(Of SelectListItem) = New List(Of SelectListItem)() From {
@@ -139,10 +140,7 @@ Namespace Controllers
 #End Region
 #Region "Java"
 
-
-        Function Views(id As String) As ActionResult
-            Dim user As Integer
-            If ((Session("ID")) Is Nothing) Then Return RedirectToAction("Login", "Home") Else user = Session("ID")
+        Private Sub ReportView(id As String, zip As ZipFile)
             Dim lr = New LocalReport()
             Dim path = Server.MapPath("~/Report/ApplicationTmpView.rdlc")
             If (System.IO.File.Exists(path)) Then
@@ -179,17 +177,32 @@ Namespace Controllers
             streams,
             warnings
             )
-            'Dim outputStream = New MemoryStream
-            'Using zip1 As ZipFile = New ZipFile()
-            '    Dim H = Print(id)
-            '    If H <> "" Then
-            '        zip1.AddFile(H, "")
-            '    End If
-            '    Report(id, zip1)
-            '    zip1.Save(outputStream)
-            'End Using
-            'outputStream.Position = 0
-            Return File(renderedBytes, MimeType)
+            zip.AddEntry("Application.pdf", renderedBytes)
+            'If count > 1 Then
+            'End If
+        End Sub
+        Function Views(id As String) As ActionResult
+            Try
+
+                Dim outputStream = New MemoryStream
+                Using zip1 As ZipFile = New ZipFile()
+                    ReportView(id, zip1)
+                    Dim application = db.V_ProspectCustDetails.Where(Function(x) x.ApplicationHeader_ID = id).ToList
+                    For Each i In application
+                        ReportCal(i.Application_ID, zip1)
+                        ReportCalCashFlow(i.Application_ID, zip1)
+                        quotControl.ReportCal(i.Calculate_ID, zip1)
+                        quotControl.ReportCalCashFlow(i.Calculate_ID, zip1)
+                    Next
+
+                    zip1.Save(outputStream)
+                End Using
+                outputStream.Position = 0
+                Return File(outputStream, "application/zip", "Application.zip")
+            Catch ex As Exception
+                TempData("ErrorMessage") = ex.Message
+                Return RedirectToAction("Errors")
+            End Try
         End Function
 
         <HandleError>
@@ -216,10 +229,12 @@ Namespace Controllers
                         ReportCOP(id, zip1)
                     End If
                     zip1.AddFile(Server.MapPath("~/Image/POFromCustomer/" + q.Quotation_ID.ToString + ".pdf"), "")
-                    Dim application = db.Tr_Applications.Where(Function(x) x.ApplicationHeader_ID = id).ToList
+                    Dim application = db.V_ProspectCustDetails.Where(Function(x) x.ApplicationHeader_ID = id).ToList
                     For Each i In application
                         ReportCal(i.Application_ID, zip1)
                         ReportCalCashFlow(i.Application_ID, zip1)
+                        'quotControl.ReportCal(i.Calculate_ID, zip1)
+                        'quotControl.ReportCalCashFlow(i.Calculate_ID, zip1)
                     Next
 
                     zip1.Save(outputStream)
