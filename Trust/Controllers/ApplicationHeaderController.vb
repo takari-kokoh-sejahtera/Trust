@@ -191,8 +191,8 @@ Namespace Controllers
                     For Each i In application
                         ReportCal(i.Application_ID, zip1)
                         ReportCalCashFlow(i.Application_ID, zip1)
-                        quotControl.ReportCal(i.Calculate_ID, zip1)
-                        quotControl.ReportCalCashFlow(i.Calculate_ID, zip1)
+                        quotControl.ReportCal(i.Calculate_ID, zip1, Server.MapPath("~/Report/CalculateNew.rdlc"), db)
+                        quotControl.ReportCalCashFlow(i.Calculate_ID, zip1, Server.MapPath("~/Report/CalculateCashFlow.rdlc"), db)
                     Next
 
                     zip1.Save(outputStream)
@@ -200,8 +200,7 @@ Namespace Controllers
                 outputStream.Position = 0
                 Return File(outputStream, "application/zip", "Application.zip")
             Catch ex As Exception
-                TempData("ErrorMessage") = ex.Message
-                Return RedirectToAction("Errors")
+                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest, ex.Message)
             End Try
         End Function
 

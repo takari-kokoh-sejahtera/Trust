@@ -50,8 +50,8 @@ Namespace Controllers
                 Report(id, zip1)
                 Dim detailCal = db.V_QuotationHD.Where(Function(x) x.Quotation_ID = id).ToList
                 For Each i In detailCal
-                    ReportCal(i.Calculate_ID, zip1)
-                    ReportCalCashFlow(i.Calculate_ID, zip1)
+                    ReportCal(i.Calculate_ID, zip1, Server.MapPath("~/Report/CalculateNew.rdlc"), db)
+                    ReportCalCashFlow(i.Calculate_ID, zip1, Server.MapPath("~/Report/CalculateCashFlow.rdlc"), db)
                 Next
                 noref = detailCal.Select(Function(x) x.No_Ref).FirstOrDefault
                 zip1.Save(outputStream)
@@ -59,9 +59,9 @@ Namespace Controllers
             outputStream.Position = 0
             Return File(outputStream, "application/zip", "" + noref + ".zip")
         End Function
-        Public Sub ReportCalCashFlow(Calculate_ID As String, zip As ZipFile)
+        Public Sub ReportCalCashFlow(Calculate_ID As String, zip As ZipFile, path As String, db As TrustEntities)
             Dim lr = New LocalReport()
-            Dim path = Server.MapPath("~/Report/CalculateCashFlow.rdlc")
+            'Dim path = Server.MapPath("~/Report/CalculateCashFlow.rdlc")
             If (System.IO.File.Exists(path)) Then
                 lr.ReportPath = path
             End If
@@ -99,9 +99,9 @@ Namespace Controllers
             zip.AddEntry(List.FirstOrDefault.Type.Replace("/", "") + " CashFlow " + Calculate_ID.ToString + ".pdf", renderedBytes)
 
         End Sub
-        Public Sub ReportCal(Calculate_ID As String, zip As ZipFile)
+        Public Sub ReportCal(Calculate_ID As String, zip As ZipFile, path As String, db As TrustEntities)
             Dim lr = New LocalReport()
-            Dim path = Server.MapPath("~/Report/CalculateNew.rdlc")
+            'Dim path = Server.MapPath("~/Report/CalculateNew.rdlc")
             If (System.IO.File.Exists(path)) Then
                 lr.ReportPath = path
             End If
