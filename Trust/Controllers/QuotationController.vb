@@ -214,7 +214,7 @@ Namespace Controllers
 
             'akalin kalo signernya kepotong
             Dim MarginBottom = "1cm"
-            If List.Count = 10 Or List.Count = 9 Or List.Count = 8 Then
+            If List.Count = 10 Or List.Count = 9 Or List.Count = 8 Or List.Count = 7 Then
                 MarginBottom = "3cm"
             End If
             'Dim deviceInfo =
