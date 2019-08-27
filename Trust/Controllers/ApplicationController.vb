@@ -141,6 +141,7 @@ Namespace Controllers
                         Dim quot = db.Tr_Quotations.Where(Function(x) x.Quotation_ID = model.Quotation_ID).FirstOrDefault
                         If Not quot Is Nothing Then
                             quot.THU = model.THU
+                            quot.TOP_Value = model.TOP_Value
                             quot.Record_For_Payment = model.Record_For_Payment
                             quot.IsPO = True
                             quot.POBy = user

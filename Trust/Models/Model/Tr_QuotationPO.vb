@@ -54,6 +54,9 @@ Public Class Tr_QuotationPO
 
     <Required>
     Public Property THU As Nullable(Of Integer)
+    <Required>
+    <Display(Name:="TOP")>
+    Public Property TOP_Value As Nullable(Of Integer)
 
     <Required>
     <Display(Name:="Record For Payment")>

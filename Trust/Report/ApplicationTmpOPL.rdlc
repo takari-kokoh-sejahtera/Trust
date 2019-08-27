@@ -1849,7 +1849,7 @@
         <Top>9.42382cm</Top>
         <Left>7.24336cm</Left>
         <Height>0.52063cm</Height>
-        <Width>1.34938cm</Width>
+        <Width>1.31763cm</Width>
         <ZIndex>15</ZIndex>
         <Style>
           <Border>
@@ -1903,13 +1903,13 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Fields!Term_Of_Payment.Value</Value>
+                <Value>=Fields!TOP_Value.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> months</Value>
+                <Value> Day</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -1922,9 +1922,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>9.94445cm</Top>
-        <Left>5.92591cm</Left>
+        <Left>5.96119cm</Left>
         <Height>0.52063cm</Height>
-        <Width>2.6528cm</Width>
+        <Width>2.61753cm</Width>
         <ZIndex>17</ZIndex>
         <Style>
           <Border>
@@ -6818,6 +6818,10 @@
         <Field Name="PeriodeType">
           <DataField>PeriodeType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TOP_Value">
+          <DataField>TOP_Value</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="CreatedDateCust">
           <DataField>CreatedDateCust</DataField>

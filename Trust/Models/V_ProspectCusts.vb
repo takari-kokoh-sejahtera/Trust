@@ -72,6 +72,7 @@ Namespace Trust
         Public Property IsPO As Nullable(Of Boolean)
         Public Property IsApplicationPO As Nullable(Of Boolean)
         Public Property PO_No As String
+        Public Property TOP_Value As Nullable(Of Integer)
     
     End Class
 

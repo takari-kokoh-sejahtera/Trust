@@ -912,7 +912,7 @@
           <Property Name="Update_DiskonTick" Type="bit" />
           <Property Name="Cost_Price" Type="decimal" Precision="16" Scale="2" />
           <Property Name="Up_Front_Fee" Type="decimal" Precision="16" Scale="2" />
-          <Property Name="Up_Front_Fee_Percent" Type="decimal" Precision="17" Scale="14" />
+          <Property Name="Up_Front_Fee_Percent" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Other" Type="decimal" Precision="12" Scale="2" />
           <Property Name="Efektif_Date" Type="date" />
           <Property Name="Replacement_Percent" Type="decimal" Precision="21" Scale="18" />
@@ -938,14 +938,14 @@
           <Property Name="Lease_Profit" Type="decimal" Precision="16" Scale="2" />
           <Property Name="Lease_Profit_Percent" Type="decimal" Precision="17" Scale="14" />
           <Property Name="Depresiasi" Type="decimal" Precision="16" Scale="2" />
-          <Property Name="Depresiasi_Percent" Type="decimal" Precision="17" Scale="14" />
+          <Property Name="Depresiasi_Percent" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Funding_Interest" Type="decimal" Precision="16" Scale="2" />
           <Property Name="Funding_Interest_Percent" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Bid_PricePerMonth" Type="decimal" Precision="16" Scale="2" />
-          <Property Name="Premium" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="OJK" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="SwapRate" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="Project_Rating" Type="varchar" MaxLength="3" />
+          <Property Name="Premium" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="OJK" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="SwapRate" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="Project_Rating" Type="varchar" MaxLength="10" />
           <Property Name="IRR" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Funding_Rate" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Spread" Type="decimal" Precision="6" Scale="2" />
@@ -1446,6 +1446,7 @@
           <Property Name="DriverAmount" Type="decimal" Precision="16" Scale="2" />
           <Property Name="IsApplication" Type="bit" />
           <Property Name="THU" Type="int" />
+          <Property Name="TOP_Value" Type="int" />
           <Property Name="Record_For_Payment" Type="varchar" MaxLength="50" />
           <Property Name="Remark" Type="varchar(max)" />
           <Property Name="RemarkInternal" Type="varchar(max)" />
@@ -1492,7 +1493,7 @@
           <Property Name="IsEdited" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ApplicationHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ApplicationHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ApplicationHD">
           <Key>
             <PropertyRef Name="ApplicationHeader_ID" />
@@ -1610,7 +1611,7 @@ warning 6002: The table/view 'Trust.dbo.V_ApplicationHD' does not have a primary
           <Property Name="Expec_Delivery_Date" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ApplicationPO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ApplicationPO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ApplicationPO">
           <Key>
             <PropertyRef Name="ProspectCustomerDetail_ID" />
@@ -1619,7 +1620,7 @@ warning 6002: The table/view 'Trust.dbo.V_ApplicationPO' does not have a primary
           <Property Name="Qty" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_Approval' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_Approval' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Approval">
           <Key>
             <PropertyRef Name="ApprovalUser_ID" />
@@ -1643,7 +1644,7 @@ warning 6002: The table/view 'Trust.dbo.V_Approval' does not have a primary key 
           <Property Name="Remark" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_CalculateMax' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_CalculateMax' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_CalculateMax">
           <Key>
             <PropertyRef Name="ProspectCustomer_ID" />
@@ -1656,7 +1657,7 @@ warning 6002: The table/view 'Trust.dbo.V_CalculateMax' does not have a primary 
           <Property Name="Assurance_Tick" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ProspectCustDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectCustDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ProspectCustDetails">
           <Key>
             <PropertyRef Name="ProspectCustomerDetail_ID" />
@@ -1717,7 +1718,7 @@ warning 6002: The table/view 'Trust.dbo.V_ProspectCustDetails' does not have a p
           <Property Name="PO_No" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ProspectCusts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectCusts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ProspectCusts">
           <Key>
             <PropertyRef Name="ProspectCustomer_ID" />
@@ -1785,9 +1786,10 @@ warning 6002: The table/view 'Trust.dbo.V_ProspectCusts' does not have a primary
           <Property Name="IsPO" Type="bit" />
           <Property Name="IsApplicationPO" Type="bit" />
           <Property Name="PO_No" Type="varchar" MaxLength="50" />
+          <Property Name="TOP_Value" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ProspectHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ProspectHD">
           <Key>
             <PropertyRef Name="ProspectCustomer_ID" />
@@ -1833,7 +1835,7 @@ warning 6002: The table/view 'Trust.dbo.V_ProspectHD' does not have a primary ke
           <Property Name="IsCalculate" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_QuotationHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_QuotationHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_QuotationHD">
           <Key>
             <PropertyRef Name="Quotation_ID" />
@@ -1851,7 +1853,7 @@ warning 6002: The table/view 'Trust.dbo.V_QuotationHD' does not have a primary k
           <Property Name="Calculate_ID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Quotations">
           <Key>
             <PropertyRef Name="Quotation_ID" />
@@ -5325,7 +5327,8 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
     [V_ProspectCusts].[Line_of_Business] AS [Line_of_Business], 
     [V_ProspectCusts].[IsPO] AS [IsPO], 
     [V_ProspectCusts].[IsApplicationPO] AS [IsApplicationPO], 
-    [V_ProspectCusts].[PO_No] AS [PO_No]
+    [V_ProspectCusts].[PO_No] AS [PO_No], 
+    [V_ProspectCusts].[TOP_Value] AS [TOP_Value]
     FROM [dbo].[V_ProspectCusts] AS [V_ProspectCusts]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_ProspectHD" EntityType="Self.V_ProspectHD" store:Type="Views" store:Schema="dbo">
@@ -7476,35 +7479,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
             <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
           </AssociationSet>
-          <EntitySet Name="Tr_Quotations" EntityType="TrustModel.Tr_Quotations" />
-          <AssociationSet Name="FK__Tr_Quotat__Creat__2A01329B" Association="TrustModel.FK__Tr_Quotat__Creat__2A01329B">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Modif__2AF556D4" Association="TrustModel.FK__Tr_Quotat__Modif__2AF556D4">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotati__POBy__19EAC663" Association="TrustModel.FK__Tr_Quotati__POBy__19EAC663">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Signe__70499252" Association="TrustModel.FK__Tr_Quotat__Signe__70499252">
-            <End Role="Ms_Contract_Signers" EntitySet="Ms_Contract_Signers" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Approv__Quota__2180FB33" Association="TrustModel.FK__Tr_Approv__Quota__2180FB33">
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-            <End Role="Tr_Approvals" EntitySet="Tr_Approvals" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Quota__114A936A" Association="TrustModel.FK__Tr_Quotat__Quota__114A936A">
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-            <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Quota__6383C8BA" Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA">
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-            <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
-          </AssociationSet>
           <EntitySet Name="Ms_Customers" EntityType="TrustModel.Ms_Customers" />
           <AssociationSet Name="FK__Ms_Custom__Creat__6CF8245B" Association="TrustModel.FK__Ms_Custom__Creat__6CF8245B">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7573,10 +7547,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
             <End Role="Tr_ProspectCustHistorys" EntitySet="Tr_ProspectCustHistorys" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tr_Quotat__Prosp__2116E6DF" Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF">
-            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
-          </AssociationSet>
           <EntitySet Name="V_ProspectCustDetails" EntityType="TrustModel.V_ProspectCustDetails" />
           <EntitySet Name="Tr_ApplicationHeaders" EntityType="TrustModel.Tr_ApplicationHeaders" />
           <AssociationSet Name="FK__Tr_Applic__Creat__75F77EB0" Association="TrustModel.FK__Tr_Applic__Creat__75F77EB0">
@@ -7595,9 +7565,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
           </AssociationSet>
-          <FunctionImport Name="sp_PrintApplicationDetailNew" ReturnType="Collection(TrustModel.sp_PrintApplicationDetailNew_Result)">
-          <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
-          </FunctionImport>
           <EntitySet Name="Tr_Applications" EntityType="TrustModel.Tr_Applications" />
           <AssociationSet Name="FK__Tr_Applic__FillO__39E294A9" Association="TrustModel.FK__Tr_Applic__FillO__39E294A9">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7635,6 +7602,42 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             <End Role="Tr_Applications" EntitySet="Tr_Applications" />
             <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
           </AssociationSet>
+          <EntitySet Name="Tr_Quotations" EntityType="TrustModel.Tr_Quotations" />
+          <AssociationSet Name="FK__Tr_Quotat__Creat__2A01329B" Association="TrustModel.FK__Tr_Quotat__Creat__2A01329B">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Modif__2AF556D4" Association="TrustModel.FK__Tr_Quotat__Modif__2AF556D4">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotati__POBy__19EAC663" Association="TrustModel.FK__Tr_Quotati__POBy__19EAC663">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Signe__70499252" Association="TrustModel.FK__Tr_Quotat__Signe__70499252">
+            <End Role="Ms_Contract_Signers" EntitySet="Ms_Contract_Signers" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Approv__Quota__2180FB33" Association="TrustModel.FK__Tr_Approv__Quota__2180FB33">
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+            <End Role="Tr_Approvals" EntitySet="Tr_Approvals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Prosp__2116E6DF" Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF">
+            <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Quota__114A936A" Association="TrustModel.FK__Tr_Quotat__Quota__114A936A">
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+            <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Quotat__Quota__6383C8BA" Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA">
+            <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
+            <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
+          </AssociationSet>
+          <FunctionImport Name="sp_PrintApplicationDetailNew" ReturnType="Collection(TrustModel.sp_PrintApplicationDetailNew_Result)">
+            <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="sp_CalcucationCharFromUser_Result">
           <Property Type="Int32" Name="Year" Nullable="true" />
@@ -8295,9 +8298,9 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Quotat__Creat__226010D3" FromRole="Tr_QuotationDetails" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2354350C" FromRole="Tr_QuotationDetails" ToRole="Cn_Users" />
           <NavigationProperty Name="Tr_Calculates" Relationship="TrustModel.FK__Tr_Quotat__Calcu__24E777C3" FromRole="Tr_QuotationDetails" ToRole="Tr_Calculates" />
+          <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Applic__Quota__6ABAD62E" FromRole="Tr_QuotationDetails" ToRole="Tr_Applications" />
           <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Quota__114A936A" FromRole="Tr_QuotationDetails" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_Quotations1" Relationship="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" FromRole="Tr_QuotationDetails" ToRole="Tr_Quotations" />
-          <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Applic__Quota__6ABAD62E" FromRole="Tr_QuotationDetails" ToRole="Tr_Applications" />
           </EntityType>
         <EntityType Name="V_ProspectHD">
           <Key>
@@ -10222,9 +10225,9 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Cn_Users6" Relationship="TrustModel.FK__Tr_Approv__Creat__7C3A67EB" FromRole="Tr_Approvals" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users7" Relationship="TrustModel.FK__Tr_Approv__Maker__7E22B05D" FromRole="Tr_Approvals" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users8" Relationship="TrustModel.FK__Tr_Approv__Modif__7D2E8C24" FromRole="Tr_Approvals" ToRole="Cn_Users" />
-          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Approv__Quota__2180FB33" FromRole="Tr_Approvals" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_ApplicationHeaders" Relationship="TrustModel.FK__Tr_Applic__Appro__090A5324" FromRole="Tr_Approvals" ToRole="Tr_ApplicationHeaders" />
           <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Applic__Appro__69C6B1F5" FromRole="Tr_Approvals" ToRole="Tr_Applications" />
+          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Approv__Quota__2180FB33" FromRole="Tr_Approvals" ToRole="Tr_Quotations" />
         </EntityType>
         <EntityType Name="Cn_Users">
           <Key>
@@ -10399,9 +10402,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Tr_ApprovalApps9" Relationship="TrustModel.FK__Tr_Approv__Creat__35DCF99B" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
           <NavigationProperty Name="Tr_ApprovalApps10" Relationship="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
           <NavigationProperty Name="Tr_ApprovalApps11" Relationship="TrustModel.FK__Tr_Approv__Modif__36D11DD4" FromRole="Cn_Users" ToRole="Tr_ApprovalApps" />
-          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Cn_Users" ToRole="Tr_Quotations" />
-          <NavigationProperty Name="Tr_Quotations1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Cn_Users" ToRole="Tr_Quotations" />
-          <NavigationProperty Name="Tr_Quotations2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Cn_Users" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Ms_Customers" Relationship="TrustModel.FK__Ms_Custom__Creat__6CF8245B" FromRole="Cn_Users" ToRole="Ms_Customers" />
           <NavigationProperty Name="Ms_Customers1" Relationship="TrustModel.FK__Ms_Custom__Modif__6DEC4894" FromRole="Cn_Users" ToRole="Ms_Customers" />
           <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Prospe__Creat__1ABEEF0B" FromRole="Cn_Users" ToRole="Tr_ProspectCusts" />
@@ -10409,6 +10409,9 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <NavigationProperty Name="Tr_ApplicationHeaders" Relationship="TrustModel.FK__Tr_Applic__Creat__75F77EB0" FromRole="Cn_Users" ToRole="Tr_ApplicationHeaders" />
           <NavigationProperty Name="Tr_ApplicationHeaders1" Relationship="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" FromRole="Cn_Users" ToRole="Tr_ApplicationHeaders" />
           <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Applic__FillO__39E294A9" FromRole="Cn_Users" ToRole="Tr_Applications" />
+          <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Cn_Users" ToRole="Tr_Quotations" />
+          <NavigationProperty Name="Tr_Quotations1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Cn_Users" ToRole="Tr_Quotations" />
+          <NavigationProperty Name="Tr_Quotations2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Cn_Users" ToRole="Tr_Quotations" />
           </EntityType>
         <Association Name="FK__Cn_Approv__Creat__24885067">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -12556,6 +12559,7 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <Property Name="IsPO" Type="Boolean" />
           <Property Name="IsApplicationPO" Type="Boolean" />
           <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOP_Value" Type="Int32" />
         </EntityType>
         <ComplexType Name="sp_SaveCashFlow_Result">
           <Property Type="String" Name="Message" Nullable="false" MaxLength="100" />
@@ -13017,126 +13021,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Tr_Quotations">
-          <Key>
-            <PropertyRef Name="Quotation_ID" />
-          </Key>
-          <Property Name="Quotation_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProspectCustomer_ID" Type="Int32" />
-          <Property Name="No_Ref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Quotation_Validity" Type="Int32" />
-          <Property Name="IsDriver" Type="Boolean" />
-          <Property Name="DriverQty" Type="Int32" />
-          <Property Name="DriverAmount" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="IsApplication" Type="Boolean" />
-          <Property Name="THU" Type="Int32" />
-          <Property Name="Record_For_Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="RemarkInternal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="IsPO" Type="Boolean" />
-          <Property Name="POBy" Type="Int32" />
-          <Property Name="PODate" Type="DateTime" Precision="3" />
-          <Property Name="Signer_ID" Type="Int32" />
-          <Property Name="IsNotApproved" Type="Boolean" />
-          <Property Name="RemarkNotApproved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Tr_Quotations" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Tr_Quotations" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Tr_Quotations" ToRole="Cn_Users" />
-          <NavigationProperty Name="Ms_Contract_Signers" Relationship="TrustModel.FK__Tr_Quotat__Signe__70499252" FromRole="Tr_Quotations" ToRole="Ms_Contract_Signers" />
-          <NavigationProperty Name="Tr_Approvals" Relationship="TrustModel.FK__Tr_Approv__Quota__2180FB33" FromRole="Tr_Quotations" ToRole="Tr_Approvals" />
-          <NavigationProperty Name="Tr_QuotationDetails" Relationship="TrustModel.FK__Tr_Quotat__Quota__114A936A" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
-          <NavigationProperty Name="Tr_QuotationDetails1" Relationship="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
-          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_Quotations" ToRole="Tr_ProspectCusts" />
-        </EntityType>
-        <Association Name="FK__Tr_Quotat__Creat__2A01329B">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Modif__2AF556D4">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotati__POBy__19EAC663">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="POBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Signe__70499252">
-          <End Type="TrustModel.Ms_Contract_Signers" Role="Ms_Contract_Signers" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ms_Contract_Signers">
-              <PropertyRef Name="Signer_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="Signer_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Quota__2180FB33">
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Approvals" Role="Tr_Approvals" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Quotations">
-              <PropertyRef Name="Quotation_ID" />
-            </Principal>
-            <Dependent Role="Tr_Approvals">
-              <PropertyRef Name="Quotation_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Quota__114A936A">
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_QuotationDetails" Role="Tr_QuotationDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Quotations">
-              <PropertyRef Name="Quotation_ID" />
-            </Principal>
-            <Dependent Role="Tr_QuotationDetails">
-              <PropertyRef Name="Quotation_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Quotat__Quota__6383C8BA">
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_QuotationDetails" Role="Tr_QuotationDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Quotations">
-              <PropertyRef Name="Quotation_ID" />
-            </Principal>
-            <Dependent Role="Tr_QuotationDetails">
-              <PropertyRef Name="Quotation_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Ms_Customers">
           <Key>
             <PropertyRef Name="Customer_ID" />
@@ -13429,18 +13313,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tr_Quotat__Prosp__2116E6DF">
-          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ProspectCusts">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Principal>
-            <Dependent Role="Tr_Quotations">
-              <PropertyRef Name="ProspectCustomer_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="V_ProspectCustDetails">
           <Key>
             <PropertyRef Name="ProspectCustomerDetail_ID" />
@@ -13601,119 +13473,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="sp_PrintApplicationDetailNew_Result">
-          <Property Type="Int64" Name="No" Nullable="true" />
-          <Property Type="String" Name="Company_Name" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Contract_No" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Vehicle" Nullable="true" MaxLength="115" />
-          <Property Type="Int32" Name="Year" Nullable="true" />
-          <Property Type="String" Name="Application_No" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Rent_Location" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="Bid_PricePerMonth" Nullable="true" Precision="16" Scale="2" />
-          <Property Type="Decimal" Name="Update_OTR" Nullable="true" Precision="12" Scale="2" />
-          <Property Type="Decimal" Name="Update_Diskon" Nullable="true" Precision="12" Scale="2" />
-          <Property Type="Decimal" Name="PurchasePrice" Nullable="true" Precision="16" Scale="2" />
-          <Property Type="String" Name="Credit_Rating" Nullable="true" MaxLength="10" />
-          <Property Type="Int32" Name="THU" Nullable="true" />
-          <Property Type="Int32" Name="Run_Application" Nullable="true" />
-          <Property Type="Int32" Name="RunContractCompany" Nullable="true" />
-          <Property Type="Int32" Name="RunContractGroup" Nullable="true" />
-          <Property Type="Int32" Name="TotQty" Nullable="true" />
-          <Property Type="Int32" Name="Run_Transaction_FL" Nullable="true" />
-          <Property Type="Int32" Name="Run_Application_FL" Nullable="true" />
-          <Property Type="Int32" Name="RunContractCompany_FL" Nullable="true" />
-          <Property Type="Int32" Name="RunContractGroup_FL" Nullable="true" />
-          <Property Type="Int32" Name="TotQty_FL" Nullable="true" />
-          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
-          <Property Type="Int32" Name="Customer_ID" Nullable="true" />
-          <Property Type="String" Name="Address" Nullable="true" />
-          <Property Type="String" Name="PIC_Name" Nullable="true" MaxLength="50" />
-          <Property Type="Boolean" Name="IsExists" Nullable="true" />
-          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
-          <Property Type="String" Name="User_Name" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Department" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Department_ID" Nullable="true" />
-          <Property Type="Decimal" Name="Authorized_Capital" Nullable="true" Precision="14" Scale="2" />
-          <Property Type="String" Name="Authorized_Signer_Name1" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Authorized_Signer_Name2" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Authorized_Signer_Position1" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Authorized_Signer_Position2" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="IntroducedBy" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Customer_Class" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="CompanyGroup_Name" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Line_of_Business" Nullable="true" MaxLength="100" />
-          <Property Type="Decimal" Name="Outstanding_Balance_Application" Nullable="true" Precision="20" Scale="6" />
-          <Property Type="Decimal" Name="Outstanding_Balance_Group" Nullable="true" Precision="19" Scale="7" />
-          <Property Type="Decimal" Name="Outstanding_Balance_MUL_Group" Nullable="true" Precision="19" Scale="7" />
-          <Property Type="Decimal" Name="TotCostPrice" Nullable="true" Precision="38" Scale="6" />
-          <Property Type="Decimal" Name="Outstanding_Balance_Transaction_FL" Nullable="true" Precision="20" Scale="6" />
-          <Property Type="Decimal" Name="Outstanding_Balance_Application_FL" Nullable="true" Precision="20" Scale="6" />
-          <Property Type="Decimal" Name="Outstanding_Balance_Group_FL" Nullable="true" Precision="20" Scale="6" />
-          <Property Type="Decimal" Name="Outstanding_Balance_MUL_Group_FL" Nullable="true" Precision="20" Scale="6" />
-          <Property Type="Decimal" Name="TotCostPrice_FL" Nullable="true" Precision="23" Scale="6" />
-          <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="38" Scale="6" />
-          <Property Type="String" Name="Remark" Nullable="true" />
-          <Property Type="String" Name="Record_For_Payment" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Asset_Rating" Nullable="true" />
-          <Property Type="String" Name="Project_Rating" Nullable="true" MaxLength="10" />
-          <Property Type="Decimal" Name="IRR" Nullable="true" Precision="6" Scale="2" />
-          <Property Type="Decimal" Name="Funding_Rate" Nullable="true" Precision="6" Scale="2" />
-          <Property Type="Decimal" Name="Spread" Nullable="true" Precision="6" Scale="2" />
-          <Property Type="Decimal" Name="Lease_Profit" Nullable="true" Precision="16" Scale="2" />
-          <Property Type="Decimal" Name="Residual_Value" Nullable="true" Precision="16" Scale="2" />
-          <Property Type="String" Name="Purchaser" Nullable="true" MaxLength="100" />
-          <Property Type="Decimal" Name="Assurance" Nullable="true" Precision="16" Scale="2" />
-          <Property Type="Decimal" Name="Modification" Nullable="true" Precision="12" Scale="2" />
-          <Property Type="String" Name="Contracted_by" Nullable="false" MaxLength="3" />
-          <Property Type="Boolean" Name="IsDriver" Nullable="true" />
-          <Property Type="Int32" Name="Qty" Nullable="true" />
-          <Property Type="Int32" Name="QtyDetail" Nullable="true" />
-          <Property Type="Decimal" Name="Cost_PriceAll" Nullable="true" Precision="38" Scale="6" />
-          <Property Type="Boolean" Name="IsQuick" Nullable="true" />
-          <Property Type="Boolean" Name="IsTruck" Nullable="true" />
-          <Property Type="Int32" Name="Lease_long" Nullable="true" />
-          <Property Type="String" Name="Payment_Condition" Nullable="false" MaxLength="7" />
-          <Property Type="Decimal" Name="Other" Nullable="true" Precision="12" Scale="2" />
-          <Property Type="Int32" Name="Term_Of_Payment" Nullable="true" />
-          <Property Type="String" Name="Code_Open" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="Transaction_Type" Nullable="false" MaxLength="4" />
-          <Property Type="String" Name="Agent_FeeStat" Nullable="false" MaxLength="3" />
-          <Property Type="String" Name="Payee" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="ApplicationType" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="PeriodeType" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="CreatedDateCust" Nullable="true" Precision="23" />
-          <Property Type="Decimal" Name="Up_Front_Fee" Nullable="true" Precision="16" Scale="2" />
-          <Property Type="Decimal" Name="AvgSpread" Nullable="true" Precision="38" Scale="6" />
-          <Property Type="DateTime" Name="Expec_Delivery_Date" Nullable="true" Precision="23" />
-          <Property Type="String" Name="App1Name" Nullable="true" MaxLength="100" />
-          <Property Type="Binary" Name="App1Sign" Nullable="true" MaxLength="Max" />
-          <Property Type="DateTime" Name="Approval1Date" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Title1" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="App2Name" Nullable="true" MaxLength="100" />
-          <Property Type="Binary" Name="App2Sign" Nullable="true" MaxLength="Max" />
-          <Property Type="DateTime" Name="Approval2Date" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Title2" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="App3Name" Nullable="true" MaxLength="100" />
-          <Property Type="Binary" Name="App3Sign" Nullable="true" MaxLength="Max" />
-          <Property Type="DateTime" Name="Approval3Date" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Title3" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="App4Name" Nullable="true" MaxLength="100" />
-          <Property Type="Binary" Name="App4Sign" Nullable="true" MaxLength="Max" />
-          <Property Type="DateTime" Name="Approval4Date" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Title4" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="App5Name" Nullable="true" MaxLength="100" />
-          <Property Type="Binary" Name="App5Sign" Nullable="true" MaxLength="Max" />
-          <Property Type="DateTime" Name="Approval5Date" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Title5" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="App6Name" Nullable="true" MaxLength="100" />
-          <Property Type="Binary" Name="App6Sign" Nullable="true" MaxLength="Max" />
-          <Property Type="DateTime" Name="Approval6Date" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Title6" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="App7Name" Nullable="true" MaxLength="100" />
-          <Property Type="Binary" Name="App7Sign" Nullable="true" MaxLength="Max" />
-          <Property Type="DateTime" Name="Approval7Date" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Title7" Nullable="true" MaxLength="50" />
-        </ComplexType>
         <EntityType Name="Tr_Applications">
           <Key>
             <PropertyRef Name="Application_ID" />
@@ -13751,7 +13510,7 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <Property Name="Update_DiskonTick" Type="Boolean" />
           <Property Name="Cost_Price" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="Up_Front_Fee" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Up_Front_Fee_Percent" Type="Decimal" Precision="17" Scale="14" />
+          <Property Name="Up_Front_Fee_Percent" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Other" Type="Decimal" Precision="12" Scale="2" />
           <Property Name="Efektif_Date" Type="DateTime" Precision="0" />
           <Property Name="Replacement_Percent" Type="Decimal" Precision="21" Scale="18" />
@@ -13777,14 +13536,14 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <Property Name="Lease_Profit" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="Lease_Profit_Percent" Type="Decimal" Precision="17" Scale="14" />
           <Property Name="Depresiasi" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Depresiasi_Percent" Type="Decimal" Precision="17" Scale="14" />
+          <Property Name="Depresiasi_Percent" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Funding_Interest" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="Funding_Interest_Percent" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Bid_PricePerMonth" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Premium" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="OJK" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="SwapRate" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="Project_Rating" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Premium" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="OJK" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="SwapRate" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="Project_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="IRR" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Funding_Rate" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Spread" Type="Decimal" Precision="6" Scale="2" />
@@ -13916,6 +13675,253 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Tr_Quotations">
+          <Key>
+            <PropertyRef Name="Quotation_ID" />
+          </Key>
+          <Property Name="Quotation_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProspectCustomer_ID" Type="Int32" />
+          <Property Name="No_Ref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quotation_Validity" Type="Int32" />
+          <Property Name="IsDriver" Type="Boolean" />
+          <Property Name="DriverQty" Type="Int32" />
+          <Property Name="DriverAmount" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="IsApplication" Type="Boolean" />
+          <Property Name="THU" Type="Int32" />
+          <Property Name="TOP_Value" Type="Int32" />
+          <Property Name="Record_For_Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RemarkInternal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsPO" Type="Boolean" />
+          <Property Name="POBy" Type="Int32" />
+          <Property Name="PODate" Type="DateTime" Precision="3" />
+          <Property Name="Signer_ID" Type="Int32" />
+          <Property Name="IsNotApproved" Type="Boolean" />
+          <Property Name="RemarkNotApproved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Tr_Quotations" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Tr_Quotations" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Tr_Quotations" ToRole="Cn_Users" />
+          <NavigationProperty Name="Ms_Contract_Signers" Relationship="TrustModel.FK__Tr_Quotat__Signe__70499252" FromRole="Tr_Quotations" ToRole="Ms_Contract_Signers" />
+          <NavigationProperty Name="Tr_Approvals" Relationship="TrustModel.FK__Tr_Approv__Quota__2180FB33" FromRole="Tr_Quotations" ToRole="Tr_Approvals" />
+          <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" FromRole="Tr_Quotations" ToRole="Tr_ProspectCusts" />
+          <NavigationProperty Name="Tr_QuotationDetails" Relationship="TrustModel.FK__Tr_Quotat__Quota__114A936A" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
+          <NavigationProperty Name="Tr_QuotationDetails1" Relationship="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" FromRole="Tr_Quotations" ToRole="Tr_QuotationDetails" />
+        </EntityType>
+        <Association Name="FK__Tr_Quotat__Creat__2A01329B">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Modif__2AF556D4">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotati__POBy__19EAC663">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="POBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Signe__70499252">
+          <End Type="TrustModel.Ms_Contract_Signers" Role="Ms_Contract_Signers" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ms_Contract_Signers">
+              <PropertyRef Name="Signer_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="Signer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Quota__2180FB33">
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Approvals" Role="Tr_Approvals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Quotations">
+              <PropertyRef Name="Quotation_ID" />
+            </Principal>
+            <Dependent Role="Tr_Approvals">
+              <PropertyRef Name="Quotation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Prosp__2116E6DF">
+          <End Type="TrustModel.Tr_ProspectCusts" Role="Tr_ProspectCusts" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ProspectCusts">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Principal>
+            <Dependent Role="Tr_Quotations">
+              <PropertyRef Name="ProspectCustomer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Quota__114A936A">
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_QuotationDetails" Role="Tr_QuotationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Quotations">
+              <PropertyRef Name="Quotation_ID" />
+            </Principal>
+            <Dependent Role="Tr_QuotationDetails">
+              <PropertyRef Name="Quotation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Quotat__Quota__6383C8BA">
+          <End Type="TrustModel.Tr_Quotations" Role="Tr_Quotations" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_QuotationDetails" Role="Tr_QuotationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Quotations">
+              <PropertyRef Name="Quotation_ID" />
+            </Principal>
+            <Dependent Role="Tr_QuotationDetails">
+              <PropertyRef Name="Quotation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_PrintApplicationDetailNew_Result">
+          <Property Type="Int64" Name="No" Nullable="true" />
+          <Property Type="String" Name="Company_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Contract_No" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Vehicle" Nullable="true" MaxLength="115" />
+          <Property Type="Int32" Name="Year" Nullable="true" />
+          <Property Type="String" Name="Application_No" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Rent_Location" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Bid_PricePerMonth" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="Decimal" Name="Update_OTR" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Update_Diskon" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="PurchasePrice" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="String" Name="Credit_Rating" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="THU" Nullable="true" />
+          <Property Type="Int32" Name="Run_Application" Nullable="true" />
+          <Property Type="Int32" Name="RunContractCompany" Nullable="true" />
+          <Property Type="Int32" Name="RunContractGroup" Nullable="true" />
+          <Property Type="Int32" Name="TotQty" Nullable="true" />
+          <Property Type="Int32" Name="Run_Transaction_FL" Nullable="true" />
+          <Property Type="Int32" Name="Run_Application_FL" Nullable="true" />
+          <Property Type="Int32" Name="RunContractCompany_FL" Nullable="true" />
+          <Property Type="Int32" Name="RunContractGroup_FL" Nullable="true" />
+          <Property Type="Int32" Name="TotQty_FL" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Customer_ID" Nullable="true" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="String" Name="PIC_Name" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsExists" Nullable="true" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="String" Name="User_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Department" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Department_ID" Nullable="true" />
+          <Property Type="Decimal" Name="Authorized_Capital" Nullable="true" Precision="14" Scale="2" />
+          <Property Type="String" Name="Authorized_Signer_Name1" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Authorized_Signer_Name2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Authorized_Signer_Position1" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Authorized_Signer_Position2" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="IntroducedBy" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Customer_Class" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CompanyGroup_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Line_of_Business" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Outstanding_Balance_Application" Nullable="true" Precision="20" Scale="6" />
+          <Property Type="Decimal" Name="Outstanding_Balance_Group" Nullable="true" Precision="19" Scale="7" />
+          <Property Type="Decimal" Name="Outstanding_Balance_MUL_Group" Nullable="true" Precision="19" Scale="7" />
+          <Property Type="Decimal" Name="TotCostPrice" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="Outstanding_Balance_Transaction_FL" Nullable="true" Precision="20" Scale="6" />
+          <Property Type="Decimal" Name="Outstanding_Balance_Application_FL" Nullable="true" Precision="20" Scale="6" />
+          <Property Type="Decimal" Name="Outstanding_Balance_Group_FL" Nullable="true" Precision="20" Scale="6" />
+          <Property Type="Decimal" Name="Outstanding_Balance_MUL_Group_FL" Nullable="true" Precision="20" Scale="6" />
+          <Property Type="Decimal" Name="TotCostPrice_FL" Nullable="true" Precision="23" Scale="6" />
+          <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="String" Name="Remark" Nullable="true" />
+          <Property Type="String" Name="Record_For_Payment" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Asset_Rating" Nullable="true" />
+          <Property Type="String" Name="Project_Rating" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="IRR" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="Funding_Rate" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="Spread" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="Lease_Profit" Nullable="true" Precision="27" Scale="13" />
+          <Property Type="Decimal" Name="Residual_Value" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="String" Name="Purchaser" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Assurance" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="Decimal" Name="Modification" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="String" Name="Contracted_by" Nullable="false" MaxLength="3" />
+          <Property Type="Boolean" Name="IsDriver" Nullable="true" />
+          <Property Type="Int32" Name="Qty" Nullable="true" />
+          <Property Type="Int32" Name="QtyDetail" Nullable="true" />
+          <Property Type="Decimal" Name="Cost_PriceAll" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Boolean" Name="IsQuick" Nullable="true" />
+          <Property Type="Boolean" Name="IsTruck" Nullable="true" />
+          <Property Type="Int32" Name="Lease_long" Nullable="true" />
+          <Property Type="String" Name="Payment_Condition" Nullable="false" MaxLength="7" />
+          <Property Type="Decimal" Name="Other" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Int32" Name="Term_Of_Payment" Nullable="true" />
+          <Property Type="String" Name="Code_Open" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Transaction_Type" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="Agent_FeeStat" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Payee" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ApplicationType" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PeriodeType" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="TOP_Value" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDateCust" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="Up_Front_Fee" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="Decimal" Name="AvgSpread" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="DateTime" Name="Expec_Delivery_Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="App1Name" Nullable="true" MaxLength="100" />
+          <Property Type="Binary" Name="App1Sign" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="Approval1Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="App2Name" Nullable="true" MaxLength="100" />
+          <Property Type="Binary" Name="App2Sign" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="Approval2Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="App3Name" Nullable="true" MaxLength="100" />
+          <Property Type="Binary" Name="App3Sign" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="Approval3Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title3" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="App4Name" Nullable="true" MaxLength="100" />
+          <Property Type="Binary" Name="App4Sign" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="Approval4Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title4" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="App5Name" Nullable="true" MaxLength="100" />
+          <Property Type="Binary" Name="App5Sign" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="Approval5Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title5" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="App6Name" Nullable="true" MaxLength="100" />
+          <Property Type="Binary" Name="App6Sign" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="Approval6Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title6" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="App7Name" Nullable="true" MaxLength="100" />
+          <Property Type="Binary" Name="App7Sign" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="Approval7Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Title7" Nullable="true" MaxLength="50" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -16222,6 +16228,7 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <EntitySetMapping Name="V_ProspectCusts">
             <EntityTypeMapping TypeName="TrustModel.V_ProspectCusts">
               <MappingFragment StoreEntitySet="V_ProspectCusts">
+                <ScalarProperty Name="TOP_Value" ColumnName="TOP_Value" />
                 <ScalarProperty Name="PO_No" ColumnName="PO_No" />
                 <ScalarProperty Name="IsApplicationPO" ColumnName="IsApplicationPO" />
                 <ScalarProperty Name="IsPO" ColumnName="IsPO" />
@@ -16463,35 +16470,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tr_Quotations">
-            <EntityTypeMapping TypeName="TrustModel.Tr_Quotations">
-              <MappingFragment StoreEntitySet="Tr_Quotations">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="RemarkNotApproved" ColumnName="RemarkNotApproved" />
-                <ScalarProperty Name="IsNotApproved" ColumnName="IsNotApproved" />
-                <ScalarProperty Name="Signer_ID" ColumnName="Signer_ID" />
-                <ScalarProperty Name="PODate" ColumnName="PODate" />
-                <ScalarProperty Name="POBy" ColumnName="POBy" />
-                <ScalarProperty Name="IsPO" ColumnName="IsPO" />
-                <ScalarProperty Name="RemarkInternal" ColumnName="RemarkInternal" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Record_For_Payment" ColumnName="Record_For_Payment" />
-                <ScalarProperty Name="THU" ColumnName="THU" />
-                <ScalarProperty Name="IsApplication" ColumnName="IsApplication" />
-                <ScalarProperty Name="DriverAmount" ColumnName="DriverAmount" />
-                <ScalarProperty Name="DriverQty" ColumnName="DriverQty" />
-                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
-                <ScalarProperty Name="Quotation_Validity" ColumnName="Quotation_Validity" />
-                <ScalarProperty Name="No_Ref" ColumnName="No_Ref" />
-                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
-                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Ms_Customers">
             <EntityTypeMapping TypeName="TrustModel.Ms_Customers">
               <MappingFragment StoreEntitySet="Ms_Customers">
@@ -16693,123 +16671,6 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_PrintApplicationDetailNew" FunctionName="TrustModel.Store.sp_PrintApplicationDetailNew">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="TrustModel.sp_PrintApplicationDetailNew_Result">
-                <ScalarProperty Name="No" ColumnName="No" />
-                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
-                <ScalarProperty Name="Contract_No" ColumnName="Contract_No" />
-                <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Application_No" ColumnName="Application_No" />
-                <ScalarProperty Name="Rent_Location" ColumnName="Rent_Location" />
-                <ScalarProperty Name="Bid_PricePerMonth" ColumnName="Bid_PricePerMonth" />
-                <ScalarProperty Name="Update_OTR" ColumnName="Update_OTR" />
-                <ScalarProperty Name="Update_Diskon" ColumnName="Update_Diskon" />
-                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
-                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
-                <ScalarProperty Name="THU" ColumnName="THU" />
-                <ScalarProperty Name="Run_Application" ColumnName="Run_Application" />
-                <ScalarProperty Name="RunContractCompany" ColumnName="RunContractCompany" />
-                <ScalarProperty Name="RunContractGroup" ColumnName="RunContractGroup" />
-                <ScalarProperty Name="TotQty" ColumnName="TotQty" />
-                <ScalarProperty Name="Run_Transaction_FL" ColumnName="Run_Transaction_FL" />
-                <ScalarProperty Name="Run_Application_FL" ColumnName="Run_Application_FL" />
-                <ScalarProperty Name="RunContractCompany_FL" ColumnName="RunContractCompany_FL" />
-                <ScalarProperty Name="RunContractGroup_FL" ColumnName="RunContractGroup_FL" />
-                <ScalarProperty Name="TotQty_FL" ColumnName="TotQty_FL" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
-                <ScalarProperty Name="IsExists" ColumnName="IsExists" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
-                <ScalarProperty Name="Authorized_Capital" ColumnName="Authorized_Capital" />
-                <ScalarProperty Name="Authorized_Signer_Name1" ColumnName="Authorized_Signer_Name1" />
-                <ScalarProperty Name="Authorized_Signer_Name2" ColumnName="Authorized_Signer_Name2" />
-                <ScalarProperty Name="Authorized_Signer_Position1" ColumnName="Authorized_Signer_Position1" />
-                <ScalarProperty Name="Authorized_Signer_Position2" ColumnName="Authorized_Signer_Position2" />
-                <ScalarProperty Name="IntroducedBy" ColumnName="IntroducedBy" />
-                <ScalarProperty Name="Customer_Class" ColumnName="Customer_Class" />
-                <ScalarProperty Name="CompanyGroup_Name" ColumnName="CompanyGroup_Name" />
-                <ScalarProperty Name="Line_of_Business" ColumnName="Line_of_Business" />
-                <ScalarProperty Name="Outstanding_Balance_Application" ColumnName="Outstanding_Balance_Application" />
-                <ScalarProperty Name="Outstanding_Balance_Group" ColumnName="Outstanding_Balance_Group" />
-                <ScalarProperty Name="Outstanding_Balance_MUL_Group" ColumnName="Outstanding_Balance_MUL_Group" />
-                <ScalarProperty Name="TotCostPrice" ColumnName="TotCostPrice" />
-                <ScalarProperty Name="Outstanding_Balance_Transaction_FL" ColumnName="Outstanding_Balance_Transaction_FL" />
-                <ScalarProperty Name="Outstanding_Balance_Application_FL" ColumnName="Outstanding_Balance_Application_FL" />
-                <ScalarProperty Name="Outstanding_Balance_Group_FL" ColumnName="Outstanding_Balance_Group_FL" />
-                <ScalarProperty Name="Outstanding_Balance_MUL_Group_FL" ColumnName="Outstanding_Balance_MUL_Group_FL" />
-                <ScalarProperty Name="TotCostPrice_FL" ColumnName="TotCostPrice_FL" />
-                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Record_For_Payment" ColumnName="Record_For_Payment" />
-                <ScalarProperty Name="Asset_Rating" ColumnName="Asset_Rating" />
-                <ScalarProperty Name="Project_Rating" ColumnName="Project_Rating" />
-                <ScalarProperty Name="IRR" ColumnName="IRR" />
-                <ScalarProperty Name="Funding_Rate" ColumnName="Funding_Rate" />
-                <ScalarProperty Name="Spread" ColumnName="Spread" />
-                <ScalarProperty Name="Lease_Profit" ColumnName="Lease_Profit" />
-                <ScalarProperty Name="Residual_Value" ColumnName="Residual_Value" />
-                <ScalarProperty Name="Purchaser" ColumnName="Purchaser" />
-                <ScalarProperty Name="Assurance" ColumnName="Assurance" />
-                <ScalarProperty Name="Modification" ColumnName="Modification" />
-                <ScalarProperty Name="Contracted_by" ColumnName="Contracted_by" />
-                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="QtyDetail" ColumnName="QtyDetail" />
-                <ScalarProperty Name="Cost_PriceAll" ColumnName="Cost_PriceAll" />
-                <ScalarProperty Name="IsQuick" ColumnName="IsQuick" />
-                <ScalarProperty Name="IsTruck" ColumnName="IsTruck" />
-                <ScalarProperty Name="Lease_long" ColumnName="Lease_long" />
-                <ScalarProperty Name="Payment_Condition" ColumnName="Payment_Condition" />
-                <ScalarProperty Name="Other" ColumnName="Other" />
-                <ScalarProperty Name="Term_Of_Payment" ColumnName="Term_Of_Payment" />
-                <ScalarProperty Name="Code_Open" ColumnName="Code_Open" />
-                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
-                <ScalarProperty Name="Agent_FeeStat" ColumnName="Agent_FeeStat" />
-                <ScalarProperty Name="Payee" ColumnName="Payee" />
-                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
-                <ScalarProperty Name="PeriodeType" ColumnName="PeriodeType" />
-                <ScalarProperty Name="CreatedDateCust" ColumnName="CreatedDateCust" />
-                <ScalarProperty Name="Up_Front_Fee" ColumnName="Up_Front_Fee" />
-                <ScalarProperty Name="AvgSpread" ColumnName="AvgSpread" />
-                <ScalarProperty Name="Expec_Delivery_Date" ColumnName="Expec_Delivery_Date" />
-                <ScalarProperty Name="App1Name" ColumnName="App1Name" />
-                <ScalarProperty Name="App1Sign" ColumnName="App1Sign" />
-                <ScalarProperty Name="Approval1Date" ColumnName="Approval1Date" />
-                <ScalarProperty Name="Title1" ColumnName="Title1" />
-                <ScalarProperty Name="App2Name" ColumnName="App2Name" />
-                <ScalarProperty Name="App2Sign" ColumnName="App2Sign" />
-                <ScalarProperty Name="Approval2Date" ColumnName="Approval2Date" />
-                <ScalarProperty Name="Title2" ColumnName="Title2" />
-                <ScalarProperty Name="App3Name" ColumnName="App3Name" />
-                <ScalarProperty Name="App3Sign" ColumnName="App3Sign" />
-                <ScalarProperty Name="Approval3Date" ColumnName="Approval3Date" />
-                <ScalarProperty Name="Title3" ColumnName="Title3" />
-                <ScalarProperty Name="App4Name" ColumnName="App4Name" />
-                <ScalarProperty Name="App4Sign" ColumnName="App4Sign" />
-                <ScalarProperty Name="Approval4Date" ColumnName="Approval4Date" />
-                <ScalarProperty Name="Title4" ColumnName="Title4" />
-                <ScalarProperty Name="App5Name" ColumnName="App5Name" />
-                <ScalarProperty Name="App5Sign" ColumnName="App5Sign" />
-                <ScalarProperty Name="Approval5Date" ColumnName="Approval5Date" />
-                <ScalarProperty Name="Title5" ColumnName="Title5" />
-                <ScalarProperty Name="App6Name" ColumnName="App6Name" />
-                <ScalarProperty Name="App6Sign" ColumnName="App6Sign" />
-                <ScalarProperty Name="Approval6Date" ColumnName="Approval6Date" />
-                <ScalarProperty Name="Title6" ColumnName="Title6" />
-                <ScalarProperty Name="App7Name" ColumnName="App7Name" />
-                <ScalarProperty Name="App7Sign" ColumnName="App7Sign" />
-                <ScalarProperty Name="Approval7Date" ColumnName="Approval7Date" />
-                <ScalarProperty Name="Title7" ColumnName="Title7" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="Tr_Applications">
             <EntityTypeMapping TypeName="TrustModel.Tr_Applications">
               <MappingFragment StoreEntitySet="Tr_Applications">
@@ -16896,6 +16757,154 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Tr_Quotations">
+            <EntityTypeMapping TypeName="TrustModel.Tr_Quotations">
+              <MappingFragment StoreEntitySet="Tr_Quotations">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="RemarkNotApproved" ColumnName="RemarkNotApproved" />
+                <ScalarProperty Name="IsNotApproved" ColumnName="IsNotApproved" />
+                <ScalarProperty Name="Signer_ID" ColumnName="Signer_ID" />
+                <ScalarProperty Name="PODate" ColumnName="PODate" />
+                <ScalarProperty Name="POBy" ColumnName="POBy" />
+                <ScalarProperty Name="IsPO" ColumnName="IsPO" />
+                <ScalarProperty Name="RemarkInternal" ColumnName="RemarkInternal" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Record_For_Payment" ColumnName="Record_For_Payment" />
+                <ScalarProperty Name="TOP_Value" ColumnName="TOP_Value" />
+                <ScalarProperty Name="THU" ColumnName="THU" />
+                <ScalarProperty Name="IsApplication" ColumnName="IsApplication" />
+                <ScalarProperty Name="DriverAmount" ColumnName="DriverAmount" />
+                <ScalarProperty Name="DriverQty" ColumnName="DriverQty" />
+                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
+                <ScalarProperty Name="Quotation_Validity" ColumnName="Quotation_Validity" />
+                <ScalarProperty Name="No_Ref" ColumnName="No_Ref" />
+                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
+                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_PrintApplicationDetailNew" FunctionName="TrustModel.Store.sp_PrintApplicationDetailNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TrustModel.sp_PrintApplicationDetailNew_Result">
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Contract_No" ColumnName="Contract_No" />
+                <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Application_No" ColumnName="Application_No" />
+                <ScalarProperty Name="Rent_Location" ColumnName="Rent_Location" />
+                <ScalarProperty Name="Bid_PricePerMonth" ColumnName="Bid_PricePerMonth" />
+                <ScalarProperty Name="Update_OTR" ColumnName="Update_OTR" />
+                <ScalarProperty Name="Update_Diskon" ColumnName="Update_Diskon" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
+                <ScalarProperty Name="THU" ColumnName="THU" />
+                <ScalarProperty Name="Run_Application" ColumnName="Run_Application" />
+                <ScalarProperty Name="RunContractCompany" ColumnName="RunContractCompany" />
+                <ScalarProperty Name="RunContractGroup" ColumnName="RunContractGroup" />
+                <ScalarProperty Name="TotQty" ColumnName="TotQty" />
+                <ScalarProperty Name="Run_Transaction_FL" ColumnName="Run_Transaction_FL" />
+                <ScalarProperty Name="Run_Application_FL" ColumnName="Run_Application_FL" />
+                <ScalarProperty Name="RunContractCompany_FL" ColumnName="RunContractCompany_FL" />
+                <ScalarProperty Name="RunContractGroup_FL" ColumnName="RunContractGroup_FL" />
+                <ScalarProperty Name="TotQty_FL" ColumnName="TotQty_FL" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
+                <ScalarProperty Name="IsExists" ColumnName="IsExists" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+                <ScalarProperty Name="Authorized_Capital" ColumnName="Authorized_Capital" />
+                <ScalarProperty Name="Authorized_Signer_Name1" ColumnName="Authorized_Signer_Name1" />
+                <ScalarProperty Name="Authorized_Signer_Name2" ColumnName="Authorized_Signer_Name2" />
+                <ScalarProperty Name="Authorized_Signer_Position1" ColumnName="Authorized_Signer_Position1" />
+                <ScalarProperty Name="Authorized_Signer_Position2" ColumnName="Authorized_Signer_Position2" />
+                <ScalarProperty Name="IntroducedBy" ColumnName="IntroducedBy" />
+                <ScalarProperty Name="Customer_Class" ColumnName="Customer_Class" />
+                <ScalarProperty Name="CompanyGroup_Name" ColumnName="CompanyGroup_Name" />
+                <ScalarProperty Name="Line_of_Business" ColumnName="Line_of_Business" />
+                <ScalarProperty Name="Outstanding_Balance_Application" ColumnName="Outstanding_Balance_Application" />
+                <ScalarProperty Name="Outstanding_Balance_Group" ColumnName="Outstanding_Balance_Group" />
+                <ScalarProperty Name="Outstanding_Balance_MUL_Group" ColumnName="Outstanding_Balance_MUL_Group" />
+                <ScalarProperty Name="TotCostPrice" ColumnName="TotCostPrice" />
+                <ScalarProperty Name="Outstanding_Balance_Transaction_FL" ColumnName="Outstanding_Balance_Transaction_FL" />
+                <ScalarProperty Name="Outstanding_Balance_Application_FL" ColumnName="Outstanding_Balance_Application_FL" />
+                <ScalarProperty Name="Outstanding_Balance_Group_FL" ColumnName="Outstanding_Balance_Group_FL" />
+                <ScalarProperty Name="Outstanding_Balance_MUL_Group_FL" ColumnName="Outstanding_Balance_MUL_Group_FL" />
+                <ScalarProperty Name="TotCostPrice_FL" ColumnName="TotCostPrice_FL" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Record_For_Payment" ColumnName="Record_For_Payment" />
+                <ScalarProperty Name="Asset_Rating" ColumnName="Asset_Rating" />
+                <ScalarProperty Name="Project_Rating" ColumnName="Project_Rating" />
+                <ScalarProperty Name="IRR" ColumnName="IRR" />
+                <ScalarProperty Name="Funding_Rate" ColumnName="Funding_Rate" />
+                <ScalarProperty Name="Spread" ColumnName="Spread" />
+                <ScalarProperty Name="Lease_Profit" ColumnName="Lease_Profit" />
+                <ScalarProperty Name="Residual_Value" ColumnName="Residual_Value" />
+                <ScalarProperty Name="Purchaser" ColumnName="Purchaser" />
+                <ScalarProperty Name="Assurance" ColumnName="Assurance" />
+                <ScalarProperty Name="Modification" ColumnName="Modification" />
+                <ScalarProperty Name="Contracted_by" ColumnName="Contracted_by" />
+                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="QtyDetail" ColumnName="QtyDetail" />
+                <ScalarProperty Name="Cost_PriceAll" ColumnName="Cost_PriceAll" />
+                <ScalarProperty Name="IsQuick" ColumnName="IsQuick" />
+                <ScalarProperty Name="IsTruck" ColumnName="IsTruck" />
+                <ScalarProperty Name="Lease_long" ColumnName="Lease_long" />
+                <ScalarProperty Name="Payment_Condition" ColumnName="Payment_Condition" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="Term_Of_Payment" ColumnName="Term_Of_Payment" />
+                <ScalarProperty Name="Code_Open" ColumnName="Code_Open" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+                <ScalarProperty Name="Agent_FeeStat" ColumnName="Agent_FeeStat" />
+                <ScalarProperty Name="Payee" ColumnName="Payee" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="PeriodeType" ColumnName="PeriodeType" />
+                <ScalarProperty Name="TOP_Value" ColumnName="TOP_Value" />
+                <ScalarProperty Name="CreatedDateCust" ColumnName="CreatedDateCust" />
+                <ScalarProperty Name="Up_Front_Fee" ColumnName="Up_Front_Fee" />
+                <ScalarProperty Name="AvgSpread" ColumnName="AvgSpread" />
+                <ScalarProperty Name="Expec_Delivery_Date" ColumnName="Expec_Delivery_Date" />
+                <ScalarProperty Name="App1Name" ColumnName="App1Name" />
+                <ScalarProperty Name="App1Sign" ColumnName="App1Sign" />
+                <ScalarProperty Name="Approval1Date" ColumnName="Approval1Date" />
+                <ScalarProperty Name="Title1" ColumnName="Title1" />
+                <ScalarProperty Name="App2Name" ColumnName="App2Name" />
+                <ScalarProperty Name="App2Sign" ColumnName="App2Sign" />
+                <ScalarProperty Name="Approval2Date" ColumnName="Approval2Date" />
+                <ScalarProperty Name="Title2" ColumnName="Title2" />
+                <ScalarProperty Name="App3Name" ColumnName="App3Name" />
+                <ScalarProperty Name="App3Sign" ColumnName="App3Sign" />
+                <ScalarProperty Name="Approval3Date" ColumnName="Approval3Date" />
+                <ScalarProperty Name="Title3" ColumnName="Title3" />
+                <ScalarProperty Name="App4Name" ColumnName="App4Name" />
+                <ScalarProperty Name="App4Sign" ColumnName="App4Sign" />
+                <ScalarProperty Name="Approval4Date" ColumnName="Approval4Date" />
+                <ScalarProperty Name="Title4" ColumnName="Title4" />
+                <ScalarProperty Name="App5Name" ColumnName="App5Name" />
+                <ScalarProperty Name="App5Sign" ColumnName="App5Sign" />
+                <ScalarProperty Name="Approval5Date" ColumnName="Approval5Date" />
+                <ScalarProperty Name="Title5" ColumnName="Title5" />
+                <ScalarProperty Name="App6Name" ColumnName="App6Name" />
+                <ScalarProperty Name="App6Sign" ColumnName="App6Sign" />
+                <ScalarProperty Name="Approval6Date" ColumnName="Approval6Date" />
+                <ScalarProperty Name="Title6" ColumnName="Title6" />
+                <ScalarProperty Name="App7Name" ColumnName="App7Name" />
+                <ScalarProperty Name="App7Sign" ColumnName="App7Sign" />
+                <ScalarProperty Name="Approval7Date" ColumnName="Approval7Date" />
+                <ScalarProperty Name="Title7" ColumnName="Title7" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

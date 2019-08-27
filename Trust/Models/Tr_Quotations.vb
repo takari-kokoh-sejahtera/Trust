@@ -22,6 +22,7 @@ Namespace Trust
         Public Property DriverAmount As Nullable(Of Decimal)
         Public Property IsApplication As Nullable(Of Boolean)
         Public Property THU As Nullable(Of Integer)
+        Public Property TOP_Value As Nullable(Of Integer)
         Public Property Record_For_Payment As String
         Public Property Remark As String
         Public Property RemarkInternal As String
@@ -42,9 +43,9 @@ Namespace Trust
         Public Overridable Property Cn_Users2 As Cn_Users
         Public Overridable Property Ms_Contract_Signers As Ms_Contract_Signers
         Public Overridable Property Tr_Approvals As ICollection(Of Tr_Approvals) = New HashSet(Of Tr_Approvals)
+        Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
         Public Overridable Property Tr_QuotationDetails As ICollection(Of Tr_QuotationDetails) = New HashSet(Of Tr_QuotationDetails)
         Public Overridable Property Tr_QuotationDetails1 As ICollection(Of Tr_QuotationDetails) = New HashSet(Of Tr_QuotationDetails)
-        Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
     
     End Class
 

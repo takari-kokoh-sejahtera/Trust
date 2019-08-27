@@ -1903,13 +1903,13 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Fields!Term_Of_Payment.Value</Value>
+                <Value>=Fields!TOP_Value.Value</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> months</Value>
+                <Value> Day</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -5110,6 +5110,10 @@
         <Field Name="PeriodeType">
           <DataField>PeriodeType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TOP_Value">
+          <DataField>TOP_Value</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="CreatedDateCust">
           <DataField>CreatedDateCust</DataField>

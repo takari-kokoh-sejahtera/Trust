@@ -9,40 +9,48 @@ End Code
     @Html.ValidationSummary(True, "", New With {.class = "text-danger"})
     @Html.HiddenFor(Function(x) x.Quotation_ID)
     @<div class="form-horizontal">
-        <div class="row">
-            <div class="form-group">
-                @Html.LabelFor(Function(model) model.No_Ref, htmlAttributes:=New With {.class = "control-label col-md-3"})
-                <div class="col-md-9">
-                    @Html.EditorFor(Function(model) model.No_Ref, New With {.htmlAttributes = New With {.class = "form-control", .readonly = "readonly"}})
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(Function(model) model.CompanyGroup_Name, htmlAttributes:=New With {.class = "control-label col-md-3"})
-                <div class="col-md-9">
-                    @Html.EditorFor(Function(model) model.CompanyGroup_Name, New With {.htmlAttributes = New With {.class = "form-control", .readonly = "readonly"}})
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(Function(model) model.Company_Name, htmlAttributes:=New With {.class = "control-label col-md-3"})
-                <div class="col-md-9">
-                    @Html.EditorFor(Function(model) model.Company_Name, New With {.htmlAttributes = New With {.class = "form-control", .readonly = "readonly"}})
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(Function(model) model.THU, htmlAttributes:=New With {.class = "control-label col-md-3"})
-                <div class="col-md-9">
-                    @Html.EditorFor(Function(model) model.THU, New With {.htmlAttributes = New With {.class = "form-control"}})
-                    @Html.ValidationMessageFor(Function(model) model.THU, "", New With {.class = "text-danger"})
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(Function(model) model.Record_For_Payment, htmlAttributes:=New With {.class = "control-label col-md-3"})
-                <div class="col-md-9">
-                    @Html.DropDownList("Record_For_Payment", Nothing, htmlAttributes:=New With {.class = "form-control"})
-                    @Html.ValidationMessageFor(Function(model) model.Record_For_Payment, "", New With {.class = "text-danger"})
-                </div>
-            </div>
-        </div>
+         <div class="row">
+             <div class="form-group">
+                 @Html.LabelFor(Function(model) model.No_Ref, htmlAttributes:=New With {.class = "control-label col-md-3"})
+                 <div class="col-md-9">
+                     @Html.EditorFor(Function(model) model.No_Ref, New With {.htmlAttributes = New With {.class = "form-control", .readonly = "readonly"}})
+                 </div>
+             </div>
+             <div class="form-group">
+                 @Html.LabelFor(Function(model) model.CompanyGroup_Name, htmlAttributes:=New With {.class = "control-label col-md-3"})
+                 <div class="col-md-9">
+                     @Html.EditorFor(Function(model) model.CompanyGroup_Name, New With {.htmlAttributes = New With {.class = "form-control", .readonly = "readonly"}})
+                 </div>
+             </div>
+             <div class="form-group">
+                 @Html.LabelFor(Function(model) model.Company_Name, htmlAttributes:=New With {.class = "control-label col-md-3"})
+                 <div class="col-md-9">
+                     @Html.EditorFor(Function(model) model.Company_Name, New With {.htmlAttributes = New With {.class = "form-control", .readonly = "readonly"}})
+                 </div>
+             </div>
+             <div class="form-group">
+                 @Html.LabelFor(Function(model) model.THU, htmlAttributes:=New With {.class = "control-label col-md-3"})
+                 <div class="col-md-9">
+                     @Html.EditorFor(Function(model) model.THU, New With {.htmlAttributes = New With {.class = "form-control"}})
+                     @Html.ValidationMessageFor(Function(model) model.THU, "", New With {.class = "text-danger"})
+                 </div>
+             </div>
+             <div class="form-group">
+                 @Html.LabelFor(Function(model) model.TOP_Value, htmlAttributes:=New With {.class = "control-label col-md-3"})
+                 <div class="col-md-4">
+                     @Html.EditorFor(Function(model) model.TOP_Value, New With {.htmlAttributes = New With {.class = "form-control"}})
+                     @Html.ValidationMessageFor(Function(model) model.TOP_Value, "", New With {.class = "text-danger"})
+                 </div>
+                 @Html.Label("/ Day", htmlAttributes:=New With {.class = "control-label col-md-1"})
+             </div> 
+                 <div Class="form-group">
+                 @Html.LabelFor(Function(model) model.Record_For_Payment, htmlAttributes:=New With {.class = "control-label col-md-3"})
+                 <div class="col-md-9">
+                     @Html.DropDownList("Record_For_Payment", Nothing, htmlAttributes:=New With {.class = "form-control"})
+                     @Html.ValidationMessageFor(Function(model) model.Record_For_Payment, "", New With {.class = "text-danger"})
+                 </div>
+             </div>
+         </div>
         <div class="row">
             <div class="col-md-12">
                 <!-- Profile Image -->
