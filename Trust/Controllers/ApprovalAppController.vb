@@ -97,7 +97,9 @@ Namespace Controllers
                     Next
                 Next
                 Dim approvePO = db.Tr_ApprovalPOs.Where(Function(x) x.ProspectCustomer_ID = pros.ProspectCustomer_ID And x.IsDeleted = False).FirstOrDefault
-                approvePO.IsDeleted = True
+                If approvePO IsNot Nothing Then
+                    approvePO.IsDeleted = True
+                End If
                 'Update Prospect IsApplicationPO
                 Dim pross = db.Tr_ProspectCusts.Where(Function(x) x.ProspectCustomer_ID = pros.ProspectCustomer_ID And x.IsDeleted = False).FirstOrDefault
                 pross.IsApplicationPO = False
