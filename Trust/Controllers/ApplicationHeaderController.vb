@@ -186,7 +186,9 @@ Namespace Controllers
 
                 Dim outputStream = New MemoryStream
                 Using zip1 As ZipFile = New ZipFile()
+                    Dim q = db.V_ProspectCusts.Where(Function(x) x.ApplicationHeader_ID = id).FirstOrDefault
                     ReportView(id, zip1)
+                    zip1.AddFile(Server.MapPath("~/Image/POFromCustomer/" + q.Quotation_ID.ToString + ".pdf"), "")
                     Dim application = db.V_ProspectCustDetails.Where(Function(x) x.ApplicationHeader_ID = id).ToList
                     For Each i In application
                         ReportCal(i.Application_ID, zip1)
