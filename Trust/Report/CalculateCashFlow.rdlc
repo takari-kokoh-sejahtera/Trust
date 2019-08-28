@@ -325,7 +325,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Recidual Value</Value>
+                              <Value>Residual Value</Value>
                               <Style>
                                 <FontSize>4pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -457,7 +457,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Agen Fee</Value>
+                              <Value>Agent Fee</Value>
                               <Style>
                                 <FontSize>4pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
