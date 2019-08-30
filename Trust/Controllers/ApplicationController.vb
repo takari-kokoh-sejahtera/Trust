@@ -132,7 +132,13 @@ Namespace Controllers
             If file Is Nothing Then
                 message = "Must fill PDF"
             End If
-            If ModelState.IsValid And file IsNot Nothing Then
+            If (detail.Where(Function(x) x.Check And Trim(x.Color) = "").Any) Then
+                message = "Must fill Color"
+            End If
+            If (Not detail.Where(Function(x) x.Check).Any) Then
+                message = "Must Checklist Vehicle"
+            End If
+            If ModelState.IsValid And message = "" Then
                 Using dbs = db.Database.BeginTransaction
                     Try
                         'Dim pic As String = System.IO.Path.GetFileName(file.FileName)

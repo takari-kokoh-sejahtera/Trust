@@ -87,7 +87,6 @@ Public Class Tr_QuotationDetailnya
     Public Property ModifiedBy As Nullable(Of Integer)
     Public Property IsDeleted As Nullable(Of Boolean)
     Public Property Check As Boolean
-    <Required>
     Public Property Color As String
     Public Property disabled As String
 
