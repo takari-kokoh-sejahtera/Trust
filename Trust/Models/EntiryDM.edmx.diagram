@@ -302,7 +302,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Prosp__0EEE1503" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" />
-        <EntityTypeShape EntityType="TrustModel.V_ProspectCustDetails" Width="2.375" PointX="6.375" PointY="7.75" />
         <EntityTypeShape EntityType="TrustModel.Tr_ApplicationHeaders" Width="1.5" PointX="59" PointY="23.875" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__75F77EB0" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" />
@@ -327,6 +326,7 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__114A936A" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" />
+        <EntityTypeShape EntityType="TrustModel.V_ProspectCustDetails" Width="1.5" PointX="6.375" PointY="7.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

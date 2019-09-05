@@ -24,75 +24,95 @@
             </form>*@
         <!-- /.search form -->
         <!-- Sidebar Menu -->
-        <ul class="sidebar-menu" data-widget="tree">
-            @*<li class="header">HEADER</li>*@
-            <!-- Optionally, you can add icons to the links -->
-            @*<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>*@
-            @*<li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>*@
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-cog"></i> <span>Config</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
+    <ul class="sidebar-menu" data-widget="tree">
+        @*<li class="header">HEADER</li>*@
+        <!-- Optionally, you can add icons to the links -->
+        @*<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>*@
+        @*<li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>*@
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-cog"></i> <span>Config</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="@Url.Action("ChangePassword", "Home")">Change Password</a></li>
+                @For Each x In ViewBag.Config
+                    @<li>@Html.ActionLink(x.Module_Name.ToString, x.Action.ToString, x.Route.ToString)</li>
+                Next
+            </ul>
+        </li>
+        @If ViewBag.MasterCount <> 0 Then
+            @:<li Class="treeview">
+                @:<a href="#">
+                    @<i class="fa fa-sliders"></i> @<span> Master</span>
+                    @<span Class="pull-right-container">
+                        <i Class="fa fa-angle-left pull-right"></i>
                     </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="@Url.Action("ChangePassword", "Home")">Change Password</a></li>
-                    @For Each x In ViewBag.Config
+                @:</a>
+                @<ul Class="treeview-menu">
+                    @For Each x In ViewBag.Master
                         @<li>@Html.ActionLink(x.Module_Name.ToString, x.Action.ToString, x.Route.ToString)</li>
                     Next
                 </ul>
-            </li>
-            @If ViewBag.MasterCount <> 0 Then
-                @:<li Class="treeview">
-                    @:<a href="#">
-                        @<i class="fa fa-sliders"></i> @<span> Master</span>
-                        @<span Class="pull-right-container">
-                            <i Class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    @:</a>
-                    @<ul Class="treeview-menu">
-                        @For Each x In ViewBag.Master
-                            @<li>@Html.ActionLink(x.Module_Name.ToString, x.Action.ToString, x.Route.ToString)</li>
-                        Next
-                    </ul>
-                @:</li>
+            @:</li>
 
 
-            End If
-            @*<li class="treeview">
-                <a href="#">
-                    <i class="fa fa-check-square-o"></i> <span>Transaksi</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
+
+
+        End If
+        @*<li class="treeview">
+            <a href="#">
+                <i class="fa fa-check-square-o"></i> <span>Transaksi</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                @For Each x In ViewBag.Transaksi
+                    @<li>@Html.ActionLink(x.Module_Name.ToString, x.Action.ToString, x.Route.ToString)</li>
+                Next
+            </ul>
+        </li>*@
+        @If ViewBag.TransaksiCount <> 0 Then
+            @:<li Class="treeview">
+                @:<a href="#">
+                    @<i class="fa fa-check-square-o"></i> @<span> Transaksi</span>
+                    @<span Class="pull-right-container">
+                        <i Class="fa fa-angle-left pull-right"></i>
                     </span>
-                </a>
-                <ul class="treeview-menu">
+                @:</a>
+                @<ul Class="treeview-menu">
                     @For Each x In ViewBag.Transaksi
                         @<li>@Html.ActionLink(x.Module_Name.ToString, x.Action.ToString, x.Route.ToString)</li>
                     Next
                 </ul>
-            </li>*@
-            @If ViewBag.TransaksiCount <> 0 Then
-                @:<li Class="treeview">
-                    @:<a href="#">
-                        @<i class="fa fa-check-square-o"></i> @<span> Transaksi</span>
-                        @<span Class="pull-right-container">
-                            <i Class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    @:</a>
-                    @<ul Class="treeview-menu">
-                        @For Each x In ViewBag.Transaksi
-                            @<li>@Html.ActionLink(x.Module_Name.ToString, x.Action.ToString, x.Route.ToString)</li>
-                        Next
-                    </ul>
-                @:</li>
+            @:</li>
 
 
-            End If
+        End If
 
-            @*<li><a href="@Url.Action("Login", "Home")"><i class="fa fa-sign-in"></i> <span>Log Out</span></a></li>*@
-        </ul>
+        @If ViewBag.ReportCount <> 0 Then
+            @:<li Class="treeview">
+                @:<a href="#">
+                    @<i class="fa fa-check-square-o"></i> @<span>Report</span>
+                    @<span Class="pull-right-container">
+                        <i Class="fa fa-angle-left pull-right"></i>
+                    </span>
+                @:</a>
+                @<ul Class="treeview-menu">
+                    @For Each x In ViewBag.Report
+                        @<li>@Html.ActionLink(x.Module_Name.ToString, x.Action.ToString, x.Route.ToString)</li>
+                    Next
+                </ul>
+            @:</li>
+
+
+        End If
+
+        @*<li><a href="@Url.Action("Login", "Home")"><i class="fa fa-sign-in"></i> <span>Log Out</span></a></li>*@
+    </ul>
         <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

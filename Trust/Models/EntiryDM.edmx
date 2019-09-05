@@ -912,7 +912,7 @@
           <Property Name="Update_DiskonTick" Type="bit" />
           <Property Name="Cost_Price" Type="decimal" Precision="16" Scale="2" />
           <Property Name="Up_Front_Fee" Type="decimal" Precision="16" Scale="2" />
-          <Property Name="Up_Front_Fee_Percent" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="Up_Front_Fee_Percent" Type="decimal" Precision="17" Scale="14" />
           <Property Name="Other" Type="decimal" Precision="12" Scale="2" />
           <Property Name="Efektif_Date" Type="date" />
           <Property Name="Replacement_Percent" Type="decimal" Precision="21" Scale="18" />
@@ -938,14 +938,14 @@
           <Property Name="Lease_Profit" Type="decimal" Precision="16" Scale="2" />
           <Property Name="Lease_Profit_Percent" Type="decimal" Precision="17" Scale="14" />
           <Property Name="Depresiasi" Type="decimal" Precision="16" Scale="2" />
-          <Property Name="Depresiasi_Percent" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="Depresiasi_Percent" Type="decimal" Precision="17" Scale="14" />
           <Property Name="Funding_Interest" Type="decimal" Precision="16" Scale="2" />
           <Property Name="Funding_Interest_Percent" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Bid_PricePerMonth" Type="decimal" Precision="16" Scale="2" />
-          <Property Name="Premium" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="OJK" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="SwapRate" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="Project_Rating" Type="varchar" MaxLength="10" />
+          <Property Name="Premium" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="OJK" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="SwapRate" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Project_Rating" Type="varchar" MaxLength="3" />
           <Property Name="IRR" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Funding_Rate" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Spread" Type="decimal" Precision="6" Scale="2" />
@@ -1554,7 +1554,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_ApplicationHD' does not have a pri
           <Property Name="Cost_Price" Type="decimal" Precision="16" Scale="2" />
           <Property Name="Cost_PriceAll" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Up_Front_Fee" Type="decimal" Precision="16" Scale="2" />
-          <Property Name="Up_Front_Fee_Percent" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="Up_Front_Fee_Percent" Type="decimal" Precision="17" Scale="14" />
           <Property Name="Other" Type="decimal" Precision="12" Scale="2" />
           <Property Name="Efektif_Date" Type="date" />
           <Property Name="Replacement_Percent" Type="decimal" Precision="21" Scale="18" />
@@ -1570,14 +1570,14 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_ApplicationHD' does not have a pri
           <Property Name="Lease_Profit" Type="decimal" Precision="16" Scale="2" />
           <Property Name="Lease_Profit_Percent" Type="decimal" Precision="17" Scale="14" />
           <Property Name="Depresiasi" Type="decimal" Precision="16" Scale="2" />
-          <Property Name="Depresiasi_Percent" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="Depresiasi_Percent" Type="decimal" Precision="17" Scale="14" />
           <Property Name="Funding_Interest" Type="decimal" Precision="16" Scale="2" />
           <Property Name="Funding_Interest_Percent" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Bid_PricePerMonth" Type="decimal" Precision="16" Scale="2" />
           <Property Name="IRR" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Funding_Rate" Type="decimal" Precision="6" Scale="2" />
           <Property Name="Spread" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="Project_Rating" Type="varchar" MaxLength="10" />
+          <Property Name="Project_Rating" Type="varchar" MaxLength="3" />
           <Property Name="Asset_Rating" Type="int" />
           <Property Name="ApprovalApp_ID" Type="int" />
           <Property Name="MakerDate" Type="datetime" />
@@ -1609,6 +1609,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_ApplicationHD' does not have a pri
           <Property Name="Term_Of_Payment" Type="int" />
           <Property Name="Code_Open" Type="varchar" MaxLength="20" />
           <Property Name="Expec_Delivery_Date" Type="datetime" />
+          <Property Name="Profit" Type="decimal" Precision="16" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Trust-Dev.dbo.V_ApplicationPO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1670,6 +1671,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectCustDetails' does not have
           <Property Name="ProspectCustomer_ID" Type="int" Nullable="false" />
           <Property Name="CompanyGroup_Name" Type="varchar" MaxLength="50" />
           <Property Name="Company_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Customer_ID" Type="int" />
           <Property Name="VehicleExists_ID" Type="int" />
           <Property Name="IsVehicleExists" Type="bit" Nullable="false" />
           <Property Name="Transaction_Type" Type="varchar" MaxLength="50" />
@@ -5179,7 +5181,8 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
     [V_ApplicationHD].[RemarkContract] AS [RemarkContract], 
     [V_ApplicationHD].[Term_Of_Payment] AS [Term_Of_Payment], 
     [V_ApplicationHD].[Code_Open] AS [Code_Open], 
-    [V_ApplicationHD].[Expec_Delivery_Date] AS [Expec_Delivery_Date]
+    [V_ApplicationHD].[Expec_Delivery_Date] AS [Expec_Delivery_Date], 
+    [V_ApplicationHD].[Profit] AS [Profit]
     FROM [dbo].[V_ApplicationHD] AS [V_ApplicationHD]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_ApplicationPO" EntityType="Self.V_ApplicationPO" store:Type="Views" store:Schema="dbo">
@@ -5219,6 +5222,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
     [V_ProspectCustDetails].[ProspectCustomer_ID] AS [ProspectCustomer_ID], 
     [V_ProspectCustDetails].[CompanyGroup_Name] AS [CompanyGroup_Name], 
     [V_ProspectCustDetails].[Company_Name] AS [Company_Name], 
+    [V_ProspectCustDetails].[Customer_ID] AS [Customer_ID], 
     [V_ProspectCustDetails].[VehicleExists_ID] AS [VehicleExists_ID], 
     [V_ProspectCustDetails].[IsVehicleExists] AS [IsVehicleExists], 
     [V_ProspectCustDetails].[Transaction_Type] AS [Transaction_Type], 
@@ -7547,7 +7551,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
             <End Role="Tr_ProspectCustHistorys" EntitySet="Tr_ProspectCustHistorys" />
           </AssociationSet>
-          <EntitySet Name="V_ProspectCustDetails" EntityType="TrustModel.V_ProspectCustDetails" />
           <EntitySet Name="Tr_ApplicationHeaders" EntityType="TrustModel.Tr_ApplicationHeaders" />
           <AssociationSet Name="FK__Tr_Applic__Creat__75F77EB0" Association="TrustModel.FK__Tr_Applic__Creat__75F77EB0">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7636,8 +7639,9 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
           </AssociationSet>
           <FunctionImport Name="sp_PrintApplicationDetailNew" ReturnType="Collection(TrustModel.sp_PrintApplicationDetailNew_Result)">
-            <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
+          <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="V_ProspectCustDetails" EntityType="TrustModel.V_ProspectCustDetails" />
           </EntityContainer>
         <ComplexType Name="sp_CalcucationCharFromUser_Result">
           <Property Type="Int32" Name="Year" Nullable="true" />
@@ -7893,7 +7897,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="Update_Diskon" Type="Decimal" Precision="12" Scale="2" />
           <Property Name="Cost_Price" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="Up_Front_Fee" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Up_Front_Fee_Percent" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="Up_Front_Fee_Percent" Type="Decimal" Precision="17" Scale="14" />
           <Property Name="Other" Type="Decimal" Precision="12" Scale="2" />
           <Property Name="Efektif_Date" Type="DateTime" Precision="0" />
           <Property Name="Replacement_Percent" Type="Decimal" Precision="21" Scale="18" />
@@ -7909,14 +7913,14 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="Lease_Profit" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="Lease_Profit_Percent" Type="Decimal" Precision="17" Scale="14" />
           <Property Name="Depresiasi" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Depresiasi_Percent" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="Depresiasi_Percent" Type="Decimal" Precision="17" Scale="14" />
           <Property Name="Funding_Interest" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="Funding_Interest_Percent" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Bid_PricePerMonth" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="IRR" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Funding_Rate" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Spread" Type="Decimal" Precision="6" Scale="2" />
-          <Property Name="Project_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Project_Rating" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="Asset_Rating" Type="Int32" />
           <Property Name="ApprovalApp_ID" Type="Int32" />
           <Property Name="MakerDate" Type="DateTime" Precision="3" />
@@ -7949,6 +7953,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="Term_Of_Payment" Type="Int32" />
           <Property Name="Code_Open" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Expec_Delivery_Date" Type="DateTime" Precision="3" />
+          <Property Name="Profit" Type="Decimal" Precision="16" Scale="2" />
         </EntityType>
         <EntityType Name="Cn_Departments">
           <Key>
@@ -13313,65 +13318,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="V_ProspectCustDetails">
-          <Key>
-            <PropertyRef Name="ProspectCustomerDetail_ID" />
-            <PropertyRef Name="ProspectCustomer_ID" />
-            <PropertyRef Name="IsVehicleExists" />
-            <PropertyRef Name="Keur" />
-            <PropertyRef Name="CreatedBy" />
-          </Key>
-          <Property Name="ProspectCustomerDetail_ID" Type="Int32" Nullable="false" />
-          <Property Name="ProspectCustomer_ID" Type="Int32" Nullable="false" />
-          <Property Name="CompanyGroup_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="VehicleExists_ID" Type="Int32" />
-          <Property Name="IsVehicleExists" Type="Boolean" Nullable="false" />
-          <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Model_ID" Type="Int32" />
-          <Property Name="Normal_Disc" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsTruck" Type="Boolean" />
-          <Property Name="Gross" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="GrossApp" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="OTR_Price" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Brand_ID" Type="Int32" />
-          <Property Name="Brand_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Vehicle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="VehicleType" Type="String" MaxLength="115" FixedLength="false" Unicode="true" />
-          <Property Name="Lease_price" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="Qty" Type="Int32" />
-          <Property Name="RVPersen" Type="Int32" />
-          <Property Name="Keur" Type="Int32" Nullable="false" />
-          <Property Name="Year" Type="Int32" />
-          <Property Name="Lease_long" Type="Int32" />
-          <Property Name="IsMultiCalculated" Type="Boolean" />
-          <Property Name="Amount" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="Asset_Rating" Type="Int32" />
-          <Property Name="Credit_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="IsCalculate" Type="Boolean" />
-          <Property Name="IsQuotation" Type="Boolean" />
-          <Property Name="Rent_Location_ID" Type="Int32" />
-          <Property Name="FundingCost" Type="Decimal" Precision="6" Scale="2" />
-          <Property Name="Rent_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Bid_PricePerMonth" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Residual_Value" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="QuotationDetail_ID" Type="Int32" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="Application_ID" Type="Int32" />
-          <Property Name="CreatedDateApp" Type="DateTime" Precision="3" />
-          <Property Name="Quotation_ID" Type="Int32" />
-          <Property Name="Contract_ID" Type="Int32" />
-          <Property Name="ContractDetail_ID" Type="Int32" />
-          <Property Name="IsFillOTR" Type="Boolean" />
-          <Property Name="QtyAppPO" Type="Int32" />
-          <Property Name="ApplicationPO_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ApplicationHeader_ID" Type="Int32" />
-          <Property Name="Calculate_ID" Type="Int32" />
-          <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Tr_ApplicationHeaders">
           <Key>
             <PropertyRef Name="ApplicationHeader_ID" />
@@ -13510,7 +13456,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="Update_DiskonTick" Type="Boolean" />
           <Property Name="Cost_Price" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="Up_Front_Fee" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Up_Front_Fee_Percent" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="Up_Front_Fee_Percent" Type="Decimal" Precision="17" Scale="14" />
           <Property Name="Other" Type="Decimal" Precision="12" Scale="2" />
           <Property Name="Efektif_Date" Type="DateTime" Precision="0" />
           <Property Name="Replacement_Percent" Type="Decimal" Precision="21" Scale="18" />
@@ -13536,14 +13482,14 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="Lease_Profit" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="Lease_Profit_Percent" Type="Decimal" Precision="17" Scale="14" />
           <Property Name="Depresiasi" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Depresiasi_Percent" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="Depresiasi_Percent" Type="Decimal" Precision="17" Scale="14" />
           <Property Name="Funding_Interest" Type="Decimal" Precision="16" Scale="2" />
           <Property Name="Funding_Interest_Percent" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Bid_PricePerMonth" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Premium" Type="Decimal" Precision="6" Scale="2" />
-          <Property Name="OJK" Type="Decimal" Precision="6" Scale="2" />
-          <Property Name="SwapRate" Type="Decimal" Precision="6" Scale="2" />
-          <Property Name="Project_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Premium" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="OJK" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="SwapRate" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Project_Rating" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="IRR" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Funding_Rate" Type="Decimal" Precision="6" Scale="2" />
           <Property Name="Spread" Type="Decimal" Precision="6" Scale="2" />
@@ -13922,6 +13868,66 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Type="DateTime" Name="Approval7Date" Nullable="true" Precision="23" />
           <Property Type="String" Name="Title7" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="V_ProspectCustDetails">
+          <Key>
+            <PropertyRef Name="ProspectCustomerDetail_ID" />
+            <PropertyRef Name="ProspectCustomer_ID" />
+            <PropertyRef Name="IsVehicleExists" />
+            <PropertyRef Name="Keur" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ProspectCustomerDetail_ID" Type="Int32" Nullable="false" />
+          <Property Name="ProspectCustomer_ID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyGroup_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="VehicleExists_ID" Type="Int32" />
+          <Property Name="IsVehicleExists" Type="Boolean" Nullable="false" />
+          <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model_ID" Type="Int32" />
+          <Property Name="Normal_Disc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsTruck" Type="Boolean" />
+          <Property Name="Gross" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="GrossApp" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="OTR_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Brand_ID" Type="Int32" />
+          <Property Name="Brand_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vehicle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VehicleType" Type="String" MaxLength="115" FixedLength="false" Unicode="true" />
+          <Property Name="Lease_price" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="RVPersen" Type="Int32" />
+          <Property Name="Keur" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Lease_long" Type="Int32" />
+          <Property Name="IsMultiCalculated" Type="Boolean" />
+          <Property Name="Amount" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="Asset_Rating" Type="Int32" />
+          <Property Name="Credit_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsCalculate" Type="Boolean" />
+          <Property Name="IsQuotation" Type="Boolean" />
+          <Property Name="Rent_Location_ID" Type="Int32" />
+          <Property Name="FundingCost" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="Rent_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Bid_PricePerMonth" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Residual_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="QuotationDetail_ID" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="Application_ID" Type="Int32" />
+          <Property Name="CreatedDateApp" Type="DateTime" Precision="3" />
+          <Property Name="Quotation_ID" Type="Int32" />
+          <Property Name="Contract_ID" Type="Int32" />
+          <Property Name="ContractDetail_ID" Type="Int32" />
+          <Property Name="IsFillOTR" Type="Boolean" />
+          <Property Name="QtyAppPO" Type="Int32" />
+          <Property Name="ApplicationPO_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicationHeader_ID" Type="Int32" />
+          <Property Name="Calculate_ID" Type="Int32" />
+          <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -14173,6 +14179,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <EntitySetMapping Name="V_ApplicationHD">
             <EntityTypeMapping TypeName="TrustModel.V_ApplicationHD">
               <MappingFragment StoreEntitySet="V_ApplicationHD">
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
                 <ScalarProperty Name="Expec_Delivery_Date" ColumnName="Expec_Delivery_Date" />
                 <ScalarProperty Name="Code_Open" ColumnName="Code_Open" />
                 <ScalarProperty Name="Term_Of_Payment" ColumnName="Term_Of_Payment" />
@@ -16566,62 +16573,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="V_ProspectCustDetails">
-            <EntityTypeMapping TypeName="TrustModel.V_ProspectCustDetails">
-              <MappingFragment StoreEntitySet="V_ProspectCustDetails">
-                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
-                <ScalarProperty Name="Calculate_ID" ColumnName="Calculate_ID" />
-                <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
-                <ScalarProperty Name="ApplicationPO_No" ColumnName="ApplicationPO_No" />
-                <ScalarProperty Name="QtyAppPO" ColumnName="QtyAppPO" />
-                <ScalarProperty Name="IsFillOTR" ColumnName="IsFillOTR" />
-                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
-                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
-                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
-                <ScalarProperty Name="CreatedDateApp" ColumnName="CreatedDateApp" />
-                <ScalarProperty Name="Application_ID" ColumnName="Application_ID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="QuotationDetail_ID" ColumnName="QuotationDetail_ID" />
-                <ScalarProperty Name="Residual_Value" ColumnName="Residual_Value" />
-                <ScalarProperty Name="Bid_PricePerMonth" ColumnName="Bid_PricePerMonth" />
-                <ScalarProperty Name="Rent_Location" ColumnName="Rent_Location" />
-                <ScalarProperty Name="FundingCost" ColumnName="FundingCost" />
-                <ScalarProperty Name="Rent_Location_ID" ColumnName="Rent_Location_ID" />
-                <ScalarProperty Name="IsQuotation" ColumnName="IsQuotation" />
-                <ScalarProperty Name="IsCalculate" ColumnName="IsCalculate" />
-                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
-                <ScalarProperty Name="Asset_Rating" ColumnName="Asset_Rating" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="IsMultiCalculated" ColumnName="IsMultiCalculated" />
-                <ScalarProperty Name="Lease_long" ColumnName="Lease_long" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Keur" ColumnName="Keur" />
-                <ScalarProperty Name="RVPersen" ColumnName="RVPersen" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="Lease_price" ColumnName="Lease_price" />
-                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
-                <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
-                <ScalarProperty Name="Color" ColumnName="Color" />
-                <ScalarProperty Name="Brand_Name" ColumnName="Brand_Name" />
-                <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
-                <ScalarProperty Name="OTR_Price" ColumnName="OTR_Price" />
-                <ScalarProperty Name="GrossApp" ColumnName="GrossApp" />
-                <ScalarProperty Name="Gross" ColumnName="Gross" />
-                <ScalarProperty Name="IsTruck" ColumnName="IsTruck" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Normal_Disc" ColumnName="Normal_Disc" />
-                <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
-                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
-                <ScalarProperty Name="IsVehicleExists" ColumnName="IsVehicleExists" />
-                <ScalarProperty Name="VehicleExists_ID" ColumnName="VehicleExists_ID" />
-                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
-                <ScalarProperty Name="CompanyGroup_Name" ColumnName="CompanyGroup_Name" />
-                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
-                <ScalarProperty Name="ProspectCustomerDetail_ID" ColumnName="ProspectCustomerDetail_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tr_ApplicationHeaders">
             <EntityTypeMapping TypeName="TrustModel.Tr_ApplicationHeaders">
               <MappingFragment StoreEntitySet="Tr_ApplicationHeaders">
@@ -16905,6 +16856,63 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="V_ProspectCustDetails">
+            <EntityTypeMapping TypeName="TrustModel.V_ProspectCustDetails">
+              <MappingFragment StoreEntitySet="V_ProspectCustDetails">
+                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
+                <ScalarProperty Name="Calculate_ID" ColumnName="Calculate_ID" />
+                <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
+                <ScalarProperty Name="ApplicationPO_No" ColumnName="ApplicationPO_No" />
+                <ScalarProperty Name="QtyAppPO" ColumnName="QtyAppPO" />
+                <ScalarProperty Name="IsFillOTR" ColumnName="IsFillOTR" />
+                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
+                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
+                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
+                <ScalarProperty Name="CreatedDateApp" ColumnName="CreatedDateApp" />
+                <ScalarProperty Name="Application_ID" ColumnName="Application_ID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="QuotationDetail_ID" ColumnName="QuotationDetail_ID" />
+                <ScalarProperty Name="Residual_Value" ColumnName="Residual_Value" />
+                <ScalarProperty Name="Bid_PricePerMonth" ColumnName="Bid_PricePerMonth" />
+                <ScalarProperty Name="Rent_Location" ColumnName="Rent_Location" />
+                <ScalarProperty Name="FundingCost" ColumnName="FundingCost" />
+                <ScalarProperty Name="Rent_Location_ID" ColumnName="Rent_Location_ID" />
+                <ScalarProperty Name="IsQuotation" ColumnName="IsQuotation" />
+                <ScalarProperty Name="IsCalculate" ColumnName="IsCalculate" />
+                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
+                <ScalarProperty Name="Asset_Rating" ColumnName="Asset_Rating" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="IsMultiCalculated" ColumnName="IsMultiCalculated" />
+                <ScalarProperty Name="Lease_long" ColumnName="Lease_long" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Keur" ColumnName="Keur" />
+                <ScalarProperty Name="RVPersen" ColumnName="RVPersen" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Lease_price" ColumnName="Lease_price" />
+                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+                <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Brand_Name" ColumnName="Brand_Name" />
+                <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
+                <ScalarProperty Name="OTR_Price" ColumnName="OTR_Price" />
+                <ScalarProperty Name="GrossApp" ColumnName="GrossApp" />
+                <ScalarProperty Name="Gross" ColumnName="Gross" />
+                <ScalarProperty Name="IsTruck" ColumnName="IsTruck" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Normal_Disc" ColumnName="Normal_Disc" />
+                <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+                <ScalarProperty Name="IsVehicleExists" ColumnName="IsVehicleExists" />
+                <ScalarProperty Name="VehicleExists_ID" ColumnName="VehicleExists_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="CompanyGroup_Name" ColumnName="CompanyGroup_Name" />
+                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
+                <ScalarProperty Name="ProspectCustomerDetail_ID" ColumnName="ProspectCustomerDetail_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

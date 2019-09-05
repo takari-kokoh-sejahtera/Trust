@@ -90,6 +90,7 @@ Public Class HomeController
         ViewBag.Config = data.Where(Function(x) x.Tab = "Config")
         ViewBag.Master = data.Where(Function(x) x.Tab = "Master")
         ViewBag.Transaksi = data.Where(Function(x) x.Tab = "Transaksi")
+        ViewBag.Report = data.Where(Function(x) x.Tab = "Report")
         Return PartialView("SideMenu")
     End Function
 
@@ -100,6 +101,8 @@ Public Class HomeController
         ViewBag.MasterCount = data.Where(Function(x) x.Tab = "Master").Count
         ViewBag.Transaksi = data.Where(Function(x) x.Tab = "Transaksi")
         ViewBag.TransaksiCount = data.Where(Function(x) x.Tab = "Transaksi").Count
+        ViewBag.Report = data.Where(Function(x) x.Tab = "Report")
+        ViewBag.ReportCount = data.Where(Function(x) x.Tab = "Report").Count
         ViewBag.pic = Session("Pic")
         Return PartialView("_Slidebar")
     End Function

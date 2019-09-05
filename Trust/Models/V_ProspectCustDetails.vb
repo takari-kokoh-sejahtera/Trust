@@ -17,6 +17,7 @@ Namespace Trust
         Public Property ProspectCustomer_ID As Integer
         Public Property CompanyGroup_Name As String
         Public Property Company_Name As String
+        Public Property Customer_ID As Nullable(Of Integer)
         Public Property VehicleExists_ID As Nullable(Of Integer)
         Public Property IsVehicleExists As Boolean
         Public Property Transaction_Type As String

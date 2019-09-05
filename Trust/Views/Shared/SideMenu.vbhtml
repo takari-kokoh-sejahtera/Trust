@@ -43,19 +43,30 @@
                         Next
                     </ul>
                 </li>
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Report
+                        <span class="caret"></span>
+                    </a>
+                    <ul id="Report" class="dropdown-menu" role="menu">
+                        @For Each x In ViewBag.Report
+                            @<li>@Html.ActionLink(x.Module_Name.ToString, x.Action.ToString, x.Route.ToString)</li>
+                        Next
+                    </ul>
+                </li>
                 @*<li>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Report and Print
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>@Html.ActionLink("Approval List Pending", "ApprovalList", "ProspectCustomer")</li>
-                    <li>@Html.ActionLink("Agreement", "Agreement", "ProspectCustomer")</li>
-                    <li>@Html.ActionLink("Purchase Order", "PurchaseOrder", "ProspectCustomer")</li>
-                    <li>@Html.ActionLink("Handover", "Handover", "ProspectCustomer")</li>
-                    <li>@Html.ActionLink("Invoice", "Invoice", "ProspectCustomer")</li>
-                </ul>
-            </li>*@
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Report and Print
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Approval List Pending", "ApprovalList", "ProspectCustomer")</li>
+                <li>@Html.ActionLink("Agreement", "Agreement", "ProspectCustomer")</li>
+                <li>@Html.ActionLink("Purchase Order", "PurchaseOrder", "ProspectCustomer")</li>
+                <li>@Html.ActionLink("Handover", "Handover", "ProspectCustomer")</li>
+                <li>@Html.ActionLink("Invoice", "Invoice", "ProspectCustomer")</li>
+            </ul>
+        </li>*@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>@Html.ActionLink("Log Out", "Login", "Home")</li>

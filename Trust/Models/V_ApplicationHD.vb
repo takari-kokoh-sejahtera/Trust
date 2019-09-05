@@ -118,6 +118,7 @@ Namespace Trust
         Public Property Term_Of_Payment As Nullable(Of Integer)
         Public Property Code_Open As String
         Public Property Expec_Delivery_Date As Nullable(Of Date)
+        Public Property Profit As Nullable(Of Decimal)
     
     End Class
 
