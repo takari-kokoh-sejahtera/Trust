@@ -7161,6 +7161,8 @@
     <Content Include="Content\Costum.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\Img\minus.png" />
+    <Content Include="Content\Img\plus.png" />
     <Content Include="Content\StyleLogin\css\bootstrap.min.css" />
     <Content Include="Content\StyleLogin\css\StyleLogin.css" />
     <Content Include="Content\dist\css\AdminLTE.css" />

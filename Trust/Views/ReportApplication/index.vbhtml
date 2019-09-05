@@ -3,7 +3,43 @@
 @Code
     ViewData("Title") = "Report Application "
 End Code
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
 
+        .Grid {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+            .Grid th {
+                background-color: #B8DBFD;
+                color: #333;
+                font-weight: bold;
+            }
+
+            .Grid th, .Grid td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+
+            .Grid img {
+                cursor: pointer;
+            }
+
+        .ChildGrid {
+            width: 100%;
+        }
+
+            .ChildGrid th {
+                background-color: #6C6C6C;
+                color: #fff;
+                font-weight: bold;
+            }
+    </style>
 <h2>Index</h2>
 
 <div class="row">
@@ -46,32 +82,32 @@ End Code
                         @For Each item In Model
                             @<tr>
                                 <td style = "width:10px" >
-                                    <img src="@Url.Action("IconMinPlus", "Image")/plus.png"/>
+                                    <img src="@Url.Action("Img", "Content")/plus.png"/>
                                      <div style = "display:none" >
-                                        <table class="ChildGrid" cellspacing="0" cellpadding="0">
-                                 <tbody>
-                                     <tr>
-                                         <th>Type</th>
-                                         <th>Transaction Type</th>
-                                         <th>OTR Price</th>
-                                         <th>Normasl Disc</th>
-                                         <th>Qty</th>
-                                         <th>Lease Long</th>
-                                         <th>Create By</th>
-                                     </tr>
-                                     @for Each i In item.Detail
-                                                @<tr>
-                                                    <td style="white-space:nowrap">@i.Type</td>
-                                                    <td style="white-space:nowrap">@i.Transaction_Type</td>
-                                                    <td style="white-space:nowrap">@i.OTR_Price</td>
-                                                    <td style="white-space:nowrap">@i.Normal_Disc</td>
-                                                    <td style="white-space:nowrap">@i.Qty</td>
-                                                    <td style="white-space:nowrap">@i.Lease_long</td>
-                                                    <td style="white-space:nowrap">@i.CreatedBy</td>
-                                                </tr>
-                                     Next
-                                            </tbody>
-                                        </table>
+                                         <table class="ChildGrid" cellspacing="0" cellpadding="0">
+                                             <tbody>
+                                                 <tr>
+                                                     <th style="white-space:nowrap">Type</th>
+                                                     <th style="white-space:nowrap">Transaction Type</th>
+                                                     <th style="white-space:nowrap">OTR Price</th>
+                                                     <th style="white-space:nowrap">Normasl Disc</th>
+                                                     <th style="white-space:nowrap">Qty</th>
+                                                     <th style="white-space:nowrap">Lease Long</th>
+                                                     <th style="white-space:nowrap">Create By</th>
+                                                 </tr>
+                                                 @for Each i In item.Detail
+                                                     @<tr>
+                                                         <td style="white-space:nowrap">@i.Type</td>
+                                                         <td style="white-space:nowrap">@i.Transaction_Type</td>
+                                                         <td style="white-space:nowrap">@i.OTR_Price</td>
+                                                         <td style="white-space:nowrap">@i.Normal_Disc</td>
+                                                         <td style="white-space:nowrap">@i.Qty</td>
+                                                         <td style="white-space:nowrap">@i.Lease_long</td>
+                                                         <td style="white-space:nowrap">@i.CreatedBy</td>
+                                                     </tr>
+                                                 Next
+                                             </tbody>
+                                         </table>
                                   </div>
                                 </td>
                                 <td style="white-space:nowrap">
@@ -100,11 +136,11 @@ End Code
     <script>
         $("body").on("click", "img[src*='plus.png']", function () {
             $(this).closest("tr").after("<tr><td style='white - space: nowrap'></td><td colspan = '999'>" + $(this).next().html() + "</td></tr>");
-            $(this).attr("src", "@Url.Action("IconMinPlus", "Image")/minus.png");
+            $(this).attr("src", "@Url.Action("Img", "Content")/minus.png");
         });
         //Assign Click event to Minus Image.
         $("body").on("click", "img[src*='minus.png']", function () {
-            $(this).attr("src", "@Url.Action("IconMinPlus", "Image")/plus.png");
+            $(this).attr("src", "@Url.Action("Img", "Content")/plus.png");
             $(this).closest("tr").next().remove();
         });
 
