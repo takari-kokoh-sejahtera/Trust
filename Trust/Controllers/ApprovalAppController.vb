@@ -365,7 +365,6 @@ Finish:
                             Query.Approval5Date = DateTime.Now
                             Query.Approval5By = user
                             Query.StatusRecord = level
-                            Query.Status = "Finish"
                             Query.ModifiedDate = DateTime.Now
                             Query.ModifiedBy = user
                         ElseIf level = 8 Then
@@ -376,7 +375,6 @@ Finish:
                             Query.Approval6Date = DateTime.Now
                             Query.Approval6By = user
                             Query.StatusRecord = level
-                            Query.Status = "Finish"
                             Query.ModifiedDate = DateTime.Now
                             Query.ModifiedBy = user
                         ElseIf level = 9 Then
@@ -387,7 +385,6 @@ Finish:
                             Query.Approval7Date = DateTime.Now
                             Query.Approval7By = user
                             Query.StatusRecord = level
-                            Query.Status = "Finish"
                             Query.ModifiedDate = DateTime.Now
                             Query.ModifiedBy = user
                         ElseIf level = 10 Then
@@ -398,7 +395,6 @@ Finish:
                             Query.Approval8Date = DateTime.Now
                             Query.Approval8By = user
                             Query.StatusRecord = level
-                            Query.Status = "Finish"
                             Query.ModifiedDate = DateTime.Now
                             Query.ModifiedBy = user
                         End If
