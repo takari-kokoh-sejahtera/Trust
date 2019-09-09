@@ -1063,7 +1063,7 @@ Namespace Controllers
                     End If
                     'RV
                     If GoalSeek = "RV" Then
-                        If Not (GoalSeekVal = 0 Or GoalSeekVal Is Nothing Or type <> "COP") Then
+                        If Not (GoalSeekVal = 0 Or GoalSeekVal Is Nothing) Then
                             If RV = GoalSeekVal Then GoTo lastrv
                             If RV > GoalSeekVal Then
                                 While RV > GoalSeekVal
