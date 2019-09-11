@@ -1063,182 +1063,187 @@ Namespace Controllers
                     End If
                     'RV
                     If GoalSeek = "RV" Then
-                        If Not (GoalSeekVal Is Nothing) Then
-                            If RV = GoalSeekVal Then GoTo lastrv
-                            If RV > GoalSeekVal Then
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.01
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
+                        If GoalSeekVal = 0 Then
+                            RVPercent = 0
+                            RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                        Else
+                            If Not (GoalSeekVal Is Nothing) Then
                                 If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.01
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.0001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.0001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.00001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.00001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.000001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.0000001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.0000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.00000001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.00000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.000000001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.000000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.0000000001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.0000000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.00000000001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.00000000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.000000000001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv
-                                RVPercent = RVPercent + 0.000000000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV > GoalSeekVal
-                                    RVPercent = RVPercent - 0.0000000000001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV < GoalSeekVal Then
-                                    RVPercent = RVPercent + 0.0000000000001
-                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End If
-lastrv:
-                            ElseIf RV < GoalSeekVal Then
-                                While RV < GoalSeekVal
+                                If RV > GoalSeekVal Then
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.01
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.01
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.01
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.0001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.0001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.0001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.00001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.00001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.00001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.0000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.0000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.0000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.00000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.00000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.00000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.000000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.000000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.0000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.0000000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.0000000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.00000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.00000000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.00000000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.000000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv
                                     RVPercent = RVPercent + 0.000000000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV = GoalSeekVal Then GoTo lastrv1
-                                RVPercent = RVPercent - 0.000000000001
-                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                While RV < GoalSeekVal
-                                    RVPercent = RVPercent + 0.0000000000001
+                                    While RV > GoalSeekVal
+                                        RVPercent = RVPercent - 0.0000000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV < GoalSeekVal Then
+                                        RVPercent = RVPercent + 0.0000000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End If
+lastrv:
+                                ElseIf RV < GoalSeekVal Then
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.01
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.01
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End While
-                                If RV > GoalSeekVal Then
-                                    RVPercent = RVPercent - 0.0000000000001
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                End If
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.0001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.0001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.00001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.00001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.000001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.0000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.0000001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.00000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.00000001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.000000001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.0000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.0000000001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.00000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.00000000001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.000000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV = GoalSeekVal Then GoTo lastrv1
+                                    RVPercent = RVPercent - 0.000000000001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    While RV < GoalSeekVal
+                                        RVPercent = RVPercent + 0.0000000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End While
+                                    If RV > GoalSeekVal Then
+                                        RVPercent = RVPercent - 0.0000000000001
+                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                    End If
 lastrv1:
+                                End If
                             End If
                         End If
                     End If
