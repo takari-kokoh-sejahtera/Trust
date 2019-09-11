@@ -1543,6 +1543,7 @@
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
+                  <Format>0.00;(0.00)</Format>
                 </Style>
               </TextRun>
               <TextRun>
@@ -1796,6 +1797,7 @@
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
+                  <Format>0.00;(0.00)</Format>
                 </Style>
               </TextRun>
               <TextRun>
