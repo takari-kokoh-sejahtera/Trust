@@ -133,7 +133,7 @@ End Code
                             @<tr>
                                 <td style="white-space:nowrap">
                                     @*Jika LevelGroup dia Approve Quotation dan Bawahnya Jika sudah masuk DI Approve dia*@
-                                    @if (item.Status = "Open" And item.StatusRecord = ViewBag.Level_ID - 1) Then
+                                    @if (item.Status = "Open" And item.StatusRecord <= ViewBag.Level_ID - 1) Then
                                         @Html.ActionLink("Approval", "Create", New With {.id = item.ApprovalApp_ID})
                                     End If
                                 </td>

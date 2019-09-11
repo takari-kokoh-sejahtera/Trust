@@ -199,7 +199,7 @@ Namespace Controllers
                               Group Join B In db.V_ProspectCusts On A.ProspectCustomer_ID Equals B.ProspectCustomer_ID Into BA = Group
                               From B In BA.DefaultIfEmpty()
                               Where A.IsDeleted = False
-                              Select New Tr_ApprovalPO With {.Approve = If(((Level_IDNotApp.Contains(Level_ID) And Limited_Approval >= B.Cost_Price) Or (Not Level_IDNotApp.Contains(Level_ID))) And Level_ID - 1 = A.StatusRecord And A.Status = "Open", True, False),
+                              Select New Tr_ApprovalPO With {.Approve = If(((Level_IDNotApp.Contains(Level_ID) And Limited_Approval >= B.Cost_Price) Or (Not Level_IDNotApp.Contains(Level_ID))) And Level_ID - 1 >= A.StatusRecord And A.Status = "Open", True, False),
                                   .No_Ref = B.No_Ref, .Company_Name = B.PT + " " + B.Company_Name, .ApprovalPO_ID = A.ApprovalPO_ID, .ProspectCustomer_ID = A.ProspectCustomer_ID, .MakerDate = A.MakerDate, .MakerBy = A.Cn_Users7.User_Name, .MakerRemark = A.MakerRemark,
                                   .CheckerDate = A.CheckerDate, .CheckerBy = A.Cn_Users5.User_Name, .CheckerRemark = A.CheckerRemark,
                                   .Approval1Date = A.Approval1Date, .Approval1By = A.Cn_Users.User_Name, .Approval1Remark = A.Approval1Remark,
