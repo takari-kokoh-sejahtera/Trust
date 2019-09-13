@@ -1157,435 +1157,435 @@ Namespace Controllers
                                     End If
 lastrv:
                                 ElseIf RV < GoalSeekVal Then
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.01
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.01
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.01
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.01
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.0001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.0001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.0001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.00001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.00001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.0001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.00001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.000001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.000001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.00001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.0000001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.0000001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.000001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.0000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.00000001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.00000001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.0000001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.00000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.000000001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.000000001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.00000001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.000000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.0000000001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.0000000001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.000000001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.0000000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.00000000001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.00000000001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.0000000001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.00000000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.000000000001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV = GoalSeekVal Then GoTo lastrv1
-                                    RVPercent = RVPercent - 0.000000000001
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.00000000001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.000000000001
                                     RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    While RV < GoalSeekVal
-                                        RVPercent = RVPercent + 0.0000000000001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End While
-                                    If RV > GoalSeekVal Then
-                                        RVPercent = RVPercent - 0.0000000000001
-                                        RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
-                                    End If
-lastrv1:
+                                End While
+                                If RV = GoalSeekVal Then GoTo lastrv1
+                                RVPercent = RVPercent - 0.000000000001
+                                RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                While RV < GoalSeekVal
+                                    RVPercent = RVPercent + 0.0000000000001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
+                                End While
+                                If RV > GoalSeekVal Then
+                                    RVPercent = RVPercent - 0.0000000000001
+                                    RV = CalRV(Cost_Price, RVPercent, DepresiasiPercent, Depresiasi)
                                 End If
+lastrv1:
                             End If
                         End If
                     End If
+                End If
 
 
-                    If GoalSeek = "PerMonth" Then
-                        If Not (GoalSeekVal = 0 Or GoalSeekVal Is Nothing) Then
-                            If Price_Month = GoalSeekVal Then GoTo last
-                            Lease_Profit_Percent = FormatNumber(Lease_Profit_Percent)
-                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                            If Price_Month > GoalSeekVal Then
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.01
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.0001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.0001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.00001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.00001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.000001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.0000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.0000001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.00000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.00000001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.000000001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.0000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.00000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.00000000001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.000000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last
-                                Lease_Profit_Percent = Lease_Profit_Percent + 0.000000000001
-                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.0000000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                'If Price_Month = GoalSeekVal Then GoTo last
-                                'Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000000001
-                                'Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                'Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                'While Price_Month > GoalSeekVal
-                                '    Lease_Profit_Percent = Lease_Profit_Percent - 0.00000000000001
-                                '    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                '    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                'End While
-                                If Price_Month < GoalSeekVal Then
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End If
-last:
-                            ElseIf Price_Month < GoalSeekVal Then
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                If GoalSeek = "PerMonth" Then
+                    If Not (GoalSeekVal = 0 Or GoalSeekVal Is Nothing) Then
+                        If Price_Month = GoalSeekVal Then GoTo last
+                        Lease_Profit_Percent = FormatNumber(Lease_Profit_Percent)
+                        Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                        Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                        If Price_Month > GoalSeekVal Then
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.01
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.01
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.0001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.0001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.00001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.0001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.00001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.00001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.000001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.0000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.0000001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.00000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.0000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.00000001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.00000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.000000001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.000000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.0000000001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.00000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.00000000001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.000000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                If Price_Month = GoalSeekVal Then GoTo last1
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.00000000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
                                 Lease_Profit_Percent = Lease_Profit_Percent - 0.000000000001
                                 Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
                                 Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                While Price_Month < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End While
-                                'If Price_Month = GoalSeekVal Then GoTo last1
-                                'Lease_Profit_Percent = Lease_Profit_Percent - 0.0000000000001
-                                'Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                'Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last
+                            Lease_Profit_Percent = Lease_Profit_Percent + 0.000000000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month > GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent - 0.0000000000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            'If Price_Month = GoalSeekVal Then GoTo last
+                            'Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000000001
+                            'Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            'Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            'While Price_Month > GoalSeekVal
+                            '    Lease_Profit_Percent = Lease_Profit_Percent - 0.00000000000001
+                            '    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            '    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            'End While
+                            If Price_Month < GoalSeekVal Then
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End If
+last:
+                        ElseIf Price_Month < GoalSeekVal Then
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.01
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.01
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.0001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.0001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.00001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.00001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.0000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.0000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.00000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.00000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.000000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.000000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.0000000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.00000000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.00000000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.000000000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            If Price_Month = GoalSeekVal Then GoTo last1
+                            Lease_Profit_Percent = Lease_Profit_Percent - 0.000000000001
+                            Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            While Price_Month < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.0000000000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End While
+                            'If Price_Month = GoalSeekVal Then GoTo last1
+                            'Lease_Profit_Percent = Lease_Profit_Percent - 0.0000000000001
+                            'Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            'Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
 
-                                'While Price_Month < GoalSeekVal
-                                '    Lease_Profit_Percent = Lease_Profit_Percent + 0.00000000000001
-                                '    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                '    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                'End While
-                                If Price_Month > GoalSeekVal Then
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.0000000000001
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                End If
+                            'While Price_Month < GoalSeekVal
+                            '    Lease_Profit_Percent = Lease_Profit_Percent + 0.00000000000001
+                            '    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                            '    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            'End While
+                            If Price_Month > GoalSeekVal Then
+                                Lease_Profit_Percent = Lease_Profit_Percent - 0.0000000000001
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                            End If
 last1:
-                            End If
                         End If
                     End If
+                End If
 
 
 
-                    Dim IRRVal As Decimal?
-                    Dim Profit As Decimal?
+                Dim IRRVal As Decimal?
+                Dim Profit As Decimal?
 
-                    Dim AssuranceCashFlow = Insurance / (lama / 12)
-                    CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
-                    Dim Spread = IRRVal - Funding_Rate
+                Dim AssuranceCashFlow = Insurance / (lama / 12)
+                CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
+                Dim Spread = IRRVal - Funding_Rate
 
-                    'GoalSeek IRR
-                    If GoalSeek = "IRR" Then
-                        If Not (GoalSeekVal = 0 Or GoalSeekVal Is Nothing Or Not (CType(GoalSeekVal, Decimal) <= 100 And CType(GoalSeekVal, Decimal) >= 1)) Then
+                'GoalSeek IRR
+                If GoalSeek = "IRR" Then
+                    If Not (GoalSeekVal = 0 Or GoalSeekVal Is Nothing Or Not (CType(GoalSeekVal, Decimal) <= 100 And CType(GoalSeekVal, Decimal) >= 1)) Then
+                        If IRRVal > GoalSeekVal Then
+                            While IRRVal > GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent - 0.01
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                                CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
+                                Spread = IRRVal - Funding_Rate
+                            End While
+                            If IRRVal < GoalSeekVal Then
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.01
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                                CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
+                                Spread = IRRVal - Funding_Rate
+                            End If
+                        ElseIf IRRVal < GoalSeekVal Then
+                            While IRRVal < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.01
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                                CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
+                                Spread = IRRVal - Funding_Rate
+                            End While
                             If IRRVal > GoalSeekVal Then
-                                While IRRVal > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                    CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
-                                    Spread = IRRVal - Funding_Rate
-                                End While
-                                If IRRVal < GoalSeekVal Then
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                    CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
-                                    Spread = IRRVal - Funding_Rate
-                                End If
-                            ElseIf IRRVal < GoalSeekVal Then
-                                While IRRVal < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                    CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
-                                    Spread = IRRVal - Funding_Rate
-                                End While
-                                If IRRVal > GoalSeekVal Then
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                    CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
-                                    Spread = IRRVal - Funding_Rate
-                                End If
+                                Lease_Profit_Percent = Lease_Profit_Percent - 0.01
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                                CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
+                                Spread = IRRVal - Funding_Rate
                             End If
                         End If
                     End If
+                End If
 
-                    'GoalSeek Price Month
-                    If GoalSeek = "Spread" Then
-                        If Not (GoalSeekVal Is Nothing Or Not (CType(GoalSeekVal, Decimal) <= 100 And CType(GoalSeekVal, Decimal) >= 0)) Then
+                'GoalSeek Price Month
+                If GoalSeek = "Spread" Then
+                    If Not (GoalSeekVal Is Nothing Or Not (CType(GoalSeekVal, Decimal) <= 100 And CType(GoalSeekVal, Decimal) >= 0)) Then
+                        If Spread > GoalSeekVal Then
+                            While Spread > GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent - 0.01
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                                CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
+                                Spread = IRRVal - Funding_Rate
+                            End While
+                            If Spread < GoalSeekVal Then
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.01
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                                CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
+                                Spread = IRRVal - Funding_Rate
+                            End If
+                        ElseIf Spread < GoalSeekVal Then
+                            While Spread < GoalSeekVal
+                                Lease_Profit_Percent = Lease_Profit_Percent + 0.01
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                                CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
+                                Spread = IRRVal - Funding_Rate
+                            End While
                             If Spread > GoalSeekVal Then
-                                While Spread > GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                    CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
-                                    Spread = IRRVal - Funding_Rate
-                                End While
-                                If Spread < GoalSeekVal Then
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                    CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
-                                    Spread = IRRVal - Funding_Rate
-                                End If
-                            ElseIf Spread < GoalSeekVal Then
-                                While Spread < GoalSeekVal
-                                    Lease_Profit_Percent = Lease_Profit_Percent + 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                    CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
-                                    Spread = IRRVal - Funding_Rate
-                                End While
-                                If Spread > GoalSeekVal Then
-                                    Lease_Profit_Percent = Lease_Profit_Percent - 0.01
-                                    Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
-                                    Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
-                                    CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
-                                    Spread = IRRVal - Funding_Rate
-                                End If
+                                Lease_Profit_Percent = Lease_Profit_Percent - 0.01
+                                Lease_Profit = CalLease_Profit(Lease_Profit_Percent, Cost_Price, lama)
+                                Price_Month = CalPrice_Month(Replacement, Maintenance, STNK, Overhead, GPS_Cost, GPS_CostPerMonth, lama, Insurance, Depresiasi, Expedition_Cost, Modification, Funding_Interest, Other, Lease_Profit)
+                                CalIRR(Expedition_Status, PayMonth, Cost_Price, DP, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow, Price_Month, RV, lama, Expedition_Cost, type, Payment, Term_Of_Payment, Modification, GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate, IRRVal, Profit)
+                                Spread = IRRVal - Funding_Rate
                             End If
                         End If
                     End If
+                End If
 
-                    Return Json(New With {Key .success = "true", Key .irr = IRRVal, .Profit = Profit, .Spread = Spread, .Lease_Profit = Lease_Profit, .Lease_Profit_Percent = Lease_Profit_Percent, .Price_Month = Price_Month, .RV = RV, .RVPercent = RVPercent, .Depresiasi = Depresiasi, .DepresiasiPercent = DepresiasiPercent, .DP = DP, .DPPercent = DPPercent,
-                                .Replacement = Replacement, .Replacement_Percent = Replacement_Percent, .Maintenance = Maintenance, .Maintenance_Percent = Maintenance_Percent, .STNK = STNK, .STNK_Percent = STNK_Percent,
-                                .Overhead = Overhead, .Overhead_Percent = Overhead_Percent, .Assurance = Insurance, .Assurance_Percent = Assurance_Percent})
+                Return Json(New With {Key .success = "true", Key .irr = IRRVal, .Profit = Profit, .Spread = Spread, .Lease_Profit = Lease_Profit, .Lease_Profit_Percent = Lease_Profit_Percent, .Price_Month = Price_Month, .RV = RV, .RVPercent = RVPercent, .Depresiasi = Depresiasi, .DepresiasiPercent = DepresiasiPercent, .DP = DP, .DPPercent = DPPercent,
+                            .Replacement = Replacement, .Replacement_Percent = Replacement_Percent, .Maintenance = Maintenance, .Maintenance_Percent = Maintenance_Percent, .STNK = STNK, .STNK_Percent = STNK_Percent,
+                            .Overhead = Overhead, .Overhead_Percent = Overhead_Percent, .Assurance = Insurance, .Assurance_Percent = Assurance_Percent})
                 End If
                 Return Json(New With {Key .success = "false", .message = ""})
             Catch ex As Exception
