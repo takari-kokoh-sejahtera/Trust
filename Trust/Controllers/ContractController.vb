@@ -279,7 +279,7 @@ Namespace Controllers
                          From C In AC.DefaultIfEmpty()
                          Group Join D In db.Tr_SetDeliveryDetails.Where(Function(x) x.Isdeleted = False) On A.ContractDetail_ID Equals D.ContractDetail_ID Into AD = Group
                          From D In AD.DefaultIfEmpty()
-                         Where A.IsDelivery = False And A.Vehicle_ID IsNot Nothing
+                         Where A.IsDelivery = False
                          Select A.ContractDetail_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, C.license_no, C.Tmp_Plat, D.Tr_SetDeliveries.DeliveryDate, A.Tr_Contracts.IsSetDelivery, A.CreatedDate).
                 Select(Function(x) New Tr_ContractDetail With {.ContractDetail_ID = x.ContractDetail_ID, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .Brand_Name = x.Brand_Name,
                 .Vehicle = x.Vehicle, .Delivery_Date = x.DeliveryDate, .IsSetDelivery = x.IsSetDelivery, .license_no = If(x.license_no, x.Tmp_Plat), .CreatedDate = x.CreatedDate})
