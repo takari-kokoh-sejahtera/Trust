@@ -2377,9 +2377,9 @@ last1:
                 'ElseIf Not H.Replacement_Tick And H.Replacement_Percent = 0 Then
                 '    Message = "Must fill Replacement Percent"
                 '    Validate = False
-            ElseIf Not H.Maintenance_Tick And H.Maintenance_Percent = 0 Then
-                Message = "Must fill Replacement Percent"
-                Validate = False
+                'ElseIf Not H.Maintenance_Tick And H.Maintenance_Percent = 0 Then
+                '    Message = "Must fill Replacement Percent"
+                '    Validate = False
             End If
         End Sub
         Public Function CreateData(orderHD() As Tr_Calculate) As ActionResult
