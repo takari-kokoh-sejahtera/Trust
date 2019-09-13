@@ -1,19 +1,18 @@
 ﻿@ModelType PagedList.IPagedList(Of Trust.Tr_ApplicationPO)
 @Imports PagedList.Mvc
 @Code
-    ViewData("Title") = "ApplicationPO"
+    ViewData("Title") = "Application PO"
 End Code
-
 
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">ApplicationPO Process</h3>
+                <h3 class="box-title">Application PO</h3>
 
                 <div class="box-tools">
 
-                    @Using (Html.BeginForm("IndexProcess", ViewData("Title").ToString(), FormMethod.Get))
+                    @Using (Html.BeginForm("Index", "Application PO".ToString(), FormMethod.Get))
                         @<div Class="input-group input-group-sm">
                             <p>
                                 Show @Html.TextBox("PageSize", TryCast(ViewBag.pageSize, String), htmlAttributes:=New With {.style = "width:30px"}) @Html.TextBox("SearchString", TryCast(ViewBag.CurrentFilter, String))
@@ -28,8 +27,6 @@ End Code
                 <Table Class="table table-hover">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th></th>
                             <th></th>
                             <th>
                                 @Html.ActionLink("No Ref", "Index", New With {.sortOrder = "No_Ref", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
@@ -53,25 +50,11 @@ End Code
 
                         @For Each item In Model
                             @<tr>
-                                <td style="white-space:nowrap">
-                                    @Html.ActionLink("Create", "Create", New With {.id = item.ProspectCustomerDetail_ID})
-                                </td>
-                                <td style="white-space:nowrap">
-                                    @Html.ActionLink("Quotation", "Zip", "Quotation", New With {.id = item.Quotation_ID}, Nothing)
-                                </td>
-                                <td style="white-space:nowrap">
-                                    <a href="@Url.Action("POFromCustomer", "Image")/@item.pdf.ToString()"
-                                       type="submit"
-                                       id="runReport"
-                                       target="_blank"
-                                       class="button Secondary">
-                                        View PO/SPH
-                                    </a>
-                                </td>
+                                 <td></td>
                                 <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.No_Ref)
                                 </td>
-                                <td style="white-space:nowrap">
+                                <td style = "white-space:nowrap" >
                                     @Html.DisplayFor(Function(modelItem) item.CompanyName)
                                 </td>
                                 <td style="white-space:nowrap">
@@ -92,7 +75,7 @@ End Code
             <!-- /.box-body -->
             <div class="box-footer clearfix">
                 <ul class="pagination pagination-sm no-margin pull-right">
-                    @Html.PagedListPager(Model, Function(page) Url.Action("IndexProcess", New With {page, .sortOrder = ViewBag.CurrentSort, .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize}))
+                    @Html.PagedListPager(Model, Function(page) Url.Action("Index", New With {page, .sortOrder = ViewBag.CurrentSort, .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize}))
                 </ul>
             </div>
         </div>
@@ -102,3 +85,4 @@ End Code
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+

@@ -306,6 +306,7 @@
     <Compile Include="Controllers\ProspectController.vb" />
     <Compile Include="Controllers\QuotationController.vb" />
     <Compile Include="Controllers\ReportApplicationController.vb" />
+    <Compile Include="Controllers\ReportApplicationPOController.vb" />
     <Compile Include="Controllers\ReportCustomerController.vb" />
     <Compile Include="Controllers\RiskGradingController.vb" />
     <Compile Include="Controllers\RoleController.vb" />
@@ -8286,6 +8287,7 @@
     <Content Include="Views\ReportCustomer\Index.vbhtml" />
     <Content Include="Views\SetDelivery\Index.vbhtml" />
     <Content Include="Views\SetDelivery\CreateDelivery.vbhtml" />
+    <Content Include="Views\ReportApplicationPO\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
