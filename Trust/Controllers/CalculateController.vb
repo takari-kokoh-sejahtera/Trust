@@ -2346,7 +2346,7 @@ last1:
             calculate.Efektif_Date = Date.Now
             Return View(calculate)
         End Function
-        Sub Validation(H As Tr_Calculate, ByRef Validate As Boolean, ByRef Message As String)
+        Sub Validation(H As Tr_Calculate, ByRef Validate As Boolean, ByRef Message As String, Optional isDeviasi As Boolean = False)
             If H.Rent_Location_ID = 0 Then
                 Message = "Rent Location must be fill"
                 Validate = False
@@ -2374,12 +2374,12 @@ last1:
             ElseIf H.IsVehicleExists And H.Location_Vehicle_ID = 0 Then
                 Message = "Must fill Location Vehicle"
                 Validate = False
-                'ElseIf Not H.Replacement_Tick And H.Replacement_Percent = 0 Then
-                '    Message = "Must fill Replacement Percent"
-                '    Validate = False
-                'ElseIf Not H.Maintenance_Tick And H.Maintenance_Percent = 0 Then
-                '    Message = "Must fill Replacement Percent"
-                '    Validate = False
+            ElseIf Not isDeviasi And (Not H.Replacement_Tick And H.Replacement_Percent = 0) Then
+                Message = "Must fill Replacement Percent"
+                Validate = False
+            ElseIf Not isDeviasi And (Not H.Maintenance_Tick And H.Maintenance_Percent = 0) Then
+                Message = "Must fill Replacement Percent"
+                Validate = False
             End If
         End Sub
         Public Function CreateData(orderHD() As Tr_Calculate) As ActionResult
@@ -2638,7 +2638,7 @@ last1:
                 Message = "Must fill Remark"
                 Validate = False
             Else
-                Validation(H, Validate, Message)
+                Validation(H, Validate, Message, True)
             End If
             Dim user As String
             If ((Session("ID")) Is Nothing) Then Return RedirectToAction("Login", "Home") Else user = Session("ID").ToString
