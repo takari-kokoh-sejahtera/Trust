@@ -15,6 +15,19 @@ Public Class Tr_ContractDetail
 
     <Display(Name:="License No")>
     Public Property license_no As String
+    <Display(Name:="Delivery Date")>
+    <DataType(DataType.Date)>
+    Public Property Delivery_Date As Nullable(Of DateTime)
+    Public ReadOnly Property Aging() As Nullable(Of Integer)
+        Get
+            If Delivery_Date Is Nothing Then
+                Return 0
+            End If
+            Dim ts = New TimeSpan
+            ts = CType(Delivery_Date, DateTime).Subtract(DateTime.Now)
+            Return ts.Days
+        End Get
+    End Property
 
     <Display(Name:="Is Temporary Car")>
     Public Property IsTemporaryCar As Nullable(Of Boolean)
@@ -33,4 +46,5 @@ Public Class Tr_ContractDetail
     Public Property ModifiedDate As Nullable(Of Date)
     Public Property ModifiedBy As Nullable(Of Integer)
     Public Property IsDeleted As Nullable(Of Boolean)
+    Public Property IsSetDelivery As Nullable(Of Boolean)
 End Class

@@ -288,6 +288,9 @@
               <Mapping SourceColumn="App7Sign" DataSetColumn="App7Sign" />
               <Mapping SourceColumn="Approval7Date" DataSetColumn="Approval7Date" />
               <Mapping SourceColumn="Title7" DataSetColumn="Title7" />
+              <Mapping SourceColumn="AppChecker" DataSetColumn="AppChecker" />
+              <Mapping SourceColumn="AppCheckerSign" DataSetColumn="AppCheckerSign" />
+              <Mapping SourceColumn="CheckerDate" DataSetColumn="CheckerDate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -821,7 +824,7 @@
               <xs:element name="Project_Rating" msprop:Generator_ColumnVarNameInTable="columnProject_Rating" msprop:Generator_ColumnPropNameInRow="Project_Rating" msprop:Generator_ColumnPropNameInTable="Project_RatingColumn" msprop:Generator_UserColumnName="Project_Rating" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="3" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1021,6 +1024,15 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="AppChecker" msprop:Generator_ColumnVarNameInTable="columnAppChecker" msprop:Generator_ColumnPropNameInRow="AppChecker" msprop:Generator_ColumnPropNameInTable="AppCheckerColumn" msprop:Generator_UserColumnName="AppChecker" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AppCheckerSign" msprop:Generator_ColumnVarNameInTable="columnAppCheckerSign" msprop:Generator_ColumnPropNameInRow="AppCheckerSign" msprop:Generator_ColumnPropNameInTable="AppCheckerSignColumn" msprop:Generator_UserColumnName="AppCheckerSign" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="CheckerDate" msprop:Generator_ColumnVarNameInTable="columnCheckerDate" msprop:Generator_ColumnPropNameInRow="CheckerDate" msprop:Generator_ColumnPropNameInTable="CheckerDateColumn" msprop:Generator_UserColumnName="CheckerDate" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

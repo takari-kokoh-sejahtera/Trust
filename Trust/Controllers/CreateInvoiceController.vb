@@ -191,8 +191,7 @@ Namespace Controllers
                 Dim ApplicationHeader_ID = db.Tr_ApprovalApps.Where(Function(x) x.ApprovalApp_ID = ApprovalApp_ID And x.IsDeleted = False).Select(Function(s) s.ApplicationHeader_ID).FirstOrDefault
                 Dim dataApp = db.Tr_ApplicationHeaders.Where(Function(x) x.ApplicationHeader_ID = ApplicationHeader_ID And x.IsDeleted = False).FirstOrDefault
                 'ambil permonth dari contract
-                Dim conDet_idNew = order.Select(Function(x) x.ContractDetail_ID).ToArray
-                Dim cal_ID = db.V_ProspectCustDetails.Where(Function(x) conDet_idNew.Contains(x.ContractDetail_ID)).Select(Function(z) z.Calculate_ID).ToArray
+                Dim cal_ID = db.V_ProspectCustDetails.Where(Function(x) x.ApplicationHeader_ID = ApplicationHeader_ID).Select(Function(z) z.Calculate_ID).ToArray
 
                 header.PerMonth = CType(db.Tr_Calculates.Where(Function(x) cal_ID.Contains(x.Calculate_ID)).Max(Function(z) z.Term_Of_Payment), Integer)
                 'nga boleh lebih kecil dari tgl BSTK, kalo ada BSTKnya

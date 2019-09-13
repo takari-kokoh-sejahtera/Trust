@@ -56,14 +56,14 @@ Namespace Trust
         Public Property Application_ID As Nullable(Of Integer)
         Public Property CreatedDateApp As Nullable(Of Date)
         Public Property Quotation_ID As Nullable(Of Integer)
-        Public Property Contract_ID As Nullable(Of Integer)
-        Public Property ContractDetail_ID As Nullable(Of Integer)
         Public Property IsFillOTR As Nullable(Of Boolean)
         Public Property QtyAppPO As Nullable(Of Integer)
         Public Property ApplicationPO_No As String
         Public Property ApplicationHeader_ID As Nullable(Of Integer)
         Public Property Calculate_ID As Nullable(Of Integer)
         Public Property PO_No As String
+        Public Property ApprovalApp_ID As Nullable(Of Integer)
+        Public Property Contract_ID As Nullable(Of Integer)
     
     End Class
 

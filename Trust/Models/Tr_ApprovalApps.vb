@@ -57,8 +57,8 @@ Namespace Trust
         Public Overridable Property Cn_Users9 As Cn_Users
         Public Overridable Property Cn_Users10 As Cn_Users
         Public Overridable Property Cn_Users11 As Cn_Users
-        Public Overridable Property Tr_Contracts As ICollection(Of Tr_Contracts) = New HashSet(Of Tr_Contracts)
         Public Overridable Property Tr_ApplicationHeaders As Tr_ApplicationHeaders
+        Public Overridable Property Tr_Contracts As ICollection(Of Tr_Contracts) = New HashSet(Of Tr_Contracts)
     
     End Class
 

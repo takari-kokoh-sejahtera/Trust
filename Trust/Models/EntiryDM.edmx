@@ -1254,6 +1254,7 @@
           <Property Name="IsReceiptContract" Type="bit" />
           <Property Name="IsInvoicedAll" Type="bit" />
           <Property Name="IsInvoiceReceiptAll" Type="bit" />
+          <Property Name="IsSetDelivery" Type="bit" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="ModifiedDate" Type="datetime" />
@@ -1461,6 +1462,35 @@
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tr_SetDeliveries">
+          <Key>
+            <PropertyRef Name="SetDelivery_ID" />
+          </Key>
+          <Property Name="SetDelivery_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contract_ID" Type="int" Nullable="false" />
+          <Property Name="DeliveryDate" Type="date" />
+          <Property Name="Address_Delivery" Type="varchar" MaxLength="500" />
+          <Property Name="PIC_Name" Type="varchar" MaxLength="50" />
+          <Property Name="PIC_Number" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="Isdeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tr_SetDeliveryDetails">
+          <Key>
+            <PropertyRef Name="SetDeliveryDetail_ID" />
+          </Key>
+          <Property Name="SetDeliveryDetail_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="setDelivery_ID" Type="int" />
+          <Property Name="ContractDetail_ID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="Isdeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Tr_TemporaryCars">
           <Key>
@@ -1710,14 +1740,14 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectCustDetails' does not have
           <Property Name="Application_ID" Type="int" />
           <Property Name="CreatedDateApp" Type="datetime" />
           <Property Name="Quotation_ID" Type="int" />
-          <Property Name="Contract_ID" Type="int" />
-          <Property Name="ContractDetail_ID" Type="int" />
           <Property Name="IsFillOTR" Type="bit" />
           <Property Name="QtyAppPO" Type="int" />
           <Property Name="ApplicationPO_No" Type="varchar" MaxLength="100" />
           <Property Name="ApplicationHeader_ID" Type="int" />
           <Property Name="Calculate_ID" Type="int" />
           <Property Name="PO_No" Type="varchar" MaxLength="50" />
+          <Property Name="ApprovalApp_ID" Type="int" />
+          <Property Name="Contract_ID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectCusts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1789,6 +1819,9 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectCusts' does not have a pri
           <Property Name="IsApplicationPO" Type="bit" />
           <Property Name="PO_No" Type="varchar" MaxLength="50" />
           <Property Name="TOP_Value" Type="int" />
+          <Property Name="QtyContract" Type="int" />
+          <Property Name="QtyDelivery" Type="int" />
+          <Property Name="IsSetDelivery" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1864,6 +1897,17 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="ProspectCustomer_ID" Type="int" />
           <Property Name="No_Ref" Type="varchar" MaxLength="50" />
           <Property Name="Cost_Price" Type="decimal" Precision="16" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_SetDeliveryQty">
+          <Key>
+            <PropertyRef Name="Contract_ID" />
+          </Key>
+          <Property Name="Contract_ID" Type="int" Nullable="false" />
+          <Property Name="IsInputAsseted" Type="bit" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="QtyDelivery" Type="int" />
         </EntityType>
         <Association Name="FK__Cn_Approv__Appro__2D1D9668">
           <End Role="Cn_ApprovalUsers" Type="Self.Cn_ApprovalUsers" Multiplicity="1" />
@@ -4721,6 +4765,90 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Tr_SetDel__Contr__09BF4B92">
+          <End Role="Tr_ContractDetails" Type="Self.Tr_ContractDetails" Multiplicity="0..1" />
+          <End Role="Tr_SetDeliveryDetails" Type="Self.Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ContractDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Contr__7F41BD1F">
+          <End Role="Tr_Contracts" Type="Self.Tr_Contracts" Multiplicity="1" />
+          <End Role="Tr_SetDeliveries" Type="Self.Tr_SetDeliveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Contracts">
+              <PropertyRef Name="Contract_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveries">
+              <PropertyRef Name="Contract_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Creat__0035E158">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="1" />
+          <End Role="Tr_SetDeliveries" Type="Self.Tr_SetDeliveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveries">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Creat__0AB36FCB">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="1" />
+          <End Role="Tr_SetDeliveryDetails" Type="Self.Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Modif__012A0591">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_SetDeliveries" Type="Self.Tr_SetDeliveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveries">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Modif__0BA79404">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_SetDeliveryDetails" Type="Self.Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__setDe__08CB2759">
+          <End Role="Tr_SetDeliveries" Type="Self.Tr_SetDeliveries" Multiplicity="0..1" />
+          <End Role="Tr_SetDeliveryDetails" Type="Self.Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_SetDeliveries">
+              <PropertyRef Name="SetDelivery_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="setDelivery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Tr_Tempor__Contr__08F5448B">
           <End Role="Tr_ContractDetails" Type="Self.Tr_ContractDetails" Multiplicity="0..1" />
           <End Role="Tr_TemporaryCars" Type="Self.Tr_TemporaryCars" Multiplicity="*" />
@@ -5073,6 +5201,8 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <EntitySet Name="Tr_ProspectCusts" EntityType="Self.Tr_ProspectCusts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tr_QuotationDetails" EntityType="Self.Tr_QuotationDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tr_Quotations" EntityType="Self.Tr_Quotations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tr_SetDeliveries" EntityType="Self.Tr_SetDeliveries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tr_SetDeliveryDetails" EntityType="Self.Tr_SetDeliveryDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tr_TemporaryCars" EntityType="Self.Tr_TemporaryCars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tr_TotalLossOnlys" EntityType="Self.Tr_TotalLossOnlys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="V_ApplicationHD" EntityType="Self.V_ApplicationHD" store:Type="Views" store:Schema="dbo">
@@ -5261,14 +5391,14 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
     [V_ProspectCustDetails].[Application_ID] AS [Application_ID], 
     [V_ProspectCustDetails].[CreatedDateApp] AS [CreatedDateApp], 
     [V_ProspectCustDetails].[Quotation_ID] AS [Quotation_ID], 
-    [V_ProspectCustDetails].[Contract_ID] AS [Contract_ID], 
-    [V_ProspectCustDetails].[ContractDetail_ID] AS [ContractDetail_ID], 
     [V_ProspectCustDetails].[IsFillOTR] AS [IsFillOTR], 
     [V_ProspectCustDetails].[QtyAppPO] AS [QtyAppPO], 
     [V_ProspectCustDetails].[ApplicationPO_No] AS [ApplicationPO_No], 
     [V_ProspectCustDetails].[ApplicationHeader_ID] AS [ApplicationHeader_ID], 
     [V_ProspectCustDetails].[Calculate_ID] AS [Calculate_ID], 
-    [V_ProspectCustDetails].[PO_No] AS [PO_No]
+    [V_ProspectCustDetails].[PO_No] AS [PO_No], 
+    [V_ProspectCustDetails].[ApprovalApp_ID] AS [ApprovalApp_ID], 
+    [V_ProspectCustDetails].[Contract_ID] AS [Contract_ID]
     FROM [dbo].[V_ProspectCustDetails] AS [V_ProspectCustDetails]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_ProspectCusts" EntityType="Self.V_ProspectCusts" store:Type="Views" store:Schema="dbo">
@@ -5332,7 +5462,10 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
     [V_ProspectCusts].[IsPO] AS [IsPO], 
     [V_ProspectCusts].[IsApplicationPO] AS [IsApplicationPO], 
     [V_ProspectCusts].[PO_No] AS [PO_No], 
-    [V_ProspectCusts].[TOP_Value] AS [TOP_Value]
+    [V_ProspectCusts].[TOP_Value] AS [TOP_Value], 
+    [V_ProspectCusts].[QtyContract] AS [QtyContract], 
+    [V_ProspectCusts].[QtyDelivery] AS [QtyDelivery], 
+    [V_ProspectCusts].[IsSetDelivery] AS [IsSetDelivery]
     FROM [dbo].[V_ProspectCusts] AS [V_ProspectCusts]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_ProspectHD" EntityType="Self.V_ProspectHD" store:Type="Views" store:Schema="dbo">
@@ -5393,6 +5526,14 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
     [V_Quotations].[No_Ref] AS [No_Ref], 
     [V_Quotations].[Cost_Price] AS [Cost_Price]
     FROM [dbo].[V_Quotations] AS [V_Quotations]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_SetDeliveryQty" EntityType="Self.V_SetDeliveryQty" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_SetDeliveryQty].[Contract_ID] AS [Contract_ID], 
+    [V_SetDeliveryQty].[IsInputAsseted] AS [IsInputAsseted], 
+    [V_SetDeliveryQty].[Qty] AS [Qty], 
+    [V_SetDeliveryQty].[QtyDelivery] AS [QtyDelivery]
+    FROM [dbo].[V_SetDeliveryQty] AS [V_SetDeliveryQty]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Cn_Approv__Appro__2D1D9668" Association="Self.FK__Cn_Approv__Appro__2D1D9668">
             <End Role="Cn_ApprovalUsers" EntitySet="Cn_ApprovalUsers" />
@@ -6346,6 +6487,34 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
           </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Contr__09BF4B92" Association="Self.FK__Tr_SetDel__Contr__09BF4B92">
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Contr__7F41BD1F" Association="Self.FK__Tr_SetDel__Contr__7F41BD1F">
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Creat__0035E158" Association="Self.FK__Tr_SetDel__Creat__0035E158">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Creat__0AB36FCB" Association="Self.FK__Tr_SetDel__Creat__0AB36FCB">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Modif__012A0591" Association="Self.FK__Tr_SetDel__Modif__012A0591">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Modif__0BA79404" Association="Self.FK__Tr_SetDel__Modif__0BA79404">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__setDe__08CB2759" Association="Self.FK__Tr_SetDel__setDe__08CB2759">
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK__Tr_Tempor__Contr__08F5448B" Association="Self.FK__Tr_Tempor__Contr__08F5448B">
             <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
             <End Role="Tr_TemporaryCars" EntitySet="Tr_TemporaryCars" />
@@ -6735,27 +6904,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Parameter Name="Contract_ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Tr_ContractDrafts" EntityType="TrustModel.Tr_ContractDrafts" />
-          <EntitySet Name="Tr_Contracts" EntityType="TrustModel.Tr_Contracts" />
-          <AssociationSet Name="FK__Tr_Contra__Contr__451F3D2B" Association="TrustModel.FK__Tr_Contra__Contr__451F3D2B">
-            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Contr__379B24DB" Association="TrustModel.FK__Tr_Contra__Contr__379B24DB">
-            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
-            <End Role="Tr_ContractDrafts" EntitySet="Tr_ContractDrafts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Contr__00CA12DE" Association="TrustModel.FK__Tr_Contra__Contr__00CA12DE">
-            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
-            <End Role="Tr_ContractReceipts" EntitySet="Tr_ContractReceipts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Contr__44F51FF9" Association="TrustModel.FK__Tr_Contra__Contr__44F51FF9">
-            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
-            <End Role="Tr_ContractSends" EntitySet="Tr_ContractSends" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Invoic__Contr__12B3B8EF" Association="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF">
-            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
-            <End Role="Tr_Invoices" EntitySet="Tr_Invoices" />
-          </AssociationSet>
           <FunctionImport Name="sp_ContractGetDetail" ReturnType="Collection(TrustModel.sp_ContractGetDetail_Result)">
           <Parameter Name="Contract_ID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -7115,10 +7263,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ContractDrafts" EntitySet="Tr_ContractDrafts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Creat__414EAC47" Association="TrustModel.FK__Tr_Contra__Creat__414EAC47">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
-          </AssociationSet>
           <AssociationSet Name="FK__Tr_Contra__Creat__44F51FF9" Association="TrustModel.FK__Tr_Contra__Creat__44F51FF9">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ContractSends" EntitySet="Tr_ContractSends" />
@@ -7142,10 +7286,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <AssociationSet Name="FK__Tr_Contra__Modif__41248F15" Association="TrustModel.FK__Tr_Contra__Modif__41248F15">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ContractDrafts" EntitySet="Tr_ContractDrafts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Modif__4242D080" Association="TrustModel.FK__Tr_Contra__Modif__4242D080">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
           </AssociationSet>
           <AssociationSet Name="FK__Tr_Contra__Modif__45E94432" Association="TrustModel.FK__Tr_Contra__Modif__45E94432">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7346,7 +7486,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ApprovalPOs" EntitySet="Tr_ApprovalPOs" />
           </AssociationSet>
-          <EntitySet Name="V_ProspectCusts" EntityType="TrustModel.V_ProspectCusts" />
           <FunctionImport Name="sp_SaveCashFlow" ReturnType="Collection(TrustModel.sp_SaveCashFlow_Result)">
             <Parameter Name="IsCalculate" Mode="In" Type="Boolean" />
             <Parameter Name="Calculate_ID" Mode="In" Type="Int32" />
@@ -7478,10 +7617,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <AssociationSet Name="FK__Tr_Approv__Modif__36D11DD4" Association="TrustModel.FK__Tr_Approv__Modif__36D11DD4">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Appro__405A880E" Association="TrustModel.FK__Tr_Contra__Appro__405A880E">
-            <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
-            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
           </AssociationSet>
           <EntitySet Name="Ms_Customers" EntityType="TrustModel.Ms_Customers" />
           <AssociationSet Name="FK__Ms_Custom__Creat__6CF8245B" Association="TrustModel.FK__Ms_Custom__Creat__6CF8245B">
@@ -7638,10 +7773,75 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             <End Role="Tr_Quotations" EntitySet="Tr_Quotations" />
             <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
           </AssociationSet>
-          <FunctionImport Name="sp_PrintApplicationDetailNew" ReturnType="Collection(TrustModel.sp_PrintApplicationDetailNew_Result)">
-          <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
-          </FunctionImport>
           <EntitySet Name="V_ProspectCustDetails" EntityType="TrustModel.V_ProspectCustDetails" />
+          <EntitySet Name="Tr_SetDeliveries" EntityType="TrustModel.Tr_SetDeliveries" />
+          <EntitySet Name="Tr_SetDeliveryDetails" EntityType="TrustModel.Tr_SetDeliveryDetails" />
+          <AssociationSet Name="FK__Tr_SetDel__Creat__0035E158" Association="TrustModel.FK__Tr_SetDel__Creat__0035E158">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Creat__0AB36FCB" Association="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Modif__012A0591" Association="TrustModel.FK__Tr_SetDel__Modif__012A0591">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Modif__0BA79404" Association="TrustModel.FK__Tr_SetDel__Modif__0BA79404">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Contr__09BF4B92" Association="TrustModel.FK__Tr_SetDel__Contr__09BF4B92">
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__setDe__08CB2759" Association="TrustModel.FK__Tr_SetDel__setDe__08CB2759">
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <EntitySet Name="Tr_Contracts" EntityType="TrustModel.Tr_Contracts" />
+          <AssociationSet Name="FK__Tr_Contra__Creat__414EAC47" Association="TrustModel.FK__Tr_Contra__Creat__414EAC47">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Modif__4242D080" Association="TrustModel.FK__Tr_Contra__Modif__4242D080">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Appro__405A880E" Association="TrustModel.FK__Tr_Contra__Appro__405A880E">
+            <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Contr__451F3D2B" Association="TrustModel.FK__Tr_Contra__Contr__451F3D2B">
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Contr__3F3C46A3" Association="TrustModel.FK__Tr_Contra__Contr__3F3C46A3">
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+            <End Role="Tr_ContractDrafts" EntitySet="Tr_ContractDrafts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Contr__00CA12DE" Association="TrustModel.FK__Tr_Contra__Contr__00CA12DE">
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+            <End Role="Tr_ContractReceipts" EntitySet="Tr_ContractReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Contr__4400FBC0" Association="TrustModel.FK__Tr_Contra__Contr__4400FBC0">
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+            <End Role="Tr_ContractSends" EntitySet="Tr_ContractSends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Invoic__Contr__12B3B8EF" Association="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF">
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+            <End Role="Tr_Invoices" EntitySet="Tr_Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Contr__7F41BD1F" Association="TrustModel.FK__Tr_SetDel__Contr__7F41BD1F">
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+          </AssociationSet>
+          <EntitySet Name="V_ProspectCusts" EntityType="TrustModel.V_ProspectCusts" />
+          <EntitySet Name="V_SetDeliveryQty" EntityType="TrustModel.V_SetDeliveryQty" />
+          <FunctionImport Name="sp_PrintApplicationDetailNew" ReturnType="Collection(TrustModel.sp_PrintApplicationDetailNew_Result)">
+            <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="sp_CalcucationCharFromUser_Result">
           <Property Type="Int32" Name="Year" Nullable="true" />
@@ -8457,12 +8657,12 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Tr_InvoiceDetails" Relationship="TrustModel.FK__Tr_Invoic__Invoi__41A3B202" FromRole="Tr_Invoices" ToRole="Tr_InvoiceDetails" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF" FromRole="Tr_Invoices" ToRole="Tr_Contracts" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Invoic__Creat__3DD3211E" FromRole="Tr_Invoices" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Invoic__Modif__3EC74557" FromRole="Tr_Invoices" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users2" Relationship="TrustModel.FK__Tr_Invoic__Payed__3CDEFCE5" FromRole="Tr_Invoices" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users3" Relationship="TrustModel.FK__Tr_Invoic__Prine__3BEAD8AC" FromRole="Tr_Invoices" ToRole="Cn_Users" />
           <NavigationProperty Name="Ms_Customers" Relationship="TrustModel.FK__Tr_Invoic__Custo__22EA20B8" FromRole="Tr_Invoices" ToRole="Ms_Customers" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF" FromRole="Tr_Invoices" ToRole="Tr_Contracts" />
           </EntityType>
         <ComplexType Name="sp_ContractDetailPrint_Result">
           <Property Type="Int32" Name="ContractDetail_ID" Nullable="false" />
@@ -8487,9 +8687,9 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="MOdifiedBy" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__00CA12DE" FromRole="Tr_ContractReceipts" ToRole="Tr_Contracts" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__01BE3717" FromRole="Tr_ContractReceipts" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__MOdif__02B25B50" FromRole="Tr_ContractReceipts" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__00CA12DE" FromRole="Tr_ContractReceipts" ToRole="Tr_Contracts" />
           </EntityType>
         <EntityType Name="Tr_ContractDetailHistorys">
           <Key>
@@ -8591,10 +8791,11 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Tr_TotalLossOnlys" Relationship="TrustModel.FK__Tr_TotalL__Contr__033C6B35" FromRole="Tr_ContractDetails" ToRole="Tr_TotalLossOnlys" />
           <NavigationProperty Name="Ms_Vehicles" Relationship="TrustModel.FK__Ms_Vehicl__Contr__15C52FC4" FromRole="Tr_ContractDetails" ToRole="Ms_Vehicles" />
           <NavigationProperty Name="Ms_Vehicles1" Relationship="TrustModel.FK__Tr_Contra__Vehic__5B988E2F" FromRole="Tr_ContractDetails" ToRole="Ms_Vehicles" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__451F3D2B" FromRole="Tr_ContractDetails" ToRole="Tr_Contracts" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__4707859D" FromRole="Tr_ContractDetails" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__Modif__47FBA9D6" FromRole="Tr_ContractDetails" ToRole="Cn_Users" />
           <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Contra__Appli__46136164" FromRole="Tr_ContractDetails" ToRole="Tr_Applications" />
+          <NavigationProperty Name="Tr_SetDeliveryDetails" Relationship="TrustModel.FK__Tr_SetDel__Contr__09BF4B92" FromRole="Tr_ContractDetails" ToRole="Tr_SetDeliveryDetails" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__451F3D2B" FromRole="Tr_ContractDetails" ToRole="Tr_Contracts" />
           </EntityType>
         <Association Name="FK__Tr_Contra__Contr__7D8391DF">
           <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
@@ -10015,9 +10216,9 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__44F51FF9" FromRole="Tr_ContractSends" ToRole="Tr_Contracts" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__44F51FF9" FromRole="Tr_ContractSends" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__Modif__45E94432" FromRole="Tr_ContractSends" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__4400FBC0" FromRole="Tr_ContractSends" ToRole="Tr_Contracts" />
         </EntityType>
         <ComplexType Name="sp_PrintContractReceipt_Result">
           <Property Type="String" Name="Receipt_No" Nullable="true" MaxLength="50" />
@@ -10043,99 +10244,10 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__379B24DB" FromRole="Tr_ContractDrafts" ToRole="Tr_Contracts" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__40306ADC" FromRole="Tr_ContractDrafts" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__Modif__41248F15" FromRole="Tr_ContractDrafts" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__3F3C46A3" FromRole="Tr_ContractDrafts" ToRole="Tr_Contracts" />
         </EntityType>
-        <EntityType Name="Tr_Contracts">
-          <Key>
-            <PropertyRef Name="Contract_ID" />
-          </Key>
-          <Property Name="Contract_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ApprovalApp_ID" Type="Int32" Nullable="false" />
-          <Property Name="Receipt_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Penerima" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Jabatan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PerMonth" Type="Int32" />
-          <Property Name="IsDraftedContract" Type="Boolean" />
-          <Property Name="IsSendedContract" Type="Boolean" />
-          <Property Name="IsReceiptContract" Type="Boolean" />
-          <Property Name="IsInvoicedAll" Type="Boolean" />
-          <Property Name="IsInvoiceReceiptAll" Type="Boolean" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Contr__451F3D2B" FromRole="Tr_Contracts" ToRole="Tr_ContractDetails" />
-          <NavigationProperty Name="Tr_ContractDrafts" Relationship="TrustModel.FK__Tr_Contra__Contr__379B24DB" FromRole="Tr_Contracts" ToRole="Tr_ContractDrafts" />
-          <NavigationProperty Name="Tr_ContractReceipts" Relationship="TrustModel.FK__Tr_Contra__Contr__00CA12DE" FromRole="Tr_Contracts" ToRole="Tr_ContractReceipts" />
-          <NavigationProperty Name="Tr_ContractSends" Relationship="TrustModel.FK__Tr_Contra__Contr__44F51FF9" FromRole="Tr_Contracts" ToRole="Tr_ContractSends" />
-          <NavigationProperty Name="Tr_Invoices" Relationship="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF" FromRole="Tr_Contracts" ToRole="Tr_Invoices" />
-          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__414EAC47" FromRole="Tr_Contracts" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__Modif__4242D080" FromRole="Tr_Contracts" ToRole="Cn_Users" />
-          <NavigationProperty Name="Tr_ApprovalApps" Relationship="TrustModel.FK__Tr_Contra__Appro__405A880E" FromRole="Tr_Contracts" ToRole="Tr_ApprovalApps" />
-        </EntityType>
-        <Association Name="FK__Tr_Contra__Contr__451F3D2B">
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Contracts">
-              <PropertyRef Name="Contract_ID" />
-            </Principal>
-            <Dependent Role="Tr_ContractDetails">
-              <PropertyRef Name="Contract_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Contra__Contr__379B24DB">
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ContractDrafts" Role="Tr_ContractDrafts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Contracts">
-              <PropertyRef Name="Contract_ID" />
-            </Principal>
-            <Dependent Role="Tr_ContractDrafts">
-              <PropertyRef Name="Contract_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Contra__Contr__00CA12DE">
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ContractReceipts" Role="Tr_ContractReceipts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Contracts">
-              <PropertyRef Name="Contract_ID" />
-            </Principal>
-            <Dependent Role="Tr_ContractReceipts">
-              <PropertyRef Name="Contract_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Contra__Contr__44F51FF9">
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ContractSends" Role="Tr_ContractSends" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Contracts">
-              <PropertyRef Name="Contract_ID" />
-            </Principal>
-            <Dependent Role="Tr_ContractSends">
-              <PropertyRef Name="Contract_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Invoic__Contr__12B3B8EF">
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Invoices" Role="Tr_Invoices" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Contracts">
-              <PropertyRef Name="Contract_ID" />
-            </Principal>
-            <Dependent Role="Tr_Invoices">
-              <PropertyRef Name="Contract_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="sp_ContractGetDetail_Result">
           <Property Type="Int32" Name="ContractDetail_ID" Nullable="false" />
           <Property Type="Int32" Name="Application_ID" Nullable="false" />
@@ -10344,14 +10456,12 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Tr_CalculateCashFlows1" Relationship="TrustModel.FK__Tr_Calcul__Modif__4CAB505A" FromRole="Cn_Users" ToRole="Tr_CalculateCashFlows" />
           <NavigationProperty Name="Tr_ContractReceipts" Relationship="TrustModel.FK__Tr_Contra__Creat__01BE3717" FromRole="Cn_Users" ToRole="Tr_ContractReceipts" />
           <NavigationProperty Name="Tr_ContractDrafts" Relationship="TrustModel.FK__Tr_Contra__Creat__40306ADC" FromRole="Cn_Users" ToRole="Tr_ContractDrafts" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Creat__414EAC47" FromRole="Cn_Users" ToRole="Tr_Contracts" />
           <NavigationProperty Name="Tr_ContractSends" Relationship="TrustModel.FK__Tr_Contra__Creat__44F51FF9" FromRole="Cn_Users" ToRole="Tr_ContractSends" />
           <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Creat__4707859D" FromRole="Cn_Users" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Tr_ContractDetailHistorys" Relationship="TrustModel.FK__Tr_Contra__Creat__7F6BDA51" FromRole="Cn_Users" ToRole="Tr_ContractDetailHistorys" />
           <NavigationProperty Name="Tr_ContractDetailHistorys1" Relationship="TrustModel.FK__Tr_Contra__Modif__005FFE8A" FromRole="Cn_Users" ToRole="Tr_ContractDetailHistorys" />
           <NavigationProperty Name="Tr_ContractReceipts1" Relationship="TrustModel.FK__Tr_Contra__MOdif__02B25B50" FromRole="Cn_Users" ToRole="Tr_ContractReceipts" />
           <NavigationProperty Name="Tr_ContractDrafts1" Relationship="TrustModel.FK__Tr_Contra__Modif__41248F15" FromRole="Cn_Users" ToRole="Tr_ContractDrafts" />
-          <NavigationProperty Name="Tr_Contracts1" Relationship="TrustModel.FK__Tr_Contra__Modif__4242D080" FromRole="Cn_Users" ToRole="Tr_Contracts" />
           <NavigationProperty Name="Tr_ContractSends1" Relationship="TrustModel.FK__Tr_Contra__Modif__45E94432" FromRole="Cn_Users" ToRole="Tr_ContractSends" />
           <NavigationProperty Name="Tr_ContractDetails1" Relationship="TrustModel.FK__Tr_Contra__Modif__47FBA9D6" FromRole="Cn_Users" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Tr_Deliverys" Relationship="TrustModel.FK__Tr_Delive__Creat__43C1049E" FromRole="Cn_Users" ToRole="Tr_Deliverys" />
@@ -10417,6 +10527,12 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Cn_Users" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_Quotations1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Cn_Users" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_Quotations2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Cn_Users" ToRole="Tr_Quotations" />
+          <NavigationProperty Name="Tr_SetDeliveries" Relationship="TrustModel.FK__Tr_SetDel__Creat__0035E158" FromRole="Cn_Users" ToRole="Tr_SetDeliveries" />
+          <NavigationProperty Name="Tr_SetDeliveryDetails" Relationship="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB" FromRole="Cn_Users" ToRole="Tr_SetDeliveryDetails" />
+          <NavigationProperty Name="Tr_SetDeliveries1" Relationship="TrustModel.FK__Tr_SetDel__Modif__012A0591" FromRole="Cn_Users" ToRole="Tr_SetDeliveries" />
+          <NavigationProperty Name="Tr_SetDeliveryDetails1" Relationship="TrustModel.FK__Tr_SetDel__Modif__0BA79404" FromRole="Cn_Users" ToRole="Tr_SetDeliveryDetails" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Creat__414EAC47" FromRole="Cn_Users" ToRole="Tr_Contracts" />
+          <NavigationProperty Name="Tr_Contracts1" Relationship="TrustModel.FK__Tr_Contra__Modif__4242D080" FromRole="Cn_Users" ToRole="Tr_Contracts" />
           </EntityType>
         <Association Name="FK__Cn_Approv__Creat__24885067">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -11462,18 +11578,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tr_Contra__Creat__414EAC47">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Contracts">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Tr_Contra__Creat__44F51FF9">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
           <End Type="TrustModel.Tr_ContractSends" Role="Tr_ContractSends" Multiplicity="*" />
@@ -11542,18 +11646,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               <PropertyRef Name="User_ID" />
             </Principal>
             <Dependent Role="Tr_ContractDrafts">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Contra__Modif__4242D080">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Contracts">
               <PropertyRef Name="ModifiedBy" />
             </Dependent>
           </ReferentialConstraint>
@@ -12497,75 +12589,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="V_ProspectCusts">
-          <Key>
-            <PropertyRef Name="ProspectCustomer_ID" />
-            <PropertyRef Name="IsExists" />
-            <PropertyRef Name="CreatedDate" />
-            <PropertyRef Name="CreatedBy" />
-            <PropertyRef Name="IsCalculate" />
-          </Key>
-          <Property Name="ProspectCustomer_ID" Type="Int32" Nullable="false" />
-          <Property Name="CustomerExists_ID" Type="Int32" />
-          <Property Name="IsExists" Type="Boolean" Nullable="false" />
-          <Property Name="Customer_ID" Type="Int32" />
-          <Property Name="IsKYC" Type="Boolean" />
-          <Property Name="CompanyGroup_ID" Type="Int32" />
-          <Property Name="CompanyGroup_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Tbk" Type="Boolean" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="City_ID" Type="Int32" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PIC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PIC_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PIC_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="IsQuotation" Type="Boolean" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Cost_Price" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Replacement_Tick" Type="Boolean" />
-          <Property Name="Maintenance_Tick" Type="Boolean" />
-          <Property Name="STNK_Tick" Type="Boolean" />
-          <Property Name="Assurance_Tick" Type="Boolean" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="CreatedByName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="ModifiedByName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Quotation_ID" Type="Int32" />
-          <Property Name="No_Ref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="THU" Type="Int32" />
-          <Property Name="Approval_ID" Type="Int32" />
-          <Property Name="ApplicationHeader_ID" Type="Int32" />
-          <Property Name="ApprovalApp_ID" Type="Int32" />
-          <Property Name="IsCalculate" Type="Boolean" Nullable="false" />
-          <Property Name="Customer_Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Credit_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Authorized_Capital" Type="Decimal" Precision="14" Scale="2" />
-          <Property Name="Authorized_Signer_Name1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Authorized_Signer_Position1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Authorized_Signer_Name2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Authorized_Signer_Position2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IntroducedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Contract_ID" Type="Int32" />
-          <Property Name="Contract_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Receipt_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsDriver" Type="Boolean" />
-          <Property Name="Qty" Type="Int32" />
-          <Property Name="Record_For_Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="StatusAppQuot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Line_of_Business" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsPO" Type="Boolean" />
-          <Property Name="IsApplicationPO" Type="Boolean" />
-          <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TOP_Value" Type="Int32" />
-        </EntityType>
         <ComplexType Name="sp_SaveCashFlow_Result">
           <Property Type="String" Name="Message" Nullable="false" MaxLength="100" />
         </ComplexType>
@@ -12867,8 +12890,8 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <NavigationProperty Name="Cn_Users9" Relationship="TrustModel.FK__Tr_Approv__Creat__35DCF99B" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users10" Relationship="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users11" Relationship="TrustModel.FK__Tr_Approv__Modif__36D11DD4" FromRole="Tr_ApprovalApps" ToRole="Cn_Users" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Appro__405A880E" FromRole="Tr_ApprovalApps" ToRole="Tr_Contracts" />
           <NavigationProperty Name="Tr_ApplicationHeaders" Relationship="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" FromRole="Tr_ApprovalApps" ToRole="Tr_ApplicationHeaders" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Appro__405A880E" FromRole="Tr_ApprovalApps" ToRole="Tr_Contracts" />
         </EntityType>
         <Association Name="FK__Tr_Approv__Appro__18427513">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
@@ -13011,18 +13034,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Principal>
             <Dependent Role="Tr_ApprovalApps">
               <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Contra__Appro__405A880E">
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="1" />
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ApprovalApps">
-              <PropertyRef Name="ApprovalApp_ID" />
-            </Principal>
-            <Dependent Role="Tr_Contracts">
-              <PropertyRef Name="ApprovalApp_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -13754,6 +13765,395 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="V_ProspectCustDetails">
+          <Key>
+            <PropertyRef Name="ProspectCustomerDetail_ID" />
+            <PropertyRef Name="ProspectCustomer_ID" />
+            <PropertyRef Name="IsVehicleExists" />
+            <PropertyRef Name="Keur" />
+            <PropertyRef Name="CreatedBy" />
+          </Key>
+          <Property Name="ProspectCustomerDetail_ID" Type="Int32" Nullable="false" />
+          <Property Name="ProspectCustomer_ID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyGroup_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="VehicleExists_ID" Type="Int32" />
+          <Property Name="IsVehicleExists" Type="Boolean" Nullable="false" />
+          <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model_ID" Type="Int32" />
+          <Property Name="Normal_Disc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsTruck" Type="Boolean" />
+          <Property Name="Gross" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="GrossApp" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="OTR_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Brand_ID" Type="Int32" />
+          <Property Name="Brand_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vehicle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VehicleType" Type="String" MaxLength="115" FixedLength="false" Unicode="true" />
+          <Property Name="Lease_price" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="RVPersen" Type="Int32" />
+          <Property Name="Keur" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Lease_long" Type="Int32" />
+          <Property Name="IsMultiCalculated" Type="Boolean" />
+          <Property Name="Amount" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="Asset_Rating" Type="Int32" />
+          <Property Name="Credit_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsCalculate" Type="Boolean" />
+          <Property Name="IsQuotation" Type="Boolean" />
+          <Property Name="Rent_Location_ID" Type="Int32" />
+          <Property Name="FundingCost" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="Rent_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Bid_PricePerMonth" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Residual_Value" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="QuotationDetail_ID" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="Application_ID" Type="Int32" />
+          <Property Name="CreatedDateApp" Type="DateTime" Precision="3" />
+          <Property Name="Quotation_ID" Type="Int32" />
+          <Property Name="IsFillOTR" Type="Boolean" />
+          <Property Name="QtyAppPO" Type="Int32" />
+          <Property Name="ApplicationPO_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicationHeader_ID" Type="Int32" />
+          <Property Name="Calculate_ID" Type="Int32" />
+          <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovalApp_ID" Type="Int32" />
+          <Property Name="Contract_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Tr_SetDeliveries">
+          <Key>
+            <PropertyRef Name="SetDelivery_ID" />
+          </Key>
+          <Property Name="SetDelivery_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contract_ID" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="Address_Delivery" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="Isdeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_SetDel__Creat__0035E158" FromRole="Tr_SetDeliveries" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_SetDel__Modif__012A0591" FromRole="Tr_SetDeliveries" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_SetDeliveryDetails" Relationship="TrustModel.FK__Tr_SetDel__setDe__08CB2759" FromRole="Tr_SetDeliveries" ToRole="Tr_SetDeliveryDetails" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_SetDel__Contr__7F41BD1F" FromRole="Tr_SetDeliveries" ToRole="Tr_Contracts" />
+        </EntityType>
+        <EntityType Name="Tr_SetDeliveryDetails">
+          <Key>
+            <PropertyRef Name="SetDeliveryDetail_ID" />
+          </Key>
+          <Property Name="SetDeliveryDetail_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="setDelivery_ID" Type="Int32" />
+          <Property Name="ContractDetail_ID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="Isdeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB" FromRole="Tr_SetDeliveryDetails" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_SetDel__Modif__0BA79404" FromRole="Tr_SetDeliveryDetails" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_SetDel__Contr__09BF4B92" FromRole="Tr_SetDeliveryDetails" ToRole="Tr_ContractDetails" />
+          <NavigationProperty Name="Tr_SetDeliveries" Relationship="TrustModel.FK__Tr_SetDel__setDe__08CB2759" FromRole="Tr_SetDeliveryDetails" ToRole="Tr_SetDeliveries" />
+        </EntityType>
+        <Association Name="FK__Tr_SetDel__Creat__0035E158">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
+          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveries">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Creat__0AB36FCB">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
+          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Modif__012A0591">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveries">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Modif__0BA79404">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Contr__09BF4B92">
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ContractDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__setDe__08CB2759">
+          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_SetDeliveries">
+              <PropertyRef Name="SetDelivery_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="setDelivery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tr_Contracts">
+          <Key>
+            <PropertyRef Name="Contract_ID" />
+          </Key>
+          <Property Name="Contract_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApprovalApp_ID" Type="Int32" Nullable="false" />
+          <Property Name="Receipt_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Penerima" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Jabatan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PerMonth" Type="Int32" />
+          <Property Name="IsDraftedContract" Type="Boolean" />
+          <Property Name="IsSendedContract" Type="Boolean" />
+          <Property Name="IsReceiptContract" Type="Boolean" />
+          <Property Name="IsInvoicedAll" Type="Boolean" />
+          <Property Name="IsInvoiceReceiptAll" Type="Boolean" />
+          <Property Name="IsSetDelivery" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__414EAC47" FromRole="Tr_Contracts" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__Modif__4242D080" FromRole="Tr_Contracts" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_ApprovalApps" Relationship="TrustModel.FK__Tr_Contra__Appro__405A880E" FromRole="Tr_Contracts" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Contr__451F3D2B" FromRole="Tr_Contracts" ToRole="Tr_ContractDetails" />
+          <NavigationProperty Name="Tr_ContractDrafts" Relationship="TrustModel.FK__Tr_Contra__Contr__3F3C46A3" FromRole="Tr_Contracts" ToRole="Tr_ContractDrafts" />
+          <NavigationProperty Name="Tr_ContractReceipts" Relationship="TrustModel.FK__Tr_Contra__Contr__00CA12DE" FromRole="Tr_Contracts" ToRole="Tr_ContractReceipts" />
+          <NavigationProperty Name="Tr_ContractSends" Relationship="TrustModel.FK__Tr_Contra__Contr__4400FBC0" FromRole="Tr_Contracts" ToRole="Tr_ContractSends" />
+          <NavigationProperty Name="Tr_Invoices" Relationship="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF" FromRole="Tr_Contracts" ToRole="Tr_Invoices" />
+          <NavigationProperty Name="Tr_SetDeliveries" Relationship="TrustModel.FK__Tr_SetDel__Contr__7F41BD1F" FromRole="Tr_Contracts" ToRole="Tr_SetDeliveries" />
+        </EntityType>
+        <Association Name="FK__Tr_Contra__Creat__414EAC47">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Contracts">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Modif__4242D080">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Contracts">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Appro__405A880E">
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="1" />
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ApprovalApps">
+              <PropertyRef Name="ApprovalApp_ID" />
+            </Principal>
+            <Dependent Role="Tr_Contracts">
+              <PropertyRef Name="ApprovalApp_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Contr__451F3D2B">
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Contracts">
+              <PropertyRef Name="Contract_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractDetails">
+              <PropertyRef Name="Contract_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Contr__3F3C46A3">
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ContractDrafts" Role="Tr_ContractDrafts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Contracts">
+              <PropertyRef Name="Contract_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractDrafts">
+              <PropertyRef Name="Contract_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Contr__00CA12DE">
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ContractReceipts" Role="Tr_ContractReceipts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Contracts">
+              <PropertyRef Name="Contract_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractReceipts">
+              <PropertyRef Name="Contract_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Contr__4400FBC0">
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ContractSends" Role="Tr_ContractSends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Contracts">
+              <PropertyRef Name="Contract_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractSends">
+              <PropertyRef Name="Contract_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Invoic__Contr__12B3B8EF">
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Invoices" Role="Tr_Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Contracts">
+              <PropertyRef Name="Contract_ID" />
+            </Principal>
+            <Dependent Role="Tr_Invoices">
+              <PropertyRef Name="Contract_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Contr__7F41BD1F">
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
+          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Contracts">
+              <PropertyRef Name="Contract_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveries">
+              <PropertyRef Name="Contract_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="V_ProspectCusts">
+          <Key>
+            <PropertyRef Name="ProspectCustomer_ID" />
+            <PropertyRef Name="IsExists" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="IsCalculate" />
+          </Key>
+          <Property Name="ProspectCustomer_ID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerExists_ID" Type="Int32" />
+          <Property Name="IsExists" Type="Boolean" Nullable="false" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="IsKYC" Type="Boolean" />
+          <Property Name="CompanyGroup_ID" Type="Int32" />
+          <Property Name="CompanyGroup_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tbk" Type="Boolean" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="City_ID" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsQuotation" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cost_Price" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Replacement_Tick" Type="Boolean" />
+          <Property Name="Maintenance_Tick" Type="Boolean" />
+          <Property Name="STNK_Tick" Type="Boolean" />
+          <Property Name="Assurance_Tick" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedByName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedByName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Quotation_ID" Type="Int32" />
+          <Property Name="No_Ref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="THU" Type="Int32" />
+          <Property Name="Approval_ID" Type="Int32" />
+          <Property Name="ApplicationHeader_ID" Type="Int32" />
+          <Property Name="ApprovalApp_ID" Type="Int32" />
+          <Property Name="IsCalculate" Type="Boolean" Nullable="false" />
+          <Property Name="Customer_Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Credit_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Authorized_Capital" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="Authorized_Signer_Name1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Authorized_Signer_Position1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Authorized_Signer_Name2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Authorized_Signer_Position2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IntroducedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contract_ID" Type="Int32" />
+          <Property Name="Contract_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Receipt_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsDriver" Type="Boolean" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="Record_For_Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusAppQuot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Line_of_Business" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsPO" Type="Boolean" />
+          <Property Name="IsApplicationPO" Type="Boolean" />
+          <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOP_Value" Type="Int32" />
+          <Property Name="QtyContract" Type="Int32" />
+          <Property Name="QtyDelivery" Type="Int32" />
+          <Property Name="IsSetDelivery" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_SetDeliveryQty">
+          <Key>
+            <PropertyRef Name="Contract_ID" />
+          </Key>
+          <Property Name="Contract_ID" Type="Int32" Nullable="false" />
+          <Property Name="IsInputAsseted" Type="Boolean" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="QtyDelivery" Type="Int32" />
+        </EntityType>
         <ComplexType Name="sp_PrintApplicationDetailNew_Result">
           <Property Type="Int64" Name="No" Nullable="true" />
           <Property Type="String" Name="Company_Name" Nullable="true" MaxLength="100" />
@@ -13808,7 +14208,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Type="String" Name="Remark" Nullable="true" />
           <Property Type="String" Name="Record_For_Payment" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Asset_Rating" Nullable="true" />
-          <Property Type="String" Name="Project_Rating" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Project_Rating" Nullable="true" MaxLength="3" />
           <Property Type="Decimal" Name="IRR" Nullable="true" Precision="6" Scale="2" />
           <Property Type="Decimal" Name="Funding_Rate" Nullable="true" Precision="6" Scale="2" />
           <Property Type="Decimal" Name="Spread" Nullable="true" Precision="6" Scale="2" />
@@ -13867,67 +14267,10 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
           <Property Type="Binary" Name="App7Sign" Nullable="true" MaxLength="Max" />
           <Property Type="DateTime" Name="Approval7Date" Nullable="true" Precision="23" />
           <Property Type="String" Name="Title7" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AppChecker" Nullable="true" MaxLength="100" />
+          <Property Type="Binary" Name="AppCheckerSign" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="CheckerDate" Nullable="true" Precision="23" />
         </ComplexType>
-        <EntityType Name="V_ProspectCustDetails">
-          <Key>
-            <PropertyRef Name="ProspectCustomerDetail_ID" />
-            <PropertyRef Name="ProspectCustomer_ID" />
-            <PropertyRef Name="IsVehicleExists" />
-            <PropertyRef Name="Keur" />
-            <PropertyRef Name="CreatedBy" />
-          </Key>
-          <Property Name="ProspectCustomerDetail_ID" Type="Int32" Nullable="false" />
-          <Property Name="ProspectCustomer_ID" Type="Int32" Nullable="false" />
-          <Property Name="CompanyGroup_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Customer_ID" Type="Int32" />
-          <Property Name="VehicleExists_ID" Type="Int32" />
-          <Property Name="IsVehicleExists" Type="Boolean" Nullable="false" />
-          <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Model_ID" Type="Int32" />
-          <Property Name="Normal_Disc" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsTruck" Type="Boolean" />
-          <Property Name="Gross" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="GrossApp" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="OTR_Price" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Brand_ID" Type="Int32" />
-          <Property Name="Brand_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Vehicle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="VehicleType" Type="String" MaxLength="115" FixedLength="false" Unicode="true" />
-          <Property Name="Lease_price" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="Qty" Type="Int32" />
-          <Property Name="RVPersen" Type="Int32" />
-          <Property Name="Keur" Type="Int32" Nullable="false" />
-          <Property Name="Year" Type="Int32" />
-          <Property Name="Lease_long" Type="Int32" />
-          <Property Name="IsMultiCalculated" Type="Boolean" />
-          <Property Name="Amount" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="Asset_Rating" Type="Int32" />
-          <Property Name="Credit_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="IsCalculate" Type="Boolean" />
-          <Property Name="IsQuotation" Type="Boolean" />
-          <Property Name="Rent_Location_ID" Type="Int32" />
-          <Property Name="FundingCost" Type="Decimal" Precision="6" Scale="2" />
-          <Property Name="Rent_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Bid_PricePerMonth" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Residual_Value" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="QuotationDetail_ID" Type="Int32" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="Application_ID" Type="Int32" />
-          <Property Name="CreatedDateApp" Type="DateTime" Precision="3" />
-          <Property Name="Quotation_ID" Type="Int32" />
-          <Property Name="Contract_ID" Type="Int32" />
-          <Property Name="ContractDetail_ID" Type="Int32" />
-          <Property Name="IsFillOTR" Type="Boolean" />
-          <Property Name="QtyAppPO" Type="Int32" />
-          <Property Name="ApplicationPO_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ApplicationHeader_ID" Type="Int32" />
-          <Property Name="Calculate_ID" Type="Int32" />
-          <Property Name="PO_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -15711,28 +16054,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tr_Contracts">
-            <EntityTypeMapping TypeName="TrustModel.Tr_Contracts">
-              <MappingFragment StoreEntitySet="Tr_Contracts">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="IsInvoiceReceiptAll" ColumnName="IsInvoiceReceiptAll" />
-                <ScalarProperty Name="IsInvoicedAll" ColumnName="IsInvoicedAll" />
-                <ScalarProperty Name="IsReceiptContract" ColumnName="IsReceiptContract" />
-                <ScalarProperty Name="IsSendedContract" ColumnName="IsSendedContract" />
-                <ScalarProperty Name="IsDraftedContract" ColumnName="IsDraftedContract" />
-                <ScalarProperty Name="PerMonth" ColumnName="PerMonth" />
-                <ScalarProperty Name="Jabatan" ColumnName="Jabatan" />
-                <ScalarProperty Name="Penerima" ColumnName="Penerima" />
-                <ScalarProperty Name="Receipt_No" ColumnName="Receipt_No" />
-                <ScalarProperty Name="ApprovalApp_ID" ColumnName="ApprovalApp_ID" />
-                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_ContractGetDetail" FunctionName="TrustModel.Store.sp_ContractGetDetail">
             <ResultMapping>
               <ComplexTypeMapping TypeName="TrustModel.sp_ContractGetDetail_Result">
@@ -16232,72 +16553,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="V_ProspectCusts">
-            <EntityTypeMapping TypeName="TrustModel.V_ProspectCusts">
-              <MappingFragment StoreEntitySet="V_ProspectCusts">
-                <ScalarProperty Name="TOP_Value" ColumnName="TOP_Value" />
-                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
-                <ScalarProperty Name="IsApplicationPO" ColumnName="IsApplicationPO" />
-                <ScalarProperty Name="IsPO" ColumnName="IsPO" />
-                <ScalarProperty Name="Line_of_Business" ColumnName="Line_of_Business" />
-                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
-                <ScalarProperty Name="StatusAppQuot" ColumnName="StatusAppQuot" />
-                <ScalarProperty Name="Record_For_Payment" ColumnName="Record_For_Payment" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
-                <ScalarProperty Name="Receipt_No" ColumnName="Receipt_No" />
-                <ScalarProperty Name="Contract_No" ColumnName="Contract_No" />
-                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
-                <ScalarProperty Name="IntroducedBy" ColumnName="IntroducedBy" />
-                <ScalarProperty Name="Authorized_Signer_Position2" ColumnName="Authorized_Signer_Position2" />
-                <ScalarProperty Name="Authorized_Signer_Name2" ColumnName="Authorized_Signer_Name2" />
-                <ScalarProperty Name="Authorized_Signer_Position1" ColumnName="Authorized_Signer_Position1" />
-                <ScalarProperty Name="Authorized_Signer_Name1" ColumnName="Authorized_Signer_Name1" />
-                <ScalarProperty Name="Authorized_Capital" ColumnName="Authorized_Capital" />
-                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
-                <ScalarProperty Name="Customer_Class" ColumnName="Customer_Class" />
-                <ScalarProperty Name="IsCalculate" ColumnName="IsCalculate" />
-                <ScalarProperty Name="ApprovalApp_ID" ColumnName="ApprovalApp_ID" />
-                <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
-                <ScalarProperty Name="Approval_ID" ColumnName="Approval_ID" />
-                <ScalarProperty Name="THU" ColumnName="THU" />
-                <ScalarProperty Name="No_Ref" ColumnName="No_Ref" />
-                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
-                <ScalarProperty Name="ModifiedByName" ColumnName="ModifiedByName" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedByName" ColumnName="CreatedByName" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Assurance_Tick" ColumnName="Assurance_Tick" />
-                <ScalarProperty Name="STNK_Tick" ColumnName="STNK_Tick" />
-                <ScalarProperty Name="Maintenance_Tick" ColumnName="Maintenance_Tick" />
-                <ScalarProperty Name="Replacement_Tick" ColumnName="Replacement_Tick" />
-                <ScalarProperty Name="Cost_Price" ColumnName="Cost_Price" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="IsQuotation" ColumnName="IsQuotation" />
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
-                <ScalarProperty Name="PIC_Email" ColumnName="PIC_Email" />
-                <ScalarProperty Name="PIC_Phone" ColumnName="PIC_Phone" />
-                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Tbk" ColumnName="Tbk" />
-                <ScalarProperty Name="PT" ColumnName="PT" />
-                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
-                <ScalarProperty Name="CompanyGroup_Name" ColumnName="CompanyGroup_Name" />
-                <ScalarProperty Name="CompanyGroup_ID" ColumnName="CompanyGroup_ID" />
-                <ScalarProperty Name="IsKYC" ColumnName="IsKYC" />
-                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
-                <ScalarProperty Name="IsExists" ColumnName="IsExists" />
-                <ScalarProperty Name="CustomerExists_ID" ColumnName="CustomerExists_ID" />
-                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_SaveCashFlow" FunctionName="TrustModel.Store.sp_SaveCashFlow" >
             <ResultMapping>
               <ComplexTypeMapping TypeName="TrustModel.sp_SaveCashFlow_Result">
@@ -16738,6 +16993,196 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="V_ProspectCustDetails">
+            <EntityTypeMapping TypeName="TrustModel.V_ProspectCustDetails">
+              <MappingFragment StoreEntitySet="V_ProspectCustDetails">
+                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
+                <ScalarProperty Name="ApprovalApp_ID" ColumnName="ApprovalApp_ID" />
+                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
+                <ScalarProperty Name="Calculate_ID" ColumnName="Calculate_ID" />
+                <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
+                <ScalarProperty Name="ApplicationPO_No" ColumnName="ApplicationPO_No" />
+                <ScalarProperty Name="QtyAppPO" ColumnName="QtyAppPO" />
+                <ScalarProperty Name="IsFillOTR" ColumnName="IsFillOTR" />
+                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
+                <ScalarProperty Name="CreatedDateApp" ColumnName="CreatedDateApp" />
+                <ScalarProperty Name="Application_ID" ColumnName="Application_ID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="QuotationDetail_ID" ColumnName="QuotationDetail_ID" />
+                <ScalarProperty Name="Residual_Value" ColumnName="Residual_Value" />
+                <ScalarProperty Name="Bid_PricePerMonth" ColumnName="Bid_PricePerMonth" />
+                <ScalarProperty Name="Rent_Location" ColumnName="Rent_Location" />
+                <ScalarProperty Name="FundingCost" ColumnName="FundingCost" />
+                <ScalarProperty Name="Rent_Location_ID" ColumnName="Rent_Location_ID" />
+                <ScalarProperty Name="IsQuotation" ColumnName="IsQuotation" />
+                <ScalarProperty Name="IsCalculate" ColumnName="IsCalculate" />
+                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
+                <ScalarProperty Name="Asset_Rating" ColumnName="Asset_Rating" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="IsMultiCalculated" ColumnName="IsMultiCalculated" />
+                <ScalarProperty Name="Lease_long" ColumnName="Lease_long" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Keur" ColumnName="Keur" />
+                <ScalarProperty Name="RVPersen" ColumnName="RVPersen" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Lease_price" ColumnName="Lease_price" />
+                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+                <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Brand_Name" ColumnName="Brand_Name" />
+                <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
+                <ScalarProperty Name="OTR_Price" ColumnName="OTR_Price" />
+                <ScalarProperty Name="GrossApp" ColumnName="GrossApp" />
+                <ScalarProperty Name="Gross" ColumnName="Gross" />
+                <ScalarProperty Name="IsTruck" ColumnName="IsTruck" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Normal_Disc" ColumnName="Normal_Disc" />
+                <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+                <ScalarProperty Name="IsVehicleExists" ColumnName="IsVehicleExists" />
+                <ScalarProperty Name="VehicleExists_ID" ColumnName="VehicleExists_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="CompanyGroup_Name" ColumnName="CompanyGroup_Name" />
+                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
+                <ScalarProperty Name="ProspectCustomerDetail_ID" ColumnName="ProspectCustomerDetail_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_SetDeliveries">
+            <EntityTypeMapping TypeName="TrustModel.Tr_SetDeliveries">
+              <MappingFragment StoreEntitySet="Tr_SetDeliveries">
+                <ScalarProperty Name="Isdeleted" ColumnName="Isdeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PIC_Number" ColumnName="PIC_Number" />
+                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
+                <ScalarProperty Name="Address_Delivery" ColumnName="Address_Delivery" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
+                <ScalarProperty Name="SetDelivery_ID" ColumnName="SetDelivery_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_SetDeliveryDetails">
+            <EntityTypeMapping TypeName="TrustModel.Tr_SetDeliveryDetails">
+              <MappingFragment StoreEntitySet="Tr_SetDeliveryDetails">
+                <ScalarProperty Name="Isdeleted" ColumnName="Isdeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
+                <ScalarProperty Name="setDelivery_ID" ColumnName="setDelivery_ID" />
+                <ScalarProperty Name="SetDeliveryDetail_ID" ColumnName="SetDeliveryDetail_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_Contracts">
+            <EntityTypeMapping TypeName="TrustModel.Tr_Contracts">
+              <MappingFragment StoreEntitySet="Tr_Contracts">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsSetDelivery" ColumnName="IsSetDelivery" />
+                <ScalarProperty Name="IsInvoiceReceiptAll" ColumnName="IsInvoiceReceiptAll" />
+                <ScalarProperty Name="IsInvoicedAll" ColumnName="IsInvoicedAll" />
+                <ScalarProperty Name="IsReceiptContract" ColumnName="IsReceiptContract" />
+                <ScalarProperty Name="IsSendedContract" ColumnName="IsSendedContract" />
+                <ScalarProperty Name="IsDraftedContract" ColumnName="IsDraftedContract" />
+                <ScalarProperty Name="PerMonth" ColumnName="PerMonth" />
+                <ScalarProperty Name="Jabatan" ColumnName="Jabatan" />
+                <ScalarProperty Name="Penerima" ColumnName="Penerima" />
+                <ScalarProperty Name="Receipt_No" ColumnName="Receipt_No" />
+                <ScalarProperty Name="ApprovalApp_ID" ColumnName="ApprovalApp_ID" />
+                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ProspectCusts">
+            <EntityTypeMapping TypeName="TrustModel.V_ProspectCusts">
+              <MappingFragment StoreEntitySet="V_ProspectCusts">
+                <ScalarProperty Name="IsSetDelivery" ColumnName="IsSetDelivery" />
+                <ScalarProperty Name="QtyDelivery" ColumnName="QtyDelivery" />
+                <ScalarProperty Name="QtyContract" ColumnName="QtyContract" />
+                <ScalarProperty Name="TOP_Value" ColumnName="TOP_Value" />
+                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
+                <ScalarProperty Name="IsApplicationPO" ColumnName="IsApplicationPO" />
+                <ScalarProperty Name="IsPO" ColumnName="IsPO" />
+                <ScalarProperty Name="Line_of_Business" ColumnName="Line_of_Business" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+                <ScalarProperty Name="StatusAppQuot" ColumnName="StatusAppQuot" />
+                <ScalarProperty Name="Record_For_Payment" ColumnName="Record_For_Payment" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
+                <ScalarProperty Name="Receipt_No" ColumnName="Receipt_No" />
+                <ScalarProperty Name="Contract_No" ColumnName="Contract_No" />
+                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
+                <ScalarProperty Name="IntroducedBy" ColumnName="IntroducedBy" />
+                <ScalarProperty Name="Authorized_Signer_Position2" ColumnName="Authorized_Signer_Position2" />
+                <ScalarProperty Name="Authorized_Signer_Name2" ColumnName="Authorized_Signer_Name2" />
+                <ScalarProperty Name="Authorized_Signer_Position1" ColumnName="Authorized_Signer_Position1" />
+                <ScalarProperty Name="Authorized_Signer_Name1" ColumnName="Authorized_Signer_Name1" />
+                <ScalarProperty Name="Authorized_Capital" ColumnName="Authorized_Capital" />
+                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
+                <ScalarProperty Name="Customer_Class" ColumnName="Customer_Class" />
+                <ScalarProperty Name="IsCalculate" ColumnName="IsCalculate" />
+                <ScalarProperty Name="ApprovalApp_ID" ColumnName="ApprovalApp_ID" />
+                <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
+                <ScalarProperty Name="Approval_ID" ColumnName="Approval_ID" />
+                <ScalarProperty Name="THU" ColumnName="THU" />
+                <ScalarProperty Name="No_Ref" ColumnName="No_Ref" />
+                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
+                <ScalarProperty Name="ModifiedByName" ColumnName="ModifiedByName" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedByName" ColumnName="CreatedByName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Assurance_Tick" ColumnName="Assurance_Tick" />
+                <ScalarProperty Name="STNK_Tick" ColumnName="STNK_Tick" />
+                <ScalarProperty Name="Maintenance_Tick" ColumnName="Maintenance_Tick" />
+                <ScalarProperty Name="Replacement_Tick" ColumnName="Replacement_Tick" />
+                <ScalarProperty Name="Cost_Price" ColumnName="Cost_Price" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsQuotation" ColumnName="IsQuotation" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="PIC_Email" ColumnName="PIC_Email" />
+                <ScalarProperty Name="PIC_Phone" ColumnName="PIC_Phone" />
+                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tbk" ColumnName="Tbk" />
+                <ScalarProperty Name="PT" ColumnName="PT" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="CompanyGroup_Name" ColumnName="CompanyGroup_Name" />
+                <ScalarProperty Name="CompanyGroup_ID" ColumnName="CompanyGroup_ID" />
+                <ScalarProperty Name="IsKYC" ColumnName="IsKYC" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="IsExists" ColumnName="IsExists" />
+                <ScalarProperty Name="CustomerExists_ID" ColumnName="CustomerExists_ID" />
+                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_SetDeliveryQty">
+            <EntityTypeMapping TypeName="TrustModel.V_SetDeliveryQty">
+              <MappingFragment StoreEntitySet="V_SetDeliveryQty">
+                <ScalarProperty Name="QtyDelivery" ColumnName="QtyDelivery" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="IsInputAsseted" ColumnName="IsInputAsseted" />
+                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_PrintApplicationDetailNew" FunctionName="TrustModel.Store.sp_PrintApplicationDetailNew">
             <ResultMapping>
               <ComplexTypeMapping TypeName="TrustModel.sp_PrintApplicationDetailNew_Result">
@@ -16853,66 +17298,12 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primar
                 <ScalarProperty Name="App7Sign" ColumnName="App7Sign" />
                 <ScalarProperty Name="Approval7Date" ColumnName="Approval7Date" />
                 <ScalarProperty Name="Title7" ColumnName="Title7" />
+                <ScalarProperty Name="AppChecker" ColumnName="AppChecker" />
+                <ScalarProperty Name="AppCheckerSign" ColumnName="AppCheckerSign" />
+                <ScalarProperty Name="CheckerDate" ColumnName="CheckerDate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="V_ProspectCustDetails">
-            <EntityTypeMapping TypeName="TrustModel.V_ProspectCustDetails">
-              <MappingFragment StoreEntitySet="V_ProspectCustDetails">
-                <ScalarProperty Name="PO_No" ColumnName="PO_No" />
-                <ScalarProperty Name="Calculate_ID" ColumnName="Calculate_ID" />
-                <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
-                <ScalarProperty Name="ApplicationPO_No" ColumnName="ApplicationPO_No" />
-                <ScalarProperty Name="QtyAppPO" ColumnName="QtyAppPO" />
-                <ScalarProperty Name="IsFillOTR" ColumnName="IsFillOTR" />
-                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
-                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
-                <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
-                <ScalarProperty Name="CreatedDateApp" ColumnName="CreatedDateApp" />
-                <ScalarProperty Name="Application_ID" ColumnName="Application_ID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="QuotationDetail_ID" ColumnName="QuotationDetail_ID" />
-                <ScalarProperty Name="Residual_Value" ColumnName="Residual_Value" />
-                <ScalarProperty Name="Bid_PricePerMonth" ColumnName="Bid_PricePerMonth" />
-                <ScalarProperty Name="Rent_Location" ColumnName="Rent_Location" />
-                <ScalarProperty Name="FundingCost" ColumnName="FundingCost" />
-                <ScalarProperty Name="Rent_Location_ID" ColumnName="Rent_Location_ID" />
-                <ScalarProperty Name="IsQuotation" ColumnName="IsQuotation" />
-                <ScalarProperty Name="IsCalculate" ColumnName="IsCalculate" />
-                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
-                <ScalarProperty Name="Asset_Rating" ColumnName="Asset_Rating" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="IsMultiCalculated" ColumnName="IsMultiCalculated" />
-                <ScalarProperty Name="Lease_long" ColumnName="Lease_long" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Keur" ColumnName="Keur" />
-                <ScalarProperty Name="RVPersen" ColumnName="RVPersen" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="Lease_price" ColumnName="Lease_price" />
-                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
-                <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
-                <ScalarProperty Name="Color" ColumnName="Color" />
-                <ScalarProperty Name="Brand_Name" ColumnName="Brand_Name" />
-                <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
-                <ScalarProperty Name="OTR_Price" ColumnName="OTR_Price" />
-                <ScalarProperty Name="GrossApp" ColumnName="GrossApp" />
-                <ScalarProperty Name="Gross" ColumnName="Gross" />
-                <ScalarProperty Name="IsTruck" ColumnName="IsTruck" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Normal_Disc" ColumnName="Normal_Disc" />
-                <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
-                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
-                <ScalarProperty Name="IsVehicleExists" ColumnName="IsVehicleExists" />
-                <ScalarProperty Name="VehicleExists_ID" ColumnName="VehicleExists_ID" />
-                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
-                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
-                <ScalarProperty Name="CompanyGroup_Name" ColumnName="CompanyGroup_Name" />
-                <ScalarProperty Name="ProspectCustomer_ID" ColumnName="ProspectCustomer_ID" />
-                <ScalarProperty Name="ProspectCustomerDetail_ID" ColumnName="ProspectCustomerDetail_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

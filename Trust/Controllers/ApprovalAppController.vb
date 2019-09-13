@@ -483,6 +483,7 @@ Finish:
             contract.IsReceiptContract = False
             contract.IsInvoicedAll = False
             contract.IsInvoiceReceiptAll = False
+            contract.IsSetDelivery = False
             db.Tr_Contracts.Add(contract)
             db.SaveChanges()
             'Create Detail

@@ -1,18 +1,18 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Tr_ContractDetail)
+﻿@ModelType IEnumerable(Of Trust.Tr_SetDelivery)
 @Imports PagedList.Mvc
 @Code
-    ViewData("Title") = "Contract"
+    ViewData("Title") = "Set Delivery"
 End Code
 
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Delivery</h3>
+                <h3 class="box-title">@ViewData("Title")</h3>
 
                 <div class="box-tools">
 
-                    @Using (Html.BeginForm("IndexDelivery", ViewData("Title").ToString(), FormMethod.Get))
+                    @Using (Html.BeginForm("Index", "Set Delivery", FormMethod.Get))
                         @<div Class="input-group input-group-sm">
                             <p>
                                 Show @Html.TextBox("PageSize", TryCast(ViewBag.pageSize, String), htmlAttributes:=New With {.style = "width:30px"}) @Html.TextBox("SearchString", TryCast(ViewBag.CurrentFilter, String))
@@ -35,22 +35,25 @@ End Code
                                 @Html.ActionLink("Company Name", "Index", New With {.sortOrder = "Company_Name", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
                             </th>
                             <th>
-                                @Html.ActionLink("Brand Name", "Index", New With {.sortOrder = "Brand_Name", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
+                                @Html.ActionLink("No Contract", "Index", New With {.sortOrder = "Contract_No", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
                             </th>
                             <th>
-                                @Html.ActionLink("Model", "Index", New With {.sortOrder = "Model", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
+                                @Html.ActionLink("Qty Contract", "Index", New With {.sortOrder = "QtyContract", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
                             </th>
                             <th>
-                                @Html.ActionLink("License No", "Index", New With {.sortOrder = "license_no", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(Function(model) model(0).Delivery_Date)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(Function(model) model(0).Aging)
+                                @Html.ActionLink("Qty Delivery", "Index", New With {.sortOrder = "QtyDelivery", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
                             </th>
                             <th>
                                 @Html.DisplayNameFor(Function(model) model(0).CreatedDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).CreatedBy)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).ModifiedDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).ModifiedBy)
                             </th>
                         </tr>
 
@@ -59,11 +62,9 @@ End Code
 
                         @For Each item In Model
                             @<tr>
-                                 <td style="white-space:nowrap">
-                                     @If item.IsSetDelivery Then
-                                         @Html.ActionLink("Delivery", "Delivery", New With {.id = item.ContractDetail_ID})
-                                     End If
-                                 </td>
+                                <td style="white-space:nowrap">
+                                    @Html.ActionLink("Set Delivery", "CreateDelivery", New With {.id = item.Contract_ID})
+                                </td>
                                 <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.CompanyGroup_Name)
                                 </td>
@@ -71,22 +72,25 @@ End Code
                                     @Html.DisplayFor(Function(modelItem) item.Company_Name)
                                 </td>
                                 <td style="white-space:nowrap">
-                                    @Html.DisplayFor(Function(modelItem) item.Brand_Name)
+                                    @Html.DisplayFor(Function(modelItem) item.Contract_No)
                                 </td>
                                 <td style="white-space:nowrap">
-                                    @Html.DisplayFor(Function(modelItem) item.Vehicle)
+                                    @Html.DisplayFor(Function(modelItem) item.QtyContract)
                                 </td>
                                 <td style="white-space:nowrap">
-                                    @Html.DisplayFor(Function(modelItem) item.license_no)
+                                    @Html.DisplayFor(Function(modelItem) item.QtyDelivery)
                                 </td>
-                                <td style="white-space:nowrap">
-                                    @Html.DisplayFor(Function(modelItem) item.Delivery_Date)
-                                </td>
-                                <td style="white-space:nowrap">
-                                    @Html.DisplayFor(Function(modelItem) item.Aging) hari lagi
-                                </td>
-                                <td style="white-space:nowrap">
+                               <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.CreatedDate)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.CreatedBy)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.ModifiedDate)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.ModifiedBy)
                                 </td>
                             </tr>
                         Next
@@ -96,7 +100,7 @@ End Code
             <!-- /.box-body -->
             <div class="box-footer clearfix">
                 <ul class="pagination pagination-sm no-margin pull-right">
-                    @Html.PagedListPager(Model, Function(page) Url.Action("IndexDelivery", New With {page, .sortOrder = ViewBag.CurrentSort, .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize}))
+                    @Html.PagedListPager(Model, Function(page) Url.Action("Index", New With {page, .sortOrder = ViewBag.CurrentSort, .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize}))
                 </ul>
             </div>
         </div>

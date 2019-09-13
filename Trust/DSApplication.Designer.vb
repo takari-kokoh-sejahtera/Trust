@@ -2785,6 +2785,12 @@ Partial Public Class DSApplication
         
         Private columnTitle7 As Global.System.Data.DataColumn
         
+        Private columnAppChecker As Global.System.Data.DataColumn
+        
+        Private columnAppCheckerSign As Global.System.Data.DataColumn
+        
+        Private columnCheckerDate As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -3717,6 +3723,30 @@ Partial Public Class DSApplication
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property AppCheckerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAppChecker
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property AppCheckerSignColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAppCheckerSign
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CheckerDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCheckerDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3864,9 +3894,12 @@ Partial Public Class DSApplication
                     ByVal App7Name As String,  _
                     ByVal App7Sign() As Byte,  _
                     ByVal Approval7Date As Date,  _
-                    ByVal Title7 As String) As sp_PrintApplicationDetailNewRow
+                    ByVal Title7 As String,  _
+                    ByVal AppChecker As String,  _
+                    ByVal AppCheckerSign() As Byte,  _
+                    ByVal CheckerDate As Date) As sp_PrintApplicationDetailNewRow
             Dim rowsp_PrintApplicationDetailNewRow As sp_PrintApplicationDetailNewRow = CType(Me.NewRow,sp_PrintApplicationDetailNewRow)
-            Dim columnValuesArray() As Object = New Object() {No, Company_Name, Contract_No, Vehicle, Year, Application_No, Rent_Location, Bid_PricePerMonth, Update_OTR, Update_Diskon, PurchasePrice, Credit_Rating, THU, Run_Application, RunContractCompany, RunContractGroup, TotQty, Run_Transaction_FL, Run_Application_FL, RunContractCompany_FL, RunContractGroup_FL, TotQty_FL, CreatedDate, Customer_ID, Address, PIC_Name, IsExists, CreatedBy, User_Name, Department, Nothing, Authorized_Capital, Authorized_Signer_Name1, Authorized_Signer_Name2, Authorized_Signer_Position1, Authorized_Signer_Position2, IntroducedBy, Customer_Class, CompanyGroup_Name, Line_of_Business, Outstanding_Balance_Application, Outstanding_Balance_Group, Outstanding_Balance_MUL_Group, TotCostPrice, Outstanding_Balance_Transaction_FL, Outstanding_Balance_Application_FL, Outstanding_Balance_Group_FL, Outstanding_Balance_MUL_Group_FL, TotCostPrice_FL, GrandTotal, Remark, Record_For_Payment, Asset_Rating, Project_Rating, IRR, Funding_Rate, Spread, Lease_Profit, Residual_Value, Purchaser, Assurance, Modification, Contracted_by, IsDriver, Qty, QtyDetail, Cost_PriceAll, IsQuick, IsTruck, Lease_long, Payment_Condition, Other, Term_Of_Payment, Code_Open, Transaction_Type, Agent_FeeStat, Payee, ApplicationType, PeriodeType, TOP_Value, CreatedDateCust, Up_Front_Fee, AvgSpread, Expec_Delivery_Date, App1Name, App1Sign, Approval1Date, Title1, App2Name, App2Sign, Approval2Date, Title2, App3Name, App3Sign, Approval3Date, Title3, App4Name, App4Sign, Approval4Date, Title4, App5Name, App5Sign, Approval5Date, Title5, App6Name, App6Sign, Approval6Date, Title6, App7Name, App7Sign, Approval7Date, Title7}
+            Dim columnValuesArray() As Object = New Object() {No, Company_Name, Contract_No, Vehicle, Year, Application_No, Rent_Location, Bid_PricePerMonth, Update_OTR, Update_Diskon, PurchasePrice, Credit_Rating, THU, Run_Application, RunContractCompany, RunContractGroup, TotQty, Run_Transaction_FL, Run_Application_FL, RunContractCompany_FL, RunContractGroup_FL, TotQty_FL, CreatedDate, Customer_ID, Address, PIC_Name, IsExists, CreatedBy, User_Name, Department, Nothing, Authorized_Capital, Authorized_Signer_Name1, Authorized_Signer_Name2, Authorized_Signer_Position1, Authorized_Signer_Position2, IntroducedBy, Customer_Class, CompanyGroup_Name, Line_of_Business, Outstanding_Balance_Application, Outstanding_Balance_Group, Outstanding_Balance_MUL_Group, TotCostPrice, Outstanding_Balance_Transaction_FL, Outstanding_Balance_Application_FL, Outstanding_Balance_Group_FL, Outstanding_Balance_MUL_Group_FL, TotCostPrice_FL, GrandTotal, Remark, Record_For_Payment, Asset_Rating, Project_Rating, IRR, Funding_Rate, Spread, Lease_Profit, Residual_Value, Purchaser, Assurance, Modification, Contracted_by, IsDriver, Qty, QtyDetail, Cost_PriceAll, IsQuick, IsTruck, Lease_long, Payment_Condition, Other, Term_Of_Payment, Code_Open, Transaction_Type, Agent_FeeStat, Payee, ApplicationType, PeriodeType, TOP_Value, CreatedDateCust, Up_Front_Fee, AvgSpread, Expec_Delivery_Date, App1Name, App1Sign, Approval1Date, Title1, App2Name, App2Sign, Approval2Date, Title2, App3Name, App3Sign, Approval3Date, Title3, App4Name, App4Sign, Approval4Date, Title4, App5Name, App5Sign, Approval5Date, Title5, App6Name, App6Sign, Approval6Date, Title6, App7Name, App7Sign, Approval7Date, Title7, AppChecker, AppCheckerSign, CheckerDate}
             rowsp_PrintApplicationDetailNewRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowsp_PrintApplicationDetailNewRow)
             Return rowsp_PrintApplicationDetailNewRow
@@ -4001,6 +4034,9 @@ Partial Public Class DSApplication
             Me.columnApp7Sign = MyBase.Columns("App7Sign")
             Me.columnApproval7Date = MyBase.Columns("Approval7Date")
             Me.columnTitle7 = MyBase.Columns("Title7")
+            Me.columnAppChecker = MyBase.Columns("AppChecker")
+            Me.columnAppCheckerSign = MyBase.Columns("AppCheckerSign")
+            Me.columnCheckerDate = MyBase.Columns("CheckerDate")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4230,6 +4266,12 @@ Partial Public Class DSApplication
             MyBase.Columns.Add(Me.columnApproval7Date)
             Me.columnTitle7 = New Global.System.Data.DataColumn("Title7", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTitle7)
+            Me.columnAppChecker = New Global.System.Data.DataColumn("AppChecker", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAppChecker)
+            Me.columnAppCheckerSign = New Global.System.Data.DataColumn("AppCheckerSign", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAppCheckerSign)
+            Me.columnCheckerDate = New Global.System.Data.DataColumn("CheckerDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCheckerDate)
             Me.columnNo.ReadOnly = true
             Me.columnCompany_Name.MaxLength = 100
             Me.columnContract_No.MaxLength = 100
@@ -4271,7 +4313,7 @@ Partial Public Class DSApplication
             Me.columnRemark.MaxLength = 2147483647
             Me.columnRecord_For_Payment.MaxLength = 50
             Me.columnAsset_Rating.ReadOnly = true
-            Me.columnProject_Rating.MaxLength = 10
+            Me.columnProject_Rating.MaxLength = 3
             Me.columnLease_Profit.ReadOnly = true
             Me.columnPurchaser.MaxLength = 100
             Me.columnContracted_by.ReadOnly = true
@@ -4304,6 +4346,7 @@ Partial Public Class DSApplication
             Me.columnTitle6.MaxLength = 50
             Me.columnApp7Name.MaxLength = 100
             Me.columnTitle7.MaxLength = 50
+            Me.columnAppChecker.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8340,6 +8383,54 @@ Partial Public Class DSApplication
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property AppChecker() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablesp_PrintApplicationDetailNew.AppCheckerColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'AppChecker' in table 'sp_PrintApplicationDetailNew' is DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablesp_PrintApplicationDetailNew.AppCheckerColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property AppCheckerSign() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tablesp_PrintApplicationDetailNew.AppCheckerSignColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'AppCheckerSign' in table 'sp_PrintApplicationDetailNew' is "& _ 
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablesp_PrintApplicationDetailNew.AppCheckerSignColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CheckerDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablesp_PrintApplicationDetailNew.CheckerDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CheckerDate' in table 'sp_PrintApplicationDetailNew' is DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablesp_PrintApplicationDetailNew.CheckerDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsNoNull() As Boolean
             Return Me.IsNull(Me.tablesp_PrintApplicationDetailNew.NoColumn)
         End Function
@@ -9669,6 +9760,42 @@ Partial Public Class DSApplication
         Public Sub SetTitle7Null()
             Me(Me.tablesp_PrintApplicationDetailNew.Title7Column) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsAppCheckerNull() As Boolean
+            Return Me.IsNull(Me.tablesp_PrintApplicationDetailNew.AppCheckerColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetAppCheckerNull()
+            Me(Me.tablesp_PrintApplicationDetailNew.AppCheckerColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsAppCheckerSignNull() As Boolean
+            Return Me.IsNull(Me.tablesp_PrintApplicationDetailNew.AppCheckerSignColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetAppCheckerSignNull()
+            Me(Me.tablesp_PrintApplicationDetailNew.AppCheckerSignColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCheckerDateNull() As Boolean
+            Return Me.IsNull(Me.tablesp_PrintApplicationDetailNew.CheckerDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCheckerDateNull()
+            Me(Me.tablesp_PrintApplicationDetailNew.CheckerDateColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -10930,6 +11057,9 @@ Namespace DSApplicationTableAdapters
             tableMapping.ColumnMappings.Add("App7Sign", "App7Sign")
             tableMapping.ColumnMappings.Add("Approval7Date", "Approval7Date")
             tableMapping.ColumnMappings.Add("Title7", "Title7")
+            tableMapping.ColumnMappings.Add("AppChecker", "AppChecker")
+            tableMapping.ColumnMappings.Add("AppCheckerSign", "AppCheckerSign")
+            tableMapping.ColumnMappings.Add("CheckerDate", "CheckerDate")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         

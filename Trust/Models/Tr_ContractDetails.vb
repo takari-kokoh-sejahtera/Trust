@@ -39,10 +39,11 @@ Namespace Trust
         Public Overridable Property Tr_TotalLossOnlys As ICollection(Of Tr_TotalLossOnlys) = New HashSet(Of Tr_TotalLossOnlys)
         Public Overridable Property Ms_Vehicles As ICollection(Of Ms_Vehicles) = New HashSet(Of Ms_Vehicles)
         Public Overridable Property Ms_Vehicles1 As Ms_Vehicles
-        Public Overridable Property Tr_Contracts As Tr_Contracts
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Tr_Applications As Tr_Applications
+        Public Overridable Property Tr_SetDeliveryDetails As ICollection(Of Tr_SetDeliveryDetails) = New HashSet(Of Tr_SetDeliveryDetails)
+        Public Overridable Property Tr_Contracts As Tr_Contracts
     
     End Class
 

@@ -46,12 +46,12 @@ Namespace Trust
         Public Property IsDeleted As Boolean
     
         Public Overridable Property Tr_InvoiceDetails As ICollection(Of Tr_InvoiceDetails) = New HashSet(Of Tr_InvoiceDetails)
-        Public Overridable Property Tr_Contracts As Tr_Contracts
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Cn_Users2 As Cn_Users
         Public Overridable Property Cn_Users3 As Cn_Users
         Public Overridable Property Ms_Customers As Ms_Customers
+        Public Overridable Property Tr_Contracts As Tr_Contracts
     
     End Class
 

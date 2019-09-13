@@ -23,9 +23,9 @@ Namespace Trust
         Public Property ModifiedBy As Nullable(Of Integer)
         Public Property IsDeleted As Boolean
     
-        Public Overridable Property Tr_Contracts As Tr_Contracts
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Tr_Contracts As Tr_Contracts
     
     End Class
 

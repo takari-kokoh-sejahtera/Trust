@@ -101,12 +101,6 @@
         <AssociationConnector Association="TrustModel.FK__Cn_Approv__Appro__23942C2E" />
         <EntityTypeShape EntityType="TrustModel.Tr_ContractSends" Width="1.5" PointX="62.75" PointY="38.875" />
         <EntityTypeShape EntityType="TrustModel.Tr_ContractDrafts" Width="1.5" PointX="59.75" PointY="36.875" />
-        <EntityTypeShape EntityType="TrustModel.Tr_Contracts" Width="1.5" PointX="57.5" PointY="44.375" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__451F3D2B" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__379B24DB" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__00CA12DE" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__44F51FF9" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF" />
         <EntityTypeShape EntityType="TrustModel.Tr_Approvals" Width="1.5" PointX="56.75" PointY="24.625" />
         <EntityTypeShape EntityType="TrustModel.Cn_Users" Width="1.5" PointX="22.75" PointY="20.25" />
         <AssociationConnector Association="TrustModel.FK__Cn_Approv__Creat__24885067" />
@@ -196,14 +190,12 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Calcul__Modif__4CAB505A" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__01BE3717" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__40306ADC" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__414EAC47" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__44F51FF9" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__4707859D" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__7F6BDA51" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__005FFE8A" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__MOdif__02B25B50" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__41248F15" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__4242D080" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__45E94432" />
         <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__47FBA9D6" />
         <AssociationConnector Association="TrustModel.FK__Tr_Delive__Creat__43C1049E" />
@@ -256,7 +248,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Creat__7C9A5A9E" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Maker__75ED5D0F" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Modif__7D8E7ED7" />
-        <EntityTypeShape EntityType="TrustModel.V_ProspectCusts" Width="2.125" PointX="3.375" PointY="6.75" />
         <EntityTypeShape EntityType="TrustModel.Ms_Invoice_Categorys" Width="1.5" PointX="25" PointY="40.25" />
         <AssociationConnector Association="TrustModel.FK__Ms_Invoic__Creat__60BD35FF" />
         <AssociationConnector Association="TrustModel.FK__Ms_Invoic__Modif__61B15A38" />
@@ -283,7 +274,6 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Creat__35DCF99B" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Maker__2F2FFC0C" />
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Modif__36D11DD4" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Appro__405A880E" />
         <EntityTypeShape EntityType="TrustModel.Ms_Customers" Width="1.5" PointX="35" PointY="38.5" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Creat__6CF8245B" />
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Modif__6DEC4894" />
@@ -326,7 +316,27 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Prosp__2116E6DF" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__114A936A" />
         <AssociationConnector Association="TrustModel.FK__Tr_Quotat__Quota__6383C8BA" />
-        <EntityTypeShape EntityType="TrustModel.V_ProspectCustDetails" Width="1.5" PointX="6.375" PointY="7.75" />
+        <EntityTypeShape EntityType="TrustModel.V_ProspectCustDetails" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="TrustModel.Tr_SetDeliveries" Width="1.5" PointX="65.75" PointY="42.375" />
+        <EntityTypeShape EntityType="TrustModel.Tr_SetDeliveryDetails" Width="1.5" PointX="44" PointY="40.75" />
+        <AssociationConnector Association="TrustModel.FK__Tr_SetDel__Creat__0035E158" />
+        <AssociationConnector Association="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB" />
+        <AssociationConnector Association="TrustModel.FK__Tr_SetDel__Modif__012A0591" />
+        <AssociationConnector Association="TrustModel.FK__Tr_SetDel__Modif__0BA79404" />
+        <AssociationConnector Association="TrustModel.FK__Tr_SetDel__Contr__09BF4B92" />
+        <AssociationConnector Association="TrustModel.FK__Tr_SetDel__setDe__08CB2759" />
+        <EntityTypeShape EntityType="TrustModel.Tr_Contracts" Width="1.5" PointX="69.5" PointY="35.375" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Creat__414EAC47" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Modif__4242D080" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Appro__405A880E" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__451F3D2B" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__3F3C46A3" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__00CA12DE" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Contra__Contr__4400FBC0" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF" />
+        <AssociationConnector Association="TrustModel.FK__Tr_SetDel__Contr__7F41BD1F" />
+        <EntityTypeShape EntityType="TrustModel.V_ProspectCusts" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="TrustModel.V_SetDeliveryQty" Width="1.5" PointX="0.75" PointY="4.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -309,6 +309,7 @@
     <Compile Include="Controllers\ReportCustomerController.vb" />
     <Compile Include="Controllers\RiskGradingController.vb" />
     <Compile Include="Controllers\RoleController.vb" />
+    <Compile Include="Controllers\SetDeliveryController.vb" />
     <Compile Include="Controllers\TemporaryCarController.vb" />
     <Compile Include="Controllers\TitleController.vb" />
     <Compile Include="Controllers\TotalLossOnlyController.vb" />
@@ -515,6 +516,7 @@
     <Compile Include="Models\Model\Tr_ProspectCustHistory.vb" />
     <Compile Include="Models\Model\Tr_Quotation.vb" />
     <Compile Include="Models\Model\Tr_QuotationPO.vb" />
+    <Compile Include="Models\Model\Tr_SetDelivery.vb" />
     <Compile Include="Models\Model\Tr_TemporaryCar.vb" />
     <Compile Include="Models\Model\Tr_TotalLossOnly.vb" />
     <Compile Include="Models\Ms_Citys.vb">
@@ -770,6 +772,12 @@
     <Compile Include="Models\Tr_Quotations.vb">
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tr_SetDeliveries.vb">
+      <DependentUpon>EntiryDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tr_SetDeliveryDetails.vb">
+      <DependentUpon>EntiryDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Tr_TemporaryCars.vb">
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>
@@ -809,6 +817,9 @@
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\V_Quotations.vb">
+      <DependentUpon>EntiryDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\V_SetDeliveryQty.vb">
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -8273,6 +8284,8 @@
     <Content Include="Views\ReportCustomer\Details.vbhtml" />
     <Content Include="Views\ReportCustomer\Edit.vbhtml" />
     <Content Include="Views\ReportCustomer\Index.vbhtml" />
+    <Content Include="Views\SetDelivery\Index.vbhtml" />
+    <Content Include="Views\SetDelivery\CreateDelivery.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

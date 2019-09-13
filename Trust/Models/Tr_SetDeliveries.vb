@@ -12,17 +12,22 @@ Imports System.Collections.Generic
 
 Namespace Trust
 
-    Partial Public Class Tr_ContractReceipts
-        Public Property ContranctReceipt_ID As Integer
-        Public Property Contract_ID As Nullable(Of Integer)
-        Public Property CreatedDate As Nullable(Of Date)
-        Public Property CreatedBy As Nullable(Of Integer)
+    Partial Public Class Tr_SetDeliveries
+        Public Property SetDelivery_ID As Integer
+        Public Property Contract_ID As Integer
+        Public Property DeliveryDate As Nullable(Of Date)
+        Public Property Address_Delivery As String
+        Public Property PIC_Name As String
+        Public Property PIC_Number As String
+        Public Property CreatedDate As Date
+        Public Property CreatedBy As Integer
         Public Property ModifiedDate As Nullable(Of Date)
-        Public Property MOdifiedBy As Nullable(Of Integer)
-        Public Property IsDeleted As Nullable(Of Boolean)
+        Public Property ModifiedBy As Nullable(Of Integer)
+        Public Property Isdeleted As Boolean
     
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Tr_SetDeliveryDetails As ICollection(Of Tr_SetDeliveryDetails) = New HashSet(Of Tr_SetDeliveryDetails)
         Public Overridable Property Tr_Contracts As Tr_Contracts
     
     End Class

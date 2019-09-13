@@ -125,6 +125,9 @@ Namespace Trust
         Public Property App7Sign As Byte()
         Public Property Approval7Date As Nullable(Of Date)
         Public Property Title7 As String
+        Public Property AppChecker As String
+        Public Property AppCheckerSign As Byte()
+        Public Property CheckerDate As Nullable(Of Date)
     
     End Class
 

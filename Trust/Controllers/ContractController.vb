@@ -277,10 +277,12 @@ Namespace Controllers
                          From B In AB.DefaultIfEmpty()
                          Group Join C In db.Ms_Vehicles.Where(Function(x) x.IsDeleted = False) On A.Vehicle_ID Equals C.Vehicle_id Into AC = Group
                          From C In AC.DefaultIfEmpty()
+                         Group Join D In db.Tr_SetDeliveryDetails.Where(Function(x) x.Isdeleted = False) On A.ContractDetail_ID Equals D.ContractDetail_ID Into AD = Group
+                         From D In AD.DefaultIfEmpty()
                          Where A.IsDelivery = False And A.Vehicle_ID IsNot Nothing
-                         Select A.ContractDetail_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, C.license_no, C.Tmp_Plat, A.CreatedDate).
+                         Select A.ContractDetail_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, C.license_no, C.Tmp_Plat, D.Tr_SetDeliveries.DeliveryDate, A.Tr_Contracts.IsSetDelivery, A.CreatedDate).
                 Select(Function(x) New Tr_ContractDetail With {.ContractDetail_ID = x.ContractDetail_ID, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .Brand_Name = x.Brand_Name,
-                .Vehicle = x.Vehicle, .license_no = If(x.license_no, x.Tmp_Plat), .CreatedDate = x.CreatedDate})
+                .Vehicle = x.Vehicle, .Delivery_Date = x.DeliveryDate, .IsSetDelivery = x.IsSetDelivery, .license_no = If(x.license_no, x.Tmp_Plat), .CreatedDate = x.CreatedDate})
             If Not String.IsNullOrEmpty(searchString) Then
                 Query = Query.Where(Function(s) s.CompanyGroup_Name.Contains(searchString) OrElse s.Company_Name.Contains(searchString) OrElse s.Brand_Name.Contains(searchString) OrElse s.Vehicle.Contains(searchString) OrElse s.license_no.Contains(searchString))
             End If
@@ -296,7 +298,7 @@ Namespace Controllers
                 Case "license_no"
                     Query = Query.OrderBy(Function(s) s.license_no)
                 Case Else
-                    Query = Query.OrderByDescending(Function(s) s.CreatedDate)
+                    Query = Query.OrderBy(Function(s) s.Delivery_Date)
             End Select
             Dim pageNumber As Integer = If(page, 1)
             Return View(Query.ToPagedList(pageNumber, pageSize))

@@ -120,14 +120,12 @@ Namespace Trust
         Public Overridable Property Tr_CalculateCashFlows1 As ICollection(Of Tr_CalculateCashFlows) = New HashSet(Of Tr_CalculateCashFlows)
         Public Overridable Property Tr_ContractReceipts As ICollection(Of Tr_ContractReceipts) = New HashSet(Of Tr_ContractReceipts)
         Public Overridable Property Tr_ContractDrafts As ICollection(Of Tr_ContractDrafts) = New HashSet(Of Tr_ContractDrafts)
-        Public Overridable Property Tr_Contracts As ICollection(Of Tr_Contracts) = New HashSet(Of Tr_Contracts)
         Public Overridable Property Tr_ContractSends As ICollection(Of Tr_ContractSends) = New HashSet(Of Tr_ContractSends)
         Public Overridable Property Tr_ContractDetails As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
         Public Overridable Property Tr_ContractDetailHistorys As ICollection(Of Tr_ContractDetailHistorys) = New HashSet(Of Tr_ContractDetailHistorys)
         Public Overridable Property Tr_ContractDetailHistorys1 As ICollection(Of Tr_ContractDetailHistorys) = New HashSet(Of Tr_ContractDetailHistorys)
         Public Overridable Property Tr_ContractReceipts1 As ICollection(Of Tr_ContractReceipts) = New HashSet(Of Tr_ContractReceipts)
         Public Overridable Property Tr_ContractDrafts1 As ICollection(Of Tr_ContractDrafts) = New HashSet(Of Tr_ContractDrafts)
-        Public Overridable Property Tr_Contracts1 As ICollection(Of Tr_Contracts) = New HashSet(Of Tr_Contracts)
         Public Overridable Property Tr_ContractSends1 As ICollection(Of Tr_ContractSends) = New HashSet(Of Tr_ContractSends)
         Public Overridable Property Tr_ContractDetails1 As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
         Public Overridable Property Tr_Deliverys As ICollection(Of Tr_Deliverys) = New HashSet(Of Tr_Deliverys)
@@ -193,6 +191,12 @@ Namespace Trust
         Public Overridable Property Tr_Quotations As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
         Public Overridable Property Tr_Quotations1 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
         Public Overridable Property Tr_Quotations2 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
+        Public Overridable Property Tr_SetDeliveries As ICollection(Of Tr_SetDeliveries) = New HashSet(Of Tr_SetDeliveries)
+        Public Overridable Property Tr_SetDeliveryDetails As ICollection(Of Tr_SetDeliveryDetails) = New HashSet(Of Tr_SetDeliveryDetails)
+        Public Overridable Property Tr_SetDeliveries1 As ICollection(Of Tr_SetDeliveries) = New HashSet(Of Tr_SetDeliveries)
+        Public Overridable Property Tr_SetDeliveryDetails1 As ICollection(Of Tr_SetDeliveryDetails) = New HashSet(Of Tr_SetDeliveryDetails)
+        Public Overridable Property Tr_Contracts As ICollection(Of Tr_Contracts) = New HashSet(Of Tr_Contracts)
+        Public Overridable Property Tr_Contracts1 As ICollection(Of Tr_Contracts) = New HashSet(Of Tr_Contracts)
     
     End Class
 

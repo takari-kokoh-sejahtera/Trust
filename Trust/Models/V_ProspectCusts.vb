@@ -73,6 +73,9 @@ Namespace Trust
         Public Property IsApplicationPO As Nullable(Of Boolean)
         Public Property PO_No As String
         Public Property TOP_Value As Nullable(Of Integer)
+        Public Property QtyContract As Nullable(Of Integer)
+        Public Property QtyDelivery As Nullable(Of Integer)
+        Public Property IsSetDelivery As Nullable(Of Boolean)
     
     End Class
 
