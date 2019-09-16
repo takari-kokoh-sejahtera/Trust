@@ -12,7 +12,7 @@ End Code
 
                 <div class="box-tools">
 
-                    @Using (Html.BeginForm("Index", "Application PO".ToString(), FormMethod.Get))
+                    @Using (Html.BeginForm("Index", "ReportApplicationPO", FormMethod.Get))
                         @<div Class="input-group input-group-sm">
                             <p>
                                 Show @Html.TextBox("PageSize", TryCast(ViewBag.pageSize, String), htmlAttributes:=New With {.style = "width:30px"}) @Html.TextBox("SearchString", TryCast(ViewBag.CurrentFilter, String))
