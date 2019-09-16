@@ -78,16 +78,16 @@ Namespace Controllers
                     .Value = "New Transaction"
                 },
                 New SelectListItem With {
-                    .Text = "List Extantion",
-                    .Value = "List Extantion"
+                    .Text = "Lease Extension",
+                    .Value = "Lease Extension"
                 },
                  New SelectListItem With {
-                    .Text = "Agrement Transfer",
-                    .Value = "Agrement Transfer"
+                    .Text = "Agreement Transfer",
+                    .Value = "Agreement Transfer"
                 },
                  New SelectListItem With {
-                    .Text = "Permanet Extantion",
-                    .Value = "Permanet Extantion"
+                    .Text = "Permanent Exchange",
+                    .Value = "Permanent Exchange"
                 },
                  New SelectListItem With {
                     .Text = "Changing Application",
