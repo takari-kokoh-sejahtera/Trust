@@ -3,7 +3,6 @@
 Public Class Ms_Vehicle
     Public Property Vehicle_id As Integer
     Public Property ContractDetail_ID As Nullable(Of Integer)
-
     <Display(Name:="Company Group Name")>
     Public Property CompanyGroup_Name As String
     <Display(Name:="Company Name")>

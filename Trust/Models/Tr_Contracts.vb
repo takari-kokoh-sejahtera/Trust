@@ -34,11 +34,11 @@ Namespace Trust
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Tr_ApprovalApps As Tr_ApprovalApps
-        Public Overridable Property Tr_ContractDetails As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
         Public Overridable Property Tr_ContractDrafts As ICollection(Of Tr_ContractDrafts) = New HashSet(Of Tr_ContractDrafts)
         Public Overridable Property Tr_ContractReceipts As ICollection(Of Tr_ContractReceipts) = New HashSet(Of Tr_ContractReceipts)
         Public Overridable Property Tr_ContractSends As ICollection(Of Tr_ContractSends) = New HashSet(Of Tr_ContractSends)
         Public Overridable Property Tr_Invoices As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
+        Public Overridable Property Tr_ContractDetails As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
         Public Overridable Property Tr_SetDeliveries As ICollection(Of Tr_SetDeliveries) = New HashSet(Of Tr_SetDeliveries)
     
     End Class

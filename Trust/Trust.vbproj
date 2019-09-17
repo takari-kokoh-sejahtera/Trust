@@ -504,6 +504,7 @@
     <Compile Include="Models\Model\Tr_ApplicationOTR.vb" />
     <Compile Include="Models\Model\Tr_ApplicationPO.vb" />
     <Compile Include="Models\Model\Tr_ApplicationPOFromCustomer.vb" />
+    <Compile Include="Models\Model\Tr_ApplicationPO_InputAsset.vb" />
     <Compile Include="Models\Model\Tr_Approval.vb" />
     <Compile Include="Models\Model\Tr_ApprovalApp.vb" />
     <Compile Include="Models\Model\Tr_ApprovalPO.vb" />

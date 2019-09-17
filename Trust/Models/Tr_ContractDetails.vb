@@ -31,19 +31,21 @@ Namespace Trust
         Public Property ModifiedDate As Nullable(Of Date)
         Public Property ModifiedBy As Nullable(Of Integer)
         Public Property IsDeleted As Nullable(Of Boolean)
+        Public Property ApplicationPO_ID As Nullable(Of Integer)
     
-        Public Overridable Property Tr_ContractDetailHistorys As ICollection(Of Tr_ContractDetailHistorys) = New HashSet(Of Tr_ContractDetailHistorys)
-        Public Overridable Property Tr_Deliverys As ICollection(Of Tr_Deliverys) = New HashSet(Of Tr_Deliverys)
-        Public Overridable Property Tr_TemporaryCars As ICollection(Of Tr_TemporaryCars) = New HashSet(Of Tr_TemporaryCars)
-        Public Overridable Property Tr_InvoiceDetails As ICollection(Of Tr_InvoiceDetails) = New HashSet(Of Tr_InvoiceDetails)
-        Public Overridable Property Tr_TotalLossOnlys As ICollection(Of Tr_TotalLossOnlys) = New HashSet(Of Tr_TotalLossOnlys)
-        Public Overridable Property Ms_Vehicles As ICollection(Of Ms_Vehicles) = New HashSet(Of Ms_Vehicles)
-        Public Overridable Property Ms_Vehicles1 As Ms_Vehicles
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
+        Public Overridable Property Ms_Vehicles As ICollection(Of Ms_Vehicles) = New HashSet(Of Ms_Vehicles)
+        Public Overridable Property Ms_Vehicles1 As Ms_Vehicles
+        Public Overridable Property Tr_ApplicationPOs As Tr_ApplicationPOs
         Public Overridable Property Tr_Applications As Tr_Applications
-        Public Overridable Property Tr_SetDeliveryDetails As ICollection(Of Tr_SetDeliveryDetails) = New HashSet(Of Tr_SetDeliveryDetails)
+        Public Overridable Property Tr_ContractDetailHistorys As ICollection(Of Tr_ContractDetailHistorys) = New HashSet(Of Tr_ContractDetailHistorys)
         Public Overridable Property Tr_Contracts As Tr_Contracts
+        Public Overridable Property Tr_InvoiceDetails As ICollection(Of Tr_InvoiceDetails) = New HashSet(Of Tr_InvoiceDetails)
+        Public Overridable Property Tr_TemporaryCars As ICollection(Of Tr_TemporaryCars) = New HashSet(Of Tr_TemporaryCars)
+        Public Overridable Property Tr_TotalLossOnlys As ICollection(Of Tr_TotalLossOnlys) = New HashSet(Of Tr_TotalLossOnlys)
+        Public Overridable Property Tr_SetDeliveryDetails As ICollection(Of Tr_SetDeliveryDetails) = New HashSet(Of Tr_SetDeliveryDetails)
+        Public Overridable Property Tr_Deliverys As ICollection(Of Tr_Deliverys) = New HashSet(Of Tr_Deliverys)
     
     End Class
 

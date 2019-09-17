@@ -277,9 +277,9 @@ Namespace Controllers
                          From B In AB.DefaultIfEmpty()
                          Group Join C In db.Ms_Vehicles.Where(Function(x) x.IsDeleted = False) On A.Vehicle_ID Equals C.Vehicle_id Into AC = Group
                          From C In AC.DefaultIfEmpty()
-                         Group Join D In db.Tr_SetDeliveryDetails.Where(Function(x) x.Isdeleted = False) On A.ContractDetail_ID Equals D.ContractDetail_ID Into AD = Group
+                         Group Join D In db.Tr_SetDeliveryDetails.Where(Function(x) x.IsDeleted = False) On A.ContractDetail_ID Equals D.ContractDetail_ID Into AD = Group
                          From D In AD.DefaultIfEmpty()
-                         Where A.IsDelivery = False
+                         Where A.IsDelivery = False And A.Vehicle_ID IsNot Nothing
                          Select A.ContractDetail_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, C.license_no, C.Tmp_Plat, D.Tr_SetDeliveries.DeliveryDate, A.Tr_Contracts.IsSetDelivery, A.CreatedDate).
                 Select(Function(x) New Tr_ContractDetail With {.ContractDetail_ID = x.ContractDetail_ID, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .Brand_Name = x.Brand_Name,
                 .Vehicle = x.Vehicle, .Delivery_Date = x.DeliveryDate, .IsSetDelivery = x.IsSetDelivery, .license_no = If(x.license_no, x.Tmp_Plat), .CreatedDate = x.CreatedDate})
@@ -316,9 +316,9 @@ Namespace Controllers
                     ModelState.AddModelError("Expedition_Name", "Must Fill Expedition Name")
                 End If
             End If
-            If (model.Driver_Allocated) Then
-                If model.Driver_Name Is Nothing Then
-                    ModelState.AddModelError("Driver_Name", "Must Fill Driver Name")
+            If (model.Delivery_Method = "TKS Operation") Then
+                If model.Driver_ID Is Nothing Then
+                    ModelState.AddModelError("Driver_ID", "Must Fill Driver Name")
                 End If
             End If
             If ModelState.IsValid Then
@@ -333,8 +333,7 @@ Namespace Controllers
                                 Del.ContractDetail_ID = model.ContractDetail_ID
                                 Del.Delivery_Method = model.Delivery_Method
                                 Del.Expedition_Name = model.Expedition_Name
-                                Del.Driver_Allocated = model.Driver_Allocated
-                                Del.Driver_Name = model.Driver_Name
+                                Del.Driver_ID = model.Driver_ID
                                 Del.BSTK_Date = model.BSTK_Date
                                 Del.CreatedBy = user
                                 Del.CreatedDate = DateTime.Now
@@ -369,18 +368,6 @@ Namespace Controllers
                     ModelState.AddModelError("Delivery_ID", "Must Fill Upload File")
                 End If
             End If
-            Dim myPT As List(Of SelectListItem) = New List(Of SelectListItem)() From {
-                New SelectListItem With {
-                    .Text = "TKS Operation",
-                    .Value = "TKS Operation"
-                },
-                New SelectListItem With {
-                    .Text = "Expedition",
-                    .Value = "Expedition"
-                }
-            }
-            ViewBag.Delivery_Method = New SelectList(myPT, "Value", "Text")
-
             Return View("Delivery", model)
         End Function
         Function Delivery(ByVal id As Integer?) As ActionResult
@@ -393,10 +380,11 @@ Namespace Controllers
                          From B In AB.DefaultIfEmpty()
                          Group Join C In db.Ms_Vehicles.Where(Function(x) x.IsDeleted = False) On A.Vehicle_ID Equals C.Vehicle_id Into AC = Group
                          From C In AC.DefaultIfEmpty()
+                         Join D In db.Tr_SetDeliveries On A.Contract_ID Equals D.Contract_ID
                          Where A.IsDelivery = False And A.Vehicle_ID IsNot Nothing And A.ContractDetail_ID = id
-                         Select A.ContractDetail_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, C.license_no, C.Tmp_Plat, A.CreatedDate).
+                         Select A.ContractDetail_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, C.license_no, C.Tmp_Plat, A.CreatedDate, D.DeliveryDate, D.Address_Delivery, D.PIC_Name, D.PIC_Number).
                 Select(Function(x) New Tr_Delivery With {.ContractDetail_ID = x.ContractDetail_ID, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .Brand_Name = x.Brand_Name,
-                .Vehicle = x.Vehicle, .license_no = If(x.license_no, x.Tmp_Plat), .CreatedDate = x.CreatedDate}).FirstOrDefault
+                .Vehicle = x.Vehicle, .license_no = If(x.license_no, x.Tmp_Plat), .CreatedDate = x.CreatedDate, .DeliveryDate = x.DeliveryDate, .Address_Delivery = x.Address_Delivery, .PIC_Name = x.PIC_Name, .PIC_Number = x.PIC_Number}).FirstOrDefault
 
 
             'Dim tr_Applications = (From A In db.Tr_Applications
@@ -419,6 +407,7 @@ Namespace Controllers
                     .Value = "Expedition"
                 }
             }
+            ViewBag.Driver_ID = New SelectList(db.Cn_Users.OrderBy(Function(a) a.User_Name).Where(Function(x) x.Division_ID = 15), "User_ID", "User_Name")
             ViewBag.Delivery_Method = New SelectList(myPT, "Value", "Text")
             Return View(Query)
         End Function

@@ -111,7 +111,7 @@ Namespace Controllers
                         SetDel.PIC_Number = PIC_Number
                         SetDel.CreatedBy = user
                         SetDel.CreatedDate = DateTime.Now
-                        SetDel.Isdeleted = False
+                        SetDel.IsDeleted = False
                         db.Tr_SetDeliveries.Add(SetDel)
                         db.SaveChanges()
                         For Each item In order

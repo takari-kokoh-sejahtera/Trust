@@ -1212,6 +1212,7 @@
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="ApplicationPO_ID" Type="int" />
         </EntityType>
         <EntityType Name="Tr_ContractDrafts">
           <Key>
@@ -1282,8 +1283,7 @@
           <Property Name="ContractDetail_ID" Type="int" Nullable="false" />
           <Property Name="Delivery_Method" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Expedition_Name" Type="varchar" MaxLength="200" />
-          <Property Name="Driver_Allocated" Type="bit" Nullable="false" />
-          <Property Name="Driver_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Driver_ID" Type="varchar" MaxLength="200" />
           <Property Name="BSTK_Date" Type="datetime" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
@@ -1477,20 +1477,20 @@
           <Property Name="CreatedBy" Type="int" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
-          <Property Name="Isdeleted" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Tr_SetDeliveryDetails">
           <Key>
             <PropertyRef Name="SetDeliveryDetail_ID" />
           </Key>
           <Property Name="SetDeliveryDetail_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="setDelivery_ID" Type="int" />
+          <Property Name="SetDelivery_ID" Type="int" />
           <Property Name="ContractDetail_ID" Type="int" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="int" />
-          <Property Name="Isdeleted" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Tr_TemporaryCars">
           <Key>
@@ -4057,6 +4057,18 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Tr_Contra__Appli__2C146396">
+          <End Role="Tr_ApplicationPOs" Type="Self.Tr_ApplicationPOs" Multiplicity="0..1" />
+          <End Role="Tr_ContractDetails" Type="Self.Tr_ContractDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ApplicationPOs">
+              <PropertyRef Name="ApplicationPO_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractDetails">
+              <PropertyRef Name="ApplicationPO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Tr_Contra__Appli__46136164">
           <End Role="Tr_Applications" Type="Self.Tr_Applications" Multiplicity="1" />
           <End Role="Tr_ContractDetails" Type="Self.Tr_ContractDetails" Multiplicity="*" />
@@ -4845,7 +4857,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
               <PropertyRef Name="SetDelivery_ID" />
             </Principal>
             <Dependent Role="Tr_SetDeliveryDetails">
-              <PropertyRef Name="setDelivery_ID" />
+              <PropertyRef Name="SetDelivery_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -6251,6 +6263,10 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             <End Role="Ms_Citys" EntitySet="Ms_Citys" />
             <End Role="Tr_Calculates" EntitySet="Tr_Calculates" />
           </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Appli__2C146396" Association="Self.FK__Tr_Contra__Appli__2C146396">
+            <End Role="Tr_ApplicationPOs" EntitySet="Tr_ApplicationPOs" />
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK__Tr_Contra__Appli__46136164" Association="Self.FK__Tr_Contra__Appli__46136164">
             <End Role="Tr_Applications" EntitySet="Tr_Applications" />
             <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
@@ -6692,7 +6708,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <Parameter Name="Approval_ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="V_ProspectHD" EntityType="TrustModel.V_ProspectHD" />
-          <EntitySet Name="Tr_Deliverys" EntityType="TrustModel.Tr_Deliverys" />
           <EntitySet Name="V_QuotationHD" EntityType="TrustModel.V_QuotationHD" />
           <FunctionImport Name="sp_InvoiceListPerDay" ReturnType="Collection(TrustModel.sp_InvoiceListPerDay_Result)">
           <Parameter Name="Date" Mode="In" Type="DateTime" />
@@ -6713,33 +6728,12 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             <End Role="Cn_Modules" EntitySet="Cn_Modules" />
             <End Role="Cn_RoleAuthorizations" EntitySet="Cn_RoleAuthorizations" />
           </AssociationSet>
-          <EntitySet Name="Tr_ContractDetails" EntityType="TrustModel.Tr_ContractDetails" />
-          <AssociationSet Name="FK__Tr_Contra__Contr__7D8391DF" Association="TrustModel.FK__Tr_Contra__Contr__7D8391DF">
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-            <End Role="Tr_ContractDetailHistorys" EntitySet="Tr_ContractDetailHistorys" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Delive__Contr__42CCE065" Association="TrustModel.FK__Tr_Delive__Contr__42CCE065">
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-            <End Role="Tr_Deliverys" EntitySet="Tr_Deliverys" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Tempor__Contr__08F5448B" Association="TrustModel.FK__Tr_Tempor__Contr__08F5448B">
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-            <End Role="Tr_TemporaryCars" EntitySet="Tr_TemporaryCars" />
-          </AssociationSet>
           <EntitySet Name="Tr_InvoiceDetails" EntityType="TrustModel.Tr_InvoiceDetails" />
-          <AssociationSet Name="FK__Tr_Invoic__Contr__6C8E1007" Association="TrustModel.FK__Tr_Invoic__Contr__6C8E1007">
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-            <End Role="Tr_InvoiceDetails" EntitySet="Tr_InvoiceDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK__Tr_Invoic__Invoi__41A3B202" Association="TrustModel.FK__Tr_Invoic__Invoi__41A3B202">
             <End Role="Tr_Invoices" EntitySet="Tr_Invoices" />
             <End Role="Tr_InvoiceDetails" EntitySet="Tr_InvoiceDetails" />
           </AssociationSet>
           <EntitySet Name="Tr_TotalLossOnlys" EntityType="TrustModel.Tr_TotalLossOnlys" />
-          <AssociationSet Name="FK__Tr_TotalL__Contr__033C6B35" Association="TrustModel.FK__Tr_TotalL__Contr__033C6B35">
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-            <End Role="Tr_TotalLossOnlys" EntitySet="Tr_TotalLossOnlys" />
-          </AssociationSet>
           <EntitySet Name="Ms_RiskGradings" EntityType="TrustModel.Ms_RiskGradings" />
           <EntitySet Name="Ms_CostOfFunds" EntityType="TrustModel.Ms_CostOfFunds" />
           <EntitySet Name="Ms_FixedCosts" EntityType="TrustModel.Ms_FixedCosts" />
@@ -6773,14 +6767,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           </FunctionImport>
           <EntitySet Name="Ms_Citys" EntityType="TrustModel.Ms_Citys" />
           <EntitySet Name="Ms_Vehicles" EntityType="TrustModel.Ms_Vehicles" />
-          <AssociationSet Name="FK__Ms_Vehicl__Contr__15C52FC4" Association="TrustModel.FK__Ms_Vehicl__Contr__15C52FC4">
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-            <End Role="Ms_Vehicles" EntitySet="Ms_Vehicles" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Vehic__5B988E2F" Association="TrustModel.FK__Tr_Contra__Vehic__5B988E2F">
-            <End Role="Ms_Vehicles" EntitySet="Ms_Vehicles" />
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK__Tr_Contra__Vehic__7E77B618" Association="TrustModel.FK__Tr_Contra__Vehic__7E77B618">
             <End Role="Ms_Vehicles" EntitySet="Ms_Vehicles" />
             <End Role="Tr_ContractDetailHistorys" EntitySet="Tr_ContractDetailHistorys" />
@@ -7267,10 +7253,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ContractSends" EntitySet="Tr_ContractSends" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Creat__4707859D" Association="TrustModel.FK__Tr_Contra__Creat__4707859D">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK__Tr_Contra__Creat__7F6BDA51" Association="TrustModel.FK__Tr_Contra__Creat__7F6BDA51">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ContractDetailHistorys" EntitySet="Tr_ContractDetailHistorys" />
@@ -7290,18 +7272,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <AssociationSet Name="FK__Tr_Contra__Modif__45E94432" Association="TrustModel.FK__Tr_Contra__Modif__45E94432">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ContractSends" EntitySet="Tr_ContractSends" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Modif__47FBA9D6" Association="TrustModel.FK__Tr_Contra__Modif__47FBA9D6">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Delive__Creat__43C1049E" Association="TrustModel.FK__Tr_Delive__Creat__43C1049E">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Deliverys" EntitySet="Tr_Deliverys" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Delive__Modif__44B528D7" Association="TrustModel.FK__Tr_Delive__Modif__44B528D7">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_Deliverys" EntitySet="Tr_Deliverys" />
           </AssociationSet>
           <AssociationSet Name="FK__Tr_Invoic__Creat__3DD3211E" Association="TrustModel.FK__Tr_Invoic__Creat__3DD3211E">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7736,10 +7706,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
             <End Role="Tr_Applications" EntitySet="Tr_Applications" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Appli__46136164" Association="TrustModel.FK__Tr_Contra__Appli__46136164">
-            <End Role="Tr_Applications" EntitySet="Tr_Applications" />
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-          </AssociationSet>
           <EntitySet Name="Tr_Quotations" EntityType="TrustModel.Tr_Quotations" />
           <AssociationSet Name="FK__Tr_Quotat__Creat__2A01329B" Association="TrustModel.FK__Tr_Quotat__Creat__2A01329B">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7774,32 +7740,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             <End Role="Tr_QuotationDetails" EntitySet="Tr_QuotationDetails" />
           </AssociationSet>
           <EntitySet Name="V_ProspectCustDetails" EntityType="TrustModel.V_ProspectCustDetails" />
-          <EntitySet Name="Tr_SetDeliveries" EntityType="TrustModel.Tr_SetDeliveries" />
-          <EntitySet Name="Tr_SetDeliveryDetails" EntityType="TrustModel.Tr_SetDeliveryDetails" />
-          <AssociationSet Name="FK__Tr_SetDel__Creat__0035E158" Association="TrustModel.FK__Tr_SetDel__Creat__0035E158">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_SetDel__Creat__0AB36FCB" Association="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_SetDel__Modif__012A0591" Association="TrustModel.FK__Tr_SetDel__Modif__012A0591">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_SetDel__Modif__0BA79404" Association="TrustModel.FK__Tr_SetDel__Modif__0BA79404">
-            <End Role="Cn_Users" EntitySet="Cn_Users" />
-            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_SetDel__Contr__09BF4B92" Association="TrustModel.FK__Tr_SetDel__Contr__09BF4B92">
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
-            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_SetDel__setDe__08CB2759" Association="TrustModel.FK__Tr_SetDel__setDe__08CB2759">
-            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
-            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
-          </AssociationSet>
           <EntitySet Name="Tr_Contracts" EntityType="TrustModel.Tr_Contracts" />
           <AssociationSet Name="FK__Tr_Contra__Creat__414EAC47" Association="TrustModel.FK__Tr_Contra__Creat__414EAC47">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7812,10 +7752,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <AssociationSet Name="FK__Tr_Contra__Appro__405A880E" Association="TrustModel.FK__Tr_Contra__Appro__405A880E">
             <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
             <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Contra__Contr__451F3D2B" Association="TrustModel.FK__Tr_Contra__Contr__451F3D2B">
-            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
-            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
           </AssociationSet>
           <AssociationSet Name="FK__Tr_Contra__Contr__3F3C46A3" Association="TrustModel.FK__Tr_Contra__Contr__3F3C46A3">
             <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
@@ -7833,15 +7769,99 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
             <End Role="Tr_Invoices" EntitySet="Tr_Invoices" />
           </AssociationSet>
+          <EntitySet Name="V_ProspectCusts" EntityType="TrustModel.V_ProspectCusts" />
+          <EntitySet Name="V_SetDeliveryQty" EntityType="TrustModel.V_SetDeliveryQty" />
+          <FunctionImport Name="sp_PrintApplicationDetailNew" ReturnType="Collection(TrustModel.sp_PrintApplicationDetailNew_Result)">
+          <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Tr_ContractDetails" EntityType="TrustModel.Tr_ContractDetails" />
+          <AssociationSet Name="FK__Tr_Contra__Creat__4707859D" Association="TrustModel.FK__Tr_Contra__Creat__4707859D">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Modif__47FBA9D6" Association="TrustModel.FK__Tr_Contra__Modif__47FBA9D6">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ms_Vehicl__Contr__15C52FC4" Association="TrustModel.FK__Ms_Vehicl__Contr__15C52FC4">
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+            <End Role="Ms_Vehicles" EntitySet="Ms_Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Vehic__5B988E2F" Association="TrustModel.FK__Tr_Contra__Vehic__5B988E2F">
+            <End Role="Ms_Vehicles" EntitySet="Ms_Vehicles" />
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Appli__2C146396" Association="TrustModel.FK__Tr_Contra__Appli__2C146396">
+            <End Role="Tr_ApplicationPOs" EntitySet="Tr_ApplicationPOs" />
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Appli__46136164" Association="TrustModel.FK__Tr_Contra__Appli__46136164">
+            <End Role="Tr_Applications" EntitySet="Tr_Applications" />
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Contr__7D8391DF" Association="TrustModel.FK__Tr_Contra__Contr__7D8391DF">
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+            <End Role="Tr_ContractDetailHistorys" EntitySet="Tr_ContractDetailHistorys" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Contra__Contr__451F3D2B" Association="TrustModel.FK__Tr_Contra__Contr__451F3D2B">
+            <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Invoic__Contr__6C8E1007" Association="TrustModel.FK__Tr_Invoic__Contr__6C8E1007">
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+            <End Role="Tr_InvoiceDetails" EntitySet="Tr_InvoiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Tempor__Contr__08F5448B" Association="TrustModel.FK__Tr_Tempor__Contr__08F5448B">
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+            <End Role="Tr_TemporaryCars" EntitySet="Tr_TemporaryCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_TotalL__Contr__033C6B35" Association="TrustModel.FK__Tr_TotalL__Contr__033C6B35">
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+            <End Role="Tr_TotalLossOnlys" EntitySet="Tr_TotalLossOnlys" />
+          </AssociationSet>
+          <EntitySet Name="Tr_SetDeliveryDetails" EntityType="TrustModel.Tr_SetDeliveryDetails" />
+          <AssociationSet Name="FK__Tr_SetDel__Creat__0AB36FCB" Association="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Modif__0BA79404" Association="TrustModel.FK__Tr_SetDel__Modif__0BA79404">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Contr__09BF4B92" Association="TrustModel.FK__Tr_SetDel__Contr__09BF4B92">
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <EntitySet Name="Tr_SetDeliveries" EntityType="TrustModel.Tr_SetDeliveries" />
+          <AssociationSet Name="FK__Tr_SetDel__Creat__0035E158" Association="TrustModel.FK__Tr_SetDel__Creat__0035E158">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_SetDel__Modif__012A0591" Association="TrustModel.FK__Tr_SetDel__Modif__012A0591">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+          </AssociationSet>
           <AssociationSet Name="FK__Tr_SetDel__Contr__7F41BD1F" Association="TrustModel.FK__Tr_SetDel__Contr__7F41BD1F">
             <End Role="Tr_Contracts" EntitySet="Tr_Contracts" />
             <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
           </AssociationSet>
-          <EntitySet Name="V_ProspectCusts" EntityType="TrustModel.V_ProspectCusts" />
-          <EntitySet Name="V_SetDeliveryQty" EntityType="TrustModel.V_SetDeliveryQty" />
-          <FunctionImport Name="sp_PrintApplicationDetailNew" ReturnType="Collection(TrustModel.sp_PrintApplicationDetailNew_Result)">
-            <Parameter Name="ApplicationHeader_ID" Mode="In" Type="Int32" />
-          </FunctionImport>
+          <AssociationSet Name="FK__Tr_SetDel__setDe__08CB2759" Association="TrustModel.FK__Tr_SetDel__setDe__08CB2759">
+            <End Role="Tr_SetDeliveries" EntitySet="Tr_SetDeliveries" />
+            <End Role="Tr_SetDeliveryDetails" EntitySet="Tr_SetDeliveryDetails" />
+          </AssociationSet>
+          <EntitySet Name="Tr_Deliverys" EntityType="TrustModel.Tr_Deliverys" />
+          <AssociationSet Name="FK__Tr_Delive__Creat__43C1049E" Association="TrustModel.FK__Tr_Delive__Creat__43C1049E">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Deliverys" EntitySet="Tr_Deliverys" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Delive__Modif__44B528D7" Association="TrustModel.FK__Tr_Delive__Modif__44B528D7">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_Deliverys" EntitySet="Tr_Deliverys" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Delive__Contr__42CCE065" Association="TrustModel.FK__Tr_Delive__Contr__42CCE065">
+            <End Role="Tr_ContractDetails" EntitySet="Tr_ContractDetails" />
+            <End Role="Tr_Deliverys" EntitySet="Tr_Deliverys" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_CalcucationCharFromUser_Result">
           <Property Type="Int32" Name="Year" Nullable="true" />
@@ -8551,26 +8571,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsCalculate" Type="Boolean" />
         </EntityType>
-        <EntityType Name="Tr_Deliverys">
-          <Key>
-            <PropertyRef Name="Delivery_ID" />
-          </Key>
-          <Property Name="Delivery_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ContractDetail_ID" Type="Int32" Nullable="false" />
-          <Property Name="Delivery_Method" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Expedition_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Driver_Allocated" Type="Boolean" Nullable="false" />
-          <Property Name="Driver_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="BSTK_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Delive__Contr__42CCE065" FromRole="Tr_Deliverys" ToRole="Tr_ContractDetails" />
-          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Delive__Creat__43C1049E" FromRole="Tr_Deliverys" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Delive__Modif__44B528D7" FromRole="Tr_Deliverys" ToRole="Cn_Users" />
-          </EntityType>
         <EntityType Name="V_QuotationHD">
           <Key>
             <PropertyRef Name="Quotation_ID" />
@@ -8706,10 +8706,10 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Contr__7D8391DF" FromRole="Tr_ContractDetailHistorys" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Ms_Vehicles" Relationship="TrustModel.FK__Tr_Contra__Vehic__7E77B618" FromRole="Tr_ContractDetailHistorys" ToRole="Ms_Vehicles" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__7F6BDA51" FromRole="Tr_ContractDetailHistorys" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__Modif__005FFE8A" FromRole="Tr_ContractDetailHistorys" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Contr__7D8391DF" FromRole="Tr_ContractDetailHistorys" ToRole="Tr_ContractDetails" />
           </EntityType>
         <EntityType Name="Tr_TemporaryCars">
           <Key>
@@ -8724,10 +8724,10 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Tempor__Contr__08F5448B" FromRole="Tr_TemporaryCars" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Ms_Vehicles" Relationship="TrustModel.FK__Tr_Tempor__Vehic__09E968C4" FromRole="Tr_TemporaryCars" ToRole="Ms_Vehicles" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Tempor__Creat__0ADD8CFD" FromRole="Tr_TemporaryCars" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Tempor__Modif__0BD1B136" FromRole="Tr_TemporaryCars" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Tempor__Contr__08F5448B" FromRole="Tr_TemporaryCars" ToRole="Tr_ContractDetails" />
           </EntityType>
         <EntityType Name="Cn_Modules">
           <Key>
@@ -8762,77 +8762,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Tr_ContractDetails">
-          <Key>
-            <PropertyRef Name="ContractDetail_ID" />
-          </Key>
-          <Property Name="ContractDetail_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Contract_ID" Type="Int32" Nullable="false" />
-          <Property Name="Application_ID" Type="Int32" Nullable="false" />
-          <Property Name="Vehicle_ID" Type="Int32" />
-          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
-          <Property Name="StartDate" Type="DateTime" Precision="0" />
-          <Property Name="EndDate" Type="DateTime" Precision="0" />
-          <Property Name="Bid_PricePerMonth" Type="Decimal" Precision="16" Scale="2" />
-          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="IsTemporaryCar" Type="Boolean" />
-          <Property Name="IsDelivery" Type="Boolean" />
-          <Property Name="IsInvoiced" Type="Boolean" />
-          <Property Name="IsTotalLossOnly" Type="Boolean" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Tr_ContractDetailHistorys" Relationship="TrustModel.FK__Tr_Contra__Contr__7D8391DF" FromRole="Tr_ContractDetails" ToRole="Tr_ContractDetailHistorys" />
-          <NavigationProperty Name="Tr_Deliverys" Relationship="TrustModel.FK__Tr_Delive__Contr__42CCE065" FromRole="Tr_ContractDetails" ToRole="Tr_Deliverys" />
-          <NavigationProperty Name="Tr_TemporaryCars" Relationship="TrustModel.FK__Tr_Tempor__Contr__08F5448B" FromRole="Tr_ContractDetails" ToRole="Tr_TemporaryCars" />
-          <NavigationProperty Name="Tr_InvoiceDetails" Relationship="TrustModel.FK__Tr_Invoic__Contr__6C8E1007" FromRole="Tr_ContractDetails" ToRole="Tr_InvoiceDetails" />
-          <NavigationProperty Name="Tr_TotalLossOnlys" Relationship="TrustModel.FK__Tr_TotalL__Contr__033C6B35" FromRole="Tr_ContractDetails" ToRole="Tr_TotalLossOnlys" />
-          <NavigationProperty Name="Ms_Vehicles" Relationship="TrustModel.FK__Ms_Vehicl__Contr__15C52FC4" FromRole="Tr_ContractDetails" ToRole="Ms_Vehicles" />
-          <NavigationProperty Name="Ms_Vehicles1" Relationship="TrustModel.FK__Tr_Contra__Vehic__5B988E2F" FromRole="Tr_ContractDetails" ToRole="Ms_Vehicles" />
-          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__4707859D" FromRole="Tr_ContractDetails" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__Modif__47FBA9D6" FromRole="Tr_ContractDetails" ToRole="Cn_Users" />
-          <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Contra__Appli__46136164" FromRole="Tr_ContractDetails" ToRole="Tr_Applications" />
-          <NavigationProperty Name="Tr_SetDeliveryDetails" Relationship="TrustModel.FK__Tr_SetDel__Contr__09BF4B92" FromRole="Tr_ContractDetails" ToRole="Tr_SetDeliveryDetails" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__451F3D2B" FromRole="Tr_ContractDetails" ToRole="Tr_Contracts" />
-          </EntityType>
-        <Association Name="FK__Tr_Contra__Contr__7D8391DF">
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ContractDetailHistorys" Role="Tr_ContractDetailHistorys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ContractDetails">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Principal>
-            <Dependent Role="Tr_ContractDetailHistorys">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Delive__Contr__42CCE065">
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="1" />
-          <End Type="TrustModel.Tr_Deliverys" Role="Tr_Deliverys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ContractDetails">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Principal>
-            <Dependent Role="Tr_Deliverys">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Tempor__Contr__08F5448B">
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_TemporaryCars" Role="Tr_TemporaryCars" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ContractDetails">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Principal>
-            <Dependent Role="Tr_TemporaryCars">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Tr_InvoiceDetails">
           <Key>
             <PropertyRef Name="InvoiceDetail_ID" />
@@ -8850,24 +8779,12 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Invoic__Contr__6C8E1007" FromRole="Tr_InvoiceDetails" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Tr_Invoices" Relationship="TrustModel.FK__Tr_Invoic__Invoi__41A3B202" FromRole="Tr_InvoiceDetails" ToRole="Tr_Invoices" />
           <NavigationProperty Name="Ms_Vehicles" Relationship="TrustModel.FK__Tr_Invoic__Vehic__249D5F00" FromRole="Tr_InvoiceDetails" ToRole="Ms_Vehicles" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Invoic__Creat__438BFA74" FromRole="Tr_InvoiceDetails" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Invoic__Modif__44801EAD" FromRole="Tr_InvoiceDetails" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Invoic__Contr__6C8E1007" FromRole="Tr_InvoiceDetails" ToRole="Tr_ContractDetails" />
           </EntityType>
-        <Association Name="FK__Tr_Invoic__Contr__6C8E1007">
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_InvoiceDetails" Role="Tr_InvoiceDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ContractDetails">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Principal>
-            <Dependent Role="Tr_InvoiceDetails">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Tr_Invoic__Invoi__41A3B202">
           <End Type="TrustModel.Tr_Invoices" Role="Tr_Invoices" Multiplicity="0..1" />
           <End Type="TrustModel.Tr_InvoiceDetails" Role="Tr_InvoiceDetails" Multiplicity="*" />
@@ -8895,23 +8812,11 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="IsEdited" Type="Boolean" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_TotalL__Contr__033C6B35" FromRole="Tr_TotalLossOnlys" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Ms_Vehicles" Relationship="TrustModel.FK__Tr_TotalL__Vehic__04308F6E" FromRole="Tr_TotalLossOnlys" ToRole="Ms_Vehicles" />
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_TotalL__Creat__0524B3A7" FromRole="Tr_TotalLossOnlys" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_TotalL__Modif__0618D7E0" FromRole="Tr_TotalLossOnlys" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_TotalL__Contr__033C6B35" FromRole="Tr_TotalLossOnlys" ToRole="Tr_ContractDetails" />
           </EntityType>
-        <Association Name="FK__Tr_TotalL__Contr__033C6B35">
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_TotalLossOnlys" Role="Tr_TotalLossOnlys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ContractDetails">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Principal>
-            <Dependent Role="Tr_TotalLossOnlys">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Ms_RiskGradings">
           <Key>
             <PropertyRef Name="RiskGrading_ID" />
@@ -9364,8 +9269,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Ms_Vehicl__Contr__15C52FC4" FromRole="Ms_Vehicles" ToRole="Tr_ContractDetails" />
-          <NavigationProperty Name="Tr_ContractDetails1" Relationship="TrustModel.FK__Tr_Contra__Vehic__5B988E2F" FromRole="Ms_Vehicles" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Tr_ContractDetailHistorys" Relationship="TrustModel.FK__Tr_Contra__Vehic__7E77B618" FromRole="Ms_Vehicles" ToRole="Tr_ContractDetailHistorys" />
           <NavigationProperty Name="Tr_InvoiceDetails" Relationship="TrustModel.FK__Tr_Invoic__Vehic__249D5F00" FromRole="Ms_Vehicles" ToRole="Tr_InvoiceDetails" />
           <NavigationProperty Name="Tr_TemporaryCars" Relationship="TrustModel.FK__Tr_Tempor__Vehic__09E968C4" FromRole="Ms_Vehicles" ToRole="Tr_TemporaryCars" />
@@ -9374,31 +9277,9 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Ms_Vehicl__Creat__520F23F5" FromRole="Ms_Vehicles" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Ms_Vehicl__Modif__5303482E" FromRole="Ms_Vehicles" ToRole="Cn_Users" />
           <NavigationProperty Name="Ms_Vehicle_Models" Relationship="TrustModel.FK__Ms_Vehicl__Model__53F76C67" FromRole="Ms_Vehicles" ToRole="Ms_Vehicle_Models" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Ms_Vehicl__Contr__15C52FC4" FromRole="Ms_Vehicles" ToRole="Tr_ContractDetails" />
+          <NavigationProperty Name="Tr_ContractDetails1" Relationship="TrustModel.FK__Tr_Contra__Vehic__5B988E2F" FromRole="Ms_Vehicles" ToRole="Tr_ContractDetails" />
           </EntityType>
-        <Association Name="FK__Ms_Vehicl__Contr__15C52FC4">
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
-          <End Type="TrustModel.Ms_Vehicles" Role="Ms_Vehicles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ContractDetails">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Principal>
-            <Dependent Role="Ms_Vehicles">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Contra__Vehic__5B988E2F">
-          <End Type="TrustModel.Ms_Vehicles" Role="Ms_Vehicles" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ms_Vehicles">
-              <PropertyRef Name="Vehicle_id" />
-            </Principal>
-            <Dependent Role="Tr_ContractDetails">
-              <PropertyRef Name="Vehicle_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Tr_Contra__Vehic__7E77B618">
           <End Type="TrustModel.Ms_Vehicles" Role="Ms_Vehicles" Multiplicity="0..1" />
           <End Type="TrustModel.Tr_ContractDetailHistorys" Role="Tr_ContractDetailHistorys" Multiplicity="*" />
@@ -10457,15 +10338,11 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <NavigationProperty Name="Tr_ContractReceipts" Relationship="TrustModel.FK__Tr_Contra__Creat__01BE3717" FromRole="Cn_Users" ToRole="Tr_ContractReceipts" />
           <NavigationProperty Name="Tr_ContractDrafts" Relationship="TrustModel.FK__Tr_Contra__Creat__40306ADC" FromRole="Cn_Users" ToRole="Tr_ContractDrafts" />
           <NavigationProperty Name="Tr_ContractSends" Relationship="TrustModel.FK__Tr_Contra__Creat__44F51FF9" FromRole="Cn_Users" ToRole="Tr_ContractSends" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Creat__4707859D" FromRole="Cn_Users" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Tr_ContractDetailHistorys" Relationship="TrustModel.FK__Tr_Contra__Creat__7F6BDA51" FromRole="Cn_Users" ToRole="Tr_ContractDetailHistorys" />
           <NavigationProperty Name="Tr_ContractDetailHistorys1" Relationship="TrustModel.FK__Tr_Contra__Modif__005FFE8A" FromRole="Cn_Users" ToRole="Tr_ContractDetailHistorys" />
           <NavigationProperty Name="Tr_ContractReceipts1" Relationship="TrustModel.FK__Tr_Contra__MOdif__02B25B50" FromRole="Cn_Users" ToRole="Tr_ContractReceipts" />
           <NavigationProperty Name="Tr_ContractDrafts1" Relationship="TrustModel.FK__Tr_Contra__Modif__41248F15" FromRole="Cn_Users" ToRole="Tr_ContractDrafts" />
           <NavigationProperty Name="Tr_ContractSends1" Relationship="TrustModel.FK__Tr_Contra__Modif__45E94432" FromRole="Cn_Users" ToRole="Tr_ContractSends" />
-          <NavigationProperty Name="Tr_ContractDetails1" Relationship="TrustModel.FK__Tr_Contra__Modif__47FBA9D6" FromRole="Cn_Users" ToRole="Tr_ContractDetails" />
-          <NavigationProperty Name="Tr_Deliverys" Relationship="TrustModel.FK__Tr_Delive__Creat__43C1049E" FromRole="Cn_Users" ToRole="Tr_Deliverys" />
-          <NavigationProperty Name="Tr_Deliverys1" Relationship="TrustModel.FK__Tr_Delive__Modif__44B528D7" FromRole="Cn_Users" ToRole="Tr_Deliverys" />
           <NavigationProperty Name="Tr_Invoices" Relationship="TrustModel.FK__Tr_Invoic__Creat__3DD3211E" FromRole="Cn_Users" ToRole="Tr_Invoices" />
           <NavigationProperty Name="Tr_InvoiceDetails" Relationship="TrustModel.FK__Tr_Invoic__Creat__438BFA74" FromRole="Cn_Users" ToRole="Tr_InvoiceDetails" />
           <NavigationProperty Name="Tr_Invoices1" Relationship="TrustModel.FK__Tr_Invoic__Modif__3EC74557" FromRole="Cn_Users" ToRole="Tr_Invoices" />
@@ -10527,12 +10404,16 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <NavigationProperty Name="Tr_Quotations" Relationship="TrustModel.FK__Tr_Quotat__Creat__2A01329B" FromRole="Cn_Users" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_Quotations1" Relationship="TrustModel.FK__Tr_Quotat__Modif__2AF556D4" FromRole="Cn_Users" ToRole="Tr_Quotations" />
           <NavigationProperty Name="Tr_Quotations2" Relationship="TrustModel.FK__Tr_Quotati__POBy__19EAC663" FromRole="Cn_Users" ToRole="Tr_Quotations" />
-          <NavigationProperty Name="Tr_SetDeliveries" Relationship="TrustModel.FK__Tr_SetDel__Creat__0035E158" FromRole="Cn_Users" ToRole="Tr_SetDeliveries" />
-          <NavigationProperty Name="Tr_SetDeliveryDetails" Relationship="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB" FromRole="Cn_Users" ToRole="Tr_SetDeliveryDetails" />
-          <NavigationProperty Name="Tr_SetDeliveries1" Relationship="TrustModel.FK__Tr_SetDel__Modif__012A0591" FromRole="Cn_Users" ToRole="Tr_SetDeliveries" />
-          <NavigationProperty Name="Tr_SetDeliveryDetails1" Relationship="TrustModel.FK__Tr_SetDel__Modif__0BA79404" FromRole="Cn_Users" ToRole="Tr_SetDeliveryDetails" />
           <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Creat__414EAC47" FromRole="Cn_Users" ToRole="Tr_Contracts" />
           <NavigationProperty Name="Tr_Contracts1" Relationship="TrustModel.FK__Tr_Contra__Modif__4242D080" FromRole="Cn_Users" ToRole="Tr_Contracts" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Creat__4707859D" FromRole="Cn_Users" ToRole="Tr_ContractDetails" />
+          <NavigationProperty Name="Tr_ContractDetails1" Relationship="TrustModel.FK__Tr_Contra__Modif__47FBA9D6" FromRole="Cn_Users" ToRole="Tr_ContractDetails" />
+          <NavigationProperty Name="Tr_SetDeliveryDetails" Relationship="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB" FromRole="Cn_Users" ToRole="Tr_SetDeliveryDetails" />
+          <NavigationProperty Name="Tr_SetDeliveryDetails1" Relationship="TrustModel.FK__Tr_SetDel__Modif__0BA79404" FromRole="Cn_Users" ToRole="Tr_SetDeliveryDetails" />
+          <NavigationProperty Name="Tr_SetDeliveries" Relationship="TrustModel.FK__Tr_SetDel__Creat__0035E158" FromRole="Cn_Users" ToRole="Tr_SetDeliveries" />
+          <NavigationProperty Name="Tr_SetDeliveries1" Relationship="TrustModel.FK__Tr_SetDel__Modif__012A0591" FromRole="Cn_Users" ToRole="Tr_SetDeliveries" />
+          <NavigationProperty Name="Tr_Deliverys" Relationship="TrustModel.FK__Tr_Delive__Creat__43C1049E" FromRole="Cn_Users" ToRole="Tr_Deliverys" />
+          <NavigationProperty Name="Tr_Deliverys1" Relationship="TrustModel.FK__Tr_Delive__Modif__44B528D7" FromRole="Cn_Users" ToRole="Tr_Deliverys" />
           </EntityType>
         <Association Name="FK__Cn_Approv__Creat__24885067">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -11590,18 +11471,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tr_Contra__Creat__4707859D">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ContractDetails">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Tr_Contra__Creat__7F6BDA51">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
           <End Type="TrustModel.Tr_ContractDetailHistorys" Role="Tr_ContractDetailHistorys" Multiplicity="*" />
@@ -11658,42 +11527,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
               <PropertyRef Name="User_ID" />
             </Principal>
             <Dependent Role="Tr_ContractSends">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Contra__Modif__47FBA9D6">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_ContractDetails">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Delive__Creat__43C1049E">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
-          <End Type="TrustModel.Tr_Deliverys" Role="Tr_Deliverys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Deliverys">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Delive__Modif__44B528D7">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Deliverys" Role="Tr_Deliverys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_Deliverys">
               <PropertyRef Name="ModifiedBy" />
             </Dependent>
           </ReferentialConstraint>
@@ -12782,6 +12615,7 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <NavigationProperty Name="Tr_ApplicationPODetails" Relationship="TrustModel.FK__Tr_Applic__Appli__3607E224" FromRole="Tr_ApplicationPOs" ToRole="Tr_ApplicationPODetails" />
           <NavigationProperty Name="Tr_ProspectCustDetails" Relationship="TrustModel.FK__Tr_Applic__Prosp__7BDB408F" FromRole="Tr_ApplicationPOs" ToRole="Tr_ProspectCustDetails" />
           <NavigationProperty Name="Tr_ProspectCusts" Relationship="TrustModel.FK__Tr_Applic__Prosp__08411774" FromRole="Tr_ApplicationPOs" ToRole="Tr_ProspectCusts" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Appli__2C146396" FromRole="Tr_ApplicationPOs" ToRole="Tr_ContractDetails" />
         </EntityType>
         <Association Name="FK__Tr_Applic__Creat__79F2F81D">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -13620,18 +13454,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tr_Contra__Appli__46136164">
-          <End Type="TrustModel.Tr_Applications" Role="Tr_Applications" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Applications">
-              <PropertyRef Name="Application_ID" />
-            </Principal>
-            <Dependent Role="Tr_ContractDetails">
-              <PropertyRef Name="Application_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Tr_Quotations">
           <Key>
             <PropertyRef Name="Quotation_ID" />
@@ -13825,115 +13647,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <Property Name="ApprovalApp_ID" Type="Int32" />
           <Property Name="Contract_ID" Type="Int32" />
         </EntityType>
-        <EntityType Name="Tr_SetDeliveries">
-          <Key>
-            <PropertyRef Name="SetDelivery_ID" />
-          </Key>
-          <Property Name="SetDelivery_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Contract_ID" Type="Int32" Nullable="false" />
-          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
-          <Property Name="Address_Delivery" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="PIC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PIC_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Isdeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_SetDel__Creat__0035E158" FromRole="Tr_SetDeliveries" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_SetDel__Modif__012A0591" FromRole="Tr_SetDeliveries" ToRole="Cn_Users" />
-          <NavigationProperty Name="Tr_SetDeliveryDetails" Relationship="TrustModel.FK__Tr_SetDel__setDe__08CB2759" FromRole="Tr_SetDeliveries" ToRole="Tr_SetDeliveryDetails" />
-          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_SetDel__Contr__7F41BD1F" FromRole="Tr_SetDeliveries" ToRole="Tr_Contracts" />
-        </EntityType>
-        <EntityType Name="Tr_SetDeliveryDetails">
-          <Key>
-            <PropertyRef Name="SetDeliveryDetail_ID" />
-          </Key>
-          <Property Name="SetDeliveryDetail_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="setDelivery_ID" Type="Int32" />
-          <Property Name="ContractDetail_ID" Type="Int32" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="Isdeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB" FromRole="Tr_SetDeliveryDetails" ToRole="Cn_Users" />
-          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_SetDel__Modif__0BA79404" FromRole="Tr_SetDeliveryDetails" ToRole="Cn_Users" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_SetDel__Contr__09BF4B92" FromRole="Tr_SetDeliveryDetails" ToRole="Tr_ContractDetails" />
-          <NavigationProperty Name="Tr_SetDeliveries" Relationship="TrustModel.FK__Tr_SetDel__setDe__08CB2759" FromRole="Tr_SetDeliveryDetails" ToRole="Tr_SetDeliveries" />
-        </EntityType>
-        <Association Name="FK__Tr_SetDel__Creat__0035E158">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
-          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_SetDeliveries">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_SetDel__Creat__0AB36FCB">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
-          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_SetDeliveryDetails">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_SetDel__Modif__012A0591">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_SetDeliveries">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_SetDel__Modif__0BA79404">
-          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cn_Users">
-              <PropertyRef Name="User_ID" />
-            </Principal>
-            <Dependent Role="Tr_SetDeliveryDetails">
-              <PropertyRef Name="ModifiedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_SetDel__Contr__09BF4B92">
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ContractDetails">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Principal>
-            <Dependent Role="Tr_SetDeliveryDetails">
-              <PropertyRef Name="ContractDetail_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_SetDel__setDe__08CB2759">
-          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_SetDeliveries">
-              <PropertyRef Name="SetDelivery_ID" />
-            </Principal>
-            <Dependent Role="Tr_SetDeliveryDetails">
-              <PropertyRef Name="setDelivery_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Tr_Contracts">
           <Key>
             <PropertyRef Name="Contract_ID" />
@@ -13958,11 +13671,11 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__414EAC47" FromRole="Tr_Contracts" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__Modif__4242D080" FromRole="Tr_Contracts" ToRole="Cn_Users" />
           <NavigationProperty Name="Tr_ApprovalApps" Relationship="TrustModel.FK__Tr_Contra__Appro__405A880E" FromRole="Tr_Contracts" ToRole="Tr_ApprovalApps" />
-          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Contr__451F3D2B" FromRole="Tr_Contracts" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Tr_ContractDrafts" Relationship="TrustModel.FK__Tr_Contra__Contr__3F3C46A3" FromRole="Tr_Contracts" ToRole="Tr_ContractDrafts" />
           <NavigationProperty Name="Tr_ContractReceipts" Relationship="TrustModel.FK__Tr_Contra__Contr__00CA12DE" FromRole="Tr_Contracts" ToRole="Tr_ContractReceipts" />
           <NavigationProperty Name="Tr_ContractSends" Relationship="TrustModel.FK__Tr_Contra__Contr__4400FBC0" FromRole="Tr_Contracts" ToRole="Tr_ContractSends" />
           <NavigationProperty Name="Tr_Invoices" Relationship="TrustModel.FK__Tr_Invoic__Contr__12B3B8EF" FromRole="Tr_Contracts" ToRole="Tr_Invoices" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Contra__Contr__451F3D2B" FromRole="Tr_Contracts" ToRole="Tr_ContractDetails" />
           <NavigationProperty Name="Tr_SetDeliveries" Relationship="TrustModel.FK__Tr_SetDel__Contr__7F41BD1F" FromRole="Tr_Contracts" ToRole="Tr_SetDeliveries" />
         </EntityType>
         <Association Name="FK__Tr_Contra__Creat__414EAC47">
@@ -13998,18 +13711,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             </Principal>
             <Dependent Role="Tr_Contracts">
               <PropertyRef Name="ApprovalApp_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Contra__Contr__451F3D2B">
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Contracts">
-              <PropertyRef Name="Contract_ID" />
-            </Principal>
-            <Dependent Role="Tr_ContractDetails">
-              <PropertyRef Name="Contract_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -14057,18 +13758,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
               <PropertyRef Name="Contract_ID" />
             </Principal>
             <Dependent Role="Tr_Invoices">
-              <PropertyRef Name="Contract_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_SetDel__Contr__7F41BD1F">
-          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
-          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Contracts">
-              <PropertyRef Name="Contract_ID" />
-            </Principal>
-            <Dependent Role="Tr_SetDeliveries">
               <PropertyRef Name="Contract_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -14271,6 +13960,351 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <Property Type="Binary" Name="AppCheckerSign" Nullable="true" MaxLength="Max" />
           <Property Type="DateTime" Name="CheckerDate" Nullable="true" Precision="23" />
         </ComplexType>
+        <EntityType Name="Tr_ContractDetails">
+          <Key>
+            <PropertyRef Name="ContractDetail_ID" />
+          </Key>
+          <Property Name="ContractDetail_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contract_ID" Type="Int32" Nullable="false" />
+          <Property Name="Application_ID" Type="Int32" Nullable="false" />
+          <Property Name="Vehicle_ID" Type="Int32" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Bid_PricePerMonth" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsTemporaryCar" Type="Boolean" />
+          <Property Name="IsDelivery" Type="Boolean" />
+          <Property Name="IsInvoiced" Type="Boolean" />
+          <Property Name="IsTotalLossOnly" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="ApplicationPO_ID" Type="Int32" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Contra__Creat__4707859D" FromRole="Tr_ContractDetails" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Contra__Modif__47FBA9D6" FromRole="Tr_ContractDetails" ToRole="Cn_Users" />
+          <NavigationProperty Name="Ms_Vehicles" Relationship="TrustModel.FK__Ms_Vehicl__Contr__15C52FC4" FromRole="Tr_ContractDetails" ToRole="Ms_Vehicles" />
+          <NavigationProperty Name="Ms_Vehicles1" Relationship="TrustModel.FK__Tr_Contra__Vehic__5B988E2F" FromRole="Tr_ContractDetails" ToRole="Ms_Vehicles" />
+          <NavigationProperty Name="Tr_ApplicationPOs" Relationship="TrustModel.FK__Tr_Contra__Appli__2C146396" FromRole="Tr_ContractDetails" ToRole="Tr_ApplicationPOs" />
+          <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Contra__Appli__46136164" FromRole="Tr_ContractDetails" ToRole="Tr_Applications" />
+          <NavigationProperty Name="Tr_ContractDetailHistorys" Relationship="TrustModel.FK__Tr_Contra__Contr__7D8391DF" FromRole="Tr_ContractDetails" ToRole="Tr_ContractDetailHistorys" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_Contra__Contr__451F3D2B" FromRole="Tr_ContractDetails" ToRole="Tr_Contracts" />
+          <NavigationProperty Name="Tr_InvoiceDetails" Relationship="TrustModel.FK__Tr_Invoic__Contr__6C8E1007" FromRole="Tr_ContractDetails" ToRole="Tr_InvoiceDetails" />
+          <NavigationProperty Name="Tr_TemporaryCars" Relationship="TrustModel.FK__Tr_Tempor__Contr__08F5448B" FromRole="Tr_ContractDetails" ToRole="Tr_TemporaryCars" />
+          <NavigationProperty Name="Tr_TotalLossOnlys" Relationship="TrustModel.FK__Tr_TotalL__Contr__033C6B35" FromRole="Tr_ContractDetails" ToRole="Tr_TotalLossOnlys" />
+          <NavigationProperty Name="Tr_SetDeliveryDetails" Relationship="TrustModel.FK__Tr_SetDel__Contr__09BF4B92" FromRole="Tr_ContractDetails" ToRole="Tr_SetDeliveryDetails" />
+          <NavigationProperty Name="Tr_Deliverys" Relationship="TrustModel.FK__Tr_Delive__Contr__42CCE065" FromRole="Tr_ContractDetails" ToRole="Tr_Deliverys" />
+        </EntityType>
+        <Association Name="FK__Tr_Contra__Creat__4707859D">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractDetails">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Modif__47FBA9D6">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractDetails">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ms_Vehicl__Contr__15C52FC4">
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
+          <End Type="TrustModel.Ms_Vehicles" Role="Ms_Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ContractDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Principal>
+            <Dependent Role="Ms_Vehicles">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Vehic__5B988E2F">
+          <End Type="TrustModel.Ms_Vehicles" Role="Ms_Vehicles" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ms_Vehicles">
+              <PropertyRef Name="Vehicle_id" />
+            </Principal>
+            <Dependent Role="Tr_ContractDetails">
+              <PropertyRef Name="Vehicle_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Appli__2C146396">
+          <End Type="TrustModel.Tr_ApplicationPOs" Role="Tr_ApplicationPOs" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ApplicationPOs">
+              <PropertyRef Name="ApplicationPO_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractDetails">
+              <PropertyRef Name="ApplicationPO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Appli__46136164">
+          <End Type="TrustModel.Tr_Applications" Role="Tr_Applications" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Applications">
+              <PropertyRef Name="Application_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractDetails">
+              <PropertyRef Name="Application_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Contr__7D8391DF">
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ContractDetailHistorys" Role="Tr_ContractDetailHistorys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ContractDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractDetailHistorys">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Contra__Contr__451F3D2B">
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Contracts">
+              <PropertyRef Name="Contract_ID" />
+            </Principal>
+            <Dependent Role="Tr_ContractDetails">
+              <PropertyRef Name="Contract_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Invoic__Contr__6C8E1007">
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_InvoiceDetails" Role="Tr_InvoiceDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ContractDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Principal>
+            <Dependent Role="Tr_InvoiceDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Tempor__Contr__08F5448B">
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_TemporaryCars" Role="Tr_TemporaryCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ContractDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Principal>
+            <Dependent Role="Tr_TemporaryCars">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_TotalL__Contr__033C6B35">
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_TotalLossOnlys" Role="Tr_TotalLossOnlys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ContractDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Principal>
+            <Dependent Role="Tr_TotalLossOnlys">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tr_SetDeliveryDetails">
+          <Key>
+            <PropertyRef Name="SetDeliveryDetail_ID" />
+          </Key>
+          <Property Name="SetDeliveryDetail_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SetDelivery_ID" Type="Int32" />
+          <Property Name="ContractDetail_ID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_SetDel__Creat__0AB36FCB" FromRole="Tr_SetDeliveryDetails" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_SetDel__Modif__0BA79404" FromRole="Tr_SetDeliveryDetails" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_SetDel__Contr__09BF4B92" FromRole="Tr_SetDeliveryDetails" ToRole="Tr_ContractDetails" />
+          <NavigationProperty Name="Tr_SetDeliveries" Relationship="TrustModel.FK__Tr_SetDel__setDe__08CB2759" FromRole="Tr_SetDeliveryDetails" ToRole="Tr_SetDeliveries" />
+        </EntityType>
+        <Association Name="FK__Tr_SetDel__Creat__0AB36FCB">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
+          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Modif__0BA79404">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Contr__09BF4B92">
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ContractDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tr_SetDeliveries">
+          <Key>
+            <PropertyRef Name="SetDelivery_ID" />
+          </Key>
+          <Property Name="SetDelivery_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contract_ID" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="Address_Delivery" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIC_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_SetDel__Creat__0035E158" FromRole="Tr_SetDeliveries" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_SetDel__Modif__012A0591" FromRole="Tr_SetDeliveries" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_Contracts" Relationship="TrustModel.FK__Tr_SetDel__Contr__7F41BD1F" FromRole="Tr_SetDeliveries" ToRole="Tr_Contracts" />
+          <NavigationProperty Name="Tr_SetDeliveryDetails" Relationship="TrustModel.FK__Tr_SetDel__setDe__08CB2759" FromRole="Tr_SetDeliveries" ToRole="Tr_SetDeliveryDetails" />
+        </EntityType>
+        <Association Name="FK__Tr_SetDel__Creat__0035E158">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
+          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveries">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Modif__012A0591">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveries">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__Contr__7F41BD1F">
+          <End Type="TrustModel.Tr_Contracts" Role="Tr_Contracts" Multiplicity="1" />
+          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Contracts">
+              <PropertyRef Name="Contract_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveries">
+              <PropertyRef Name="Contract_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_SetDel__setDe__08CB2759">
+          <End Type="TrustModel.Tr_SetDeliveries" Role="Tr_SetDeliveries" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_SetDeliveryDetails" Role="Tr_SetDeliveryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_SetDeliveries">
+              <PropertyRef Name="SetDelivery_ID" />
+            </Principal>
+            <Dependent Role="Tr_SetDeliveryDetails">
+              <PropertyRef Name="SetDelivery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tr_Deliverys">
+          <Key>
+            <PropertyRef Name="Delivery_ID" />
+          </Key>
+          <Property Name="Delivery_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractDetail_ID" Type="Int32" Nullable="false" />
+          <Property Name="Delivery_Method" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Expedition_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_ID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BSTK_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Delive__Creat__43C1049E" FromRole="Tr_Deliverys" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Delive__Modif__44B528D7" FromRole="Tr_Deliverys" ToRole="Cn_Users" />
+          <NavigationProperty Name="Tr_ContractDetails" Relationship="TrustModel.FK__Tr_Delive__Contr__42CCE065" FromRole="Tr_Deliverys" ToRole="Tr_ContractDetails" />
+        </EntityType>
+        <Association Name="FK__Tr_Delive__Creat__43C1049E">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
+          <End Type="TrustModel.Tr_Deliverys" Role="Tr_Deliverys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Deliverys">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Delive__Modif__44B528D7">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Deliverys" Role="Tr_Deliverys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_Deliverys">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Delive__Contr__42CCE065">
+          <End Type="TrustModel.Tr_ContractDetails" Role="Tr_ContractDetails" Multiplicity="1" />
+          <End Type="TrustModel.Tr_Deliverys" Role="Tr_Deliverys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ContractDetails">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Principal>
+            <Dependent Role="Tr_Deliverys">
+              <PropertyRef Name="ContractDetail_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -14851,24 +14885,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tr_Deliverys">
-            <EntityTypeMapping TypeName="TrustModel.Tr_Deliverys">
-              <MappingFragment StoreEntitySet="Tr_Deliverys">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="BSTK_Date" ColumnName="BSTK_Date" />
-                <ScalarProperty Name="Driver_Name" ColumnName="Driver_Name" />
-                <ScalarProperty Name="Driver_Allocated" ColumnName="Driver_Allocated" />
-                <ScalarProperty Name="Expedition_Name" ColumnName="Expedition_Name" />
-                <ScalarProperty Name="Delivery_Method" ColumnName="Delivery_Method" />
-                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
-                <ScalarProperty Name="Delivery_ID" ColumnName="Delivery_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="V_QuotationHD">
             <EntityTypeMapping TypeName="TrustModel.V_QuotationHD">
               <MappingFragment StoreEntitySet="V_QuotationHD">
@@ -15040,30 +15056,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
                 <ScalarProperty Name="Tab" ColumnName="Tab" />
                 <ScalarProperty Name="Module_Name" ColumnName="Module_Name" />
                 <ScalarProperty Name="Module_ID" ColumnName="Module_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tr_ContractDetails">
-            <EntityTypeMapping TypeName="TrustModel.Tr_ContractDetails">
-              <MappingFragment StoreEntitySet="Tr_ContractDetails">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="IsTotalLossOnly" ColumnName="IsTotalLossOnly" />
-                <ScalarProperty Name="IsInvoiced" ColumnName="IsInvoiced" />
-                <ScalarProperty Name="IsDelivery" ColumnName="IsDelivery" />
-                <ScalarProperty Name="IsTemporaryCar" ColumnName="IsTemporaryCar" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Bid_PricePerMonth" ColumnName="Bid_PricePerMonth" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
-                <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
-                <ScalarProperty Name="Application_ID" ColumnName="Application_ID" />
-                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
-                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -17050,37 +17042,6 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tr_SetDeliveries">
-            <EntityTypeMapping TypeName="TrustModel.Tr_SetDeliveries">
-              <MappingFragment StoreEntitySet="Tr_SetDeliveries">
-                <ScalarProperty Name="Isdeleted" ColumnName="Isdeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="PIC_Number" ColumnName="PIC_Number" />
-                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
-                <ScalarProperty Name="Address_Delivery" ColumnName="Address_Delivery" />
-                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
-                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
-                <ScalarProperty Name="SetDelivery_ID" ColumnName="SetDelivery_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tr_SetDeliveryDetails">
-            <EntityTypeMapping TypeName="TrustModel.Tr_SetDeliveryDetails">
-              <MappingFragment StoreEntitySet="Tr_SetDeliveryDetails">
-                <ScalarProperty Name="Isdeleted" ColumnName="Isdeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
-                <ScalarProperty Name="setDelivery_ID" ColumnName="setDelivery_ID" />
-                <ScalarProperty Name="SetDeliveryDetail_ID" ColumnName="SetDeliveryDetail_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tr_Contracts">
             <EntityTypeMapping TypeName="TrustModel.Tr_Contracts">
               <MappingFragment StoreEntitySet="Tr_Contracts">
@@ -17304,6 +17265,79 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Tr_ContractDetails">
+            <EntityTypeMapping TypeName="TrustModel.Tr_ContractDetails">
+              <MappingFragment StoreEntitySet="Tr_ContractDetails">
+                <ScalarProperty Name="ApplicationPO_ID" ColumnName="ApplicationPO_ID" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsTotalLossOnly" ColumnName="IsTotalLossOnly" />
+                <ScalarProperty Name="IsInvoiced" ColumnName="IsInvoiced" />
+                <ScalarProperty Name="IsDelivery" ColumnName="IsDelivery" />
+                <ScalarProperty Name="IsTemporaryCar" ColumnName="IsTemporaryCar" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Bid_PricePerMonth" ColumnName="Bid_PricePerMonth" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+                <ScalarProperty Name="Application_ID" ColumnName="Application_ID" />
+                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
+                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_SetDeliveryDetails">
+            <EntityTypeMapping TypeName="TrustModel.Tr_SetDeliveryDetails">
+              <MappingFragment StoreEntitySet="Tr_SetDeliveryDetails">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
+                <ScalarProperty Name="SetDelivery_ID" ColumnName="SetDelivery_ID" />
+                <ScalarProperty Name="SetDeliveryDetail_ID" ColumnName="SetDeliveryDetail_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_SetDeliveries">
+            <EntityTypeMapping TypeName="TrustModel.Tr_SetDeliveries">
+              <MappingFragment StoreEntitySet="Tr_SetDeliveries">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PIC_Number" ColumnName="PIC_Number" />
+                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
+                <ScalarProperty Name="Address_Delivery" ColumnName="Address_Delivery" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
+                <ScalarProperty Name="SetDelivery_ID" ColumnName="SetDelivery_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_Deliverys">
+            <EntityTypeMapping TypeName="TrustModel.Tr_Deliverys">
+              <MappingFragment StoreEntitySet="Tr_Deliverys">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="BSTK_Date" ColumnName="BSTK_Date" />
+                <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+                <ScalarProperty Name="Expedition_Name" ColumnName="Expedition_Name" />
+                <ScalarProperty Name="Delivery_Method" ColumnName="Delivery_Method" />
+                <ScalarProperty Name="ContractDetail_ID" ColumnName="ContractDetail_ID" />
+                <ScalarProperty Name="Delivery_ID" ColumnName="Delivery_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

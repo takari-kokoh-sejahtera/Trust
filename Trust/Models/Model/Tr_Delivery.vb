@@ -2,6 +2,16 @@
 
 Public Class Tr_Delivery
     Public Property Delivery_ID As Integer
+    <Display(Name:="Delivery Date")>
+    <DataType(DataType.Date)>
+    <DisplayFormat(DataFormatString:="{0:yyyy-MM-dd}", ApplyFormatInEditMode:=True)>
+    Public Property DeliveryDate As Nullable(Of Date)
+    <Display(Name:="Delivery Address")>
+    Public Property Address_Delivery As String
+    <Display(Name:="PIC Name")>
+    Public Property PIC_Name As String
+    <Display(Name:="PIC Number")>
+    Public Property PIC_Number As String
     Public Property ContractDetail_ID As Integer
     <Display(Name:="Delivery Method")>
     <Required>
@@ -12,7 +22,7 @@ Public Class Tr_Delivery
     <Required>
     Public Property Driver_Allocated As Boolean
     <Display(Name:="Driver Name")>
-    Public Property Driver_Name As String
+    Public Property Driver_ID As String
     <Display(Name:="BSTK Date")>
     <Required>
     <DataType(DataType.Date)>

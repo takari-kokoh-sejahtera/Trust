@@ -14,13 +14,13 @@ Namespace Trust
 
     Partial Public Class Tr_SetDeliveryDetails
         Public Property SetDeliveryDetail_ID As Integer
-        Public Property setDelivery_ID As Nullable(Of Integer)
+        Public Property SetDelivery_ID As Nullable(Of Integer)
         Public Property ContractDetail_ID As Nullable(Of Integer)
         Public Property CreatedDate As Date
         Public Property CreatedBy As Integer
         Public Property ModifiedDate As Nullable(Of Date)
         Public Property ModifiedBy As Nullable(Of Integer)
-        Public Property Isdeleted As Boolean
+        Public Property IsDeleted As Boolean
     
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users

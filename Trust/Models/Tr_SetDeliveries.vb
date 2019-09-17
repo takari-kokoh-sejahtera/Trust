@@ -23,12 +23,12 @@ Namespace Trust
         Public Property CreatedBy As Integer
         Public Property ModifiedDate As Nullable(Of Date)
         Public Property ModifiedBy As Nullable(Of Integer)
-        Public Property Isdeleted As Boolean
+        Public Property IsDeleted As Boolean
     
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
-        Public Overridable Property Tr_SetDeliveryDetails As ICollection(Of Tr_SetDeliveryDetails) = New HashSet(Of Tr_SetDeliveryDetails)
         Public Overridable Property Tr_Contracts As Tr_Contracts
+        Public Overridable Property Tr_SetDeliveryDetails As ICollection(Of Tr_SetDeliveryDetails) = New HashSet(Of Tr_SetDeliveryDetails)
     
     End Class
 

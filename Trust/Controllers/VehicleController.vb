@@ -556,7 +556,7 @@ eror:
         End Function
         Function IndexInputAsset(ByVal sortOrder As String, currentFilter As String, searchString As String, page As Integer?, pageSize As Integer?) As ActionResult
 #If Not DEBUG Then
-            If ((Session("User_ID")) Is Nothing) Then Return RedirectToAction("Login", "Home")
+                        If ((Session("User_ID")) Is Nothing) Then Return RedirectToAction("Login", "Home")
 #End If
             ViewBag.CurrentSort = sortOrder
             If Not searchString Is Nothing Then
@@ -570,14 +570,17 @@ eror:
                 pageSize = 10
             End If
 
-            Dim Query = (From A In db.Tr_ContractDetails
-                         Join B In db.V_ProspectCustDetails On A.Application_ID Equals B.Application_ID
-                         Where A.Vehicle_ID Is Nothing
+            Dim Query = (From A In db.Tr_ApplicationPOs
+                         Join B In db.V_ProspectCustDetails On A.ProspectCustomerDetail_ID Equals B.ProspectCustomerDetail_ID
+                         Join C In db.Tr_ApplicationPODetails On A.ApplicationPO_ID Equals C.ApplicationPO_ID
+                         Group Join D In (db.Tr_ContractDetails.Where(Function(t) t.IsDeleted = False And t.ApplicationPO_ID IsNot Nothing).GroupBy(Function(w) w.ApplicationPO_ID)) On A.ApplicationPO_ID Equals D.Key Into AD = Group
+                         From D In AD.DefaultIfEmpty()
+                         Where C.IsChecked = True And B.Contract_ID IsNot Nothing And A.Qty <> D.Count
                          Order By A.CreatedDate Descending
-                         Select A.ContractDetail_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, A.CreatedDate, A.IsTemporaryCar).
-                Select(Function(x) New Tr_ContractDetail With {.ContractDetail_ID = x.ContractDetail_ID, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .Brand_Name = x.Brand_Name, .Vehicle = x.Vehicle, .CreatedDate = x.CreatedDate, .IsTemporaryCar = x.IsTemporaryCar})
+                         Select D.Count, A.ApplicationPO_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, A.CreatedDate, A.Qty, C.Dealer_ID).
+                Select(Function(x) New Tr_ApplicationPO_InputAsset With {.ApplicationPO_ID = x.ApplicationPO_ID, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .Brand_Name = x.Brand_Name, .Vehicle = x.Vehicle, .Qty = x.Qty, .Dealer = db.Ms_Dealers.Where(Function(w) w.Dealer_ID = x.Dealer_ID).Select(Function(t) t.Dealer_Name).FirstOrDefault(), .CreatedDate = x.CreatedDate, .QtyInput = x.Count})
             If Not String.IsNullOrEmpty(searchString) Then
-                Query = Query.Where(Function(s) s.CompanyGroup_Name.Contains(searchString) OrElse s.Company_Name.Contains(searchString) OrElse s.Brand_Name.Contains(searchString) OrElse s.Vehicle.Contains(searchString))
+                Query = Query.Where(Function(s) s.CompanyGroup_Name.Contains(searchString) OrElse s.Company_Name.Contains(searchString) OrElse s.Brand_Name.Contains(searchString) OrElse s.Vehicle.Contains(searchString) OrElse s.Dealer.Contains(searchString))
             End If
             Select Case sortOrder
                 Case "CompanyGroup_Name"
@@ -588,6 +591,8 @@ eror:
                     Query = Query.OrderBy(Function(s) s.Brand_Name)
                 Case "Vehicle"
                     Query = Query.OrderBy(Function(s) s.Vehicle)
+                Case "Vehicle"
+                    Query = Query.OrderBy(Function(s) s.Dealer)
                 Case Else
                     Query = Query.OrderByDescending(Function(s) s.CreatedDate)
             End Select
@@ -604,21 +609,16 @@ eror:
             If IsNothing(id) Then
                 Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
             End If
-            Dim Query = (From A In db.Tr_ContractDetails
-                         Join B In db.V_ProspectCustDetails On A.Application_ID Equals B.Application_ID
-                         Where A.Vehicle_ID Is Nothing And A.ContractDetail_ID = id
-                         Group Join C In db.Tr_Applications On A.Application_ID Equals C.Application_ID Into AC = Group
-                         From C In AC.DefaultIfEmpty
-                         Where A.Vehicle_ID Is Nothing And A.ContractDetail_ID = id
+            Dim Query = (From A In db.Tr_ApplicationPOs
+                         Join B In db.V_ProspectCustDetails On A.ProspectCustomerDetail_ID Equals B.ProspectCustomerDetail_ID
+                         Join C In db.Tr_ApplicationPODetails On A.ApplicationPO_ID Equals C.ApplicationPO_ID
                          Order By A.CreatedDate Descending
-                         Select A.ContractDetail_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, A.CreatedDate, B.Model_ID, B.Brand_ID, C.Color).
-                         Select(Function(x) New Ms_Vehicle With {.ContractDetail_ID = x.ContractDetail_ID, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name,
-                         .Brand_Name = x.Brand_Name, .Model = x.Vehicle, .Model_ID = x.Model_ID, .Brand_ID = x.Brand_ID, .color = x.Color}).FirstOrDefault
+                         Select B.CompanyGroup_Name, B.Company_Name, B.ApplicationPO_No, B.Brand_Name, B.Vehicle, A.CreatedDate, B.Model_ID, B.Brand_ID, A.Color, C.Dealer_ID).
+                         Select(Function(x) New Ms_Vehicle With {.CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .PO_No = x.ApplicationPO_No,
+                         .Brand_Name = x.Brand_Name, .Model = x.Vehicle, .Model_ID = x.Model_ID, .Brand_ID = x.Brand_ID, .color = x.Color, .Dealer = db.Ms_Dealers.Where(Function(w) w.Dealer_ID = x.Dealer_ID).Select(Function(t) t.Dealer_Name).FirstOrDefault()}).FirstOrDefault
             If IsNothing(Query) Then
                 Return HttpNotFound()
             End If
-            ViewBag.Brand_ID = New SelectList(db.Ms_Vehicle_Brands.Where(Function(x) x.IsDeleted = False), "Brand_ID", "Brand_Name", Query.Brand_ID)
-            ViewBag.Model_ID = New SelectList(db.Ms_Vehicle_Models.Where(Function(x) x.IsDeleted = False), "Model_ID", "Type", Query.Model_ID)
             Return View(Query)
         End Function
 
@@ -707,9 +707,6 @@ eror:
                     End Try
                 End Using
             End If
-            ViewBag.Brand_ID = New SelectList(db.Ms_Vehicle_Brands.Where(Function(x) x.IsDeleted = False), "Brand_ID", "Brand_Name", ms_Vehicle.Brand_ID)
-            ViewBag.Model_ID = New SelectList(db.Ms_Vehicle_Models.Where(Function(x) x.IsDeleted = False), "Model_ID", "Type", ms_Vehicle.Model_ID)
-            Return View(ms_Vehicle)
         End Function
 
 

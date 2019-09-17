@@ -1,4 +1,4 @@
-﻿@ModelType PagedList.IPagedList(Of Trust.Tr_ContractDetail)
+﻿@ModelType PagedList.IPagedList(Of Trust.Tr_ApplicationPO_InputAsset)
 @Imports PagedList.Mvc
 @Code
     ViewData("Title") = "IndexInputAsset"
@@ -16,7 +16,7 @@ End Code
 
                 <div class="box-tools">
 
-                    @Using (Html.BeginForm("IndexInputAsset", "Contract", FormMethod.Get))
+                    @Using (Html.BeginForm("IndexInputAsset", "Vehicle", FormMethod.Get))
                         @<div Class="input-group input-group-sm">
                             <p>
                                 Show @Html.TextBox("PageSize", TryCast(ViewBag.pageSize, String), htmlAttributes:=New With {.style = "width:30px"}) @Html.TextBox("SearchString", TryCast(ViewBag.CurrentFilter, String))
@@ -45,7 +45,13 @@ End Code
                                 @Html.ActionLink("Model", "Index", New With {.sortOrder = "Vehicle", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
                             </th>
                             <th>
-                                @Html.DisplayNameFor(Function(model) model(0).IsTemporaryCar)
+                                @Html.ActionLink("Dealer", "Index", New With {.sortOrder = "Dealer", .currentFilter = ViewBag.CurrentFilter, .pageSize = ViewBag.pageSize})
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).Qty)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(Function(model) model(0).QtyInput)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(Function(model) model(0).CreatedDate)
@@ -57,10 +63,10 @@ End Code
 
                         @For Each item In Model
                             @<tr>
-                                <td style="white-space:nowrap">
-                                    @Html.ActionLink("Input Asset", "VehicleFromContract", New With {.id = item.ContractDetail_ID})
-                                </td>
-                                <td style="white-space:nowrap">
+                                 <td style="white-space:nowrap">
+                                    @Html.ActionLink("Input Asset", "VehicleFromContract", New With {.id = item.ApplicationPO_ID})
+                                 </td>
+                                <td style = "white-space:nowrap" >
                                     @Html.DisplayFor(Function(modelItem) item.CompanyGroup_Name)
                                 </td>
                                 <td style="white-space:nowrap">
@@ -72,8 +78,14 @@ End Code
                                 <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.Vehicle)
                                 </td>
+                               <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.Dealer)
+                                </td>
                                 <td style="white-space:nowrap">
-                                    @Html.DisplayFor(Function(modelItem) item.IsTemporaryCar)
+                                    @Html.DisplayFor(Function(modelItem) item.Qty)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.QtyInput)
                                 </td>
                                 <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.CreatedDate)

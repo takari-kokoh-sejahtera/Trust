@@ -43,6 +43,7 @@ Namespace Trust
         Public Overridable Property Tr_ApplicationPODetails As ICollection(Of Tr_ApplicationPODetails) = New HashSet(Of Tr_ApplicationPODetails)
         Public Overridable Property Tr_ProspectCustDetails As Tr_ProspectCustDetails
         Public Overridable Property Tr_ProspectCusts As Tr_ProspectCusts
+        Public Overridable Property Tr_ContractDetails As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
     
     End Class
 

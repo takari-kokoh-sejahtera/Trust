@@ -65,8 +65,6 @@ Namespace Trust
         Public Property ModifiedBy As Nullable(Of Integer)
         Public Property IsDeleted As Nullable(Of Boolean)
     
-        Public Overridable Property Tr_ContractDetails As Tr_ContractDetails
-        Public Overridable Property Tr_ContractDetails1 As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
         Public Overridable Property Tr_ContractDetailHistorys As ICollection(Of Tr_ContractDetailHistorys) = New HashSet(Of Tr_ContractDetailHistorys)
         Public Overridable Property Tr_InvoiceDetails As ICollection(Of Tr_InvoiceDetails) = New HashSet(Of Tr_InvoiceDetails)
         Public Overridable Property Tr_TemporaryCars As ICollection(Of Tr_TemporaryCars) = New HashSet(Of Tr_TemporaryCars)
@@ -75,6 +73,8 @@ Namespace Trust
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Ms_Vehicle_Models As Ms_Vehicle_Models
+        Public Overridable Property Tr_ContractDetails As Tr_ContractDetails
+        Public Overridable Property Tr_ContractDetails1 As ICollection(Of Tr_ContractDetails) = New HashSet(Of Tr_ContractDetails)
     
     End Class
 
