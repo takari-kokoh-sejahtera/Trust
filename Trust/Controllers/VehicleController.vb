@@ -644,46 +644,20 @@ eror:
                         vehicle.license_no = ms_Vehicle.license_no
                         vehicle.Tmp_Plat = ms_Vehicle.Tmp_Plat
                         vehicle.Model_ID = ms_Vehicle.Model_ID
-                        vehicle.type = ms_Vehicle.type
                         vehicle.color = ms_Vehicle.color
                         vehicle.year = ms_Vehicle.year
                         vehicle.chassis_no = ms_Vehicle.chassis_no
                         vehicle.machine_no = ms_Vehicle.machine_no
-                        vehicle.title_no = ms_Vehicle.title_no
-                        vehicle.serial_no = ms_Vehicle.serial_no
-                        vehicle.registration_no = ms_Vehicle.registration_no
-                        vehicle.registration_expdate = ms_Vehicle.registration_expdate
-                        vehicle.insurance_no = ms_Vehicle.insurance_no
-                        vehicle.discount = ms_Vehicle.discount
-                        vehicle.price = ms_Vehicle.price
-                        vehicle.acquisition = ms_Vehicle.acquisition
-                        vehicle.coverage = ms_Vehicle.coverage
                         vehicle.comment = ms_Vehicle.comment
                         vehicle.status = True
-                        vehicle.date_insurance_start = ms_Vehicle.date_insurance_start
-                        vehicle.date_insurance_end = ms_Vehicle.date_insurance_end
-                        vehicle.date_insurance_mod = ms_Vehicle.date_insurance_mod
-                        vehicle.date_book = ms_Vehicle.date_book
                         vehicle.STNK_No = ms_Vehicle.STNK_No
-                        vehicle.STNK_Publish = ms_Vehicle.STNK_Publish
-                        vehicle.STNK_Yearly_Renewal = ms_Vehicle.STNK_Yearly_Renewal
-                        vehicle.STNK_5Year_Renewal = ms_Vehicle.STNK_5Year_Renewal
-                        vehicle.STNK_Month = ms_Vehicle.STNK_Month
                         vehicle.STNK_Name = ms_Vehicle.STNK_Name
                         vehicle.STNK_Address = ms_Vehicle.STNK_Address
                         vehicle.CC = ms_Vehicle.CC
                         vehicle.Fuel = ms_Vehicle.Fuel
-                        vehicle.NoUrutBuku = ms_Vehicle.NoUrutBuku
                         vehicle.DO_date = ms_Vehicle.DO_date
                         vehicle.Vehicle_Come = ms_Vehicle.Vehicle_Come
                         vehicle.STNK_Receipt = ms_Vehicle.STNK_Receipt
-                        vehicle.PO_No = ms_Vehicle.PO_No
-                        vehicle.Harga_Beli = ms_Vehicle.Harga_Beli
-                        vehicle.Kwitansi_Date = ms_Vehicle.Kwitansi_Date
-                        vehicle.Kwitansi_No = ms_Vehicle.Kwitansi_No
-                        vehicle.FakturPajak_Date = ms_Vehicle.FakturPajak
-                        vehicle.FakturPajak_No = ms_Vehicle.FakturPajak_No
-                        vehicle.VAT = ms_Vehicle.VAT
                         vehicle.Dealer = ms_Vehicle.Dealer
                         vehicle.CreatedBy = user
                         vehicle.CreatedDate = DateTime.Now
@@ -703,10 +677,13 @@ eror:
                         d.Commit()
                         Return RedirectToAction("IndexInputAsset")
                     Catch ex As Exception
+                        ModelState.AddModelError("", ex.Message)
                         d.Rollback()
+                        Return View(ms_Vehicle)
                     End Try
                 End Using
             End If
+            Return View(ms_Vehicle)
         End Function
 
 
