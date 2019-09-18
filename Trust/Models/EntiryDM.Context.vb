@@ -44,7 +44,6 @@ Namespace Trust
         Public Overridable Property Tr_QuotationDetails() As DbSet(Of Tr_QuotationDetails)
         Public Overridable Property V_ProspectHD() As DbSet(Of V_ProspectHD)
         Public Overridable Property V_QuotationHD() As DbSet(Of V_QuotationHD)
-        Public Overridable Property Tr_Invoices() As DbSet(Of Tr_Invoices)
         Public Overridable Property Tr_ContractReceipts() As DbSet(Of Tr_ContractReceipts)
         Public Overridable Property Tr_ContractDetailHistorys() As DbSet(Of Tr_ContractDetailHistorys)
         Public Overridable Property Tr_TemporaryCars() As DbSet(Of Tr_TemporaryCars)
@@ -102,6 +101,7 @@ Namespace Trust
         Public Overridable Property Tr_SetDeliveryDetails() As DbSet(Of Tr_SetDeliveryDetails)
         Public Overridable Property Tr_SetDeliveries() As DbSet(Of Tr_SetDeliveries)
         Public Overridable Property Tr_Deliverys() As DbSet(Of Tr_Deliverys)
+        Public Overridable Property Tr_Invoices() As DbSet(Of Tr_Invoices)
     
         Public Overridable Function sp_CalcucationCharFromUser(fA As Nullable(Of Integer), user_ID As Nullable(Of Integer)) As ObjectResult(Of sp_CalcucationCharFromUser_Result)
             Dim fAParameter As ObjectParameter = If(fA.HasValue, New ObjectParameter("FA", fA), New ObjectParameter("FA", GetType(Integer)))

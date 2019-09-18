@@ -1,14 +1,6 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Data
-Imports System.Data.Entity
-Imports System.Linq
-Imports System.Threading.Tasks
-Imports System.Net
-Imports System.Web
-Imports System.Web.Mvc
-Imports Trust.Trust
+﻿Imports System.Net
 Imports PagedList
+Imports Trust.Trust
 
 Namespace Controllers
     Public Class CreateInvoiceController
@@ -88,8 +80,8 @@ Namespace Controllers
             Dim Query = (From A In db.Tr_Contracts.Where(Function(x) x.IsDeleted = False)
                          Join B In db.V_ProspectCusts On A.ApprovalApp_ID Equals B.ApprovalApp_ID
                          Where A.IsInvoicedAll = False And A.IsReceiptContract = True And A.Contract_ID = id
-                         Select A.Contract_ID, A.Tr_ApprovalApps.Tr_ApplicationHeaders.Contract_No, B.CompanyGroup_Name, B.Company_Name, A.Penerima, A.Jabatan, A.CreatedDate, B.CustomerExists_ID).
-                         Select(Function(x) New Tr_Invoice With {.Contract_ID = x.Contract_ID, .Contract_No = x.Contract_No, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .Penerima = x.Penerima, .Jabatan = x.Jabatan, .Status = "Costum", .CreatedDate = x.CreatedDate, .Customer_ID = x.CustomerExists_ID}).FirstOrDefault
+                         Select A.Contract_ID, A.Tr_ApprovalApps.Tr_ApplicationHeaders.Contract_No, B.CompanyGroup_Name, B.Company_Name, A.CreatedDate, B.CustomerExists_ID).
+                         Select(Function(x) New Tr_Invoice With {.Contract_ID = x.Contract_ID, .Contract_No = x.Contract_No, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .Status = "Costum", .CreatedDate = x.CreatedDate, .Customer_ID = x.CustomerExists_ID}).FirstOrDefault
             If IsNothing(Query) Then
                 Return HttpNotFound()
             End If
@@ -106,6 +98,8 @@ Namespace Controllers
                         Select(Function(x) New Tr_InvoiceDetail With {.ContractDetail_ID = x.ContractDetail_ID, .Brand_Name = x.Brand_Name, .Type = x.Type, .Vehicle_ID = If(x.IsTemporaryCar, x.Vehicle_ID1, x.Vehicle_id), .license_no = If(x.IsTemporaryCar, x.license_no1, If(x.license_no, x.Tmp_Plat)), .Lease_Long = x.Lease_long, .Bid_PricePerMonth = x.Bid_PricePerMonth}).ToList
 
             ViewBag.detail = detail
+            ViewBag.City_ID = New SelectList(db.Ms_Citys.OrderBy(Function(a) a.City), "City_ID", "City")
+            ViewBag.Signature_ID = New SelectList(db.Cn_Users.OrderBy(Function(a) a.Full_Name).Where(Function(x) x.Division_ID = 14), "User_ID", "Full_Name")
             Return View(Query)
         End Function
         Dim message = ""
@@ -122,11 +116,14 @@ Namespace Controllers
             ElseIf header.From_Date Is Nothing Then
                 message = "From_Date not Fount"
                 Return False
-            ElseIf header.Signature_Name Is Nothing Then
+            ElseIf header.Signature_ID Is Nothing Then
                 message = "Signature_Name not Fount"
                 Return False
-            ElseIf header.Signature_Title Is Nothing Then
-                message = "Signature_Title not Fount"
+            ElseIf header.User_Car Is Nothing Then
+                message = "User not Fount"
+                Return False
+            ElseIf header.City_ID Is Nothing Then
+                message = "City not Fount"
                 Return False
             ElseIf header.PerMonth Is Nothing Then
                 message = "Master Contract:Paymeny Ivoice / Month Is Nothing"
@@ -173,7 +170,7 @@ Namespace Controllers
                 message = "Master Customer:" + NameOf(Cust.IsStamped) + " Is Nothing"
                 Return False
             ElseIf Cust.Published Is Nothing Then
-                message = "Master Customer:" + NameOf(Cust.Published) + " Is Nothing"
+                message = "Master Cust Publihsed:" + NameOf(Cust.Published) + " Is Nothing"
                 Return False
             End If
             Return True
@@ -249,6 +246,9 @@ Namespace Controllers
                                 number = number + 1
                                 InsertH.Customer_ID = header.Customer_ID
                                 InsertH.From_Date = header.From_Date
+                                InsertH.City_ID = header.City_ID
+                                InsertH.Signature_ID = header.Signature_ID
+                                InsertH.User_Car = header.User_Car
                                 InsertH.Status = header.Status
                                 InsertH.PerMonth = header.PerMonth
 
@@ -279,8 +279,7 @@ Namespace Controllers
                                 InsertH.Stamp = Stamp
                                 Total = Total + Stamp
                                 InsertH.Total = Total
-                                InsertH.Signature_Name = header.Signature_Name
-                                InsertH.Signature_Title = header.Signature_Title
+                                InsertH.Signature_ID = header.Signature_ID
                                 InsertH.IsPrined = False
                                 InsertH.IsPayed = False
                                 InsertH.CreatedBy = user

@@ -29,8 +29,6 @@ Namespace Trust
         Public Property Total As Nullable(Of Decimal)
         Public Property From_Date As Nullable(Of Date)
         Public Property Status As String
-        Public Property Signature_Name As String
-        Public Property Signature_Title As String
         Public Property PerMonth As Nullable(Of Integer)
         Public Property Published_Date As Nullable(Of Date)
         Public Property IsPrined As Nullable(Of Boolean)
@@ -44,14 +42,20 @@ Namespace Trust
         Public Property ModifiedDate As Nullable(Of Date)
         Public Property ModifiedBy As Nullable(Of Integer)
         Public Property IsDeleted As Boolean
+        Public Property City_ID As Nullable(Of Integer)
+        Public Property User_Car As String
+        Public Property Faktur_Pajak As String
+        Public Property Signature_ID As Nullable(Of Integer)
     
-        Public Overridable Property Tr_InvoiceDetails As ICollection(Of Tr_InvoiceDetails) = New HashSet(Of Tr_InvoiceDetails)
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Cn_Users2 As Cn_Users
         Public Overridable Property Cn_Users3 As Cn_Users
+        Public Overridable Property Cn_Users4 As Cn_Users
+        Public Overridable Property Ms_Citys As Ms_Citys
         Public Overridable Property Ms_Customers As Ms_Customers
         Public Overridable Property Tr_Contracts As Tr_Contracts
+        Public Overridable Property Tr_InvoiceDetails As ICollection(Of Tr_InvoiceDetails) = New HashSet(Of Tr_InvoiceDetails)
     
     End Class
 

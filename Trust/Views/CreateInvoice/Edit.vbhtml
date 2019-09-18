@@ -27,19 +27,6 @@ End Code
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(Function(model) model.Penerima, htmlAttributes:=New With {.class = "control-label col-md-2"})
-        <div class="col-md-10">
-            @Html.EditorFor(Function(model) model.Penerima, New With {.htmlAttributes = New With {.class = "form-control", .readonly = "readonly"}})
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(Function(model) model.Jabatan, htmlAttributes:=New With {.class = "control-label col-md-2"})
-        <div class="col-md-10">
-            @Html.EditorFor(Function(model) model.Jabatan, New With {.htmlAttributes = New With {.class = "form-control", .readonly = "readonly"}})
-        </div>
-    </div>
-
-    <div class="form-group">
         @Html.Label("Contract", htmlAttributes:=New With {.class = "control-label col-md-2"})
         <div class="col-md-10">
             @Html.RadioButtonFor(Function(x) x.Status, "Contract", New With {.htmlAttributes = New With {.class = "form-control"}})
@@ -65,17 +52,24 @@ End Code
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(Function(model) model.Signature_Name, htmlAttributes:=New With {.class = "control-label col-md-2"})
+        @Html.LabelFor(Function(model) model.User_Car, htmlAttributes:=New With {.class = "control-label col-md-2"})
         <div class="col-md-10">
-            @Html.EditorFor(Function(model) model.Signature_Name, New With {.htmlAttributes = New With {.class = "form-control"}})
-            @Html.ValidationMessageFor(Function(model) model.Signature_Name, "", New With {.class = "text-danger"})
+            @Html.EditorFor(Function(model) model.User_Car, New With {.htmlAttributes = New With {.class = "form-control"}})
+            @Html.ValidationMessageFor(Function(model) model.User_Car, "", New With {.class = "text-danger"})
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(Function(model) model.Signature_Title, htmlAttributes:=New With {.class = "control-label col-md-2"})
+        @Html.LabelFor(Function(model) model.City_ID, htmlAttributes:=New With {.class = "control-label col-md-2"})
         <div class="col-md-10">
-            @Html.EditorFor(Function(model) model.Signature_Title, New With {.htmlAttributes = New With {.class = "form-control"}})
-            @Html.ValidationMessageFor(Function(model) model.Signature_Title, "", New With {.class = "text-danger"})
+            @Html.DropDownList("City_ID", Nothing, htmlAttributes:=New With {.class = "form-control"})
+            @Html.ValidationMessageFor(Function(model) model.City_ID, "", New With {.class = "text-danger"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(Function(model) model.Signature_ID, htmlAttributes:=New With {.class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.DropDownList("Signature_ID", Nothing, "Please select", htmlAttributes:=New With {.class = "form-control"})
+            @Html.ValidationMessageFor(Function(model) model.Signature_ID, "", New With {.class = "text-danger"})
         </div>
     </div>
     <table id="detailsTable" class="table">
@@ -231,8 +225,9 @@ End Using
                 Customer_ID: $("#Customer_ID").val(),
                 Status: $("#Status").val(),
                 From_Date: $("#From_Date").val(),
-                Signature_Name: $("#Signature_Name").val(),
-                Signature_Title: $("#Signature_Title").val()
+                Signature_ID : $("#Signature_ID").val(),
+                City_ID: $("#City_ID").val(),
+                User_Car: $("#User_Car").val()
             });
 
             var data = JSON.stringify({

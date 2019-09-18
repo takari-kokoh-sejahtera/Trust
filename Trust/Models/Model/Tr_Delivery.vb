@@ -22,7 +22,7 @@ Public Class Tr_Delivery
     <Required>
     Public Property Driver_Allocated As Boolean
     <Display(Name:="Driver Name")>
-    Public Property Driver_ID As String
+    Public Property Driver_ID As Nullable(Of Integer)
     <Display(Name:="BSTK Date")>
     <Required>
     <DataType(DataType.Date)>

@@ -3,18 +3,20 @@
 Public Class Tr_Invoice
 
     Public Property CreateInvoice_ID As Integer
+    Public Property Penerima As String
+    Public Property Jabatan As String
     <Display(Name:="Contract No")>
     Public Property Contract_No As String
     <Display(Name:="Company Group Name")>
     Public Property CompanyGroup_Name As String
     <Display(Name:="Company Name")>
     Public Property Company_Name As String
-    Public Property Penerima As String
-    Public Property Jabatan As String
+    <Display(Name:="User")>
+    Public Property User_Car As String
+    <Display(Name:="Area")>
+    Public Property City_ID As String
     <Display(Name:="Signature Name")>
-    Public Property Signature_Name As String
-    <Display(Name:="Signature Title")>
-    Public Property Signature_Title As String
+    Public Property Signature_ID As Nullable(Of Integer)
     Public Property Customer_ID As Nullable(Of Integer)
     Public Property Status As String
     <Display(Name:="From Date")>
