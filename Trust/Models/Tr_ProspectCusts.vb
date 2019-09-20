@@ -44,12 +44,12 @@ Namespace Trust
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Ms_Citys As Ms_Citys
         Public Overridable Property Ms_Customer_CompanyGroups As Ms_Customer_CompanyGroups
-        Public Overridable Property Ms_Customers As Ms_Customers
         Public Overridable Property Tr_ApplicationPOs As ICollection(Of Tr_ApplicationPOs) = New HashSet(Of Tr_ApplicationPOs)
         Public Overridable Property Tr_ApprovalPOs As ICollection(Of Tr_ApprovalPOs) = New HashSet(Of Tr_ApprovalPOs)
         Public Overridable Property Tr_ProspectCustDetails As ICollection(Of Tr_ProspectCustDetails) = New HashSet(Of Tr_ProspectCustDetails)
         Public Overridable Property Tr_ProspectCustHistorys As ICollection(Of Tr_ProspectCustHistorys) = New HashSet(Of Tr_ProspectCustHistorys)
         Public Overridable Property Tr_Quotations As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
+        Public Overridable Property Ms_Customers As Ms_Customers
     
     End Class
 

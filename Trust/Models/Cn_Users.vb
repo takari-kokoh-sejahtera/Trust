@@ -173,8 +173,6 @@ Namespace Trust
         Public Overridable Property Tr_ApprovalApps9 As ICollection(Of Tr_ApprovalApps) = New HashSet(Of Tr_ApprovalApps)
         Public Overridable Property Tr_ApprovalApps10 As ICollection(Of Tr_ApprovalApps) = New HashSet(Of Tr_ApprovalApps)
         Public Overridable Property Tr_ApprovalApps11 As ICollection(Of Tr_ApprovalApps) = New HashSet(Of Tr_ApprovalApps)
-        Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
-        Public Overridable Property Ms_Customers1 As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
         Public Overridable Property Tr_ProspectCusts1 As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
         Public Overridable Property Tr_ApplicationHeaders As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
@@ -199,6 +197,8 @@ Namespace Trust
         Public Overridable Property Tr_Invoices2 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
         Public Overridable Property Tr_Invoices3 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
         Public Overridable Property Tr_Invoices4 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
+        Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
+        Public Overridable Property Ms_Customers1 As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
     
     End Class
 

@@ -53,9 +53,9 @@ Namespace Trust
         Public Overridable Property Cn_Users3 As Cn_Users
         Public Overridable Property Cn_Users4 As Cn_Users
         Public Overridable Property Ms_Citys As Ms_Citys
-        Public Overridable Property Ms_Customers As Ms_Customers
         Public Overridable Property Tr_Contracts As Tr_Contracts
         Public Overridable Property Tr_InvoiceDetails As ICollection(Of Tr_InvoiceDetails) = New HashSet(Of Tr_InvoiceDetails)
+        Public Overridable Property Ms_Customers As Ms_Customers
     
     End Class
 

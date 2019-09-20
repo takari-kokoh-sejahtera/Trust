@@ -23,8 +23,8 @@ Namespace Trust
     
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
-        Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
+        Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
     
     End Class
 
