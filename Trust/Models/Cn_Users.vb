@@ -175,8 +175,6 @@ Namespace Trust
         Public Overridable Property Tr_ApprovalApps11 As ICollection(Of Tr_ApprovalApps) = New HashSet(Of Tr_ApprovalApps)
         Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
         Public Overridable Property Tr_ProspectCusts1 As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
-        Public Overridable Property Tr_ApplicationHeaders As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
-        Public Overridable Property Tr_ApplicationHeaders1 As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
         Public Overridable Property Tr_Applications As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
         Public Overridable Property Tr_Quotations As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)
         Public Overridable Property Tr_Quotations1 As ICollection(Of Tr_Quotations) = New HashSet(Of Tr_Quotations)

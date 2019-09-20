@@ -265,18 +265,12 @@
         <AssociationConnector Association="TrustModel.FK__Tr_Approv__Prosp__0EEE1503" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__1F63A897" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Prosp__251C81ED" />
-        <EntityTypeShape EntityType="TrustModel.Tr_ApplicationHeaders" Width="1.5" PointX="59" PointY="23.875" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Creat__75F77EB0" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appro__090A5324" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" />
         <EntityTypeShape EntityType="TrustModel.Tr_Applications" Width="1.5" PointX="64.25" PointY="19.875" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__FillO__39E294A9" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Locat__0603C947" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Plat___6CA31EA0" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Rent___6BAEFA67" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appli__0F6D37F0" />
-        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appli__77DFC722" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appro__69C6B1F5" />
         <AssociationConnector Association="TrustModel.FK__Tr_Applic__Quota__6ABAD62E" />
         <EntityTypeShape EntityType="TrustModel.Tr_Quotations" Width="1.5" PointX="46.5" PointY="30.375" />
@@ -341,6 +335,10 @@
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Custo__30641767" />
         <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Custo__22EA20B8" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3" />
+        <EntityTypeShape EntityType="TrustModel.Tr_ApplicationHeaders" Width="1.5" PointX="62" PointY="22.375" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appli__77DFC722" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Applic__Appro__090A5324" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
