@@ -12,7 +12,7 @@ End Code
         <h4>Vehicle</h4>
         <hr />
         @Html.ValidationSummary(True, "", New With {.class = "text-danger"})
-        @Html.HiddenFor(Function(x) x.ContractDetail_ID)
+        @Html.HiddenFor(Function(x) x.ApplicationPO_ID)
         @Html.HiddenFor(Function(x) x.Model_ID)
         <div class="row">
             <div class="col-md-6">
@@ -200,6 +200,58 @@ End Using
         $(".price").priceFormat({
             thousamdSeparator: ",",
             centsLimit: 0
+        });
+
+         function saveOrder(data) {
+            return $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: "@Url.Action("VehicleFromContract", "Vehicle")",
+                data: data,
+                success: function (data) {
+                    if (data.result != "Error") {
+                        alert("Success! Create Invoice Is Complete!\n" + data.result);
+                        window.location.href = '@Url.Action("IndexInputAsset", "Vehicle")'
+                    } else { alert(data.message)}
+                },
+                error: function () {
+                    alert("Error!")
+                }
+            });
+        }
+        //Collect Multiple Order List For Pass To Controller
+        $("#Create").click(function (e) {
+            e.preventDefault();
+
+             var data = JSON.stringify({
+                license_no : $('#license_no').val(),
+                Tmp_Plat : $('#Tmp_Plat').val(),
+                Model_ID : $('#Model_ID').val(),
+                color : $('#color').val(),
+                year : $('#year').val(),
+                chassis_no : $('#chassis_no').val(),
+                machine_no : $('#machine_no').val(),
+                comment : $('#comment').val(),
+                status : $('#status').val(),
+                STNK_No : $('#STNK_No').val(),
+                STNK_Name : $('#STNK_Name').val(),
+                STNK_Address : $('#STNK_Address').val(),
+                CC : $('#CC').val(),
+                Fuel : $('#Fuel').val(),
+                DO_date : $('#DO_date').val(),
+                Vehicle_Come : $('#Vehicle_Come').val(),
+                STNK_Receipt : $('#TSTNK_Receipt').val(),
+                Dealer : $('#Dealer').val()
+              
+            });
+
+         
+            $.when(saveOrder(data)).success.then(function (response) {
+                console.log(response);
+            }).fail(function (err) {
+                console.log(err);
+            });
         });
     </script>
 End Section

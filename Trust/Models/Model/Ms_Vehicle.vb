@@ -1,7 +1,9 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 
 Public Class Ms_Vehicle
-    Public Property Vehicle_id As Integer
+    Public Property ApplicationPO_ID As Nullable(Of Integer)
+
+    Public Property Vehicle_id As Nullable(Of Integer)
     Public Property ContractDetail_ID As Nullable(Of Integer)
     <Display(Name:="Company Group Name")>
     Public Property CompanyGroup_Name As String
@@ -201,7 +203,7 @@ Public Class Ms_Vehicle
             Return _harga_Beli
         End Get
         Set(ByVal value As Nullable(Of Decimal))
-            _Harga_BeliStr = CType(If(value, 0), Nullable(Of Double))
+            _harga_BeliStr = CType(If(value, 0), Nullable(Of Double))
             _harga_Beli = value
         End Set
     End Property

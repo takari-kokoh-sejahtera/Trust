@@ -578,7 +578,10 @@ eror:
                          Where C.IsChecked = True And B.Contract_ID IsNot Nothing And A.Qty <> D.Count
                          Order By A.CreatedDate Descending
                          Select D.Count, A.ApplicationPO_ID, B.CompanyGroup_Name, B.Company_Name, B.Brand_Name, B.Vehicle, A.CreatedDate, A.Qty, C.Dealer_ID).
-                Select(Function(x) New Tr_ApplicationPO_InputAsset With {.ApplicationPO_ID = x.ApplicationPO_ID, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .Brand_Name = x.Brand_Name, .Vehicle = x.Vehicle, .Qty = x.Qty, .Dealer = db.Ms_Dealers.Where(Function(w) w.Dealer_ID = x.Dealer_ID).Select(Function(t) t.Dealer_Name).FirstOrDefault(), .CreatedDate = x.CreatedDate, .QtyInput = x.Count})
+                Select(Function(x) New Tr_ApplicationPO_InputAsset With {.ApplicationPO_ID = x.ApplicationPO_ID, .CompanyGroup_Name = x.CompanyGroup_Name,
+                .Company_Name = x.Company_Name, .Brand_Name = x.Brand_Name, .Vehicle = x.Vehicle, .Qty = x.Qty,
+                .Dealer = db.Ms_Dealers.Where(Function(w) w.Dealer_ID = x.Dealer_ID).Select(Function(t) t.Dealer_Name).FirstOrDefault(),
+                .CreatedDate = x.CreatedDate, .QtyInput = x.Count})
             If Not String.IsNullOrEmpty(searchString) Then
                 Query = Query.Where(Function(s) s.CompanyGroup_Name.Contains(searchString) OrElse s.Company_Name.Contains(searchString) OrElse s.Brand_Name.Contains(searchString) OrElse s.Vehicle.Contains(searchString) OrElse s.Dealer.Contains(searchString))
             End If
@@ -612,9 +615,10 @@ eror:
             Dim Query = (From A In db.Tr_ApplicationPOs
                          Join B In db.V_ProspectCustDetails On A.ProspectCustomerDetail_ID Equals B.ProspectCustomerDetail_ID
                          Join C In db.Tr_ApplicationPODetails On A.ApplicationPO_ID Equals C.ApplicationPO_ID
+                         Where A.ApplicationPO_ID = id
                          Order By A.CreatedDate Descending
                          Select B.CompanyGroup_Name, B.Company_Name, B.ApplicationPO_No, B.Brand_Name, B.Vehicle, A.CreatedDate, B.Model_ID, B.Brand_ID, A.Color, C.Dealer_ID).
-                         Select(Function(x) New Ms_Vehicle With {.CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .PO_No = x.ApplicationPO_No,
+                         Select(Function(x) New Ms_Vehicle With {.ApplicationPO_ID = id, .CompanyGroup_Name = x.CompanyGroup_Name, .Company_Name = x.Company_Name, .PO_No = x.ApplicationPO_No,
                          .Brand_Name = x.Brand_Name, .Model = x.Vehicle, .Model_ID = x.Model_ID, .Brand_ID = x.Brand_ID, .color = x.Color, .Dealer = db.Ms_Dealers.Where(Function(w) w.Dealer_ID = x.Dealer_ID).Select(Function(t) t.Dealer_Name).FirstOrDefault()}).FirstOrDefault
             If IsNothing(Query) Then
                 Return HttpNotFound()
@@ -627,19 +631,27 @@ eror:
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function VehicleFromContract(<Bind(Include:="CompanyGroup_Name,Company_Name,Vehicle_id,ContractDetail_ID,license_no,Tmp_Plat,Brand_ID,Brand_Name,Model_ID,Model,type,color,year,chassis_no,machine_no,title_no,serial_no,registration_no,registration_expdate,insurance_no,discount,discountStr,price,priceStr,acquisition,acquisitionStr,coverage,coverageStr,comment,status,remove,date_insurance_start,date_insurance_end,date_insurance_mod,date_book,STNK_No,STNK_Publish,STNK_Yearly_Renewal,STNK_5Year_Renewal,STNK_Month,STNK_Name,STNK_Address,CC,Fuel,NoUrutBuku,DO_date,Vehicle_Come,STNK_Receipt,PO_No,Harga_Beli,Harga_BeliStr,Kwitansi_Date,Kwitansi_No,FakturPajak,FakturPajak_No,VAT,Dealer,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,IsDeleted")> ByVal ms_Vehicle As Ms_Vehicle) As ActionResult
+        Function VehicleFromContract(<Bind(Include:="ApplicationPO_ID,CompanyGroup_Name,Company_Name,Vehicle_id,ContractDetail_ID,license_no,Tmp_Plat,Brand_ID,Brand_Name,Model_ID,Model,type,color,year,chassis_no,machine_no,title_no,serial_no,registration_no,registration_expdate,insurance_no,discount,discountStr,price,priceStr,acquisition,acquisitionStr,coverage,coverageStr,comment,status,remove,date_insurance_start,date_insurance_end,date_insurance_mod,date_book,STNK_No,STNK_Publish,STNK_Yearly_Renewal,STNK_5Year_Renewal,STNK_Month,STNK_Name,STNK_Address,CC,Fuel,NoUrutBuku,DO_date,Vehicle_Come,STNK_Receipt,PO_No,Harga_Beli,Harga_BeliStr,Kwitansi_Date,Kwitansi_No,FakturPajak,FakturPajak_No,VAT,Dealer,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,IsDeleted")> ByVal ms_Vehicle As Ms_Vehicle) As ActionResult
             Dim user As Integer
 #If Not DEBUG Then
             If ((Session("ID")) Is Nothing) Then Return RedirectToAction("Login", "Home") Else user = Session("ID").ToString
 #Else
             user = 1
 #End If
+            Dim prosCustDet = db.Tr_ApplicationPOs.Where(Function(x) x.IsDeleted = False And x.ApplicationPO_ID = ms_Vehicle.ApplicationPO_ID).Select(Function(z) z.ProspectCustomerDetail_ID).FirstOrDefault()
+            Dim appID = db.V_ProspectCustDetails.Where(Function(x) x.ProspectCustomerDetail_ID = prosCustDet).Select(Function(z) z.Application_ID).FirstOrDefault()
+
             If ms_Vehicle.license_no = Nothing And ms_Vehicle.Tmp_Plat = Nothing Then
                 ModelState.AddModelError("Tmp_Plat", "Must Input Tmp Plat")
+            ElseIf Not db.Tr_ContractDetails.Where(Function(x) x.IsDeleted = False And x.Application_ID = appID And x.Vehicle_ID Is Nothing).Any Then
+                ModelState.AddModelError("", "Don't have Contract empty")
             End If
+
             If ModelState.IsValid Then
                 Using d = db.Database.BeginTransaction
                     Try
+                        ms_Vehicle.ContractDetail_ID = db.Tr_ContractDetails.Where(Function(x) x.IsDeleted = False And x.Application_ID = appID And x.Vehicle_ID Is Nothing).Select(Function(q) q.ContractDetail_ID).FirstOrDefault()
+
                         Dim vehicle As New Ms_Vehicles
                         vehicle.license_no = ms_Vehicle.license_no
                         vehicle.Tmp_Plat = ms_Vehicle.Tmp_Plat
@@ -667,12 +679,12 @@ eror:
                         db.Ms_Vehicles.Add(vehicle)
                         db.SaveChanges()
 
-                        'update di Tr_ContractDetails
+                        'update di Tr_ContractDetails 
                         Dim ConDet = db.Tr_ContractDetails.Where(Function(x) x.ContractDetail_ID = ms_Vehicle.ContractDetail_ID).FirstOrDefault
                         ConDet.Vehicle_ID = vehicle.Vehicle_id
+                        ConDet.ApplicationPO_ID = ms_Vehicle.ApplicationPO_ID
                         ConDet.ModifiedBy = user
                         ConDet.ModifiedDate = DateTime.Now
-
                         db.SaveChanges()
                         d.Commit()
                         Return RedirectToAction("IndexInputAsset")
