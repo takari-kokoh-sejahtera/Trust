@@ -60,6 +60,8 @@ Namespace Trust
         Public Overridable Property Tr_Applications As ICollection(Of Tr_Applications) = New HashSet(Of Tr_Applications)
         Public Overridable Property Tr_Approvals As Tr_Approvals
         Public Overridable Property Tr_ApprovalApps As ICollection(Of Tr_ApprovalApps) = New HashSet(Of Tr_ApprovalApps)
+        Public Overridable Property Cn_Users As Cn_Users
+        Public Overridable Property Cn_Users1 As Cn_Users
     
     End Class
 

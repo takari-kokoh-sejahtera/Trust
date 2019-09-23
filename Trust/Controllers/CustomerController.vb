@@ -266,6 +266,7 @@ Namespace Controllers
             ViewBag.CompanyGroup_ID = New SelectList(db.Ms_Customer_CompanyGroups.Where(Function(x) x.IsDeleted = False).OrderBy(Function(x) x.CompanyGroup_Name), "CompanyGroup_ID", "CompanyGroup_Name")
             ViewBag.City_ID = New SelectList(db.Ms_Citys.Where(Function(x) x.isDeleted = False).OrderBy(Function(x) x.City), "City_ID", "City")
             ViewBag.Credit_Rating = New SelectList(db.Ms_ProjRatingMatrixs.GroupBy(Function(x) x.Credit_Rating), "Key", "Key")
+            ViewBag.CodeTransaction_ID = New SelectList(db.Ms_Customer_CodeTransactions.Where(Function(x) x.IsDeleted = False), "CodeTransaction_ID", "CodeTransaction")
             Return View()
         End Function
 
@@ -274,12 +275,13 @@ Namespace Controllers
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="Customer_ID,CompanyGroup_ID,Company_Name,PT,Tbk,Address,Line_of_Business,City_ID,Phone,Email,PIC_Name,PIC_Phone,PIC_Email,Notes,Customer_Class,Credit_Rating,Authorized_Capital,Authorized_CapitalStr,Authorized_Signer_Name1,Authorized_Signer_Position1,Authorized_Signer_Name2,Authorized_Signer_Position2,IntroducedBy,NPWP,Account,Bank,IsStamped,Status,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,IsDeleted")> ByVal ms_Customers As Ms_Customer) As ActionResult
+        Function Create(<Bind(Include:="Customer_ID,CompanyGroup_ID,CodeTransaction_ID,Company_Name,PT,Tbk,Address,Line_of_Business,City_ID,Phone,Email,PIC_Name,PIC_Phone,PIC_Email,Notes,Customer_Class,Credit_Rating,Authorized_Capital,Authorized_CapitalStr,Authorized_Signer_Name1,Authorized_Signer_Position1,Authorized_Signer_Name2,Authorized_Signer_Position2,IntroducedBy,NPWP,Account,Bank,IsStamped,Status,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,IsDeleted")> ByVal ms_Customers As Ms_Customer) As ActionResult
             If ModelState.IsValid Then
                 Dim user As String
                 If ((Session("ID")) Is Nothing) Then Return RedirectToAction("Login", "Home") Else user = Session("ID").ToString
                 Dim ms_Customer As New Ms_Customers
                 ms_Customer.CompanyGroup_ID = ms_Customers.CompanyGroup_ID
+                ms_Customer.CodeTransaction_ID = ms_Customers.CodeTransaction_ID
                 ms_Customer.Company_Name = ms_Customers.Company_Name
                 ms_Customer.PT = ms_Customers.PT
                 ms_Customer.Tbk = ms_Customers.Tbk
@@ -349,7 +351,8 @@ Namespace Controllers
 
             ViewBag.CompanyGroup_ID = New SelectList(db.Ms_Customer_CompanyGroups.OrderBy(Function(x) x.CompanyGroup_Name), "CompanyGroup_ID", "CompanyGroup_Name", ms_Customers.CompanyGroup_ID)
             ViewBag.City_ID = New SelectList(db.Ms_Citys.Where(Function(x) x.isDeleted = False).OrderBy(Function(x) x.City), "City_ID", "City", ms_Customers.City_ID)
-            ViewBag.Credit_Rating = New SelectList(db.Ms_ProjRatingMatrixs.GroupBy(Function(x) x.Credit_Rating), "Key", "Key")
+            ViewBag.Credit_Rating = New SelectList(db.Ms_ProjRatingMatrixs.GroupBy(Function(x) x.Credit_Rating), "Key", "Key", ms_Customers.Credit_Rating)
+            ViewBag.CodeTransaction_ID = New SelectList(db.Ms_Customer_CodeTransactions.Where(Function(x) x.IsDeleted = False), "CodeTransaction_ID", "CodeTransaction", ms_Customers.CodeTransaction_ID)
             Return View(ms_Customers)
         End Function
         ' GET: Customer/Edit/5
@@ -401,6 +404,7 @@ Namespace Controllers
             Dim ms_Customer As New Ms_Customer
             ms_Customer.Customer_ID = ms_Customers.Customer_ID
             ms_Customer.CompanyGroup_ID = ms_Customers.CompanyGroup_ID
+            ms_Customer.CodeTransaction_ID = ms_Customers.CodeTransaction_ID
             ms_Customer.Company_Name = ms_Customers.Company_Name
             ms_Customer.PT = ms_Customers.PT
             ms_Customer.Tbk = ms_Customers.Tbk
@@ -452,6 +456,7 @@ Namespace Controllers
             ViewBag.CompanyGroup_ID = New SelectList(db.Ms_Customer_CompanyGroups.Where(Function(x) x.IsDeleted = False).OrderBy(Function(x) x.CompanyGroup_Name), "CompanyGroup_ID", "CompanyGroup_Name", ms_Customers.CompanyGroup_ID)
             ViewBag.City_ID = New SelectList(db.Ms_Citys.Where(Function(x) x.isDeleted = False).OrderBy(Function(x) x.City), "City_ID", "City", ms_Customers.City_ID)
             ViewBag.Credit_Rating = New SelectList(db.Ms_ProjRatingMatrixs.GroupBy(Function(x) x.Credit_Rating).ToList, "Key", "Key", ms_Customers.Credit_Rating)
+            ViewBag.CodeTransaction_ID = New SelectList(db.Ms_Customer_CodeTransactions.Where(Function(x) x.IsDeleted = False), "CodeTransaction_ID", "CodeTransaction", ms_Customers.CodeTransaction_ID)
             Return View(ms_Customer)
         End Function
 
@@ -460,7 +465,7 @@ Namespace Controllers
         'more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="Customer_ID,CompanyGroup_ID,Company_Name,PT,Tbk,Address,Line_of_Business,City_ID,Phone,Email,PIC_Name,PIC_Phone,PIC_Email,Notes,Customer_Class,Credit_Rating,Authorized_Capital,Authorized_CapitalStr,Authorized_Signer_Name1,Authorized_Signer_Position1,Authorized_Signer_Name2,Authorized_Signer_Position2,IntroducedBy,NPWP,Account,Bank,IsStamped,Status,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,IsDeleted")> ByVal ms_Customers As Ms_Customer) As ActionResult
+        Function Edit(<Bind(Include:="Customer_ID,CompanyGroup_ID,CodeTransaction_ID,Company_Name,PT,Tbk,Address,Line_of_Business,City_ID,Phone,Email,PIC_Name,PIC_Phone,PIC_Email,Notes,Customer_Class,Credit_Rating,Authorized_Capital,Authorized_CapitalStr,Authorized_Signer_Name1,Authorized_Signer_Position1,Authorized_Signer_Name2,Authorized_Signer_Position2,IntroducedBy,NPWP,Account,Bank,IsStamped,Status,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,IsDeleted")> ByVal ms_Customers As Ms_Customer) As ActionResult
             Dim user As String
             If ((Session("ID")) Is Nothing) Then Return RedirectToAction("Login", "Home") Else user = Session("ID").ToString
             If ModelState.IsValid Then
@@ -470,6 +475,7 @@ Namespace Controllers
                 End If
 
                 customer.CompanyGroup_ID = ms_Customers.CompanyGroup_ID
+                customer.CodeTransaction_ID = ms_Customers.CodeTransaction_ID
                 customer.Company_Name = ms_Customers.Company_Name
                 customer.Address = ms_Customers.Address
                 customer.City_ID = ms_Customers.City_ID
@@ -527,6 +533,7 @@ Namespace Controllers
             ViewBag.CompanyGroup_ID = New SelectList(db.Ms_Customer_CompanyGroups.OrderBy(Function(x) x.CompanyGroup_Name), "CompanyGroup_ID", "CompanyGroup_Name", ms_Customers.CompanyGroup_ID)
             ViewBag.City_ID = New SelectList(db.Ms_Citys.Where(Function(x) x.isDeleted = False).OrderBy(Function(x) x.City), "City_ID", "City", ms_Customers.City_ID)
             ViewBag.Credit_Rating = New SelectList(db.Ms_ProjRatingMatrixs.GroupBy(Function(x) x.Credit_Rating), "Key", "Key", ms_Customers.Credit_Rating)
+            ViewBag.CodeTransaction_ID = New SelectList(db.Ms_Customer_CodeTransactions.Where(Function(x) x.IsDeleted = False), "CodeTransaction_ID", "CodeTransaction", ms_Customers.CodeTransaction_ID)
             Return View(ms_Customers)
         End Function
 

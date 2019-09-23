@@ -15,6 +15,7 @@ Namespace Trust
     Partial Public Class Ms_Customers
         Public Property Customer_ID As Integer
         Public Property CompanyGroup_ID As Nullable(Of Integer)
+        Public Property CodeTransaction_ID As Nullable(Of Integer)
         Public Property Company_Name As String
         Public Property PT As String
         Public Property Tbk As Boolean
@@ -47,10 +48,11 @@ Namespace Trust
         Public Property ModifiedDate As Nullable(Of Date)
         Public Property ModifiedBy As Nullable(Of Integer)
         Public Property IsDeleted As Boolean
-    
+
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Ms_Citys As Ms_Citys
+        Public Overridable Property Ms_Customer_CodeTransactions As Ms_Customer_CodeTransactions
         Public Overridable Property Ms_Customer_CompanyGroups As Ms_Customer_CompanyGroups
         Public Overridable Property Ms_Customer_KYCs As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
         Public Overridable Property Tr_Invoices As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)

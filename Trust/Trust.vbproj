@@ -536,6 +536,9 @@
     <Compile Include="Models\Ms_Customer_BusinessLicenses.vb">
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ms_Customer_CodeTransactions.vb">
+      <DependentUpon>EntiryDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Ms_Customer_CompanyGroups.vb">
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>

@@ -4,6 +4,8 @@ Public Class Ms_Customer
     Public Property Customer_ID As Integer
     <Required>
     Public Property CompanyGroup_ID As Nullable(Of Integer)
+    <Display(Name:="Code Transaction")>
+    Public Property CodeTransaction_ID As Nullable(Of Integer)
     <Required>
     Public Property Company_Name As String
     Public Property PT As String

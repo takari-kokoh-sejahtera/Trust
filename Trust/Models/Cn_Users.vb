@@ -195,8 +195,12 @@ Namespace Trust
         Public Overridable Property Tr_Invoices2 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
         Public Overridable Property Tr_Invoices3 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
         Public Overridable Property Tr_Invoices4 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
+        Public Overridable Property Ms_Customer_CodeTransactions As ICollection(Of Ms_Customer_CodeTransactions) = New HashSet(Of Ms_Customer_CodeTransactions)
+        Public Overridable Property Ms_Customer_CodeTransactions1 As ICollection(Of Ms_Customer_CodeTransactions) = New HashSet(Of Ms_Customer_CodeTransactions)
         Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Ms_Customers1 As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
+        Public Overridable Property Tr_ApplicationHeaders As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
+        Public Overridable Property Tr_ApplicationHeaders1 As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
     
     End Class
 

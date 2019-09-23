@@ -275,6 +275,19 @@
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Ms_Customer_CodeTransactions">
+          <Key>
+            <PropertyRef Name="CodeTransaction_ID" />
+          </Key>
+          <Property Name="CodeTransaction_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="CodeTransaction" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Ms_Customer_CompanyGroups">
           <Key>
             <PropertyRef Name="CompanyGroup_ID" />
@@ -536,6 +549,7 @@
           </Key>
           <Property Name="Customer_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CompanyGroup_ID" Type="int" />
+          <Property Name="CodeTransaction_ID" Type="int" />
           <Property Name="Company_Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="PT" Type="varchar" MaxLength="50" />
           <Property Name="Tbk" Type="bit" Nullable="false" />
@@ -550,7 +564,7 @@
           <Property Name="Customer_Class" Type="varchar" MaxLength="20" />
           <Property Name="Credit_Rating" Type="varchar" MaxLength="10" />
           <Property Name="Line_of_Business" Type="varchar" MaxLength="100" />
-          <Property Name="Authorized_Capital" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Authorized_Capital" Type="decimal" Precision="14" Scale="2" />
           <Property Name="Authorized_Signer_Name1" Type="varchar" MaxLength="100" />
           <Property Name="Authorized_Signer_Position1" Type="varchar" MaxLength="100" />
           <Property Name="Authorized_Signer_Name2" Type="varchar" MaxLength="100" />
@@ -794,7 +808,7 @@
           <Property Name="Contracted_by" Type="varchar" MaxLength="100" />
           <Property Name="Customer_Class" Type="varchar" MaxLength="50" />
           <Property Name="Line_of_Business" Type="varchar" MaxLength="100" />
-          <Property Name="Authorized_Capital" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Authorized_Capital" Type="decimal" Precision="14" Scale="2" />
           <Property Name="Authorized_Signer_Name1" Type="varchar" MaxLength="100" />
           <Property Name="Authorized_Signer_Position1" Type="varchar" MaxLength="100" />
           <Property Name="Authorized_Signer_Name2" Type="varchar" MaxLength="100" />
@@ -1316,7 +1330,7 @@
           <Property Name="Invoice_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Contract_ID" Type="int" />
           <Property Name="Customer_ID" Type="int" />
-          <Property Name="Invoice_No" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Invoice_No" Type="varchar" MaxLength="20" />
           <Property Name="Address" Type="varchar(max)" />
           <Property Name="NPWP" Type="varchar" MaxLength="50" />
           <Property Name="Account" Type="varchar" MaxLength="30" />
@@ -1525,7 +1539,7 @@
           <Property Name="IsEdited" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ApplicationHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ApplicationHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ApplicationHD">
           <Key>
             <PropertyRef Name="ApplicationHeader_ID" />
@@ -1644,7 +1658,7 @@ warning 6002: The table/view 'Trust.dbo.V_ApplicationHD' does not have a primary
           <Property Name="Profit" Type="decimal" Precision="16" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ApplicationPO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ApplicationPO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ApplicationPO">
           <Key>
             <PropertyRef Name="ProspectCustomerDetail_ID" />
@@ -1653,7 +1667,7 @@ warning 6002: The table/view 'Trust.dbo.V_ApplicationPO' does not have a primary
           <Property Name="Qty" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_Approval' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_Approval' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Approval">
           <Key>
             <PropertyRef Name="ApprovalUser_ID" />
@@ -1677,7 +1691,7 @@ warning 6002: The table/view 'Trust.dbo.V_Approval' does not have a primary key 
           <Property Name="Remark" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_CalculateMax' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_CalculateMax' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_CalculateMax">
           <Key>
             <PropertyRef Name="ProspectCustomer_ID" />
@@ -1690,7 +1704,7 @@ warning 6002: The table/view 'Trust.dbo.V_CalculateMax' does not have a primary 
           <Property Name="Assurance_Tick" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ProspectCustDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectCustDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ProspectCustDetails">
           <Key>
             <PropertyRef Name="ProspectCustomerDetail_ID" />
@@ -1752,7 +1766,7 @@ warning 6002: The table/view 'Trust.dbo.V_ProspectCustDetails' does not have a p
           <Property Name="Contract_ID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ProspectCusts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectCusts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ProspectCusts">
           <Key>
             <PropertyRef Name="ProspectCustomer_ID" />
@@ -1826,7 +1840,7 @@ warning 6002: The table/view 'Trust.dbo.V_ProspectCusts' does not have a primary
           <Property Name="IsSetDelivery" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_ProspectHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_ProspectHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ProspectHD">
           <Key>
             <PropertyRef Name="ProspectCustomer_ID" />
@@ -1872,7 +1886,7 @@ warning 6002: The table/view 'Trust.dbo.V_ProspectHD' does not have a primary ke
           <Property Name="IsCalculate" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_QuotationHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_QuotationHD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_QuotationHD">
           <Key>
             <PropertyRef Name="Quotation_ID" />
@@ -1890,7 +1904,7 @@ warning 6002: The table/view 'Trust.dbo.V_QuotationHD' does not have a primary k
           <Property Name="Calculate_ID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_Quotations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Quotations">
           <Key>
             <PropertyRef Name="Quotation_ID" />
@@ -1901,7 +1915,7 @@ warning 6002: The table/view 'Trust.dbo.V_Quotations' does not have a primary ke
           <Property Name="Cost_Price" Type="decimal" Precision="16" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_SetDeliveryQty">
           <Key>
             <PropertyRef Name="Contract_ID" />
@@ -2619,6 +2633,18 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Ms_Custom__CodeT__57F2E5D4">
+          <End Role="Ms_Customer_CodeTransactions" Type="Self.Ms_Customer_CodeTransactions" Multiplicity="0..1" />
+          <End Role="Ms_Customers" Type="Self.Ms_Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ms_Customer_CodeTransactions">
+              <PropertyRef Name="CodeTransaction_ID" />
+            </Principal>
+            <Dependent Role="Ms_Customers">
+              <PropertyRef Name="CodeTransaction_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Ms_Custom__Compa__5165187F">
           <End Role="Ms_Customer_CompanyGroups" Type="Self.Ms_Customer_CompanyGroups" Multiplicity="0..1" />
           <End Role="Ms_Customers" Type="Self.Ms_Customers" Multiplicity="*" />
@@ -2699,6 +2725,18 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
               <PropertyRef Name="User_ID" />
             </Principal>
             <Dependent Role="Ms_Customer_KYC_Commissioners">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ms_Custom__Creat__4B8D0EEF">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="1" />
+          <End Role="Ms_Customer_CodeTransactions" Type="Self.Ms_Customer_CodeTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Ms_Customer_CodeTransactions">
               <PropertyRef Name="CreatedBy" />
             </Dependent>
           </ReferentialConstraint>
@@ -2975,6 +3013,18 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
               <PropertyRef Name="User_ID" />
             </Principal>
             <Dependent Role="Ms_Customer_KYC_Commissioners">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ms_Custom__Modif__4C813328">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Ms_Customer_CodeTransactions" Type="Self.Ms_Customer_CodeTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Ms_Customer_CodeTransactions">
               <PropertyRef Name="ModifiedBy" />
             </Dependent>
           </ReferentialConstraint>
@@ -3375,6 +3425,18 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Tr_Applic__Creat__75F77EB0">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="1" />
+          <End Role="Tr_ApplicationHeaders" Type="Self.Tr_ApplicationHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApplicationHeaders">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Tr_Applic__Creat__79F2F81D">
           <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="1" />
           <End Role="Tr_ApplicationPOs" Type="Self.Tr_ApplicationPOs" Multiplicity="*" />
@@ -3443,6 +3505,18 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
               <PropertyRef Name="User_ID" />
             </Principal>
             <Dependent Role="Tr_ApplicationPODetails">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Applic__Modif__76EBA2E9">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_ApplicationHeaders" Type="Self.Tr_ApplicationHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApplicationHeaders">
               <PropertyRef Name="ModifiedBy" />
             </Dependent>
           </ReferentialConstraint>
@@ -5184,6 +5258,7 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
           <EntitySet Name="Ms_Contract_Signers" EntityType="Self.Ms_Contract_Signers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ms_CostOfFunds" EntityType="Self.Ms_CostOfFunds" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ms_Customer_BusinessLicenses" EntityType="Self.Ms_Customer_BusinessLicenses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ms_Customer_CodeTransactions" EntityType="Self.Ms_Customer_CodeTransactions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ms_Customer_CompanyGroups" EntityType="Self.Ms_Customer_CompanyGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ms_Customer_Identitass" EntityType="Self.Ms_Customer_Identitass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ms_Customer_KYC_AuthorizedSigners" EntityType="Self.Ms_Customer_KYC_AuthorizedSigners" Schema="dbo" store:Type="Tables" />
@@ -5797,6 +5872,10 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             <End Role="Ms_Customer_BusinessLicenses" EntitySet="Ms_Customer_BusinessLicenses" />
             <End Role="Ms_Customer_KYCs" EntitySet="Ms_Customer_KYCs" />
           </AssociationSet>
+          <AssociationSet Name="FK__Ms_Custom__CodeT__57F2E5D4" Association="Self.FK__Ms_Custom__CodeT__57F2E5D4">
+            <End Role="Ms_Customer_CodeTransactions" EntitySet="Ms_Customer_CodeTransactions" />
+            <End Role="Ms_Customers" EntitySet="Ms_Customers" />
+          </AssociationSet>
           <AssociationSet Name="FK__Ms_Custom__Compa__5165187F" Association="Self.FK__Ms_Custom__Compa__5165187F">
             <End Role="Ms_Customer_CompanyGroups" EntitySet="Ms_Customer_CompanyGroups" />
             <End Role="Ms_Customers" EntitySet="Ms_Customers" />
@@ -5824,6 +5903,10 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
           <AssociationSet Name="FK__Ms_Custom__Creat__492FC531" Association="Self.FK__Ms_Custom__Creat__492FC531">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Ms_Customer_KYC_Commissioners" EntitySet="Ms_Customer_KYC_Commissioners" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ms_Custom__Creat__4B8D0EEF" Association="Self.FK__Ms_Custom__Creat__4B8D0EEF">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Ms_Customer_CodeTransactions" EntitySet="Ms_Customer_CodeTransactions" />
           </AssociationSet>
           <AssociationSet Name="FK__Ms_Custom__Creat__4DF47A4E" Association="Self.FK__Ms_Custom__Creat__4DF47A4E">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -5916,6 +5999,10 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
           <AssociationSet Name="FK__Ms_Custom__Modif__4A23E96A" Association="Self.FK__Ms_Custom__Modif__4A23E96A">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Ms_Customer_KYC_Commissioners" EntitySet="Ms_Customer_KYC_Commissioners" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ms_Custom__Modif__4C813328" Association="Self.FK__Ms_Custom__Modif__4C813328">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Ms_Customer_CodeTransactions" EntitySet="Ms_Customer_CodeTransactions" />
           </AssociationSet>
           <AssociationSet Name="FK__Ms_Custom__Modif__4EE89E87" Association="Self.FK__Ms_Custom__Modif__4EE89E87">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -6049,6 +6136,10 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ApplicationPODetails" EntitySet="Tr_ApplicationPODetails" />
           </AssociationSet>
+          <AssociationSet Name="FK__Tr_Applic__Creat__75F77EB0" Association="Self.FK__Tr_Applic__Creat__75F77EB0">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
+          </AssociationSet>
           <AssociationSet Name="FK__Tr_Applic__Creat__79F2F81D" Association="Self.FK__Tr_Applic__Creat__79F2F81D">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ApplicationPOs" EntitySet="Tr_ApplicationPOs" />
@@ -6072,6 +6163,10 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
           <AssociationSet Name="FK__Tr_Applic__Modif__38E44ECF" Association="Self.FK__Tr_Applic__Modif__38E44ECF">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_ApplicationPODetails" EntitySet="Tr_ApplicationPODetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Applic__Modif__76EBA2E9" Association="Self.FK__Tr_Applic__Modif__76EBA2E9">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
           </AssociationSet>
           <AssociationSet Name="FK__Tr_Applic__Modif__7AE71C56" Association="Self.FK__Tr_Applic__Modif__7AE71C56">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7842,6 +7937,28 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             <End Role="Tr_Invoices" EntitySet="Tr_Invoices" />
             <End Role="Tr_InvoiceDetails" EntitySet="Tr_InvoiceDetails" />
           </AssociationSet>
+          <EntitySet Name="Tr_ApplicationHeaders" EntityType="TrustModel.Tr_ApplicationHeaders" />
+          <AssociationSet Name="FK__Tr_Applic__Appli__77DFC722" Association="TrustModel.FK__Tr_Applic__Appli__77DFC722">
+            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
+            <End Role="Tr_Applications" EntitySet="Tr_Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Applic__Appro__090A5324" Association="TrustModel.FK__Tr_Applic__Appro__090A5324">
+            <End Role="Tr_Approvals" EntitySet="Tr_Approvals" />
+            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Approv__Appli__2E3BD7D3" Association="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3">
+            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
+            <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
+          </AssociationSet>
+          <EntitySet Name="Ms_Customer_CodeTransactions" EntityType="TrustModel.Ms_Customer_CodeTransactions" />
+          <AssociationSet Name="FK__Ms_Custom__Creat__44E01160" Association="TrustModel.FK__Ms_Custom__Creat__44E01160">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Ms_Customer_CodeTransactions" EntitySet="Ms_Customer_CodeTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ms_Custom__Modif__45D43599" Association="TrustModel.FK__Ms_Custom__Modif__45D43599">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Ms_Customer_CodeTransactions" EntitySet="Ms_Customer_CodeTransactions" />
+          </AssociationSet>
           <EntitySet Name="Ms_Customers" EntityType="TrustModel.Ms_Customers" />
           <AssociationSet Name="FK__Ms_Custom__Creat__6CF8245B" Association="TrustModel.FK__Ms_Custom__Creat__6CF8245B">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
@@ -7851,8 +7968,20 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Ms_Customers" EntitySet="Ms_Customers" />
           </AssociationSet>
+          <AssociationSet Name="FK__Tr_Applic__Creat__75F77EB0" Association="TrustModel.FK__Tr_Applic__Creat__75F77EB0">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Applic__Modif__76EBA2E9" Association="TrustModel.FK__Tr_Applic__Modif__76EBA2E9">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
+          </AssociationSet>
           <AssociationSet Name="FK_City" Association="TrustModel.FK_City">
             <End Role="Ms_Citys" EntitySet="Ms_Citys" />
+            <End Role="Ms_Customers" EntitySet="Ms_Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ms_Custom__CodeT__57F2E5D4" Association="TrustModel.FK__Ms_Custom__CodeT__57F2E5D4">
+            <End Role="Ms_Customer_CodeTransactions" EntitySet="Ms_Customer_CodeTransactions" />
             <End Role="Ms_Customers" EntitySet="Ms_Customers" />
           </AssociationSet>
           <AssociationSet Name="FK__Ms_Custom__Compa__5165187F" Association="TrustModel.FK__Ms_Custom__Compa__5165187F">
@@ -7870,19 +7999,6 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
           <AssociationSet Name="FK__Tr_Prospe__Custo__1B9317B3" Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3">
             <End Role="Ms_Customers" EntitySet="Ms_Customers" />
             <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
-          </AssociationSet>
-          <EntitySet Name="Tr_ApplicationHeaders" EntityType="TrustModel.Tr_ApplicationHeaders" />
-          <AssociationSet Name="FK__Tr_Applic__Appli__77DFC722" Association="TrustModel.FK__Tr_Applic__Appli__77DFC722">
-            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
-            <End Role="Tr_Applications" EntitySet="Tr_Applications" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Applic__Appro__090A5324" Association="TrustModel.FK__Tr_Applic__Appro__090A5324">
-            <End Role="Tr_Approvals" EntitySet="Tr_Approvals" />
-            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tr_Approv__Appli__2E3BD7D3" Association="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3">
-            <End Role="Tr_ApplicationHeaders" EntitySet="Tr_ApplicationHeaders" />
-            <End Role="Tr_ApprovalApps" EntitySet="Tr_ApprovalApps" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_CalcucationCharFromUser_Result">
@@ -10380,8 +10496,12 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
           <NavigationProperty Name="Tr_Invoices2" Relationship="TrustModel.FK__Tr_Invoic__Payed__3CDEFCE5" FromRole="Cn_Users" ToRole="Tr_Invoices" />
           <NavigationProperty Name="Tr_Invoices3" Relationship="TrustModel.FK__Tr_Invoic__Prine__3BEAD8AC" FromRole="Cn_Users" ToRole="Tr_Invoices" />
           <NavigationProperty Name="Tr_Invoices4" Relationship="TrustModel.FK__Tr_Invoic__Signa__401B5C43" FromRole="Cn_Users" ToRole="Tr_Invoices" />
+          <NavigationProperty Name="Ms_Customer_CodeTransactions" Relationship="TrustModel.FK__Ms_Custom__Creat__44E01160" FromRole="Cn_Users" ToRole="Ms_Customer_CodeTransactions" />
+          <NavigationProperty Name="Ms_Customer_CodeTransactions1" Relationship="TrustModel.FK__Ms_Custom__Modif__45D43599" FromRole="Cn_Users" ToRole="Ms_Customer_CodeTransactions" />
           <NavigationProperty Name="Ms_Customers" Relationship="TrustModel.FK__Ms_Custom__Creat__6CF8245B" FromRole="Cn_Users" ToRole="Ms_Customers" />
           <NavigationProperty Name="Ms_Customers1" Relationship="TrustModel.FK__Ms_Custom__Modif__6DEC4894" FromRole="Cn_Users" ToRole="Ms_Customers" />
+          <NavigationProperty Name="Tr_ApplicationHeaders" Relationship="TrustModel.FK__Tr_Applic__Creat__75F77EB0" FromRole="Cn_Users" ToRole="Tr_ApplicationHeaders" />
+          <NavigationProperty Name="Tr_ApplicationHeaders1" Relationship="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" FromRole="Cn_Users" ToRole="Tr_ApplicationHeaders" />
           </EntityType>
         <Association Name="FK__Cn_Approv__Creat__24885067">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -13978,7 +14098,7 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
           <Property Name="Invoice_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Contract_ID" Type="Int32" />
           <Property Name="Customer_ID" Type="Int32" />
-          <Property Name="Invoice_No" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Invoice_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NPWP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Account" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -14126,12 +14246,142 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Tr_ApplicationHeaders">
+          <Key>
+            <PropertyRef Name="ApplicationHeader_ID" />
+          </Key>
+          <Property Name="ApplicationHeader_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Approval_ID" Type="Int32" />
+          <Property Name="Application_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contract_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Contracted_by" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Line_of_Business" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Authorized_Capital" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="Authorized_Signer_Name1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Authorized_Signer_Position1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Authorized_Signer_Name2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Authorized_Signer_Position2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IntroducedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Expec_Contract_Date" Type="DateTime" Precision="3" />
+          <Property Name="Outstanding_Balance_Application" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="Outstanding_Balance_Group" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="Outstanding_Balance_MUL_Group" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="Outstanding_Balance_Amount" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="Outstanding_Balance_Transaction_FL" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="Outstanding_Balance_Application_FL" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="Outstanding_Balance_Group_FL" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="Outstanding_Balance_MUL_Group_FL" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="Outstanding_Balance_Amount_FL" Type="Decimal" Precision="14" Scale="0" />
+          <Property Name="Run_Application" Type="Int32" />
+          <Property Name="RunContractCompany" Type="Int32" />
+          <Property Name="RunContractGroup" Type="Int32" />
+          <Property Name="Run_Transaction_FL" Type="Int32" />
+          <Property Name="Run_Application_FL" Type="Int32" />
+          <Property Name="RunContractCompany_FL" Type="Int32" />
+          <Property Name="RunContractGroup_FL" Type="Int32" />
+          <Property Name="ApplicationType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PeriodeType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsTruck" Type="Boolean" />
+          <Property Name="IsQuick" Type="Boolean" />
+          <Property Name="IsNotApproved" Type="Boolean" />
+          <Property Name="RemarkNotApproved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Applic__Appli__77DFC722" FromRole="Tr_ApplicationHeaders" ToRole="Tr_Applications" />
+          <NavigationProperty Name="Tr_Approvals" Relationship="TrustModel.FK__Tr_Applic__Appro__090A5324" FromRole="Tr_ApplicationHeaders" ToRole="Tr_Approvals" />
+          <NavigationProperty Name="Tr_ApprovalApps" Relationship="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" FromRole="Tr_ApplicationHeaders" ToRole="Tr_ApprovalApps" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Applic__Creat__75F77EB0" FromRole="Tr_ApplicationHeaders" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" FromRole="Tr_ApplicationHeaders" ToRole="Cn_Users" />
+        </EntityType>
+        <Association Name="FK__Tr_Applic__Appli__77DFC722">
+          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_Applications" Role="Tr_Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ApplicationHeaders">
+              <PropertyRef Name="ApplicationHeader_ID" />
+            </Principal>
+            <Dependent Role="Tr_Applications">
+              <PropertyRef Name="ApplicationHeader_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Applic__Appro__090A5324">
+          <End Type="TrustModel.Tr_Approvals" Role="Tr_Approvals" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_Approvals">
+              <PropertyRef Name="Approval_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApplicationHeaders">
+              <PropertyRef Name="Approval_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Approv__Appli__2E3BD7D3">
+          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tr_ApplicationHeaders">
+              <PropertyRef Name="ApplicationHeader_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApprovalApps">
+              <PropertyRef Name="ApplicationHeader_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Ms_Customer_CodeTransactions">
+          <Key>
+            <PropertyRef Name="CodeTransaction_ID" />
+          </Key>
+          <Property Name="CodeTransaction_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CodeTransaction" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Ms_Custom__Creat__44E01160" FromRole="Ms_Customer_CodeTransactions" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Ms_Custom__Modif__45D43599" FromRole="Ms_Customer_CodeTransactions" ToRole="Cn_Users" />
+          <NavigationProperty Name="Ms_Customers" Relationship="TrustModel.FK__Ms_Custom__CodeT__57F2E5D4" FromRole="Ms_Customer_CodeTransactions" ToRole="Ms_Customers" />
+        </EntityType>
+        <Association Name="FK__Ms_Custom__Creat__44E01160">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
+          <End Type="TrustModel.Ms_Customer_CodeTransactions" Role="Ms_Customer_CodeTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Ms_Customer_CodeTransactions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ms_Custom__Modif__45D43599">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Ms_Customer_CodeTransactions" Role="Ms_Customer_CodeTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Ms_Customer_CodeTransactions">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="Ms_Customers">
           <Key>
             <PropertyRef Name="Customer_ID" />
           </Key>
           <Property Name="Customer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CompanyGroup_ID" Type="Int32" />
+          <Property Name="CodeTransaction_ID" Type="Int32" />
           <Property Name="Company_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="PT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Tbk" Type="Boolean" Nullable="false" />
@@ -14146,7 +14396,7 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
           <Property Name="Customer_Class" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Credit_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Line_of_Business" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Authorized_Capital" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Authorized_Capital" Type="Decimal" Precision="14" Scale="2" />
           <Property Name="Authorized_Signer_Name1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Authorized_Signer_Position1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Authorized_Signer_Name2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -14167,6 +14417,7 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
           <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Ms_Custom__Creat__6CF8245B" FromRole="Ms_Customers" ToRole="Cn_Users" />
           <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Ms_Custom__Modif__6DEC4894" FromRole="Ms_Customers" ToRole="Cn_Users" />
           <NavigationProperty Name="Ms_Citys" Relationship="TrustModel.FK_City" FromRole="Ms_Customers" ToRole="Ms_Citys" />
+          <NavigationProperty Name="Ms_Customer_CodeTransactions" Relationship="TrustModel.FK__Ms_Custom__CodeT__57F2E5D4" FromRole="Ms_Customers" ToRole="Ms_Customer_CodeTransactions" />
           <NavigationProperty Name="Ms_Customer_CompanyGroups" Relationship="TrustModel.FK__Ms_Custom__Compa__5165187F" FromRole="Ms_Customers" ToRole="Ms_Customer_CompanyGroups" />
           <NavigationProperty Name="Ms_Customer_KYCs" Relationship="TrustModel.FK__Ms_Custom__Custo__30641767" FromRole="Ms_Customers" ToRole="Ms_Customer_KYCs" />
           <NavigationProperty Name="Tr_Invoices" Relationship="TrustModel.FK__Tr_Invoic__Custo__22EA20B8" FromRole="Ms_Customers" ToRole="Tr_Invoices" />
@@ -14196,6 +14447,30 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Tr_Applic__Creat__75F77EB0">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
+          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApplicationHeaders">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Applic__Modif__76EBA2E9">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_ApplicationHeaders">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_City">
           <End Type="TrustModel.Ms_Citys" Role="Ms_Citys" Multiplicity="0..1" />
           <End Type="TrustModel.Ms_Customers" Role="Ms_Customers" Multiplicity="*" />
@@ -14205,6 +14480,18 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             </Principal>
             <Dependent Role="Ms_Customers">
               <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ms_Custom__CodeT__57F2E5D4">
+          <End Type="TrustModel.Ms_Customer_CodeTransactions" Role="Ms_Customer_CodeTransactions" Multiplicity="0..1" />
+          <End Type="TrustModel.Ms_Customers" Role="Ms_Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ms_Customer_CodeTransactions">
+              <PropertyRef Name="CodeTransaction_ID" />
+            </Principal>
+            <Dependent Role="Ms_Customers">
+              <PropertyRef Name="CodeTransaction_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -14253,93 +14540,6 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
             </Principal>
             <Dependent Role="Tr_ProspectCusts">
               <PropertyRef Name="CustomerExists_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Tr_ApplicationHeaders">
-          <Key>
-            <PropertyRef Name="ApplicationHeader_ID" />
-          </Key>
-          <Property Name="ApplicationHeader_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Approval_ID" Type="Int32" />
-          <Property Name="Application_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Contract_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Credit_Rating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Contracted_by" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Customer_Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Line_of_Business" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Authorized_Capital" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Authorized_Signer_Name1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Authorized_Signer_Position1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Authorized_Signer_Name2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Authorized_Signer_Position2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IntroducedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Expec_Contract_Date" Type="DateTime" Precision="3" />
-          <Property Name="Outstanding_Balance_Application" Type="Decimal" Precision="14" Scale="0" />
-          <Property Name="Outstanding_Balance_Group" Type="Decimal" Precision="14" Scale="2" />
-          <Property Name="Outstanding_Balance_MUL_Group" Type="Decimal" Precision="14" Scale="2" />
-          <Property Name="Outstanding_Balance_Amount" Type="Decimal" Precision="14" Scale="2" />
-          <Property Name="Outstanding_Balance_Transaction_FL" Type="Decimal" Precision="14" Scale="0" />
-          <Property Name="Outstanding_Balance_Application_FL" Type="Decimal" Precision="14" Scale="0" />
-          <Property Name="Outstanding_Balance_Group_FL" Type="Decimal" Precision="14" Scale="0" />
-          <Property Name="Outstanding_Balance_MUL_Group_FL" Type="Decimal" Precision="14" Scale="0" />
-          <Property Name="Outstanding_Balance_Amount_FL" Type="Decimal" Precision="14" Scale="0" />
-          <Property Name="Run_Application" Type="Int32" />
-          <Property Name="RunContractCompany" Type="Int32" />
-          <Property Name="RunContractGroup" Type="Int32" />
-          <Property Name="Run_Transaction_FL" Type="Int32" />
-          <Property Name="Run_Application_FL" Type="Int32" />
-          <Property Name="RunContractCompany_FL" Type="Int32" />
-          <Property Name="RunContractGroup_FL" Type="Int32" />
-          <Property Name="ApplicationType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PeriodeType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="IsTruck" Type="Boolean" />
-          <Property Name="IsQuick" Type="Boolean" />
-          <Property Name="IsNotApproved" Type="Boolean" />
-          <Property Name="RemarkNotApproved" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Tr_Applications" Relationship="TrustModel.FK__Tr_Applic__Appli__77DFC722" FromRole="Tr_ApplicationHeaders" ToRole="Tr_Applications" />
-          <NavigationProperty Name="Tr_Approvals" Relationship="TrustModel.FK__Tr_Applic__Appro__090A5324" FromRole="Tr_ApplicationHeaders" ToRole="Tr_Approvals" />
-          <NavigationProperty Name="Tr_ApprovalApps" Relationship="TrustModel.FK__Tr_Approv__Appli__2E3BD7D3" FromRole="Tr_ApplicationHeaders" ToRole="Tr_ApprovalApps" />
-        </EntityType>
-        <Association Name="FK__Tr_Applic__Appli__77DFC722">
-          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_Applications" Role="Tr_Applications" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ApplicationHeaders">
-              <PropertyRef Name="ApplicationHeader_ID" />
-            </Principal>
-            <Dependent Role="Tr_Applications">
-              <PropertyRef Name="ApplicationHeader_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Applic__Appro__090A5324">
-          <End Type="TrustModel.Tr_Approvals" Role="Tr_Approvals" Multiplicity="0..1" />
-          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_Approvals">
-              <PropertyRef Name="Approval_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApplicationHeaders">
-              <PropertyRef Name="Approval_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Tr_Approv__Appli__2E3BD7D3">
-          <End Type="TrustModel.Tr_ApplicationHeaders" Role="Tr_ApplicationHeaders" Multiplicity="1" />
-          <End Type="TrustModel.Tr_ApprovalApps" Role="Tr_ApprovalApps" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tr_ApplicationHeaders">
-              <PropertyRef Name="ApplicationHeader_ID" />
-            </Principal>
-            <Dependent Role="Tr_ApprovalApps">
-              <PropertyRef Name="ApplicationHeader_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -17289,46 +17489,6 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Ms_Customers">
-            <EntityTypeMapping TypeName="TrustModel.Ms_Customers">
-              <MappingFragment StoreEntitySet="Ms_Customers">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="IsKYC" ColumnName="IsKYC" />
-                <ScalarProperty Name="Published" ColumnName="Published" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="IsStamped" ColumnName="IsStamped" />
-                <ScalarProperty Name="Bank" ColumnName="Bank" />
-                <ScalarProperty Name="Account" ColumnName="Account" />
-                <ScalarProperty Name="NPWP" ColumnName="NPWP" />
-                <ScalarProperty Name="IntroducedBy" ColumnName="IntroducedBy" />
-                <ScalarProperty Name="Authorized_Signer_Position2" ColumnName="Authorized_Signer_Position2" />
-                <ScalarProperty Name="Authorized_Signer_Name2" ColumnName="Authorized_Signer_Name2" />
-                <ScalarProperty Name="Authorized_Signer_Position1" ColumnName="Authorized_Signer_Position1" />
-                <ScalarProperty Name="Authorized_Signer_Name1" ColumnName="Authorized_Signer_Name1" />
-                <ScalarProperty Name="Authorized_Capital" ColumnName="Authorized_Capital" />
-                <ScalarProperty Name="Line_of_Business" ColumnName="Line_of_Business" />
-                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
-                <ScalarProperty Name="Customer_Class" ColumnName="Customer_Class" />
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
-                <ScalarProperty Name="PIC_Email" ColumnName="PIC_Email" />
-                <ScalarProperty Name="PIC_Phone" ColumnName="PIC_Phone" />
-                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Tbk" ColumnName="Tbk" />
-                <ScalarProperty Name="PT" ColumnName="PT" />
-                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
-                <ScalarProperty Name="CompanyGroup_ID" ColumnName="CompanyGroup_ID" />
-                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tr_ApplicationHeaders">
             <EntityTypeMapping TypeName="TrustModel.Tr_ApplicationHeaders">
               <MappingFragment StoreEntitySet="Tr_ApplicationHeaders">
@@ -17375,6 +17535,61 @@ warning 6002: The table/view 'Trust.dbo.V_SetDeliveryQty' does not have a primar
                 <ScalarProperty Name="Application_No" ColumnName="Application_No" />
                 <ScalarProperty Name="Approval_ID" ColumnName="Approval_ID" />
                 <ScalarProperty Name="ApplicationHeader_ID" ColumnName="ApplicationHeader_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ms_Customer_CodeTransactions">
+            <EntityTypeMapping TypeName="TrustModel.Ms_Customer_CodeTransactions">
+              <MappingFragment StoreEntitySet="Ms_Customer_CodeTransactions">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CodeTransaction" ColumnName="CodeTransaction" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CodeTransaction_ID" ColumnName="CodeTransaction_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ms_Customers">
+            <EntityTypeMapping TypeName="TrustModel.Ms_Customers">
+              <MappingFragment StoreEntitySet="Ms_Customers">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsKYC" ColumnName="IsKYC" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsStamped" ColumnName="IsStamped" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="NPWP" ColumnName="NPWP" />
+                <ScalarProperty Name="IntroducedBy" ColumnName="IntroducedBy" />
+                <ScalarProperty Name="Authorized_Signer_Position2" ColumnName="Authorized_Signer_Position2" />
+                <ScalarProperty Name="Authorized_Signer_Name2" ColumnName="Authorized_Signer_Name2" />
+                <ScalarProperty Name="Authorized_Signer_Position1" ColumnName="Authorized_Signer_Position1" />
+                <ScalarProperty Name="Authorized_Signer_Name1" ColumnName="Authorized_Signer_Name1" />
+                <ScalarProperty Name="Authorized_Capital" ColumnName="Authorized_Capital" />
+                <ScalarProperty Name="Line_of_Business" ColumnName="Line_of_Business" />
+                <ScalarProperty Name="Credit_Rating" ColumnName="Credit_Rating" />
+                <ScalarProperty Name="Customer_Class" ColumnName="Customer_Class" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="PIC_Email" ColumnName="PIC_Email" />
+                <ScalarProperty Name="PIC_Phone" ColumnName="PIC_Phone" />
+                <ScalarProperty Name="PIC_Name" ColumnName="PIC_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tbk" ColumnName="Tbk" />
+                <ScalarProperty Name="PT" ColumnName="PT" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="CodeTransaction_ID" ColumnName="CodeTransaction_ID" />
+                <ScalarProperty Name="CompanyGroup_ID" ColumnName="CompanyGroup_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

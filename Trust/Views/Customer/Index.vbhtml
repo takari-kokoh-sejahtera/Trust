@@ -66,6 +66,9 @@ End Code
                                 @Html.DisplayNameFor(Function(model) model(0).Status)
                             </th>
                             <th>
+                                @Html.DisplayName("CodeTransaction")
+                            </th>
+                            <th>
                                 @Html.DisplayName("NPWP")
                             </th>
                             <th>
@@ -140,6 +143,9 @@ End Code
                                 </td>
                                 <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.Status)
+                                </td>
+                                <td style="white-space:nowrap">
+                                    @Html.DisplayFor(Function(modelItem) item.Ms_Customer_CodeTransactions.CodeTransaction)
                                 </td>
                                 <td style="white-space:nowrap">
                                     @Html.DisplayFor(Function(modelItem) item.NPWP)
