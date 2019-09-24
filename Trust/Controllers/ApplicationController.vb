@@ -22,8 +22,8 @@ Namespace Controllers
 
         ReadOnly myRecord_For_Payment As List(Of SelectListItem) = New List(Of SelectListItem)() From {
                 New SelectListItem With {
-                    .Text = "test",
-                    .Value = "test"
+                    .Text = "Good",
+                    .Value = "Good"
                 },
                 New SelectListItem With {
                     .Text = "Fair",
