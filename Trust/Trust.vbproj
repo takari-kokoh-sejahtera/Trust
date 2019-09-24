@@ -295,6 +295,7 @@
     <Compile Include="Controllers\DepartmentController.vb" />
     <Compile Include="Controllers\DirectoratController.vb" />
     <Compile Include="Controllers\DivisionController.vb" />
+    <Compile Include="Controllers\FakturPajakController.vb" />
     <Compile Include="Controllers\FixedCostController.vb" />
     <Compile Include="Controllers\GMController.vb" />
     <Compile Include="Controllers\InvoiceCategoryController.vb" />
@@ -512,6 +513,7 @@
     <Compile Include="Models\Model\Tr_Contract.vb" />
     <Compile Include="Models\Model\Tr_ContractDetail.vb" />
     <Compile Include="Models\Model\Tr_Delivery.vb" />
+    <Compile Include="Models\Model\Tr_FakturPajak.vb" />
     <Compile Include="Models\Model\Tr_Invoice.vb" />
     <Compile Include="Models\Model\Tr_InvoiceDetail.vb" />
     <Compile Include="Models\Model\Tr_ProspectCust.vb" />
@@ -8301,6 +8303,7 @@
     <Content Include="Views\SetDelivery\Index.vbhtml" />
     <Content Include="Views\SetDelivery\CreateDelivery.vbhtml" />
     <Content Include="Views\ReportApplicationPO\Index.vbhtml" />
+    <Content Include="Views\FakturPajak\InputFakturPajak.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
