@@ -1178,6 +1178,9 @@ Namespace Controllers
                             'Hitung Ulang
                             Dim vProcDet = db.V_ProspectCustDetails.Where(Function(x) x.Application_ID = i.Application_ID).FirstOrDefault
                             Dim cal As New Tr_Calculate
+
+                            Dim val = i.Spread
+
                             cal.Lease_long = vProcDet.Lease_long
                             cal.Replacement_Tick = i.Replacement_Tick
                             cal.Maintenance_Tick = i.Maintenance_Tick
@@ -1240,70 +1243,75 @@ Namespace Controllers
                             'Recalculate
                             cal = calControl.ReCalculate(db, cal)
 
-                            i.GPS_Cost = cal.GPS_Cost
-                            i.GPS_CostPerMonth = cal.GPS_CostPerMonth
-                            i.Agent_Fee = cal.Agent_Fee
-                            i.Agent_FeePerMonth = cal.Agent_FeePerMonth
-                            i.Update_OTR = cal.Update_OTR
-                            i.Residual_Value = cal.Residual_Value
-                            i.Residual_ValuePercent = cal.Residual_ValuePercent
-                            i.Expedition_Status = cal.Expedition_Status
-                            i.Expedition_Cost = cal.Expedition_Cost
-                            i.Keur = cal.Keur
-                            i.Update_Diskon = cal.Update_Diskon
-                            i.Cost_Price = cal.Cost_Price
-                            i.Up_Front_Fee = cal.Up_Front_Fee
-                            i.Up_Front_Fee_Percent = cal.Up_Front_Fee_Percent
-                            i.Other = cal.Other
-                            i.Replacement_Percent = cal.Replacement_Percent
-                            i.Replacement = cal.Replacement
-                            i.Maintenance_Percent = cal.Maintenance_Percent
-                            i.Maintenance = cal.Maintenance
-                            i.STNK_Percent = cal.STNK_Percent
-                            i.STNK = cal.STNK
-                            i.Overhead_Percent = cal.Overhead_Percent
-                            i.Overhead = cal.Overhead
-                            i.Assurance_Percent = cal.Assurance_Percent
-                            i.Assurance = cal.Assurance
-                            i.AssuranceExtra = cal.AssuranceExtra
-                            i.Lease_Profit = cal.Lease_Profit
-                            i.Lease_Profit_Percent = cal.Lease_Profit_Percent
-                            i.Depresiasi = cal.Depresiasi
-                            i.Depresiasi_Percent = cal.Depresiasi_Percent
-                            i.Funding_Interest = cal.Funding_Interest
-                            i.Funding_Interest_Percent = cal.Funding_Interest_Percent
-                            i.Bid_PricePerMonth = cal.Bid_PricePerMonth
-                            i.Premium = cal.Premium
-                            i.OJK = cal.OJK
-                            i.SwapRate = cal.SwapRate
-                            i.Project_Rating = cal.Project_Rating
-                            i.IRR = cal.IRR
-                            i.Funding_Rate = cal.Funding_Rate
-                            i.Spread = cal.Spread
-                            i.Profit = cal.Profit
+                            Dim val2 = cal.Spread
+                            Dim val3 = val - val2
+                            If val3 > 0.01 And val3 < -0.01 Then
 
-                            db.SaveChanges()
+                                i.GPS_Cost = cal.GPS_Cost
+                                i.GPS_CostPerMonth = cal.GPS_CostPerMonth
+                                i.Agent_Fee = cal.Agent_Fee
+                                i.Agent_FeePerMonth = cal.Agent_FeePerMonth
+                                i.Update_OTR = cal.Update_OTR
+                                i.Residual_Value = cal.Residual_Value
+                                i.Residual_ValuePercent = cal.Residual_ValuePercent
+                                i.Expedition_Status = cal.Expedition_Status
+                                i.Expedition_Cost = cal.Expedition_Cost
+                                i.Keur = cal.Keur
+                                i.Update_Diskon = cal.Update_Diskon
+                                i.Cost_Price = cal.Cost_Price
+                                i.Up_Front_Fee = cal.Up_Front_Fee
+                                i.Up_Front_Fee_Percent = cal.Up_Front_Fee_Percent
+                                i.Other = cal.Other
+                                i.Replacement_Percent = cal.Replacement_Percent
+                                i.Replacement = cal.Replacement
+                                i.Maintenance_Percent = cal.Maintenance_Percent
+                                i.Maintenance = cal.Maintenance
+                                i.STNK_Percent = cal.STNK_Percent
+                                i.STNK = cal.STNK
+                                i.Overhead_Percent = cal.Overhead_Percent
+                                i.Overhead = cal.Overhead
+                                i.Assurance_Percent = cal.Assurance_Percent
+                                i.Assurance = cal.Assurance
+                                i.AssuranceExtra = cal.AssuranceExtra
+                                i.Lease_Profit = cal.Lease_Profit
+                                i.Lease_Profit_Percent = cal.Lease_Profit_Percent
+                                i.Depresiasi = cal.Depresiasi
+                                i.Depresiasi_Percent = cal.Depresiasi_Percent
+                                i.Funding_Interest = cal.Funding_Interest
+                                i.Funding_Interest_Percent = cal.Funding_Interest_Percent
+                                i.Bid_PricePerMonth = cal.Bid_PricePerMonth
+                                i.Premium = cal.Premium
+                                i.OJK = cal.OJK
+                                i.SwapRate = cal.SwapRate
+                                i.Project_Rating = cal.Project_Rating
+                                i.IRR = cal.IRR
+                                i.Funding_Rate = cal.Funding_Rate
+                                i.Spread = cal.Spread
+                                i.Profit = cal.Profit
 
-                            'cahsFlow Ulang
-                            Dim AssuranceCashFlow = (i.Assurance + i.AssuranceExtra) / (vProcDet.Lease_long / 12)
-                            Dim Application_ID = i.Application_ID
-                            Dim Expedition_Status = i.Expedition_Status, PayMonth = i.PayMonth, CostPrice = i.Cost_Price, Up_Front_Fee = i.Up_Front_Fee,
-                            Replacement = i.Replacement, Maintenance = i.Maintenance, STNK = i.STNK, Overhead = i.Overhead,
-                                     Bid_PricePerMonth = i.Bid_PricePerMonth, Residual_Value = i.Residual_Value, Lease_long = vProcDet.Lease_long,
-                            Expedition_Cost = i.Expedition_Cost, Transaction_Type = vProcDet.Transaction_Type, Payment_Condition = i.Payment_Condition, Term_Of_Payment = i.Term_Of_Payment,
-                            Modification = i.Modification, GPS_Cost = i.GPS_Cost, GPS_CostPerMonth = i.GPS_CostPerMonth, Agent_Fee = i.Agent_Fee, Agent_FeePerMonth = i.Agent_FeePerMonth,
-                            Other = i.Other, Keur = i.Keur, Funding_Rate = i.Funding_Rate
+                                db.SaveChanges()
 
-                            Dim messageResult = db.sp_SaveCashFlow(False, Application_ID, user, Expedition_Status, PayMonth, CostPrice, Up_Front_Fee, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow,
-                                     Bid_PricePerMonth, Residual_Value, vProcDet.Lease_long, Expedition_Cost, vProcDet.Transaction_Type, Payment_Condition, Term_Of_Payment, Modification,
-                                     GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate).ToList
+                                'cahsFlow Ulang
+                                Dim AssuranceCashFlow = (i.Assurance + i.AssuranceExtra) / (vProcDet.Lease_long / 12)
+                                Dim Application_ID = i.Application_ID
+                                Dim Expedition_Status = i.Expedition_Status, PayMonth = i.PayMonth, CostPrice = i.Cost_Price, Up_Front_Fee = i.Up_Front_Fee,
+                                Replacement = i.Replacement, Maintenance = i.Maintenance, STNK = i.STNK, Overhead = i.Overhead,
+                                         Bid_PricePerMonth = i.Bid_PricePerMonth, Residual_Value = i.Residual_Value, Lease_long = vProcDet.Lease_long,
+                                Expedition_Cost = i.Expedition_Cost, Transaction_Type = vProcDet.Transaction_Type, Payment_Condition = i.Payment_Condition, Term_Of_Payment = i.Term_Of_Payment,
+                                Modification = i.Modification, GPS_Cost = i.GPS_Cost, GPS_CostPerMonth = i.GPS_CostPerMonth, Agent_Fee = i.Agent_Fee, Agent_FeePerMonth = i.Agent_FeePerMonth,
+                                Other = i.Other, Keur = i.Keur, Funding_Rate = i.Funding_Rate
 
-                            If messageResult.Select(Function(x) x.Message).FirstOrDefault <> "Success" Then
-                                Throw New Exception(messageResult.Select(Function(x) x.Message).FirstOrDefault)
+                                Dim messageResult = db.sp_SaveCashFlow(False, Application_ID, user, Expedition_Status, PayMonth, CostPrice, Up_Front_Fee, Replacement, Maintenance, STNK, Overhead, AssuranceCashFlow,
+                                         Bid_PricePerMonth, Residual_Value, vProcDet.Lease_long, Expedition_Cost, vProcDet.Transaction_Type, Payment_Condition, Term_Of_Payment, Modification,
+                                         GPS_Cost, GPS_CostPerMonth, Agent_Fee, Agent_FeePerMonth, Other, Keur, Funding_Rate).ToList
+
+                                If messageResult.Select(Function(x) x.Message).FirstOrDefault <> "Success" Then
+                                    Throw New Exception(messageResult.Select(Function(x) x.Message).FirstOrDefault)
+                                End If
+                                db.SaveChanges()
+
                             End If
-                            db.SaveChanges()
                         Next
-
 
 
                         result = "Success"
