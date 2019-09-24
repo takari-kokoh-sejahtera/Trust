@@ -207,14 +207,14 @@ Namespace Controllers
                     Using dbs = db.Database.BeginTransaction
                         Try
                             'create no
-                            Dim trans = "Invoice"
-                            Dim no = db.Cn_NoSerieSetup.Where(Function(x) x.Transaction = trans And x.YearNo = DateTime.Now.Year).FirstOrDefault()
-                            Dim number As Integer
-                            If no Is Nothing Then
-                                number = 1
-                            Else
-                                number = no.NextNo + 1
-                            End If
+                            'Dim trans = "Invoice"
+                            'Dim no = db.Cn_NoSerieSetup.Where(Function(x) x.Transaction = trans And x.YearNo = DateTime.Now.Year).FirstOrDefault()
+                            'Dim number As Integer
+                            'If no Is Nothing Then
+                            '    number = 1
+                            'Else
+                            '    number = no.NextNo + 1
+                            'End If
                             'save Tr_CreateInvoices
                             Dim max = order.Max(Function(x) x.Lease_Long)
                             'pake step biar kalo 1 atau 3 atau 12 masih ok
@@ -242,8 +242,8 @@ Namespace Controllers
                                 'add Invoice
                                 Dim InsertH As New Tr_Invoices
                                 InsertH.Contract_ID = header.Contract_ID
-                                InsertH.Invoice_No = "IV" + DateTime.Now.Year.ToString + number.ToString("D5")
-                                number = number + 1
+                                'InsertH.Invoice_No = "IV" + DateTime.Now.Year.ToString + number.ToString("D5")
+                                'number = number + 1
                                 InsertH.Customer_ID = header.Customer_ID
                                 InsertH.From_Date = header.From_Date
                                 InsertH.City_ID = header.City_ID
@@ -317,21 +317,21 @@ Namespace Controllers
 
                             Next
                             'udate NO Series Setup
-                            If no Is Nothing Then
-                                Dim NoSeries As New Cn_NoSerieSetup
-                                NoSeries.Transaction = trans
-                                NoSeries.YearNo = DateTime.Now.Year
-                                NoSeries.NextNo = number - 1
-                                NoSeries.CreatedDate = DateTime.Now
-                                NoSeries.CreatedBy = user
-                                NoSeries.IsDeleted = False
-                                db.Cn_NoSerieSetup.Add(NoSeries)
-                            Else
-                                no.NextNo = number - 1
-                                no.ModifiedBy = user
-                                no.ModifiedDate = DateTime.Now
-                            End If
-                            db.SaveChanges()
+                            'If no Is Nothing Then
+                            '    Dim NoSeries As New Cn_NoSerieSetup
+                            '    NoSeries.Transaction = trans
+                            '    NoSeries.YearNo = DateTime.Now.Year
+                            '    NoSeries.NextNo = number - 1
+                            '    NoSeries.CreatedDate = DateTime.Now
+                            '    NoSeries.CreatedBy = user
+                            '    NoSeries.IsDeleted = False
+                            '    db.Cn_NoSerieSetup.Add(NoSeries)
+                            'Else
+                            '    no.NextNo = number - 1
+                            '    no.ModifiedBy = user
+                            '    no.ModifiedDate = DateTime.Now
+                            'End If
+                            'db.SaveChanges()
 
                             dbs.Commit()
                             Return Json(New With {Key .result = "Success"})

@@ -37,7 +37,8 @@ Namespace Controllers
             Dim Query = From A In db.V_ProspectCusts
                         Join B In db.Cn_Users On A.CreatedBy Equals B.User_ID
                         Join C In db.V_SetDeliveryQty On A.Contract_ID Equals C.Contract_ID
-                        Where A.Contract_ID IsNot Nothing And A.IsSetDelivery = False And C.IsInputAsseted = True
+                        Join D In db.Tr_Contracts On A.Contract_ID Equals D.Contract_ID
+                        Where A.Contract_ID IsNot Nothing And A.IsSetDelivery = False And C.IsInputAsseted = True And D.IsReceiptContract = True
                         Select New Tr_SetDelivery With {.CompanyGroup_Name = A.CompanyGroup_Name, .Company_Name = A.Company_Name, .Contract_No = A.Contract_No,
                             .QtyContract = C.Qty, .QtyDelivery = A.QtyDelivery, .CreatedDate = A.CreatedDate, .Contract_ID = A.Contract_ID,
                             .CreatedBy = B.User_Name, .ModifiedDate = A.ModifiedDate, .ModifiedBy = B.User_Name}
