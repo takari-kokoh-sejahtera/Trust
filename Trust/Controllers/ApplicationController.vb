@@ -17,6 +17,7 @@ Namespace Controllers
         Inherits System.Web.Mvc.Controller
 
 
+
         Private db As New TrustEntities
 
         ReadOnly myRecord_For_Payment As List(Of SelectListItem) = New List(Of SelectListItem)() From {
