@@ -201,6 +201,12 @@ Namespace Trust
         Public Overridable Property Ms_Customers1 As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
         Public Overridable Property Tr_ApplicationHeaders As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
         Public Overridable Property Tr_ApplicationHeaders1 As ICollection(Of Tr_ApplicationHeaders) = New HashSet(Of Tr_ApplicationHeaders)
+        Public Overridable Property Tr_FakturPajaks As ICollection(Of Tr_FakturPajaks) = New HashSet(Of Tr_FakturPajaks)
+        Public Overridable Property Tr_FakturPajakDetails As ICollection(Of Tr_FakturPajakDetails) = New HashSet(Of Tr_FakturPajakDetails)
+        Public Overridable Property Tr_FakturPajaks1 As ICollection(Of Tr_FakturPajaks) = New HashSet(Of Tr_FakturPajaks)
+        Public Overridable Property Tr_FakturPajakDetails1 As ICollection(Of Tr_FakturPajakDetails) = New HashSet(Of Tr_FakturPajakDetails)
+        Public Overridable Property Tr_GenerateInvoices As ICollection(Of Tr_GenerateInvoices) = New HashSet(Of Tr_GenerateInvoices)
+        Public Overridable Property Tr_GenerateInvoices1 As ICollection(Of Tr_GenerateInvoices) = New HashSet(Of Tr_GenerateInvoices)
     
     End Class
 

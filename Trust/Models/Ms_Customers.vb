@@ -48,7 +48,7 @@ Namespace Trust
         Public Property ModifiedDate As Nullable(Of Date)
         Public Property ModifiedBy As Nullable(Of Integer)
         Public Property IsDeleted As Boolean
-
+    
         Public Overridable Property Cn_Users As Cn_Users
         Public Overridable Property Cn_Users1 As Cn_Users
         Public Overridable Property Ms_Citys As Ms_Citys

@@ -756,6 +756,15 @@
     <Compile Include="Models\Tr_Deliverys.vb">
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tr_FakturPajakDetails.vb">
+      <DependentUpon>EntiryDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tr_FakturPajaks.vb">
+      <DependentUpon>EntiryDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tr_GenerateInvoices.vb">
+      <DependentUpon>EntiryDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Tr_InvoiceDetails.vb">
       <DependentUpon>EntiryDM.tt</DependentUpon>
     </Compile>

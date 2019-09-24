@@ -1305,6 +1305,45 @@
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Tr_FakturPajakDetails">
+          <Key>
+            <PropertyRef Name="FakturPajakDetail_ID" />
+          </Key>
+          <Property Name="FakturPajakDetail_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FakturPajak_ID" Type="int" />
+          <Property Name="No_Faktur" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tr_FakturPajaks">
+          <Key>
+            <PropertyRef Name="FakturPajak_ID" />
+          </Key>
+          <Property Name="FakturPajak_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoFaktur_Start" Type="int" />
+          <Property Name="NoFaktur_End" Type="int" />
+          <Property Name="Date_Start" Type="datetime" />
+          <Property Name="Date_End" Type="datetime" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tr_GenerateInvoices">
+          <Key>
+            <PropertyRef Name="GenerateInvoice_ID" />
+          </Key>
+          <Property Name="GenerateInvoice_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
         <EntityType Name="Tr_InvoiceDetails">
           <Key>
             <PropertyRef Name="InvoiceDetail_ID" />
@@ -4421,6 +4460,78 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Tr_Faktur__Creat__5F94079C">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="1" />
+          <End Role="Tr_FakturPajaks" Type="Self.Tr_FakturPajaks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_FakturPajaks">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Faktur__Creat__72A6DC10">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_FakturPajakDetails" Type="Self.Tr_FakturPajakDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_FakturPajakDetails">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Faktur__Modif__60882BD5">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_FakturPajaks" Type="Self.Tr_FakturPajaks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_FakturPajaks">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Faktur__Modif__739B0049">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_FakturPajakDetails" Type="Self.Tr_FakturPajakDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_FakturPajakDetails">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Genera__Creat__5BC376B8">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_GenerateInvoices" Type="Self.Tr_GenerateInvoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_GenerateInvoices">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Genera__Modif__5CB79AF1">
+          <End Role="Cn_Users" Type="Self.Cn_Users" Multiplicity="0..1" />
+          <End Role="Tr_GenerateInvoices" Type="Self.Tr_GenerateInvoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_GenerateInvoices">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Tr_Invoic__City___2C146396">
           <End Role="Ms_Citys" Type="Self.Ms_Citys" Multiplicity="0..1" />
           <End Role="Tr_Invoices" Type="Self.Tr_Invoices" Multiplicity="*" />
@@ -5295,6 +5406,9 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <EntitySet Name="Tr_Contracts" EntityType="Self.Tr_Contracts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tr_ContractSends" EntityType="Self.Tr_ContractSends" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tr_Deliverys" EntityType="Self.Tr_Deliverys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tr_FakturPajakDetails" EntityType="Self.Tr_FakturPajakDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tr_FakturPajaks" EntityType="Self.Tr_FakturPajaks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tr_GenerateInvoices" EntityType="Self.Tr_GenerateInvoices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tr_InvoiceDetails" EntityType="Self.Tr_InvoiceDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tr_Invoices" EntityType="Self.Tr_Invoices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tr_ProspectCustDetails" EntityType="Self.Tr_ProspectCustDetails" Schema="dbo" store:Type="Tables" />
@@ -6467,6 +6581,30 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <AssociationSet Name="FK__Tr_Delive__Modif__44B528D7" Association="Self.FK__Tr_Delive__Modif__44B528D7">
             <End Role="Cn_Users" EntitySet="Cn_Users" />
             <End Role="Tr_Deliverys" EntitySet="Tr_Deliverys" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Faktur__Creat__5F94079C" Association="Self.FK__Tr_Faktur__Creat__5F94079C">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_FakturPajaks" EntitySet="Tr_FakturPajaks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Faktur__Creat__72A6DC10" Association="Self.FK__Tr_Faktur__Creat__72A6DC10">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_FakturPajakDetails" EntitySet="Tr_FakturPajakDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Faktur__Modif__60882BD5" Association="Self.FK__Tr_Faktur__Modif__60882BD5">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_FakturPajaks" EntitySet="Tr_FakturPajaks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Faktur__Modif__739B0049" Association="Self.FK__Tr_Faktur__Modif__739B0049">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_FakturPajakDetails" EntitySet="Tr_FakturPajakDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Genera__Creat__5BC376B8" Association="Self.FK__Tr_Genera__Creat__5BC376B8">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_GenerateInvoices" EntitySet="Tr_GenerateInvoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Genera__Modif__5CB79AF1" Association="Self.FK__Tr_Genera__Modif__5CB79AF1">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_GenerateInvoices" EntitySet="Tr_GenerateInvoices" />
           </AssociationSet>
           <AssociationSet Name="FK__Tr_Invoic__City___2C146396" Association="Self.FK__Tr_Invoic__City___2C146396">
             <End Role="Ms_Citys" EntitySet="Ms_Citys" />
@@ -7999,6 +8137,33 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <AssociationSet Name="FK__Tr_Prospe__Custo__1B9317B3" Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3">
             <End Role="Ms_Customers" EntitySet="Ms_Customers" />
             <End Role="Tr_ProspectCusts" EntitySet="Tr_ProspectCusts" />
+          </AssociationSet>
+          <EntitySet Name="Tr_FakturPajakDetails" EntityType="TrustModel.Tr_FakturPajakDetails" />
+          <EntitySet Name="Tr_FakturPajaks" EntityType="TrustModel.Tr_FakturPajaks" />
+          <EntitySet Name="Tr_GenerateInvoices" EntityType="TrustModel.Tr_GenerateInvoices" />
+          <AssociationSet Name="FK__Tr_Faktur__Creat__5F94079C" Association="TrustModel.FK__Tr_Faktur__Creat__5F94079C">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_FakturPajaks" EntitySet="Tr_FakturPajaks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Faktur__Creat__72A6DC10" Association="TrustModel.FK__Tr_Faktur__Creat__72A6DC10">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_FakturPajakDetails" EntitySet="Tr_FakturPajakDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Faktur__Modif__60882BD5" Association="TrustModel.FK__Tr_Faktur__Modif__60882BD5">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_FakturPajaks" EntitySet="Tr_FakturPajaks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Faktur__Modif__739B0049" Association="TrustModel.FK__Tr_Faktur__Modif__739B0049">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_FakturPajakDetails" EntitySet="Tr_FakturPajakDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Genera__Creat__5BC376B8" Association="TrustModel.FK__Tr_Genera__Creat__5BC376B8">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_GenerateInvoices" EntitySet="Tr_GenerateInvoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tr_Genera__Modif__5CB79AF1" Association="TrustModel.FK__Tr_Genera__Modif__5CB79AF1">
+            <End Role="Cn_Users" EntitySet="Cn_Users" />
+            <End Role="Tr_GenerateInvoices" EntitySet="Tr_GenerateInvoices" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_CalcucationCharFromUser_Result">
@@ -10502,6 +10667,12 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
           <NavigationProperty Name="Ms_Customers1" Relationship="TrustModel.FK__Ms_Custom__Modif__6DEC4894" FromRole="Cn_Users" ToRole="Ms_Customers" />
           <NavigationProperty Name="Tr_ApplicationHeaders" Relationship="TrustModel.FK__Tr_Applic__Creat__75F77EB0" FromRole="Cn_Users" ToRole="Tr_ApplicationHeaders" />
           <NavigationProperty Name="Tr_ApplicationHeaders1" Relationship="TrustModel.FK__Tr_Applic__Modif__76EBA2E9" FromRole="Cn_Users" ToRole="Tr_ApplicationHeaders" />
+          <NavigationProperty Name="Tr_FakturPajaks" Relationship="TrustModel.FK__Tr_Faktur__Creat__5F94079C" FromRole="Cn_Users" ToRole="Tr_FakturPajaks" />
+          <NavigationProperty Name="Tr_FakturPajakDetails" Relationship="TrustModel.FK__Tr_Faktur__Creat__72A6DC10" FromRole="Cn_Users" ToRole="Tr_FakturPajakDetails" />
+          <NavigationProperty Name="Tr_FakturPajaks1" Relationship="TrustModel.FK__Tr_Faktur__Modif__60882BD5" FromRole="Cn_Users" ToRole="Tr_FakturPajaks" />
+          <NavigationProperty Name="Tr_FakturPajakDetails1" Relationship="TrustModel.FK__Tr_Faktur__Modif__739B0049" FromRole="Cn_Users" ToRole="Tr_FakturPajakDetails" />
+          <NavigationProperty Name="Tr_GenerateInvoices" Relationship="TrustModel.FK__Tr_Genera__Creat__5BC376B8" FromRole="Cn_Users" ToRole="Tr_GenerateInvoices" />
+          <NavigationProperty Name="Tr_GenerateInvoices1" Relationship="TrustModel.FK__Tr_Genera__Modif__5CB79AF1" FromRole="Cn_Users" ToRole="Tr_GenerateInvoices" />
           </EntityType>
         <Association Name="FK__Cn_Approv__Creat__24885067">
           <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
@@ -14543,6 +14714,123 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Tr_FakturPajakDetails">
+          <Key>
+            <PropertyRef Name="FakturPajakDetail_ID" />
+          </Key>
+          <Property Name="FakturPajakDetail_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FakturPajak_ID" Type="Int32" />
+          <Property Name="No_Faktur" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Faktur__Creat__72A6DC10" FromRole="Tr_FakturPajakDetails" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Faktur__Modif__739B0049" FromRole="Tr_FakturPajakDetails" ToRole="Cn_Users" />
+        </EntityType>
+        <EntityType Name="Tr_FakturPajaks">
+          <Key>
+            <PropertyRef Name="FakturPajak_ID" />
+          </Key>
+          <Property Name="FakturPajak_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoFaktur_Start" Type="Int32" />
+          <Property Name="NoFaktur_End" Type="Int32" />
+          <Property Name="Date_Start" Type="DateTime" Precision="3" />
+          <Property Name="Date_End" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Faktur__Creat__5F94079C" FromRole="Tr_FakturPajaks" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Faktur__Modif__60882BD5" FromRole="Tr_FakturPajaks" ToRole="Cn_Users" />
+        </EntityType>
+        <EntityType Name="Tr_GenerateInvoices">
+          <Key>
+            <PropertyRef Name="GenerateInvoice_ID" />
+          </Key>
+          <Property Name="GenerateInvoice_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Cn_Users" Relationship="TrustModel.FK__Tr_Genera__Creat__5BC376B8" FromRole="Tr_GenerateInvoices" ToRole="Cn_Users" />
+          <NavigationProperty Name="Cn_Users1" Relationship="TrustModel.FK__Tr_Genera__Modif__5CB79AF1" FromRole="Tr_GenerateInvoices" ToRole="Cn_Users" />
+        </EntityType>
+        <Association Name="FK__Tr_Faktur__Creat__5F94079C">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="1" />
+          <End Type="TrustModel.Tr_FakturPajaks" Role="Tr_FakturPajaks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_FakturPajaks">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Faktur__Creat__72A6DC10">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_FakturPajakDetails" Role="Tr_FakturPajakDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_FakturPajakDetails">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Faktur__Modif__60882BD5">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_FakturPajaks" Role="Tr_FakturPajaks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_FakturPajaks">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Faktur__Modif__739B0049">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_FakturPajakDetails" Role="Tr_FakturPajakDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_FakturPajakDetails">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Genera__Creat__5BC376B8">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_GenerateInvoices" Role="Tr_GenerateInvoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_GenerateInvoices">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tr_Genera__Modif__5CB79AF1">
+          <End Type="TrustModel.Cn_Users" Role="Cn_Users" Multiplicity="0..1" />
+          <End Type="TrustModel.Tr_GenerateInvoices" Role="Tr_GenerateInvoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cn_Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Tr_GenerateInvoices">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -17590,6 +17878,48 @@ warning 6002: The table/view 'Trust-Dev.dbo.V_SetDeliveryQty' does not have a pr
                 <ScalarProperty Name="CodeTransaction_ID" ColumnName="CodeTransaction_ID" />
                 <ScalarProperty Name="CompanyGroup_ID" ColumnName="CompanyGroup_ID" />
                 <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_FakturPajakDetails">
+            <EntityTypeMapping TypeName="TrustModel.Tr_FakturPajakDetails">
+              <MappingFragment StoreEntitySet="Tr_FakturPajakDetails">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="No_Faktur" ColumnName="No_Faktur" />
+                <ScalarProperty Name="FakturPajak_ID" ColumnName="FakturPajak_ID" />
+                <ScalarProperty Name="FakturPajakDetail_ID" ColumnName="FakturPajakDetail_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_FakturPajaks">
+            <EntityTypeMapping TypeName="TrustModel.Tr_FakturPajaks">
+              <MappingFragment StoreEntitySet="Tr_FakturPajaks">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Date_End" ColumnName="Date_End" />
+                <ScalarProperty Name="Date_Start" ColumnName="Date_Start" />
+                <ScalarProperty Name="NoFaktur_End" ColumnName="NoFaktur_End" />
+                <ScalarProperty Name="NoFaktur_Start" ColumnName="NoFaktur_Start" />
+                <ScalarProperty Name="FakturPajak_ID" ColumnName="FakturPajak_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tr_GenerateInvoices">
+            <EntityTypeMapping TypeName="TrustModel.Tr_GenerateInvoices">
+              <MappingFragment StoreEntitySet="Tr_GenerateInvoices">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="GenerateInvoice_ID" ColumnName="GenerateInvoice_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

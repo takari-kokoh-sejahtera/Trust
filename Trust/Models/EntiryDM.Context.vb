@@ -103,6 +103,9 @@ Namespace Trust
         Public Overridable Property Tr_ApplicationHeaders() As DbSet(Of Tr_ApplicationHeaders)
         Public Overridable Property Ms_Customer_CodeTransactions() As DbSet(Of Ms_Customer_CodeTransactions)
         Public Overridable Property Ms_Customers() As DbSet(Of Ms_Customers)
+        Public Overridable Property Tr_FakturPajakDetails() As DbSet(Of Tr_FakturPajakDetails)
+        Public Overridable Property Tr_FakturPajaks() As DbSet(Of Tr_FakturPajaks)
+        Public Overridable Property Tr_GenerateInvoices() As DbSet(Of Tr_GenerateInvoices)
     
         Public Overridable Function sp_CalcucationCharFromUser(fA As Nullable(Of Integer), user_ID As Nullable(Of Integer)) As ObjectResult(Of sp_CalcucationCharFromUser_Result)
             Dim fAParameter As ObjectParameter = If(fA.HasValue, New ObjectParameter("FA", fA), New ObjectParameter("FA", GetType(Integer)))

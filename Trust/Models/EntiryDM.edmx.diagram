@@ -345,6 +345,15 @@
         <AssociationConnector Association="TrustModel.FK__Ms_Custom__Custo__30641767" />
         <AssociationConnector Association="TrustModel.FK__Tr_Invoic__Custo__22EA20B8" />
         <AssociationConnector Association="TrustModel.FK__Tr_Prospe__Custo__1B9317B3" />
+        <EntityTypeShape EntityType="TrustModel.Tr_FakturPajakDetails" Width="1.5" PointX="25" PointY="52.5" />
+        <EntityTypeShape EntityType="TrustModel.Tr_FakturPajaks" Width="1.5" PointX="25" PointY="56.125" />
+        <EntityTypeShape EntityType="TrustModel.Tr_GenerateInvoices" Width="1.5" PointX="25" PointY="23.125" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Faktur__Creat__5F94079C" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Faktur__Creat__72A6DC10" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Faktur__Modif__60882BD5" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Faktur__Modif__739B0049" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Genera__Creat__5BC376B8" />
+        <AssociationConnector Association="TrustModel.FK__Tr_Genera__Modif__5CB79AF1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
