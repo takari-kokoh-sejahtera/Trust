@@ -3,7 +3,7 @@
     ViewData("Title") = "InputFakturPajak"
 End Code
 
-<h2>InputFakturPajak</h2>
+<h2>Input Faktur Pajak</h2>
 @Using (Html.BeginForm())
     @Html.AntiForgeryToken()
 
