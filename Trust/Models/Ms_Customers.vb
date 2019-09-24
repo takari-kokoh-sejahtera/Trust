@@ -55,8 +55,8 @@ Namespace Trust
         Public Overridable Property Ms_Customer_CodeTransactions As Ms_Customer_CodeTransactions
         Public Overridable Property Ms_Customer_CompanyGroups As Ms_Customer_CompanyGroups
         Public Overridable Property Ms_Customer_KYCs As ICollection(Of Ms_Customer_KYCs) = New HashSet(Of Ms_Customer_KYCs)
-        Public Overridable Property Tr_Invoices As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
         Public Overridable Property Tr_ProspectCusts As ICollection(Of Tr_ProspectCusts) = New HashSet(Of Tr_ProspectCusts)
+        Public Overridable Property Tr_Invoices As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
     
     End Class
 

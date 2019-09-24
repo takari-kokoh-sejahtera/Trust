@@ -190,11 +190,6 @@ Namespace Trust
         Public Overridable Property Tr_Deliverys As ICollection(Of Tr_Deliverys) = New HashSet(Of Tr_Deliverys)
         Public Overridable Property Tr_Deliverys1 As ICollection(Of Tr_Deliverys) = New HashSet(Of Tr_Deliverys)
         Public Overridable Property Tr_Deliverys11 As ICollection(Of Tr_Deliverys) = New HashSet(Of Tr_Deliverys)
-        Public Overridable Property Tr_Invoices As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
-        Public Overridable Property Tr_Invoices1 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
-        Public Overridable Property Tr_Invoices2 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
-        Public Overridable Property Tr_Invoices3 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
-        Public Overridable Property Tr_Invoices4 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
         Public Overridable Property Ms_Customer_CodeTransactions As ICollection(Of Ms_Customer_CodeTransactions) = New HashSet(Of Ms_Customer_CodeTransactions)
         Public Overridable Property Ms_Customer_CodeTransactions1 As ICollection(Of Ms_Customer_CodeTransactions) = New HashSet(Of Ms_Customer_CodeTransactions)
         Public Overridable Property Ms_Customers As ICollection(Of Ms_Customers) = New HashSet(Of Ms_Customers)
@@ -207,6 +202,11 @@ Namespace Trust
         Public Overridable Property Tr_FakturPajakDetails1 As ICollection(Of Tr_FakturPajakDetails) = New HashSet(Of Tr_FakturPajakDetails)
         Public Overridable Property Tr_GenerateInvoices As ICollection(Of Tr_GenerateInvoices) = New HashSet(Of Tr_GenerateInvoices)
         Public Overridable Property Tr_GenerateInvoices1 As ICollection(Of Tr_GenerateInvoices) = New HashSet(Of Tr_GenerateInvoices)
+        Public Overridable Property Tr_Invoices As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
+        Public Overridable Property Tr_Invoices1 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
+        Public Overridable Property Tr_Invoices2 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
+        Public Overridable Property Tr_Invoices3 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
+        Public Overridable Property Tr_Invoices4 As ICollection(Of Tr_Invoices) = New HashSet(Of Tr_Invoices)
     
     End Class
 
