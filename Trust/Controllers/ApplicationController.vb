@@ -33,6 +33,7 @@ Namespace Controllers
                     .Value = "Poor"
                 }
             }
+
         ' GET: Application
         Async Function Index() As Task(Of ActionResult)
             Dim tr_Applications = db.Tr_Applications.Include(Function(t) t.Ms_Citys).Include(Function(t) t.Ms_Citys1).Include(Function(t) t.Tr_QuotationDetails)
